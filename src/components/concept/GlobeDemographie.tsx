@@ -309,7 +309,7 @@ export function GlobeDemographie({
         })}
       </div>
 
-      <div className="ge-corps">
+      <div className="ge-corps ge-corps-eq">
         <div className="ge-colonne" ref={colonne}>
           <GlobeCompact
             ref={globe}

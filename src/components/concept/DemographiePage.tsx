@@ -96,7 +96,6 @@ function TempsReelDemo({ compteur }: { compteur: CompteurDemoProps }) {
         </header>
         <div className="cg-cpt-l" style={{ gridTemplateColumns: "repeat(3, minmax(0, 1fr))" }}>
           <div className="cg-cpt v2-cpt v2-cpt-pib" style={{ "--i": 0 } as React.CSSProperties}>
-            <span className="v2-cpt-i" aria-hidden="true"><Users size={18} /></span>
             <span className="cg-cpt-l2">Population mondiale</span>
             <Odometre
               className="cg-cpt-v"
@@ -109,7 +108,6 @@ function TempsReelDemo({ compteur }: { compteur: CompteurDemoProps }) {
             <Lettres className="cg-cpt-n" base={compteur.population} parSeconde={accroissement} depuis={departAnnee} mot="habitants" />
           </div>
           <div className="cg-cpt v2-cpt v2-cpt-medicales" style={{ "--i": 1 } as React.CSSProperties}>
-            <span className="v2-cpt-i" aria-hidden="true"><Baby size={18} /></span>
             <span className="cg-cpt-l2">Naissances dans le monde</span>
             <Odometre
               className="cg-cpt-v"
@@ -122,7 +120,6 @@ function TempsReelDemo({ compteur }: { compteur: CompteurDemoProps }) {
             <Lettres className="cg-cpt-n" base={0} parSeconde={compteur.naissancesParSeconde} depuis={departAnnee} mot="naissances" />
           </div>
           <div className="cg-cpt v2-cpt v2-cpt-militaires" style={{ "--i": 2 } as React.CSSProperties}>
-            <span className="v2-cpt-i" aria-hidden="true"><HeartPulse size={18} /></span>
             <span className="cg-cpt-l2">Décès dans le monde</span>
             <Odometre
               className="cg-cpt-v"

@@ -58,7 +58,6 @@ export function TempsReelBloc({
             const Icone = c.icone;
             return (
               <div key={c.id} className={`cg-cpt v2-cpt v2-cpt-${c.id}`} style={{ "--i": k } as React.CSSProperties}>
-                <span className="v2-cpt-i" aria-hidden="true"><Icone size={18} /></span>
                 <span className="cg-cpt-l2">{c.label}</span>
                 <Odometre className="cg-cpt-v" valeur={c.base} parSeconde={c.parSeconde} depuis={departs[k]} dec={c.dec} unite={c.unite} />
                 <Lettres className="cg-cpt-n" base={c.base} parSeconde={c.parSeconde} depuis={departs[k]} mot={c.mot} />

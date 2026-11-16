@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 /* ═══════════════════════════════════════════════════════════════════════════
    L'ÉVOLUTION DANS LE PANNEAU DU GLOBE (Économie, Ressources)
@@ -83,20 +83,24 @@ function cheminMonotone(pts: { x: number; y: number }[]): string {
 }
 
 export function EvolutionCourbe({ titre, points, format, ecart: calculEcart, reinit, hauteur = HAUT, vide }: Props) {
-  const cadre = useRef<HTMLDivElement>(null);
+  const cadre = useRef<HTMLDivElement | null>(null);
   const [w, setW] = useState(300);
   const [survol, setSurvol] = useState<number | null>(null);
   const [bornes, setBornes] = useState<number[]>([]);
 
   useEffect(() => setBornes([]), [reinit, titre]);
-  useEffect(() => {
-    const el = cadre.current;
+  /* La largeur se mesure dès que le cadre existe : il peut n'apparaître qu'après le chargement des données (le premier rendu montre
+     « moins de deux années »), d'où une référence par fonction plutôt qu'un effet joué une seule fois au montage. */
+  const ro = useRef<ResizeObserver | null>(null);
+  const attache = useCallback((el: HTMLDivElement | null) => {
+    ro.current?.disconnect();
+    cadre.current = el;
     if (!el) return;
-    const ro = new ResizeObserver(([e]) => setW(Math.max(160, Math.round(e.contentRect.width))));
-    ro.observe(el);
     setW(Math.max(160, Math.round(el.clientWidth || 300)));
-    return () => ro.disconnect();
+    ro.current = new ResizeObserver(([e]) => setW(Math.max(160, Math.round(e.contentRect.width))));
+    ro.current.observe(el);
   }, []);
+  useEffect(() => () => ro.current?.disconnect(), []);
 
   const valides = useMemo(() => points.filter((p) => p.valeur !== null) as { annee: number; valeur: number; note?: string }[], [points]);
 
@@ -193,7 +197,7 @@ export function EvolutionCourbe({ titre, points, format, ecart: calculEcart, rei
         )}
       </div>
       <div
-        ref={cadre}
+        ref={attache}
         className="ge-evo-c"
         onPointerMove={(e) => vise(e.clientX)}
         onPointerDown={(e) => { e.currentTarget.setPointerCapture(e.pointerId); vise(e.clientX); }}

@@ -239,11 +239,6 @@ function TempsReelEco({ pib, v2 = false }: { pib: PibMonde; v2?: boolean }) {
 
         <div className="cg-cpt-l" style={{ gridTemplateColumns: "repeat(4, minmax(0, 1fr))" }}>
           <div className={`cg-cpt${v2 ? " v2-cpt v2-cpt-pib" : ""}`} style={{ "--i": 0 } as React.CSSProperties}>
-            {v2 && (
-              <span className="v2-cpt-i" aria-hidden="true">
-                <Globe2 size={18} />
-              </span>
-            )}
             <span className="cg-cpt-l2">PIB mondial</span>
             {pibMonnaie === null ? (
               <span className="cg-cpt-v">non convertible avant {f.depuis}</span>
@@ -276,11 +271,6 @@ function TempsReelEco({ pib, v2 = false }: { pib: PibMonde; v2?: boolean }) {
               key={d.id}
               style={{ "--i": k + 1 } as React.CSSProperties}
             >
-              {v2 && (
-                <span className="v2-cpt-i" aria-hidden="true">
-                  {d.id === "medicales" ? <HeartPulse size={18} /> : d.id === "educatives" ? <GraduationCap size={18} /> : <ShieldAlert size={18} />}
-                </span>
-              )}
               <span className="cg-cpt-l2">{d.label}</span>
               <Odometre
                 className="cg-cpt-v"

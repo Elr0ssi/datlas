@@ -479,7 +479,6 @@ export function ConflitsPage({ articles, debats }: { articles: FicheArticle[]; d
           <div className="cg-cpt-l" style={{ gridTemplateColumns: `repeat(${chiffres.length}, minmax(0, 1fr))` }}>
             {chiffres.map((c, k) => (
               <div key={c.id} className={`cg-cpt v2-cpt v2-cpt-${c.id}`} style={{ "--i": k } as React.CSSProperties}>
-                <span className="v2-cpt-i" aria-hidden="true"><c.icone size={18} /></span>
                 <span className="cg-cpt-l2">{c.label}</span>
                 <Odometre className="cg-cpt-v" valeur={c.valeur} dec={0} duree={1100} tours={1} />
                 <span className="cg-cpt-note">{c.note}</span>

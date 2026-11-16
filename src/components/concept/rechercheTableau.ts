@@ -19,7 +19,12 @@ export function useRechercheTableau<T>(
     if (!el || !trouvees || !trouvees.size) return;
     const i = lignes.findIndex((r) => trouvees.has(nom(r)));
     if (i < 0) return;
-    el.scrollTo({ top: Math.max(0, i * haut - el.clientHeight / 3), behavior: "smooth" });
+    /* La ligne trouvée au MILIEU de la partie visible du tableau, sous l'en-tête collant. */
+    const tete = el.querySelector("thead")?.getBoundingClientRect().height ?? 0;
+    el.scrollTo({ top: Math.max(0, i * haut + haut / 2 - (el.clientHeight + tete) / 2 + tete), behavior: "smooth" });
+    /* Et le tableau lui-même dans l'écran, s'il en sort. */
+    const r = el.getBoundingClientRect();
+    if (r.top < 70 || r.bottom > window.innerHeight) window.scrollBy({ top: r.top + r.height / 2 - window.innerHeight / 2, behavior: "smooth" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trouvees, lignes]);
   return trouvees;

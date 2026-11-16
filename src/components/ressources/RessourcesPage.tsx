@@ -703,7 +703,14 @@ const Tableau = memo(function Tableau({
     if (!el || !trouvees || !trouvees.size) return;
     const i = lignes.findIndex((r) => trouvees.has(r.z.m49));
     const tr = el.querySelector<HTMLElement>(`tbody tr:nth-child(${i + 1})`);
-    if (tr) el.scrollTo({ top: Math.max(0, tr.offsetTop - el.clientHeight / 3), behavior: "smooth" });
+    if (tr) {
+      /* La ligne trouvée au MILIEU de la partie visible du tableau, sous l'en-tête collant. */
+      const tete = el.querySelector("thead")?.getBoundingClientRect().height ?? 0;
+      const haut = tr.getBoundingClientRect().top - el.getBoundingClientRect().top + el.scrollTop;
+      el.scrollTo({ top: Math.max(0, haut + tr.offsetHeight / 2 - (tete + el.clientHeight) / 2), behavior: "smooth" });
+      const r = el.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > window.innerHeight) window.scrollBy({ top: r.top + r.height / 2 - window.innerHeight / 2, behavior: "smooth" });
+    }
   }, [trouvees, lignes, col, sens]);
 
   /* La lueur suit le pointeur, comme sur Économie. */

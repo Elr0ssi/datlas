@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { EnTete, Pied } from "@/components/concept/pieces";
 import { Fil, JsonLd, schemaFil } from "@/components/seo/Elements";
 import { HubArticles } from "@/components/seo/HubArticles";
+import { UneArticles } from "@/components/seo/UneArticles";
 import { tousLesArticles } from "@/data/articles-catalogue";
 import { SITE_URL, urlAbs } from "@/lib/site";
 import "@/components/concept/concept.css";
@@ -35,15 +35,11 @@ export default function Page() {
       <JsonLd data={[schemaFil([{ label: "Accueil", url: SITE_URL }, { label: "Articles", url: urlAbs("/articles") }]), liste]} />
       <main className="sg-page">
         <Fil items={[{ label: "Accueil", href: "/" }, { label: "Articles" }]} />
-        <h1 className="sg-h1">Tous les <span>articles</span></h1>
+        <h1 className="sg-h1">Les <span>articles</span></h1>
         <p className="sg-intro">
-          {`${articles.length} articles`} : les dossiers de dette publique, les analyses comparatives et les lectures sur l’économie, les épidémies ou l’histoire.
-          Rangez-les par thématique, par pays ou par type, ou cherchez un sujet.
+          {`${articles.length} articles, ${new Set(articles.flatMap((a) => a.pays.map((p) => p.slug))).size} pays, ${new Set(articles.map((a) => a.rubrique)).size} thématiques.`}
         </p>
-        <div className="sg-cta">
-          <Link href="/pays" className="sg-bouton sg-bouton-2">Voir les pays</Link>
-          <Link href="/comparer" className="sg-bouton sg-bouton-2">Comparer des pays</Link>
-        </div>
+        <UneArticles articles={articles} />
         <HubArticles articles={articles} />
       </main>
       <Pied />
