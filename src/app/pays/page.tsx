@@ -9,7 +9,7 @@ import "@/components/concept/concept.css";
 import "@/components/seo/seo.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Tous les pays du monde : population, PIB, dette, inflation | Visualize" },
+  title: { absolute: "Tous les pays du monde : population, PIB, dette, inflation | Datlas" },
   description:
     "La fiche de plus de 200 pays : population, PIB, PIB par habitant, dette, inflation, chômage, superficie. Évolution depuis 1960 et comparaisons.",
   alternates: { canonical: "/pays" },

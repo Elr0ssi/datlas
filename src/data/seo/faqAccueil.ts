@@ -2,11 +2,11 @@ import type { QR } from "./textes";
 
 export const FAQ_ACCUEIL: QR[] = [
   {
-    q: "Qu'est-ce que Visualize ?",
-    r: "Visualize est un site de données qui rend lisibles les chiffres du monde : économie et démographie de plus de 200 pays, sur des globes interactifs, des compteurs en temps réel, des classements, des comparaisons et des articles qui décortiquent un chiffre.",
+    q: "Qu'est-ce que Datlas ?",
+    r: "Datlas est un site de données qui rend lisibles les chiffres du monde : économie et démographie de plus de 200 pays, sur des globes interactifs, des compteurs en temps réel, des classements, des comparaisons et des articles qui décortiquent un chiffre.",
   },
   {
-    q: "D'où viennent les données de Visualize ?",
+    q: "D'où viennent les données de Datlas ?",
     r: "Elles viennent de sources publiques : la Banque mondiale (World Development Indicators), le FMI et les Nations Unies (World Population Prospects 2024), complétées pour la France par l'INSEE, la Banque de France et l'Agence France Trésor. Chaque donnée garde sa source et sa date.",
   },
   {
@@ -26,7 +26,7 @@ export const FAQ_ACCUEIL: QR[] = [
     r: "Chaque classement trie les pays selon la dernière valeur publiée de l'indicateur (PIB, PIB par habitant, dette publique rapportée au PIB, population…). Un pays dont la source ne publie pas la valeur n'est pas classé : il n'est pas considéré comme dernier.",
   },
   {
-    q: "Visualize est-il gratuit ?",
+    q: "Datlas est-il gratuit ?",
     r: "La consultation des données, des globes et des comparaisons est libre et gratuite. Un compte n'est nécessaire que pour participer au forum.",
   },
 ];

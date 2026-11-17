@@ -131,7 +131,7 @@ function Bloc({ s, premier }: { s: ArticleSection; premier: boolean }) {
               {s.items.map((it, k) => (
                 <li key={k}>
                   <span className="lx-liste-p" aria-hidden="true">
-                    {s.style === "number" ? String(k + 1).padStart(2, "0") : s.style === "check" ? "✓" : "—"}
+                    {s.style === "number" ? String(k + 1).padStart(2, "0") : s.style === "check" ? "✓" : "–"}
                   </span>
                   <span>
                     <span className="lx-liste-t">{it.text}</span>
@@ -425,7 +425,7 @@ export function LectureArticle({
               </li>
               <li>
                 Les comparaisons entre pays portent sur des valeurs nominales, sauf mention
-                contraire — la parité de pouvoir d’achat donne d’autres classements.
+                contraire, la parité de pouvoir d’achat donne d’autres classements.
               </li>
             </ul>
             <Link href="/methodology" className="lx-methode-l">

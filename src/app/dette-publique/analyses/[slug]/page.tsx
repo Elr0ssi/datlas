@@ -26,10 +26,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const description = a.description(tousLesDossiers(), euros);
   const url = urlAbs(`/dette-publique/analyses/${a.slug}`);
   return {
-    title: { absolute: `${a.titre} | Visualize` },
+    title: { absolute: `${a.titre} | Datlas` },
     description,
     alternates: { canonical: `/dette-publique/analyses/${a.slug}` },
-    openGraph: { type: "article", url, title: a.titre, description, siteName: "Visualize", locale: "fr_FR" },
+    openGraph: { type: "article", url, title: a.titre, description, siteName: "Datlas", locale: "fr_FR" },
     twitter: { card: "summary_large_image", title: a.titre, description },
   };
 }
@@ -54,8 +54,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             description: a.description(dossiers, euros),
             url,
             inLanguage: "fr",
-            author: { "@type": "Organization", name: "Visualize" },
-            publisher: { "@type": "Organization", name: "Visualize", url: SITE_URL },
+            author: { "@type": "Organization", name: "Datlas" },
+            publisher: { "@type": "Organization", name: "Datlas", url: SITE_URL },
             datePublished: "2026-10-12",
             dateModified: "2026-10-12",
             mainEntityOfPage: url,
@@ -66,7 +66,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         <Fil items={[{ label: "Accueil", href: "/" }, { label: "Dette publique", href: "/dette-publique" }, { label: a.h1.join(" ") }]} />
         <AnalyseDette slug={a.slug} dossiers={dossiers} />
         <p className="sg-note">
-          Sources : base de dette de Visualize (2000, 2014, 2024, en milliards d’euros), Nations Unies (population). Montants publiés en euros, convertibles au taux moyen de chaque année. Aucune projection n’est faite.
+          Sources : base de dette de Datlas (2000, 2014, 2024, en milliards d’euros), Nations Unies (population). Montants publiés en euros, convertibles au taux moyen de chaque année. Aucune projection n’est faite.
         </p>
       </main>
       <Pied />

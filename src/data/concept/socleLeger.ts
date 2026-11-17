@@ -1,4 +1,4 @@
-/** Le socle réduit aux années demandées — la dernière, d'ordinaire. La liste
+/** Le socle réduit aux années demandées, la dernière, d'ordinaire. La liste
     des années et des pays reste entière : la frise se dessine, le pays se
     retrouve ; seules les lignes des autres années attendent le socle complet. */
 export function allegerSocle<

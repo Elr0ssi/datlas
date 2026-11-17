@@ -4,9 +4,9 @@ import { PageConfiance } from "@/components/legal/PageConfiance";
 import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Méthodologie · Visualize",
+  title: "Méthodologie · Datlas",
   description:
-    "Découvrez comment Visualize collecte, synthétise et vérifie ses données. Transparence totale sur nos sources, notre approche éditoriale et notre conformité EU AI Act.",
+    "Découvrez comment Datlas collecte, synthétise et vérifie ses données. Transparence totale sur nos sources, notre approche éditoriale et notre conformité EU AI Act.",
   alternates: {
     canonical: "/methodology",
   },
@@ -17,7 +17,7 @@ const sections = [
     id: "approche",
     title: "Notre approche éditoriale",
     content: [
-      "Visualize est un média de data-journalisme géopolitique. Chaque article publié est une synthèse éditoriale construite à partir de sources primaires et secondaires vérifiées : rapports d'institutions internationales, presse mondiale de référence, recherches académiques et bases de données ouvertes.",
+      "Datlas est un média de data-journalisme géopolitique. Chaque article publié est une synthèse éditoriale construite à partir de sources primaires et secondaires vérifiées : rapports d'institutions internationales, presse mondiale de référence, recherches académiques et bases de données ouvertes.",
       "Notre objectif est d'offrir une vision impartiale et multi-perspectives sur des sujets géopolitiques complexes (économie mondiale, épidémies, empires historiques, conflits militaires). Nous agrégeons délibérément des points de vue issus de médias et institutions de différentes zones géographiques et culturelles pour éviter les biais régionaux.",
     ],
   },
@@ -181,7 +181,7 @@ export default function MethodologyPage() {
           style={{ borderTop: "1px solid var(--border)" }}
         >
           <p className="text-xs" style={{ color: "var(--ink-4)" }}>
-            Dernière mise à jour : juin 2025 · Visualize ·{" "}
+            Dernière mise à jour : juin 2025 · Datlas ·{" "}
             <Link href="/sources" className="underline underline-offset-2" style={{ color: "var(--ink-3)" }}>
               Voir toutes les sources de données →
             </Link>

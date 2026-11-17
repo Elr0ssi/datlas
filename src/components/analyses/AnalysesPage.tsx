@@ -31,7 +31,7 @@ import "@/components/concept/concept.css";
 import "./analyses.css";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   ANALYSES — LA PAGE D'ACCUEIL DE DEMAIN, EN ESSAI
+   ANALYSES, LA PAGE D'ACCUEIL DE DEMAIN, EN ESSAI
 
    Un langage néo-média : des cartes très arrondies, un violet qui tient la
    une, de gros chiffres posés d'emblée, des mouvements qui reviennent quand on
@@ -583,7 +583,7 @@ function Monte({ texte }: { texte: string }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   1 · L'OUVERTURE — le nom, un slogan, un globe qui porte les chiffres
+   1 · L'OUVERTURE, le nom, un slogan, un globe qui porte les chiffres
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* Le globe en points du site : une scène WebGL, montée seulement côté client
@@ -635,9 +635,9 @@ function Ouverture({ reperes, donnees, annee, dette }: Props) {
      tournent avec elle, et il faut la faire tourner pour tous les voir. */
   const marqueurs = useMemo(
     () => [
-      { id: "pib", lat: 42, lon: -96, icon: Landmark, texte: { chiffre: pibMonde?.valeur ?? "—", label: `PIB mondial ${annee}` } },
-      { id: "top", lat: 34, lon: 108, icon: Landmark, texte: { chiffre: top[0] ? fmtPib(top[0].pib) : "—", label: top[0]?.fr ?? "1re économie" } },
-      { id: "pop", lat: 8, lon: 22, icon: Users, texte: { chiffre: pop?.valeur ?? "—", label: "Population" } },
+      { id: "pib", lat: 42, lon: -96, icon: Landmark, texte: { chiffre: pibMonde?.valeur ?? "–", label: `PIB mondial ${annee}` } },
+      { id: "top", lat: 34, lon: 108, icon: Landmark, texte: { chiffre: top[0] ? fmtPib(top[0].pib) : "–", label: top[0]?.fr ?? "1re économie" } },
+      { id: "pop", lat: 8, lon: 22, icon: Users, texte: { chiffre: pop?.valeur ?? "–", label: "Population" } },
       { id: "fr", lat: 47, lon: 3, icon: Banknote, texte: { chiffre: `${nf(dette.ratio)} %`, label: "Dette France / PIB" } },
       { id: "pays", lat: -18, lon: -58, icon: Globe, texte: { chiffre: "200+", label: "pays suivis" } },
     ],
@@ -649,7 +649,7 @@ function Ouverture({ reperes, donnees, annee, dette }: Props) {
       <div className="ax-ouv-g">
         <div className="ax-ouv-t">
           <h1 className="ax-h1">
-            <Mots texte="Visualize" />
+            <Mots texte="Datlas" />
           </h1>
           <p className="ax-ouv-s ax-in" style={{ "--d": "500ms" } as React.CSSProperties}>
             Chaque chiffre du monde, enfin lisible.
@@ -694,7 +694,7 @@ function Ouverture({ reperes, donnees, annee, dette }: Props) {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   1 bis · CE QUE NOUS FAISONS — un tableau de bord de quatre blocs
+   1 bis · CE QUE NOUS FAISONS, un tableau de bord de quatre blocs
    ═══════════════════════════════════════════════════════════════════════════ */
 
 function Presentation() {
@@ -745,7 +745,7 @@ function Presentation() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   2 · EN DIRECT — la page s'arrête, les chiffres tournent, puis ce que l'on fait
+   2 · EN DIRECT, la page s'arrête, les chiffres tournent, puis ce que l'on fait
    ═══════════════════════════════════════════════════════════════════════════ */
 
 const AN_SECONDES = 365.2425 * 24 * 3600;
@@ -893,7 +893,7 @@ function EnDirect({ pib, population }: { pib: Props["pib"]; population: Props["p
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   3 · LES CLASSEMENTS — le podium en haut, la suite en dessous, le tout défile
+   3 · LES CLASSEMENTS, le podium en haut, la suite en dessous, le tout défile
    ═══════════════════════════════════════════════════════════════════════════ */
 
 const INDICS = [
@@ -967,7 +967,7 @@ function Classements({ donnees, annee }: { donnees: Record<string, FichePays>; a
   const rail = useCentre(n);
   const f = fiches[n];
   /* Le podium se lit 2 · 1 · 3 : le premier au milieu, plus haut. Les cellules
-     gardent leur place d'un classement à l'autre — seuls les noms et les
+     gardent leur place d'un classement à l'autre, seuls les noms et les
      montants changent. */
   const ordre = [1, 0, 2];
 
@@ -1074,7 +1074,7 @@ function Cartes() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   5 · NOS ARTICLES — un grand chiffre, une file d'articles, le forum
+   5 · NOS ARTICLES, un grand chiffre, une file d'articles, le forum
    ═══════════════════════════════════════════════════════════════════════════ */
 
 const FILE_ARTICLES = [
@@ -1171,7 +1171,7 @@ function Articles({ dette, lus = [] }: { dette: Props["dette"]; lus?: { rubrique
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   5 bis · NOTRE PLACE — entre le média et le site de données
+   5 bis · NOTRE PLACE, entre le média et le site de données
    ═══════════════════════════════════════════════════════════════════════════ */
 
 const SOURCES_FLUX = [
@@ -1186,7 +1186,7 @@ function Position() {
   return (
     <section className="ax-sec ax-sec-large" id="position" aria-labelledby="ax-po-t">
       <Rev as="h2" className="ax-h2">
-        <span id="ax-po-t">Pourquoi Visualize ?</span>
+        <span id="ax-po-t">Pourquoi Datlas ?</span>
       </Rev>
       <Rev as="p" className="ax-sous ax-sous-ligne" d={80}>
         Ce qui nous différencie : à la jonction des médias et des sites de données, tout arrive au même endroit, clair et condensé.
@@ -1220,7 +1220,7 @@ function Position() {
           <span className="ax-flux-logo">
             <BarChart3 size={22} aria-hidden="true" />
           </span>
-          <strong>Visualize</strong>
+          <strong>Datlas</strong>
         </div>
         <div className="ax-flux-s">
           {SORTIES.map((x, k) => (
@@ -1235,7 +1235,7 @@ function Position() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   6 · NOTRE FONCTIONNEMENT — une ligne qui se remplit, des sources qui défilent
+   6 · NOTRE FONCTIONNEMENT, une ligne qui se remplit, des sources qui défilent
    ═══════════════════════════════════════════════════════════════════════════ */
 
 const SOURCES_DEFILE = [
@@ -1359,7 +1359,7 @@ function Fonctionnement() {
       <Rev className="ax-sortie">
         <Sparkles size={22} aria-hidden="true" />
         <p>
-          <b>Visualize</b> : recoupé, daté, sourcé.
+          <b>Datlas</b> : recoupé, daté, sourcé.
         </p>
         <span>100 % gratuit pour nos lecteurs</span>
       </Rev>

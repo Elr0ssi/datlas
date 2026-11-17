@@ -8,7 +8,7 @@ import type { CountryEconomyData } from "@/types";
  * Lu côté serveur uniquement : la route `/api/series` n'envoie au navigateur
  * que les quelques séries demandées, jamais les 283 Ko du socle. Une année
  * que la source ne publie pas ressort en `null` et reste un trou dans la
- * courbe — elle n'est jamais comblée par un zéro ni par une interpolation.
+ * courbe, elle n'est jamais comblée par un zéro ni par une interpolation.
  */
 
 export const CHAMPS = {

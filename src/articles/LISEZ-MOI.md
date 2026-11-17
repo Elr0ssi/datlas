@@ -1,4 +1,4 @@
-# Les articles longs de Visualize — guide de travail
+# Les articles longs de Datlas, guide de travail
 
 Ce guide s'adresse à toute personne (ou IA) qui doit **écrire ou modifier un article long** du site, en particulier un article sur la **dette publique d'un pays**. Il dit où est chaque chose, comment dupliquer un article existant et comment l'intégrer au site sans rien casser.
 
@@ -61,7 +61,7 @@ Fichiers du site que les articles alimentent **automatiquement** (ne pas les éd
 
 Quand un article rédigé existe pour un pays, **il remplace le dossier généré** : il vit sur la fiche du pays, à l'adresse **`/pays/<pays>/dette-publique`** (par exemple `/pays/france/dette-publique`), et `/dette-publique/<pays>` y redirige. Son fil d'Ariane est « Accueil › Pays › <Pays> › Dette publique ».
 
-## 4. Ajouter l'article d'un pays — pas à pas
+## 4. Ajouter l'article d'un pays, pas à pas
 
 Exemple : l'Italie (`slug` = `italie`).
 
@@ -105,7 +105,7 @@ On peut aussi écrire des **figures propres au pays** (comme `france/Deficit.tsx
 1. **Monnaie.** Tout montant passe par `montant(...)`, `montantAbs(...)`, `enLettres(...)` ou `nombre(...)`. Un « 3 536 Md€ » tapé dans le texte ne se convertit pas.
    - `montant(md, décimales = 1, année = 2025)` → « 3 536,1 Md€ » ou « 4 112,6 Md$ » selon le menu.
    - `montantAbs` : sans le signe. `enLettres(3536, 0)` : « 3 536 milliards d'euros » pour le texte courant. `nombre(152.5)` : le nombre converti seul (colonne dont l'en-tête porte l'unité).
-   - Les données sont en **milliards d'euros**. Au composant de l'article : `const [devise] = useMonnaieArticle(); poserMonnaieArticle(devise);` (voir `_modele/Article.tsx`) — ces deux lignes branchent la page sur le sélecteur de monnaie du menu.
+   - Les données sont en **milliards d'euros**. Au composant de l'article : `const [devise] = useMonnaieArticle(); poserMonnaieArticle(devise);` (voir `_modele/Article.tsx`), ces deux lignes branchent la page sur le sélecteur de monnaie du menu.
    - Seules trois monnaies ont des taux de change : dollar, euro, yuan (`src/data/finance/tauxChange.ts`).
 2. **Sources.** Chaque chiffre a une source officielle et une date. Chaque `Figure` porte une `source` avec une adresse vérifiable. On cite l'organisme et la période. On n'invente jamais un chiffre, un taux, une projection.
 3. **Texte.** Français clair, direct, précis. Le titre d'un chapitre contient les mots qu'on cherche (« Qui détient la dette de l'Italie ? »). La première phrase d'un chapitre (`reponse`) donne la réponse.
@@ -140,7 +140,7 @@ npm run start -- -p 3300   # puis ouvrir http://localhost:3300/pays/<pays>/dette
 - Oublier l'une des deux inscriptions (catalogue ou registre) fait échouer le démarrage avec un message explicite.
 - Le catalogue ne doit importer **aucun composant** (il est lu partout, il doit rester léger).
 - Les données en milliards d'euros : ne pas saisir des millions ou des unités.
-- `slug` : celui de la fiche du pays (`/pays/<slug>`) — minuscules, sans accents, tirets (`etats-unis`, `royaume-uni`).
+- `slug` : celui de la fiche du pays (`/pays/<slug>`), minuscules, sans accents, tirets (`etats-unis`, `royaume-uni`).
 - Ne pas toucher à `cadre/dossier.css` pour un besoin propre à un seul pays : créer un fichier CSS dans le dossier du pays.
 
 ## 10. Ailleurs dans le site (pour information)

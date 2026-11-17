@@ -61,7 +61,7 @@ import { Comparaison } from "./figures/Europe";
 import "./figures/figures.css";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   DETTE PUBLIQUE DE LA FRANCE — L'ARTICLE LONG
+   DETTE PUBLIQUE DE LA FRANCE, L'ARTICLE LONG
 
    Le montant d'abord, une idée par chapitre, aucun retour en arrière.
    Chaque graphique est une <Figure> : une légende qui dit ce qu'on y voit avec

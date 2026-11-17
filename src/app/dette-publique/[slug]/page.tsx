@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: { absolute: titreDossier(d) },
     description: descriptionDossier(d, euros),
     alternates: { canonical: `/dette-publique/${d.slug}` },
-    openGraph: { type: "article", url, title: `Dette publique : ${d.fr}`, description: descriptionDossier(d, euros), siteName: "Visualize", locale: "fr_FR" },
+    openGraph: { type: "article", url, title: `Dette publique : ${d.fr}`, description: descriptionDossier(d, euros), siteName: "Datlas", locale: "fr_FR" },
     twitter: { card: "summary_large_image", title: `Dette publique : ${d.fr}`, description: descriptionDossier(d, euros) },
   };
 }
@@ -54,12 +54,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           schemaFaq(faq),
           {
             "@type": "Article",
-            headline: titreDossier(d).replace(" | Visualize", ""),
+            headline: titreDossier(d).replace(" | Datlas", ""),
             description: descriptionDossier(d, euros),
             url,
             inLanguage: "fr",
-            author: { "@type": "Organization", name: "Visualize" },
-            publisher: { "@type": "Organization", name: "Visualize", url: SITE_URL },
+            author: { "@type": "Organization", name: "Datlas" },
+            publisher: { "@type": "Organization", name: "Datlas", url: SITE_URL },
             datePublished: "2026-10-12",
             dateModified: "2026-10-12",
             mainEntityOfPage: url,
@@ -70,7 +70,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         <Fil items={[{ label: "Accueil", href: "/" }, { label: "Dette publique", href: "/dette-publique" }, { label: d.fr }]} />
         <DossierDette d={d} />
         <p className="sg-note">
-          Sources : base de dette de Visualize (2000, 2014, 2024, en milliards d’euros), Nations Unies (population). Les montants sont publiés en euros et convertis, au choix, au taux moyen de chaque année (BCE, BRI).
+          Sources : base de dette de Datlas (2000, 2014, 2024, en milliards d’euros), Nations Unies (population). Les montants sont publiés en euros et convertis, au choix, au taux moyen de chaque année (BCE, BRI).
           PIB implicite = dette ÷ ratio. Les dates et valeurs sont celles de la base ; aucune projection n’est faite.
         </p>
       </main>

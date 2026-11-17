@@ -4,7 +4,7 @@
    Deux valeurs publiques, et rien d'autre : l'URL du projet et la clé
    publiable. Aucun secret ne passe par ici. Ce qui protège les données, ce
    sont les règles d'accès écrites dans la base, pas la discrétion de cette
-   clé — le navigateur la voit de toute façon.
+   clé, le navigateur la voit de toute façon.
 
    Les deux peuvent manquer : sur une copie du dépôt sans fichier
    d'environnement, le site doit continuer de se construire et de s'afficher.

@@ -329,10 +329,10 @@ body {
 }
 
 /* ============================================
-   HERO DARK — landing page redesign
+   HERO DARK, landing page redesign
    ============================================ */
 
-/* Glassmorphism panel — dark variant */
+/* Glassmorphism panel, dark variant */
 .glass-panel-dark {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(18px) saturate(160%);
@@ -357,7 +357,7 @@ body {
   pointer-events: none;
 }
 
-/* Glassmorphism panel — light variant */
+/* Glassmorphism panel, light variant */
 .glass-panel {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(18px) saturate(160%);
@@ -367,7 +367,7 @@ body {
   padding: 20px 22px;
 }
 
-/* Hero section: scroll-driven — mobile single viewport, desktop 500vh sticky */
+/* Hero section: scroll-driven, mobile single viewport, desktop 500vh sticky */
 .hero-section-wrapper {
   height: 100vh;
   position: relative;
@@ -472,7 +472,7 @@ body {
 }
 
 /* ============================================
-   PRÉSENTATION 2 — snap between scrollytelling acts
+   PRÉSENTATION 2, snap between scrollytelling acts
    Scoped with :has() so the rule is inert on every other page. `proximity`
    (not `mandatory`) so it only pulls near a boundary and never fights the
    long sticky runways in between.
@@ -481,14 +481,14 @@ body {
 /* No scroll snapping on the home page. Snapping between the hero and the map
    scene pulled the reader down off the globe on its own, which read as the
    page taking over; the descent is an ordinary scroll now. The anchors stay
-   as position markers — the locked pair between the last category and the
+   as position markers, the locked pair between the last category and the
    articles is driven in JS, not by CSS. */
 .p2-snap-target {
   scroll-margin-top: var(--navbar-height);
 }
 
 /* ============================================
-   Economy category — full-height sections
+   Economy category, full-height sections
    The map, the ranking table and the articles each own a viewport. The ground
    stays the page's own, and the only decoration is the sheaf of curves drawn
    behind each card, which drifts with the scroll. A scroll gesture inside the
@@ -666,7 +666,7 @@ body {
   overflow: hidden;
 }
 
-/* Recommendation carousel — a slim rail so the horizontal overflow is
+/* Recommendation carousel, a slim rail so the horizontal overflow is
    discoverable without the scrollbar sitting on top of the cards. */
 .reco-rail {
   scrollbar-width: thin;
@@ -681,7 +681,7 @@ body {
 .reco-rail::-webkit-scrollbar-thumb:hover { background: rgba(57, 255, 136, 0.7); }
 
 /* ============================================
-   Présentation 2 — scroll runways
+   Présentation 2, scroll runways
    The reduced-motion collapse lives here rather than in a JS branch: asking
    `useReducedMotion` during render makes the server markup and the first
    client render disagree, which is a hydration error on precisely the
@@ -723,7 +723,7 @@ body {
   .p2-story-stage { position: relative; top: auto; height: auto; }
 }
 
-/* ── Test article — the format under trial ────────────────────────────────
+/* ── Test article, the format under trial ────────────────────────────────
    Three two-column rows that all collapse at the same width, so the reading
    column never has to hold a chart and a commentary side by side once there
    is no room for both. */
@@ -766,11 +766,11 @@ body {
   .ta-source-row { gap: 11px; }
 }
 
-/* ── Leaflet — the interactive world map ──────────────────────────────────
+/* ── Leaflet, the interactive world map ──────────────────────────────────
    Leaflet paints its own chrome; three things of it have to be answered. */
 
 /* A clicked country is an SVG path, and the browser rings a focused path with
-   a rectangle — the box that appeared around a country the moment it was
+   a rectangle, the box that appeared around a country the moment it was
    selected. The selection is already drawn in the path's own stroke. */
 .leaflet-container .leaflet-interactive:focus,
 .leaflet-container .leaflet-interactive:focus-visible {
@@ -779,7 +779,7 @@ body {
 
 /* ── Petits écrans : l'échelle de la page économie ────────────────────────
    La page est composée pour un grand écran. En dessous, ce n'est pas la
-   disposition qui gêne — elle passe déjà en colonne — mais la taille : les
+   disposition qui gêne, elle passe déjà en colonne, mais la taille : les
    chiffres, les cartes et le panneau de détail gardent leur corps de bureau
    et le lecteur ne voit plus un pays d'un seul tenant.
 
@@ -848,7 +848,7 @@ body {
 /* ── Le classement mondial ────────────────────────────────────────────────
    Cinq colonnes tiennent sur un écran large ; sur un téléphone elles
    poussaient le chiffre principal hors du cadre. On garde le rang, le pays et
-   la mesure affichée par la carte — les autres restent accessibles en
+   la mesure affichée par la carte, les autres restent accessibles en
    changeant de mesure, et figurent dans la fiche du pays. */
 @media (max-width: 640px) {
   .eco-rank-extra { display: none; }
@@ -864,7 +864,7 @@ body {
 
    Une page réglée pour un grand écran n'est pas seulement « un peu serrée »
    sur un portable : elle est fausse. 1280x800, c'est 470px de hauteur utile
-   une fois la barre, le titre et le pied de section déduits — la moitié d'un
+   une fois la barre, le titre et le pied de section déduits, la moitié d'un
    moniteur de bureau. Ce palier ramène l'échelle à cette hauteur-là. Il se
    déclenche sur la largeur d'un portable ou sur sa hauteur, parce qu'un
    portable branché sur un grand écran garde sa largeur mais gagne la place.
@@ -971,7 +971,7 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   NEO — la console
+   NEO, la console
 
    Une hauteur d'écran, pas une de plus. Tout est porté par `.nc` : rien
    d'ici ne peut atteindre le reste du site.
@@ -1241,7 +1241,7 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   COMPARER — les commandes partagées avec le tableau de bord
+   COMPARER, les commandes partagées avec le tableau de bord
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .cp-champs { display: flex; gap: 4px; padding: 3px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); }
@@ -1342,7 +1342,7 @@ body {
 .cp-bascule input { accent-color: #39ff88; width: 15px; height: 15px; }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   COMMUNITY — le forum
+   COMMUNITY, le forum
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .fo-wrap {
@@ -1565,7 +1565,7 @@ body {
 @media (prefers-reduced-motion: reduce) { .fo-pulse { animation: none; } }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   LECTURE — le format d'article
+   LECTURE, le format d'article
 
    Porté par `.lx`. Le format publié sur /articles n'est pas concerné.
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -1994,7 +1994,7 @@ body {
 .db-note { font-size: 11px; color: #565e5b; margin: auto; }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   DÉCOUVRIR — la page de présentation
+   DÉCOUVRIR, la page de présentation
 
    Elle défile, et c'est le sujet : chaque section amène ses éléments par les
    côtés au moment où elle entre dans le champ.
@@ -2149,7 +2149,7 @@ body {
 @media (prefers-reduced-motion: reduce) { .dc-defiler { animation: none; } }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   LIVE — la une, sous la console
+   LIVE, la une, sous la console
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .nl-page { background: #06070a; }

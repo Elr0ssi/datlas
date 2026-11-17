@@ -8,7 +8,7 @@
 
    - `globe`  : la page-globe qui prolonge l'article (économie, démographie).
    - `forum`  : un ou plusieurs fils. L'adresse est `/forum#<id du fil>`, où
-                l'id est celui de `src/data/community/fils.ts` — la page du
+                l'id est celui de `src/data/community/fils.ts`, la page du
                 forum ouvre alors directement ce fil.
    ═══════════════════════════════════════════════════════════════════════════ */
 

@@ -19,7 +19,7 @@ import { TRADE_DATA } from "@/data/economy/tradeData";
 /**
  * Configuration for `<CategoryHero />`.
  *
- * Adding a category means adding one entry to `CATEGORY_HEROES` below — colour,
+ * Adding a category means adding one entry to `CATEGORY_HEROES` below, colour,
  * icons, copy and figures. No component code changes.
  */
 export interface CategoryHeroStat {
@@ -43,7 +43,7 @@ export interface CategoryHeroConfig {
   /** Trailing word(s) of the H1, in the category colour. */
   titleAccent: string;
   subtitle: string;
-  /** Category colour — globe, curves, badges and highlights. */
+  /** Category colour, globe, curves, badges and highlights. */
   accent: string;
   /** Darker sibling used for text, where the accent alone lacks contrast. */
   accentInk: string;
@@ -88,11 +88,11 @@ const LATEST_COUNTRIES = Object.keys(yearCountries(LATEST));
 const COUNTRY_COUNT = LATEST_COUNTRIES.length;
 
 // Snapshot years don't cover exactly the same countries, so variations are
-// computed on the intersection only — otherwise a widening panel would read as
+// computed on the intersection only, otherwise a widening panel would read as
 // growth (or, for population, as a decline).
 const COMPARABLE_COUNTRIES = LATEST_COUNTRIES.filter((name) => name in yearCountries(PREVIOUS));
 
-/** "+3,2 % vs 2023" — like-for-like variation between the two latest snapshots. */
+/** "+3,2 % vs 2023", like-for-like variation between the two latest snapshots. */
 function growth(metric: CountryMetric): string {
   const latest = sumFor(metric, LATEST, COMPARABLE_COUNTRIES);
   const previous = sumFor(metric, PREVIOUS, COMPARABLE_COUNTRIES);
@@ -117,7 +117,7 @@ const ECONOMY_HERO: CategoryHeroConfig = {
   accent: "#10B981",
   accentInk: "#0C8F5F",
   // Each badge rides a strand of the sheaf: `u` is its position across the
-  // width, `curve` the strand it rests on — index 0 hugs the globe, higher
+  // width, `curve` the strand it rests on, index 0 hugs the globe, higher
   // indices run further above it. Badges near the shoulders sit on the upper
   // strands so they stay clear of the panel as the flow dives away.
   icons: [
@@ -185,7 +185,7 @@ export function getCategoryHero(themeId: string): CategoryHeroConfig | undefined
   return CATEGORY_HEROES[themeId];
 }
 
-/** Cheap check for server components — avoids sending config over the boundary. */
+/** Cheap check for server components, avoids sending config over the boundary. */
 export function hasCategoryHero(themeId: string): boolean {
   return themeId in CATEGORY_HEROES;
 }

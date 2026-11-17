@@ -27,7 +27,7 @@ import "./v2eco.css";
    Même langage que la page Monde, mais une seule matière : le socle
    économique, date par date. Tout ce qui s'affiche ici vient de la
    base du site. Une année qu'une source ne publie pas pour un pays reste
-   absente — le pays sort du classement de cette année-là, il n'y figure pas
+   absente, le pays sort du classement de cette année-là, il n'y figure pas
    avec un zéro.
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -158,7 +158,7 @@ function val(v: number | null, unite: Unite) {
    Aucun autre indicateur ne s'y prête. Une dette est un stock qui
    s'accumule, un PIB par habitant et une balance commerciale ne se cumulent
    pas davantage. Le pas « en cours » n'apparaît donc sur la frise que
-   lorsqu'on regarde le PIB — la frise suit ce que l'indicateur permet, comme
+   lorsqu'on regarde le PIB, la frise suit ce que l'indicateur permet, comme
    elle suit déjà ce que les sources publient. */
 const ANNEE_EN_COURS = 2026;
 /** Les indicateurs exprimés en monnaie, donc convertibles. */
@@ -178,7 +178,7 @@ const SECONDES_PAR_AN = 365 * 24 * 3600;
    de ce millésime, étalée sur l'année en cours depuis le 1er janvier.
 
    Les trois dépenses sont d'une autre nature : des débits constants, fixés
-   depuis une date fixe — le 1er janvier 2026. Les montants et les débits
+   depuis une date fixe, le 1er janvier 2026. Les montants et les débits
    par seconde sont ceux fournis, pas calculés ici ; il faudra leur trouver
    un nom de source avant de les présenter ailleurs que sur ce prototype. */
 const AN_SECONDES = 365.2425 * 24 * 3600;
@@ -323,7 +323,7 @@ const VERS_NOM: Record<string, string> = Object.fromEntries(
 
    Elle porte son année elle-même. C'est tout l'enjeu : tant qu'elle vivait
    dans l'état de la page, chaque pixel de glissement redessinait le globe, la
-   fiche pays et le classement — soixante fois par seconde, pour un point qui
+   fiche pays et le classement, soixante fois par seconde, pour un point qui
    bouge de trois pixels. Ici, glisser ne redessine que la frise ; la page
    n'apprend l'année qu'une fois le geste posé, ou après une courte attente.
 
@@ -355,7 +355,7 @@ const Frise = memo(function Frise({
   const tire = useRef(false);
   const attente = useRef<number | null>(null);
 
-  /* Un changement venu d'ailleurs — le menu du classement, par exemple —
+  /* Un changement venu d'ailleurs, le menu du classement, par exemple,
      ramène le point où il doit être. */
   useEffect(() => {
     setVue(valeur);
@@ -401,7 +401,7 @@ const Frise = memo(function Frise({
 
       <div className="cg-frise2-piste">
       {/* Une ligne, un point. On vise un repère, on glisse le point, ou on
-          pousse aux flèches — un curseur qui ne répond qu'à la souris exclut
+          pousse aux flèches, un curseur qui ne répond qu'à la souris exclut
           ceux qui n'en tiennent pas. */}
       <div
         ref={rail}
@@ -529,7 +529,7 @@ const Frise = memo(function Frise({
 /* Le classement ne dessine que ce qui est à l'écran.
 
    Deux cents lignes de cinq cellules, c'est mille nœuds que React devait
-   rapprocher à chaque changement d'année — pendant que le globe repeignait
+   rapprocher à chaque changement d'année, pendant que le globe repeignait
    sa texture. Le cadre n'en montre qu'une douzaine : on ne rend que celles-là
    plus une marge, et deux cales tiennent la hauteur pour que la barre de
    défilement reste juste. */
@@ -677,7 +677,7 @@ export function EconomiePage({ socle: socleLeger, socleUrl, pibMonde, sources, a
   const socle = useSocleComplet(socleLeger, socleUrl);
   /* La page ne connaît qu'une année : celle qu'elle affiche. L'année visée
      pendant qu'on glisse appartient à la frise, et n'en sort qu'une fois le
-     geste posé — c'est ce qui l'empêche de redessiner le globe à chaque
+     geste posé, c'est ce qui l'empêche de redessiner le globe à chaque
      pixel. */
   const [annee, setAnnee] = useState(socle.annees[socle.annees.length - 1]);
 
@@ -750,8 +750,8 @@ export function EconomiePage({ socle: socleLeger, socleUrl, pibMonde, sources, a
       setCol((COLONNES.find((c) => c.id === (CHAMP_DE[m] as Col))?.id ?? "pib") as Col);
     }
 
-    /* L'année en cours ne fait pas partie du socle — aucune source ne l'a
-       publiée — mais c'est une adresse légitime : elle ouvre le compteur. */
+    /* L'année en cours ne fait pas partie du socle, aucune source ne l'a
+       publiée, mais c'est une adresse légitime : elle ouvre le compteur. */
     const a = Number(q.get("annee"));
     if (Number.isFinite(a) && (socle.annees.includes(a) || a === ANNEE_EN_COURS)) setAnnee(a);
 
@@ -798,9 +798,9 @@ export function EconomiePage({ socle: socleLeger, socleUrl, pibMonde, sources, a
         nom: p.nom,
         fr: p.fr,
         /* Les quatre grandeurs en monnaie sont converties ici, une fois, au
-           taux de l'année lue. Tout ce qui les consomme ensuite — le
+           taux de l'année lue. Tout ce qui les consomme ensuite, le
            classement, les teintes du globe, le panneau, la courbe, le
-           compteur — les reçoit déjà dans la bonne monnaie. Les teintes ne
+           compteur, les reçoit déjà dans la bonne monnaie. Les teintes ne
            bougent pas pour autant : l'échelle est relative au maximum, et
            multiplier toutes les valeurs par le même taux ne change aucun
            rang. */
@@ -877,7 +877,7 @@ export function EconomiePage({ socle: socleLeger, socleUrl, pibMonde, sources, a
   }, [socle, choisi, metrique, monnaie]);
 
   /* Les colonnes de la famille en cours, plus le PIB qui sert de repère
-     commun — on compare toujours quelque chose au poids de l'économie. */
+     commun, on compare toujours quelque chose au poids de l'économie. */
   const colonnes = useMemo(() => {
     const f = familleDe(metrique).id;
     const l = COLONNES.filter((c) => c.famille === f);
@@ -1001,7 +1001,7 @@ export function EconomiePage({ socle: socleLeger, socleUrl, pibMonde, sources, a
         <div className="cg-wrap">
           <div className="cg-eco-ouv">
             {/* Le sceau : la tuile du milieu, plus grande que les autres et
-                seule à porter un cerne. C'est le point de fuite du champ —
+                seule à porter un cerne. C'est le point de fuite du champ,
                 tout s'écarte de lui quand on descend, tout y revient quand
                 on remonte. */}
             <span className="cg-sceau" aria-hidden="true">
@@ -1060,8 +1060,8 @@ export function EconomiePage({ socle: socleLeger, socleUrl, pibMonde, sources, a
             annee={anneeEco}
             /* Le compteur : la valeur annuelle publiée, ramenée à la seconde,
                comptée depuis le premier janvier. Rien n'est mesuré en
-               direct — aucune institution ne publie un produit intérieur brut
-               à la seconde — et c'est dit sous le globe. */
+               direct, aucune institution ne publie un produit intérieur brut
+               à la seconde, et c'est dit sous le globe. */
             compteur={
               enCours && choisi
                 ? {
@@ -1099,7 +1099,7 @@ export function EconomiePage({ socle: socleLeger, socleUrl, pibMonde, sources, a
       {/* ── Le classement ────────────────────────────────────────────────── */}
       {/* Une bande claire, de bord à bord, qui s'ouvre au défilement. Après
           trois sections de nuit, c'est la rupture franche qui dit « ici on
-          compare » — et un tableau de chiffres se lit mieux sur du clair.
+          compare », et un tableau de chiffres se lit mieux sur du clair.
           Le titre et son sélecteur sont centrés ; le tableau vient dessous,
           dans un bloc arrondi posé au milieu de la bande. */}
       {/* L'ouverture est une transition CSS pilotée par un attribut, pas une
@@ -1294,7 +1294,7 @@ export function EconomiePage({ socle: socleLeger, socleUrl, pibMonde, sources, a
           <TitreSection titre="Les questions d’économie" />
 
           {/* Le balisage que les moteurs lisent. Il décrit les questions et
-              leurs réponses telles qu'elles sont affichées — jamais autre
+              leurs réponses telles qu'elles sont affichées, jamais autre
               chose, sous peine d'être traité comme une tromperie. Cette page
               du prototype n'est pas indexée ; le balisage est là pour que la
               page définitive n'ait rien à rattraper. */}

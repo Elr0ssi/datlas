@@ -5,7 +5,7 @@ import { fmtHabCourt, fmtMdCourt, nf } from "@/data/seo/francais";
 /* La carte de partage d'un pays, dessinée à la demande : la construire pour
    chacune des pages alourdirait le déploiement pour rien. */
 export const dynamic = "force-dynamic";
-export const alt = "Un pays en chiffres, sur Visualize";
+export const alt = "Un pays en chiffres, sur Datlas";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -22,7 +22,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 90px", background: "linear-gradient(135deg, #0a0912 0%, #1b1240 60%, #3a1d8a 100%)", color: "#f5f3ff", fontFamily: "system-ui, sans-serif" }}>
-        <div style={{ fontSize: 34, fontWeight: 700, color: "#a583ff", display: "flex" }}>Visualize · Pays en chiffres</div>
+        <div style={{ fontSize: 34, fontWeight: 700, color: "#a583ff", display: "flex" }}>Datlas · Pays en chiffres</div>
         <div style={{ marginTop: 22, fontSize: 120, fontWeight: 800, letterSpacing: -4, lineHeight: 1, display: "flex" }}>{f?.fr ?? "Pays"}</div>
         <div style={{ marginTop: 56, display: "flex", gap: 28 }}>
           {chiffres.map((c) => (

@@ -8,12 +8,12 @@ import { cle } from "@/data/concept/cle";
 /* ═══════════════════════════════════════════════════════════════════════════
    LE GLOBE DU MONDE
 
-   Celui-ci EST la Terre — contrairement à la sphère abstraite du hero. On
+   Celui-ci EST la Terre, contrairement à la sphère abstraite du hero. On
    tourne à la main, on clique un pays, ses données s'affichent à droite.
 
    Projection orthographique en canvas 2D : à cette échelle, une scène 3D
    texturée coûterait plus cher qu'elle ne rapporterait, et le tracé vectoriel
-   garde un bord net sur un pays sélectionné — ce qu'une texture ne fait pas.
+   garde un bord net sur un pays sélectionné, ce qu'une texture ne fait pas.
 
    Les valeurs viennent du socle, pas de la maquette.
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -21,7 +21,7 @@ import { cle } from "@/data/concept/cle";
 const RAD = Math.PI / 180;
 
 /** Arc sinus en degrés, borné : à l'écran, un déplacement n'est pas
-    proportionnel à l'angle tourné — c'est son arc sinus. */
+    proportionnel à l'angle tourné, c'est son arc sinus. */
 const ARC = (t: number) => (Math.asin(Math.max(-1, Math.min(1, t))) * 180) / Math.PI;
 
 /** Un angle admet deux solutions ; on garde celle qui bouge le moins. */
@@ -39,7 +39,7 @@ interface Pays {
      boucle de rendu : quatre appels trigonométriques par sommet et par image
      coûtaient plus cher que tout le reste du dessin réuni, et c'est ce qui
      faisait saccader la rotation. En prime, la question de l'antiméridien
-     disparaît — entre 179° et −179° il n'y a qu'un pas minuscule dans
+     disparaît, entre 179° et −179° il n'y a qu'un pas minuscule dans
      l'espace, alors qu'en longitude c'est un saut de 358°. C'est ce saut qui
      déchirait la Russie. */
   vecteurs: Float64Array[];
@@ -53,7 +53,7 @@ interface Pays {
 
 interface Props {
   donnees: Record<string, FichePays>;
-  /* La sélection peut être pilotée de l'extérieur — par une ligne de
+  /* La sélection peut être pilotée de l'extérieur, par une ligne de
      classement, par exemple. Sans ces deux propriétés, le globe la garde
      pour lui : les pages qui ne s'en servent pas ne changent pas. */
   choisi?: string | null;
@@ -66,8 +66,8 @@ interface Props {
       est proposé, sinon il montre un onglet qui ne fait rien d'autre que se
       nommer lui-même. */
   montrerIndicateurs?: boolean;
-  /** Pilote la région depuis l'extérieur — un carrousel qui défile au
-      scroll, par exemple — sans passer par les onglets internes. Absente,
+  /** Pilote la région depuis l'extérieur, un carrousel qui défile au
+      scroll, par exemple, sans passer par les onglets internes. Absente,
       la région reste tenue par le globe comme avant. */
   regionPilotee?: string;
   /** Même principe pour l'indicateur affiché. */
@@ -76,7 +76,7 @@ interface Props {
       reste possible. Une vitrine qui montre des exemples n'a pas à laisser
       composer les siens. */
   explorable?: boolean;
-  /** Ce qui vient se glisser sous le globe — une frise, par exemple. */
+  /** Ce qui vient se glisser sous le globe, une frise, par exemple. */
   sousLeGlobe?: React.ReactNode;
   annee: number;
   regions: readonly { id: string; label: string; pays: readonly string[] }[];
@@ -84,7 +84,7 @@ interface Props {
 }
 
 function fmt(v: number | null | undefined, genre: "md" | "eur" | "pct" | "hab"): string {
-  if (v === null || v === undefined) return "—";
+  if (v === null || v === undefined) return "–";
   if (genre === "hab") return `${v.toFixed(1).replace(".", ",")} M`;
   if (genre === "pct") return `${v.toFixed(1).replace(".", ",")} %`;
   if (genre === "eur") return `${Math.round(v).toLocaleString("fr-FR")} €`;
@@ -144,7 +144,7 @@ const BLEUS = [
 ];
 
 /* Rampe divergente : deux teintes opposées et un gris au milieu. Le milieu ne
-   doit surtout pas être une couleur — sinon « zéro » se lit comme une valeur. */
+   doit surtout pas être une couleur, sinon « zéro » se lit comme une valeur. */
 const DIVERGENTE = [
   "#b7d3f6", "#86b6ef", "#5598e7", "#2a78d6", "#1c5cab",
   "#5c6371",
@@ -228,7 +228,7 @@ export function GlobeMonde({
   const touche = useRef(false);
   /* L'entrée en scène : le globe ne se montre pas avant que la section
      arrive. Il monte alors depuis le bas en grossissant, avec un tour sur
-     lui-même qui s'amortit — le temps du relais avec le globe de fond. */
+     lui-même qui s'amortit, le temps du relais avec le globe de fond. */
   const debut = useRef<number | null>(null);
   const fini = useRef(false);
   const [entre, setEntre] = useState(false);
@@ -258,8 +258,8 @@ export function GlobeMonde({
           const vecteurs: Float64Array[] = [];
           const coupe: boolean[] = [];
           /* L'aire vraie, par la formule du lacet pondérée par cos(lat). Le
-             nombre de sommets ne dit rien de la taille — la Norvège en a plus
-             que la Libye — et c'est l'aire qui départage deux pays au clic. */
+             nombre de sommets ne dit rien de la taille, la Norvège en a plus
+             que la Libye, et c'est l'aire qui départage deux pays au clic. */
           let aire = 0;
           let plusGrand = { aire: -1, centre: [0, 0] as [number, number] };
           for (const poly of brut) {
@@ -283,7 +283,7 @@ export function GlobeMonde({
             let lacet = 0;
             /* Le centroïde pondéré par l'aire, pas la moyenne des sommets :
                une côte très découpée concentre les sommets et tirerait le
-               centre vers elle — la caméra se recalait alors à côté du pays. */
+               centre vers elle, la caméra se recalait alors à côté du pays. */
             let gx = 0;
             let gy = 0;
             let deux = 0;
@@ -333,7 +333,7 @@ export function GlobeMonde({
     }
     /* On n'observe qu'une fois la mise en page stabilisée : pendant le
        chargement, la page est plus courte et la section peut traverser le
-       champ sans que personne ne l'ait vue — l'entrée se jouerait alors
+       champ sans que personne ne l'ait vue, l'entrée se jouerait alors
        dans le vide. */
     let io: IntersectionObserver | null = null;
     const t = setTimeout(() => {
@@ -431,7 +431,7 @@ export function GlobeMonde({
       cible.current.lon = ((cible.current.lon + 540) % 360) - 180;
 
       /* L'entrée : de presque rien à sa taille, en montant depuis le bas.
-         Le tour supplémentaire ne touche que le rendu, jamais la caméra —
+         Le tour supplémentaire ne touche que le rendu, jamais la caméra,
          sinon le pointage serait faux pendant l'animation. */
       const brutAp = debut.current === null ? 0 : (performance.now() - debut.current) / 1050;
       const ap = Math.max(0, Math.min(1, brutAp));
@@ -478,7 +478,7 @@ export function GlobeMonde({
 
       /* L'océan, et l'atmosphère qui déborde du disque. */
       /* L'atmosphère : deux couches plutôt qu'une. La première déborde loin et
-         très doucement — c'est elle qui fond le disque dans la page ; la
+         très doucement, c'est elle qui fond le disque dans la page ; la
          seconde serre le limbe et lui donne son éclat. Une seule couche donne
          soit un bord net, soit un halo mou, jamais les deux. */
       const large = ctx.createRadialGradient(cx, cy, R * 0.72, cx, cy, R * 1.55);
@@ -659,7 +659,7 @@ export function GlobeMonde({
   /* Le rayon dessiné, et donc la conversion pixel → degré, dépend de la taille
      de la scène : on le relit à chaque geste plutôt que de le figer. */
   /* Un pas constant en degrés par pixel fait déraper le globe : à l'écran, un
-     déplacement n'est pas proportionnel à l'angle — c'est son arc sinus. On
+     déplacement n'est pas proportionnel à l'angle, c'est son arc sinus. On
      ancre donc le geste au point saisi et on résout la rotation qui le ramène
      sous le curseur. Le pays qu'on attrape reste sous le doigt. */
   /* Les coordonnées du curseur ramenées au disque, en unités de rayon. */
@@ -753,7 +753,7 @@ export function GlobeMonde({
 
     if (spec.forme === "log") {
       const bas = Math.max(centile(0.02), 0.01);
-      /* En logarithmique, le maximum réel ne déforme pas la rampe — et le
+      /* En logarithmique, le maximum réel ne déforme pas la rampe, et le
          couper au 98e centile mettrait les quatre premières économies du
          monde au même pas, ce qui est exactement ce qu'on veut éviter. */
       const haut = Math.max(centile(1), bas * 10);
@@ -770,7 +770,7 @@ export function GlobeMonde({
     } else {
       /* Bornes au 8e / 92e centile : deux ou trois pays en hyperinflation
          suffiraient à ramener tout le reste sur le même pas. Ce qui dépasse
-         est ramené à la borne — et la légende le dit avec un « ≤ / ≥ ». */
+         est ramené à la borne, et la légende le dit avec un « ≤ / ≥ ». */
       const m = Math.max(Math.abs(centile(0.08)), Math.abs(centile(0.92)), 0.01);
       stops = spec.sens === 1 ? DIVERGENTE : [...DIVERGENTE].reverse();
       for (const [nom, d] of Object.entries(donnees)) {
@@ -799,7 +799,7 @@ export function GlobeMonde({
 
   /* Le rang se lit sur l'indicateur affiché : annoncer un rang de PIB sous
      une carte d'inflation serait un faux repère. Les pays sans valeur ne
-     comptent pas — ils ne sont pas derniers, ils ne sont pas classés. */
+     comptent pas, ils ne sont pas derniers, ils ne sont pas classés. */
   const rangMondial = useMemo(() => {
     const v = fiche ? fiche[echelle.spec.id] : null;
     if (typeof v !== "number" || !Number.isFinite(v)) return null;
@@ -964,7 +964,7 @@ export function GlobeMonde({
 
           <p className="gm-aide">
             {explorable ? "Faites tourner le globe · cliquez un pays" : "Faites tourner le globe"}
-            {survol && <span className="gm-aide-survol"> — {donnees[survol]?.fr ?? survol}</span>}
+            {survol && <span className="gm-aide-survol">, {donnees[survol]?.fr ?? survol}</span>}
           </p>
         </div>
 

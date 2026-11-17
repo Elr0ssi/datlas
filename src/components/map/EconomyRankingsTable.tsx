@@ -160,7 +160,7 @@ function getColDefs(metric: EconomyMetricId): ColDef[] {
     return [];
   }
 
-  // PIB/hab. and Balance comm. are only shown alongside PIB family metrics —
+  // PIB/hab. and Balance comm. are only shown alongside PIB family metrics,
   // they should not leak into the Dette/Chômage tables.
   const extras: ColDef[] = [];
   if (GDP_FAMILY.includes(metric)) {
@@ -288,7 +288,7 @@ export function EconomyRankingsTable({
           {/* L'année se lisait, elle se choisit. Le classement vit dans sa
               propre section : y renvoyer le lecteur à la frise, deux écrans
               plus haut, pour comparer 1974 et 1975 n'était pas tenable. Le
-              choix reste le même que celui de la carte — c'est le même
+              choix reste le même que celui de la carte, c'est le même
               paramètre d'URL. */}
           <div className="flex items-baseline gap-2">
             <p className="text-heading-3" style={{ color: "var(--ink)" }}>
@@ -340,7 +340,7 @@ export function EconomyRankingsTable({
         </div>
       </div>
 
-      {/* Table — translate="no" prevents browser auto-translation of units (Mds, k, %) */}
+      {/* Table, translate="no" prevents browser auto-translation of units (Mds, k, %) */}
       <div
         className="overflow-x-auto overflow-y-auto"
         // The wheel belongs to this table while the pointer is over it: the
@@ -422,7 +422,7 @@ export function EconomyRankingsTable({
                 return (
                   // Countries land one after another. The delay is capped so a
                   // re-sort of seventy-odd rows still resolves in under a
-                  // second — only the rows on screen carry the cascade.
+                  // second, only the rows on screen carry the cascade.
                   <motion.tr
                     key={name}
                     onClick={() => onCountryClick?.(name)}

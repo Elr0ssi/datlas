@@ -421,7 +421,7 @@ export function MapArticleSection({
   const allGridRef = useRef<HTMLDivElement>(null);
   const [saved, setSaved] = useState<string[]>([]);
 
-  // Recommendation carousel — native lateral scroll (trackpad, shift+wheel)
+  // Recommendation carousel, native lateral scroll (trackpad, shift+wheel)
   // plus a click-and-drag grab for mice without a horizontal axis.
   const railRef = useRef<HTMLDivElement>(null);
   const allSectionRef = useRef<HTMLElement>(null);

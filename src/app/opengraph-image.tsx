@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Visualize · Le monde en chiffres, sans le bruit";
+export const alt = "Datlas · Le monde en chiffres, sans le bruit";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -28,7 +28,7 @@ export default function OgImage() {
             <div style={{ width: 11, height: 28, borderRadius: 4, background: "#fff" }} />
             <div style={{ width: 11, height: 42, borderRadius: 4, background: "#fff" }} />
           </div>
-          <div style={{ fontSize: 56, fontWeight: 800, letterSpacing: -2 }}>Visualize</div>
+          <div style={{ fontSize: 56, fontWeight: 800, letterSpacing: -2 }}>Datlas</div>
         </div>
         <div style={{ marginTop: 48, fontSize: 84, fontWeight: 800, letterSpacing: -3, lineHeight: 1.02 }}>
           Le monde en chiffres, sans le bruit.

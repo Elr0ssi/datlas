@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   ACCÈS AUX DONNÉES — ce que le site lit, et comment
+   ACCÈS AUX DONNÉES, ce que le site lit, et comment
 
    Deux couches, une seule vérité.
 
@@ -58,8 +58,8 @@ export function nomPays(iso3: string): string {
  * Le code d'une forme du fond de carte.
  *
  * Natural Earth ne porte pas de code : le pont est écrit une fois, vérifié, et
- * rangé dans `data/pont-geographies.json`. Les entités qu'il ne couvre pas —
- * Antarctique, Taïwan, Sahara occidental — n'ont pas de donnée non plus.
+ * rangé dans `data/pont-geographies.json`. Les entités qu'il ne couvre pas,
+ * Antarctique, Taïwan, Sahara occidental, n'ont pas de donnée non plus.
  */
 export function iso3DepuisForme(nomForme: string): string | undefined {
   return (pontGeo as { pont: Record<string, string> }).pont[nomForme];

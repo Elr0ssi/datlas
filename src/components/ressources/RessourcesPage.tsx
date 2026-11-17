@@ -826,7 +826,7 @@ function Synthese({
               ) : premier ? (
                 <span className="ge-autre-v rs-autre-t">{complet(premier.valeur)}{nbsp(J.indicateurs[i].unite)}</span>
               ) : (
-                <span className="ge-autre-v rs-nd">—</span>
+                <span className="ge-autre-v rs-nd">–</span>
               )}
             </button>
           );
@@ -889,7 +889,7 @@ function FichePays({
           </>
         ) : (
           <>
-            <b className="rs-vedette-v">—</b>
+            <b className="rs-vedette-v">–</b>
             <span className="ge-vedette-r">{manquante(J, z.m49, ind, annee) ? `Valeur manquante en ${annee}` : `Indisponible en ${annee}`}</span>
           </>
         )}
@@ -918,7 +918,7 @@ function FichePays({
                   {ri && <small className="rs-autre-r">{ri.rang}<sup>e</sup> sur {classement(J, i, annee).length}</small>}
                 </>
               ) : (
-                <span className="ge-autre-v rs-nd">—</span>
+                <span className="ge-autre-v rs-nd">–</span>
               )}
             </button>
           );

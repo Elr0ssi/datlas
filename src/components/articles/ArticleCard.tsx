@@ -30,7 +30,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
           </span>
         </div>
 
-        {/* Title — 2 lines clamped */}
+        {/* Title, 2 lines clamped */}
         <h3
           className="text-heading-3 leading-snug"
           style={{
@@ -44,7 +44,7 @@ export function ArticleCard({ article }: ArticleCardProps) {
           {article.title}
         </h3>
 
-        {/* Excerpt — 3 lines clamped */}
+        {/* Excerpt, 3 lines clamped */}
         <p
           className="text-small leading-relaxed flex-1"
           style={{

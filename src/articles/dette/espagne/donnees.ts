@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    DETTE PUBLIQUE DE L'ESPAGNE : LES DONNÉES DE L'ARTICLE
 
-   Source de ce fichier : « Dossier de données — dette publique de l'Espagne »
+   Source de ce fichier : « Dossier de données, dette publique de l'Espagne »
    (état de la recherche du 16 octobre 2026). Montants en MILLIARDS D'EUROS
    (l'euro est la monnaie nationale), ratios en %.
 

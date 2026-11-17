@@ -15,7 +15,7 @@ import { getCountryFillColorEconomy, getMaxMetricValue } from "@/lib/economyColo
    hairline borders, a graticule, a halo and two orbital arcs.
 
    Where the politics globe answers "what does the world look like from up
-   there", this one answers "where is the value" — so nothing on it is
+   there", this one answers "where is the value", so nothing on it is
    decorative for its own sake. The greens are the map's greens, so a country
    reads the same whether the reader is looking at the flat map or the sphere.
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -100,12 +100,12 @@ const PICK_H = 1024;
  * read for its greens, and a dark sea drags every one of them down with it.
  */
 /*
- * La palette est modifiable — le prototype sombre réutilise ce globe tel
+ * La palette est modifiable, le prototype sombre réutilise ce globe tel
  * quel et n'a besoin que d'en changer les teintes.
  *
  * Variables de module, comme TEXTURE_W plus haut : elles sont posées une
  * fois, avant toute peinture, par appliquePalette(). Cela suppose un seul
- * globe monté à la fois, ce qui est le cas — une page, un globe. Sans
+ * globe monté à la fois, ce qui est le cas, une page, un globe. Sans
  * palette, tout garde exactement les valeurs d'origine.
  */
 let OCEAN_DEEP = "#7DB4C4";
@@ -114,7 +114,7 @@ let OCEAN_SHELF = "#9DD1DE";
 /** Not a class on the ramp: pale and washed out, so it never reads as one. */
 let LAND_NO_DATA = "#A6C7B7";
 /**
- * Borders have to survive two neighbouring greens a class apart — and the
+ * Borders have to survive two neighbouring greens a class apart, and the
  * texture is minified about two to one on screen, so a line painted at a
  * hairline arrives softer than a hairline. Wide enough to land on a crisp
  * couple of pixels, and no wider: past this an archipelago disappears inside
@@ -130,12 +130,12 @@ const RELIEF_SCALE = 0.028;
 /**
  * Where the land's own surface sits, so a highlight is drawn *on* the country
  * rather than hovering above it. Clearing the full displacement left the
- * outline detached from the ground at the limb — a ring in the air around a
+ * outline detached from the ground at the limb, a ring in the air around a
  * country instead of a border drawn on it.
  */
 const PLATEAU_TOP = RELIEF_SCALE * 0.62 + 0.0012;
 /**
- * NASA Blue Marble and its elevation companion — public-domain scientific
+ * NASA Blue Marble and its elevation companion, public-domain scientific
  * rasters, not decoration. The photograph is not shown for its own sake: its
  * luminosity is folded into the choropleth so a country carries its real
  * deserts, forests, ice and mountains while keeping the colour of its class.
@@ -152,7 +152,7 @@ const SATELLITE_SEA = "#0B3B5C";
  * How much the sea's own surface colours the water.
  *
  * Not bathymetry: the elevation raster shipped with the globe holds the
- * ocean at zero everywhere — it carries land only. Anything the water shows
+ * ocean at zero everywhere, it carries land only. Anything the water shows
  * has to be built, not read.
  */
 const SEA_TINT_AMOUNT = 0.38;
@@ -164,7 +164,7 @@ const SEA_TINT_AMOUNT = 0.38;
 const OCEAN_RELIEF = 0.06;
 /** Strength of the surface the light is shaded from. */
 const BUMP_SCALE = 8;
-/** Sea state — swell stretched along the wind, then a finer chop over it. */
+/** Sea state, swell stretched along the wind, then a finer chop over it. */
 /** Sea state: a long swell running with the wind, then a chop across it. */
 const SWELL_CELLS = 90;
 const SWELL_STRETCH = 4.5;
@@ -214,7 +214,7 @@ function traceFeature(
 }
 
 /**
- * Ocean, graticule, land in the neutral tone and every border — painted once.
+ * Ocean, graticule, land in the neutral tone and every border, painted once.
  * A metric or year change is then a blit plus the countries that carry a
  * value, which is what keeps scrubbing the timeline smooth.
  */
@@ -236,7 +236,7 @@ function buildBaseMap(geojson: GeoJSON.FeatureCollection): HTMLCanvasElement {
   ctx.fillRect(0, 0, TEXTURE_W, TEXTURE_H);
 
   // The water, given a surface. Broad slow variation so the sea is never one
-  // flat field of colour, then the swell itself, faint — the light does most
+  // flat field of colour, then the swell itself, faint, the light does most
   // of the work on the water and the colour only has to stop being uniform.
   grain(ctx, TEXTURE_W, TEXTURE_H, 26, 3.4, SEA_TINT_AMOUNT, "soft-light");
   grain(ctx, TEXTURE_W, TEXTURE_H, SWELL_CELLS, SWELL_STRETCH, SEA_TINT_AMOUNT * 0.6, "soft-light");
@@ -281,7 +281,7 @@ function buildBaseMap(geojson: GeoJSON.FeatureCollection): HTMLCanvasElement {
 
 /**
  * The satellite base: the photography as it is, with the map's own borders and
- * graticule laid over it. No class colour — in this mode the reader is looking
+ * graticule laid over it. No class colour, in this mode the reader is looking
  * at the ground, and the data is carried by the selection and the side panel.
  */
 function buildSatelliteMap(
@@ -397,7 +397,7 @@ function buildReliefMap(
   ctx.fillRect(0, 0, w, h);
 
   // The sea floor first, at a shallow amplitude. It barely displaces the
-  // surface — the ocean has to stay at sea level — but it carries enough
+  // surface, the ocean has to stay at sea level, but it carries enough
   // slope for the light to find the ridges, the trenches and the shelves,
   // which is what makes water read as water rather than as a flat field.
   if (topo) {
@@ -435,7 +435,7 @@ function buildReliefMap(
 /**
  * Soft procedural grain, built by letting the browser upscale a small field of
  * random values. Cheaper than a per-pixel loop over eight million texels, and
- * the bilinear filter does the smoothing for free — which is what turns noise
+ * the bilinear filter does the smoothing for free, which is what turns noise
  * into swell rather than static.
  *
  * `stretch` squashes the source horizontally before it is blown up, so the
@@ -491,7 +491,7 @@ function maskedTo(
 }
 
 /**
- * The surface the light is shaded from — a real relief globe's own material,
+ * The surface the light is shaded from, a real relief globe's own material,
  * before any colour is put on it.
  *
  * The elevation raster goes down whole, so the sea floor keeps its ridges and
@@ -611,7 +611,7 @@ function outlineVerts(feature: GeoJSON.Feature, radius: number): number[] {
 
 /** A stroke of a given screen width, plus a soft one under it. */
 interface OutlineLayer {
-  /** Width in screen pixels — WebGL's own lines are stuck at one. */
+  /** Width in screen pixels, WebGL's own lines are stuck at one. */
   width: number;
   opacity: number;
 }
@@ -709,14 +709,14 @@ interface Props {
   /**
    * Le vide laissé autour de la sphère, en proportion du cadrage serré. 1,18
    * laisse dix-huit pour cent de marge : c'est la valeur d'origine, et celle
-   * qui s'applique quand rien n'est passé — la page économie du site est donc
+   * qui s'applique quand rien n'est passé, la page économie du site est donc
    * rendue exactement comme avant. Une valeur plus basse rapproche la caméra
    * et la sphère occupe davantage son cadre.
    */
   marge?: number;
   /**
-   * Prévenue chaque fois que le cadrage change — zoom, pincement,
-   * redimensionnement — avec le diamètre apparent de la sphère à l'écran, en
+   * Prévenue chaque fois que le cadrage change, zoom, pincement,
+   * redimensionnement, avec le diamètre apparent de la sphère à l'écran, en
    * pixels. Absente, rien n'est mesuré ni appelé : la page économie du site
    * est rendue exactement comme avant. Elle sert à poser une lumière qui
    * épouse le limbe et qui suit le zoom.
@@ -820,7 +820,7 @@ export function EconomyGlobe({
 
       // Over the photography the class colour is a wash, not a fill: light
       // enough that the ground stays readable, strong enough that two
-      // countries can still be told apart — the flat satellite map's bargain.
+      // countries can still be told apart, the flat satellite map's bargain.
       if (satellite) {
         ctx.save();
         ctx.globalAlpha = SATELLITE_TINT;
@@ -932,7 +932,7 @@ export function EconomyGlobe({
     // the light is there to let the elevation map raise the continents and
     // for nothing else. A key light strong enough to model a sphere would lay
     // a terminator across a choropleth and darken the very countries being
-    // compared — and the whole map would read as sitting under a filter.
+    // compared, and the whole map would read as sitting under a filter.
     scene.add(new THREE.AmbientLight(0xffffff, 2.32));
     // Two lights, both weak: one over the reader's shoulder to keep the map
     // even, one grazing from the side so the raised coastlines catch a lit
@@ -951,8 +951,8 @@ export function EconomyGlobe({
 
     // The satellite imagery is folded into the map in the shader rather than
     // painted into the texture: a country keeps the colour of its class and
-    // gains the terrain's own texture — the Sahara reads as sand, Siberia as
-    // taiga, the Alps as ridges — at no cost when the year or the metric
+    // gains the terrain's own texture, the Sahara reads as sand, Siberia as
+    // taiga, the Alps as ridges, at no cost when the year or the metric
     // changes. Soft light because it modulates lightness around what is
     // already there instead of replacing it: the classes stay apart.
     //
@@ -976,7 +976,7 @@ export function EconomyGlobe({
         .replace(
           "#include <map_fragment>",
           // The chunk is expanded here rather than left as an include, because
-          // three resolves includes after this hook runs — a bias written
+          // three resolves includes after this hook runs, a bias written
           // against the include's text would never find it.
           `${SHARPENED_MAP_FRAGMENT}
            if (uTerrainAmount > 0.0) {
@@ -998,7 +998,7 @@ export function EconomyGlobe({
         );
     };
 
-    // Enough segments that a country's outline survives the displacement —
+    // Enough segments that a country's outline survives the displacement,
     // below this the raised edge follows the mesh rather than the coast, and
     // the relief has to be faked in the shading, which is what leaves a globe
     // looking soft rather than modelled.
@@ -1026,7 +1026,7 @@ export function EconomyGlobe({
      * Zooming by moving closer stops working before the zoom ceiling does: at
      * the far end the camera would pass inside the sphere and the globe would
      * simply vanish. Up to here the camera moves in; past it, it stays put and
-     * the field of view narrows instead — which is what a map does anyway.
+     * the field of view narrows instead, which is what a map does anyway.
      */
     const DOLLY_MAX = 2.2;
 
@@ -1063,7 +1063,7 @@ export function EconomyGlobe({
       /* La taille de mise en page, pas la taille à l'écran.
          `getBoundingClientRect` rend la taille APRÈS transformation CSS, et
          `renderer.setSize` écrit une taille de mise en page : sous une scène
-         mise à l'échelle — celle du deck l'est — le canvas se retrouvait plus
+         mise à l'échelle, celle du deck l'est, le canvas se retrouvait plus
          petit que le cadre qui le contient. Le globe était dessiné dans un
          coin de sa boîte, et la visée, calculée sur la boîte, tombait à côté
          de ce qui était affiché.
@@ -1092,7 +1092,7 @@ export function EconomyGlobe({
 
     let cancelled = false;
 
-    /** A raster, or null if it will not come — the globe is drawn either way. */
+    /** A raster, or null if it will not come, the globe is drawn either way. */
     const loadImage = (src: string): Promise<HTMLImageElement | null> =>
       new Promise((resolve) => {
         const img = new Image();
@@ -1232,7 +1232,7 @@ export function EconomyGlobe({
       prevY = e.clientY;
       // The 0.0062 / 0.0034 rates are tuned at BASE_FOV, at rest. Zoomed in,
       // the field narrows and the same pixel span covers a smaller angle on
-      // the sphere — without this scale the globe kept spinning at the
+      // the sphere, without this scale the globe kept spinning at the
       // resting rate and ran away from the cursor under any zoom.
       const echelle = Math.tan((camera.fov * Math.PI) / 360) / Math.tan((BASE_FOV * Math.PI) / 360);
       globe.rotation.y += dx * 0.0062 * echelle;
@@ -1300,7 +1300,7 @@ export function EconomyGlobe({
       clearHover();
       if (!live) return;
 
-      // The country's own separation, redrawn in the accent — the same green
+      // The country's own separation, redrawn in the accent, the same green
       // a click leaves behind, so the hover reads as the beginning of the
       // gesture rather than as a different language. Lifted clear of the
       // raised land, and the fill is never touched: the class colour stands.
@@ -1323,7 +1323,7 @@ export function EconomyGlobe({
 
        Peindre quatre toiles de 8192 sur 4096 au montage tenait le
        navigateur plusieurs secondes : c'était le gel à l'ouverture des
-       pages Économie et Démographie. À 4096 le globe est net au repos —
+       pages Économie et Démographie. À 4096 le globe est net au repos,
        il occupe six cents pixels. Seul le zoom profond a besoin de plus :
        la toile des pays passe donc à 8192 au premier zoom appuyé, une
        fois le geste posé, comme une carte qui s'affine. Le relief et
@@ -1422,7 +1422,7 @@ export function EconomyGlobe({
         if (Math.abs(spin) < 0.00002) spin = 0;
       }
 
-      // The beads run their rings at their own pace — the only motion on the
+      // The beads run their rings at their own pace, the only motion on the
       // page that is not the globe itself.
       orbits.forEach((o, i) => {
         const a = t * (0.34 + i * 0.11) + i * 2.1;
@@ -1477,7 +1477,7 @@ export function EconomyGlobe({
   return (
     <div
       className="relative w-full"
-      // The wheel and the finger belong to the globe here — zoom and rotation,
+      // The wheel and the finger belong to the globe here, zoom and rotation,
       // never the page moving on to the next section.
       data-scroll-region
       style={{ aspectRatio: "16/9", minHeight: 320, height: "100%" }}

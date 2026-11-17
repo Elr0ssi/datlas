@@ -310,7 +310,7 @@ export const POLITICS_ARTICLES: Article[] = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // 3. CHINE & RUSSIE — RÉGIMES AUTORITAIRES
+  // 3. CHINE & RUSSIE, RÉGIMES AUTORITAIRES
   // ─────────────────────────────────────────────────────────────────────────────
   {
     slug: "chine-russie-regimes-autoritaires-21e-siecle",
@@ -438,7 +438,7 @@ export const POLITICS_ARTICLES: Article[] = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
-  // 4. ÉLECTIONS 2024 — ANNÉE RECORD
+  // 4. ÉLECTIONS 2024, ANNÉE RECORD
   // ─────────────────────────────────────────────────────────────────────────────
   {
     slug: "elections-2024-annee-record-democratie",

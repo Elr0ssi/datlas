@@ -23,7 +23,7 @@ const SUGGESTIONS: Suggestion[] = [
 ];
 
 const metadata: Metadata = {
-  title: { absolute: "Dette publique italienne : montant, déficit et détenteurs | Visualize" },
+  title: { absolute: "Dette publique italienne : montant, déficit et détenteurs | Datlas" },
   description: "Dette publique italienne : montant et dette/PIB, déficit, administrations centrales et locales, intérêts, créanciers, BTP et refinancement du Trésor. Sources officielles.",
   keywords: ['dette Italie', 'dette publique italienne', 'dette PIB Italie', 'BTP', 'Banca d’Italia dette', 'dette Maastricht Italie', 'obligations italiennes', 'recettes publiques Italie', 'dépenses publiques Italie', 'impôts Italie montant par impôt', 'déficit public Italie'],
   alternates: { canonical: URL },
@@ -33,7 +33,7 @@ const metadata: Metadata = {
     description: "Analyse sourcée de la dette de l'Italie : Maastricht, déficit, créanciers, intérêts et refinancement des BTP.",
     publishedTime: PUBLIE, modifiedTime: MODIFIE,
   },
-  twitter: { card: 'summary_large_image', title: 'Dette publique italienne | Visualize', description: "Montant, dette/PIB, déficit, créanciers, intérêts et refinancement." },
+  twitter: { card: 'summary_large_image', title: 'Dette publique italienne | Datlas', description: "Montant, dette/PIB, déficit, créanciers, intérêts et refinancement." },
 };
 
 const FIGURES: [string, string, string, string][] = [
@@ -70,8 +70,8 @@ function donneesStructurees(): object[] {
       headline: `Dette publique italienne : ${fmt(DETTE.valeur, 3)} milliards d'euros à la fin d'août 2026`,
       description: metadata.description, inLanguage: 'fr-FR',
       datePublished: PUBLIE, dateModified: MODIFIE,
-      author: { '@type': 'Organization', name: 'Visualize' },
-      publisher: { '@type': 'Organization', name: 'Visualize', url: SITE_URL },
+      author: { '@type': 'Organization', name: 'Datlas' },
+      publisher: { '@type': 'Organization', name: 'Datlas', url: SITE_URL },
       mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE },
       about: { '@type': 'Thing', name: "Dette publique de l'Italie" },
       citation: Object.entries(SOURCES).map(([nom, url]) => ({ '@type': 'CreativeWork', name: nom, url })),

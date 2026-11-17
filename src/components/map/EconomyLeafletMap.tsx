@@ -38,7 +38,7 @@ export type LeafletTileStyle = keyof typeof TILES;
 
 /**
  * The whole world and no further. Cut at ±85° because Mercator sends the poles
- * to infinity — past that there is no map to show, only the blank the reader
+ * to infinity, past that there is no map to show, only the blank the reader
  * was falling into.
  */
 const WORLD: LatLngBoundsExpression = [
@@ -51,7 +51,7 @@ const WORLD: LatLngBoundsExpression = [
  *
  * Russia's arctic rings, Fiji and Antarctica each step straight from +179° to
  * -180°. Drawn literally, the fill joins the far right of the map to the far
- * left and lays a band of country colour across the whole width — the green
+ * left and lays a band of country colour across the whole width, the green
  * bars at the top of the map, sitting at exactly Russia's arctic latitudes.
  * Carrying an offset along the ring keeps it continuous; the part that ends up
  * past ±180° falls outside the world bounds and is simply not shown.
@@ -82,7 +82,7 @@ function unwrapAntimeridian(data: FeatureCollection): FeatureCollection {
 /**
  * Keeps the map full of map.
  *
- * Two faults have the same cause — a viewport free to leave the world. Below a
+ * Two faults have the same cause, a viewport free to leave the world. Below a
  * certain zoom the projection is narrower than the box, which is where the
  * bands above and below the map came from; and with no bounds the reader could
  * drag the world off the side entirely. The floor is recomputed on resize

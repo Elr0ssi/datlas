@@ -22,7 +22,7 @@ const ACCENT_INK = "#0D7A40";
 /* ═══════════════════════════════════════════════════════════════════════════
    The article itself. Reads top to bottom as: condensed opening beside its
    figures, five ideas, the series and how to read it, then the development in
-   numbered parts — and it closes on where every figure came from.
+   numbered parts, and it closes on where every figure came from.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 export function TestArticleBody() {

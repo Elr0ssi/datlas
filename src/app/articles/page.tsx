@@ -9,18 +9,18 @@ import "@/components/concept/concept.css";
 import "@/components/seo/seo.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Tous les articles : dette publique, économie, démographie | Visualize" },
+  title: { absolute: "Tous les articles : dette publique, économie, démographie | Datlas" },
   description:
-    "Tous les articles de Visualize, rangés par thématique, par pays et par type : dossiers de dette publique, analyses comparatives, lectures sur l'économie, les épidémies et l'histoire.",
+    "Tous les articles de Datlas, rangés par thématique, par pays et par type : dossiers de dette publique, analyses comparatives, lectures sur l'économie, les épidémies et l'histoire.",
   alternates: { canonical: "/articles" },
-  openGraph: { type: "website", url: urlAbs("/articles"), title: "Tous les articles de Visualize", description: "Dette publique, économie, démographie : tous les articles, par thématique et par pays." },
+  openGraph: { type: "website", url: urlAbs("/articles"), title: "Tous les articles de Datlas", description: "Dette publique, économie, démographie : tous les articles, par thématique et par pays." },
 };
 
 export default function Page() {
   const articles = tousLesArticles();
   const liste = {
     "@type": "CollectionPage",
-    name: "Tous les articles de Visualize",
+    name: "Tous les articles de Datlas",
     url: urlAbs("/articles"),
     inLanguage: "fr",
     mainEntity: {

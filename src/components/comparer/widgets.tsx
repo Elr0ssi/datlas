@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 /* ═══════════════════════════════════════════════════════════════════════════
    LES WIDGETS DU TABLEAU DE BORD
 
-   Chacun reçoit la même chose — les pays choisis, leurs quatre séries, et
-   l'année pointée — et en tire une lecture différente. Aucun ne calcule de
+   Chacun reçoit la même chose, les pays choisis, leurs quatre séries, et
+   l'année pointée, et en tire une lecture différente. Aucun ne calcule de
    valeur qui ne soit pas dans la source : un trou reste un trou.
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -39,7 +39,7 @@ export interface Jeu {
 }
 
 export function fmt(v: number | null, champ: Champ): string {
-  if (v === null || v === undefined) return "—";
+  if (v === null || v === undefined) return "–";
   if (champ === "inflation") return `${v.toFixed(1).replace(".", ",")} %`;
   if (champ === "gdp_per_capita") return `${Math.round(v).toLocaleString("fr-FR")} €`;
   const a = Math.abs(v);
@@ -397,7 +397,7 @@ export function WEcarts({ j, champ }: { j: Jeu; champ: Champ }) {
           <span>{r.label}</span>
           <strong>
             {r.v === null || r.v === 0
-              ? "—"
+              ? "–"
               : champ === "inflation"
                 ? `${(r.v - (tete.v as number)).toFixed(1).replace(".", ",")} pt`
                 : `× ${((tete.v as number) / r.v).toFixed(1).replace(".", ",")}`}

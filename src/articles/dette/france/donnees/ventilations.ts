@@ -3,7 +3,7 @@ import type { Bareme, Detail, Part } from "../../cadre/ventilation";
 /* ═══════════════════════════════════════════════════════════════════════════
    FRANCE : CE QUI S'OUVRE SOUS CHAQUE LIGNE DES RECETTES, DES DÉPENSES ET DU DÉFICIT
 
-   Source de ce fichier : « Dossier de fond vérifié — France et Allemagne »
+   Source de ce fichier : « Dossier de fond vérifié, France et Allemagne »
    (état de la recherche du 16 octobre 2026). Montants en milliards d'euros.
 
    Trois rappels qui évitent les erreurs :

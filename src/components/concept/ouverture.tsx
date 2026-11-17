@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 /* ═══════════════════════════════════════════════════════════════════════════
    L'OUVERTURE DES PAGES DE SUJET
 
-   Ce que partagent Économie, Démographie, Forum — et les pages de sujet à
+   Ce que partagent Économie, Démographie, Forum, et les pages de sujet à
    venir : le titre qui se lève mot par mot, la progression de l'ouverture
    au défilement, l'apparition d'une bande, et le signal « prêt » qui lance
    les tuiles. Un module à part, pour qu'une page n'embarque pas le code et
@@ -36,10 +36,10 @@ export function usePret() {
 /** Vrai une fois le fil principal vraiment libre, pas seulement une image
     plus tard.
 
-    Le globe construit sa sphère — près de trois cent mille sommets — de
+    Le globe construit sa sphère, près de trois cent mille sommets, de
     façon synchrone, et ce calcul bloque le fil principal une bonne
-    fraction de seconde. Le monter au même instant que `usePret` — deux
-    images, environ trente millisecondes — le faisait démarrer pile pendant
+    fraction de seconde. Le monter au même instant que `usePret`, deux
+    images, environ trente millisecondes, le faisait démarrer pile pendant
     que le titre se levait lettre par lettre et que les tuiles se posaient :
     les deux se disputaient le même fil, et aucune des deux animations
     n'avait la place de tourner. Ici, on attend que le navigateur se
@@ -47,7 +47,7 @@ export function usePret() {
     indéfiniment sur un appareil qui ne l'est jamais. */
 export function usePretGlobe(cible?: React.RefObject<HTMLElement | null>) {
   /* Deux portes, la première qui s'ouvre suffit : l'entrée du héros est
-     finie — le titre levé, les premières tuiles posées — ou le globe arrive
+     finie, le titre levé, les premières tuiles posées, ou le globe arrive
      à l'écran parce qu'on a défilé jusqu'à lui. Avant, il ne se passe rien :
      l'ouverture garde le fil principal pour elle seule. */
   const [porte, setPorte] = useState(false);
@@ -153,7 +153,7 @@ export function useProgression() {
       const r = n.getBoundingClientRect();
       /* La course : la hauteur de l'ouverture. Une course plus courte
          faisait disparaître les tuiles alors que l'ouverture tenait encore
-         l'écran — le mouvement prenait de l'avance sur la lecture. */
+         l'écran, le mouvement prenait de l'avance sur la lecture. */
       const course = Math.max(1, r.height);
       const p = Math.min(1, Math.max(0, -r.top / course));
       n.style.setProperty("--p", p.toFixed(3));
@@ -175,8 +175,8 @@ export function useProgression() {
    lettre porte son rang : c'est le CSS qui décale les départs, rien ne
    tourne en JavaScript.
 
-   Le titre des pages de sujet tient en un seul mot — « Économie »,
-   « Démographie », « Forum » — un décalage par mot ne levait donc rien
+   Le titre des pages de sujet tient en un seul mot, « Économie »,
+   « Démographie », « Forum », un décalage par mot ne levait donc rien
    qu'un seul bloc, d'un coup. Décalé lettre par lettre, il se déroule
    vraiment. */
 export function Titre({ texte }: { texte: string }) {
@@ -195,7 +195,7 @@ export function Titre({ texte }: { texte: string }) {
 
 /** Le socle complet, chargé après l'affichage.
 
-    La page arrive avec la seule dernière année publiée — de quoi dessiner le
+    La page arrive avec la seule dernière année publiée, de quoi dessiner le
     globe, la fiche et le classement du moment. Les autres années, qui ne
     servent qu'à la frise et à la courbe, suivent par une requête à part : un
     fichier statique, compressé et mis en cache, plutôt qu'un mégaoctet
@@ -203,8 +203,8 @@ export function Titre({ texte }: { texte: string }) {
 
     La requête part au repos du navigateur, pas au montage : posée tout de
     suite, elle arrivait pendant que la page finissait de s'installer, et le
-    calcul qui range soixante-sept années de plus — le tri du classement, la
-    palette du globe — retombait sur la même image que l'hydratation. Sur un
+    calcul qui range soixante-sept années de plus, le tri du classement, la
+    palette du globe, retombait sur la même image que l'hydratation. Sur un
     appareil modeste, les deux ensemble se voyaient comme un blocage. */
 export function useSocleComplet<T>(leger: T, url: string): T {
   const [socle, setSocle] = useState(leger);

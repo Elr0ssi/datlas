@@ -3,7 +3,7 @@
 
    Une direction néo-média : des cartes très arrondies, un violet électrique,
    des aplats doux, de gros chiffres et des pastilles qui flottent. Les
-   jetons (`--dos-*`) suivent le thème du site — nuit par défaut, jour quand
+   jetons (`--dos-*`) suivent le thème du site, nuit par défaut, jour quand
    `data-concept="clair"` est posé sur la racine.
 
    Utilisé par toutes les briques de `src/articles/dette/cadre/`. Les figures

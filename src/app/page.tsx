@@ -19,7 +19,7 @@ import { compteurDemo } from "@/data/concept/conceptDemographie";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
 
 export const metadata: Metadata = {
-  title: { absolute: "Visualize · L'économie et la démographie du monde, en données" },
+  title: { absolute: "Datlas · L'économie et la démographie du monde, en données" },
   description:
     "PIB, dette, chômage, population, natalité et mortalité de plus de 200 pays, de 1960 à aujourd'hui, sur un globe interactif et en temps réel. Sources : Banque mondiale, FMI, Nations Unies.",
   keywords: [
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Visualize · L'économie et la démographie du monde, en données",
+    title: "Datlas · L'économie et la démographie du monde, en données",
     description: "Plus de 200 pays, de 1960 à aujourd'hui, sur un globe interactif et en temps réel.",
   },
   robots: { index: true, follow: true },

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ═══════════════════════════════════════════════════════════════════════════
-   SOCLE ÉCONOMIE — la base devient ce que la page affiche
+   SOCLE ÉCONOMIE, la base devient ce que la page affiche
 
    La page /map/economy lisait des chiffres saisis à la main. Elle lit
    désormais la base : ce script fabrique, à partir de data/countries/, le
@@ -12,7 +12,7 @@
    TOUTES LES ANNÉES, PAS UN ÉCHANTILLON
      La base couvre 1960 à 2025. Le socle les porte toutes : 1974 doit valoir
      1974 et non l'année repère la plus proche. C'est la raison d'être du
-     fichier — une frise qui ramène cinq années à une seule ne montre pas des
+     fichier, une frise qui ramène cinq années à une seule ne montre pas des
      données, elle montre un palier.
 
    POURQUOI UN FICHIER INTERMÉDIAIRE
@@ -24,7 +24,7 @@
    LA FORME DU FICHIER
      Chaque pays porte quatre séries alignées sur `annees`, dans l'ordre de
      `colonnes` : PIB, PIB par habitant, balance extérieure, inflation. Une
-     case vaut null quand la source ne publie rien — et null veut dire absent,
+     case vaut null quand la source ne publie rien, et null veut dire absent,
      jamais zéro. Ranger par série plutôt que par année épargne les treize
      mille clés d'années que le navigateur téléchargerait pour rien.
 

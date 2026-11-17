@@ -13,7 +13,7 @@ import { jsonLdString } from "@/lib/schema";
 import { allegerSocle } from "@/data/concept/socleLeger";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   /economie — LA PAGE PRINCIPALE DU SUJET ÉCONOMIQUE
+   /economie, LA PAGE PRINCIPALE DU SUJET ÉCONOMIQUE
 
    Elle vivait sous /concept-globe/economie, en `noindex`, comme un prototype.
    Ce n'en est pas un : c'est la page de tête du sujet, celle vers laquelle
@@ -30,7 +30,7 @@ const chemin = "/economie";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Économie mondiale : PIB, dette publique, chômage et inflation par pays | Visualize",
+      "Économie mondiale : PIB, dette publique, chômage et inflation par pays | Datlas",
   },
   description:
     "207 pays, 66 années, dix indicateurs économiques comparés sur un globe interactif : PIB, PIB par habitant, balance commerciale, dette publique, inflation, chômage, population active, entreprises. Sources Banque mondiale et FMI.",
@@ -91,7 +91,7 @@ export default function Page() {
       "Âge de départ à la retraite",
       "Nombre d'entreprises",
     ],
-    creator: { "@type": "Organization", name: "Visualize", url: siteUrl },
+    creator: { "@type": "Organization", name: "Datlas", url: siteUrl },
     isBasedOn: [
       { "@type": "Dataset", name: "Banque mondiale · World Development Indicators", url: "https://databank.worldbank.org/source/world-development-indicators" },
       { "@type": "Dataset", name: "Fonds monétaire international · World Economic Outlook", url: "https://www.imf.org/en/Publications/WEO" },

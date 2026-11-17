@@ -8,7 +8,7 @@ import "@/components/concept/concept.css";
 import "@/components/compte/connexion.css";
 
 export const metadata: Metadata = {
-  title: "Se connecter · Visualize",
+  title: "Se connecter · Datlas",
   description: "Créez un compte pour écrire dans le forum et répondre aux articles.",
   alternates: { canonical: "/compte/connexion" },
   /* Une page de formulaire n'a rien à faire dans un index. */
@@ -31,7 +31,7 @@ export default async function ConnexionPage({
         <aside className="cx-visuel" aria-hidden="true">
           <span className="cx-lueur" />
           <span className="cx-sph"><i /><b /></span>
-          <p className="cx-marque">Visualize</p>
+          <p className="cx-marque">Datlas</p>
           <h2 className="cx-accroche">
             Les chiffres du monde,
             <br />

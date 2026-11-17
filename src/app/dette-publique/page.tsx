@@ -13,7 +13,7 @@ import "@/components/seo/seo.css";
 import "@/components/dettes/dette-dossier.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Dette publique dans le monde : classement des pays par % du PIB | Visualize" },
+  title: { absolute: "Dette publique dans le monde : classement des pays par % du PIB | Datlas" },
   description:
     "Quels pays sont les plus endettés ? Classement de la dette publique de près de 90 pays : montant, poids dans le PIB et évolution depuis 2000, avec une page dédiée à chacun.",
   alternates: { canonical: "/dette-publique" },
@@ -39,7 +39,7 @@ const FAQ: QR[] = [
   },
   {
     q: "D'où viennent ces données ?",
-    r: "Elles viennent de la base de dette de Visualize (dette en 2000, 2014 et 2024, en milliards d'euros). Chaque dossier de pays précise les périodes couvertes. Les montants peuvent être affichés en euros, en dollars ou en renminbis, au taux moyen de chaque année.",
+    r: "Elles viennent de la base de dette de Datlas (dette en 2000, 2014 et 2024, en milliards d'euros). Chaque dossier de pays précise les périodes couvertes. Les montants peuvent être affichés en euros, en dollars ou en renminbis, au taux moyen de chaque année.",
   },
   {
     q: "La dette publique de la France est-elle à part ?",
@@ -64,8 +64,8 @@ export default function Page() {
             description: metadata.description,
             url,
             inLanguage: "fr",
-            author: { "@type": "Organization", name: "Visualize" },
-            publisher: { "@type": "Organization", name: "Visualize", url: SITE_URL },
+            author: { "@type": "Organization", name: "Datlas" },
+            publisher: { "@type": "Organization", name: "Datlas", url: SITE_URL },
             datePublished: "2026-10-12",
             dateModified: "2026-10-12",
           },
@@ -103,7 +103,7 @@ export default function Page() {
         <Faq titre="Comprendre la dette publique" questions={FAQ} />
 
         <p className="sg-note">
-          Sources : base de dette de Visualize (2000, 2014, 2024, en milliards d’euros). <Link href="/methodologie-donnees">Notre méthode</Link> · <Link href="/pays">Tous les pays</Link>
+          Sources : base de dette de Datlas (2000, 2014, 2024, en milliards d’euros). <Link href="/methodologie-donnees">Notre méthode</Link> · <Link href="/pays">Tous les pays</Link>
         </p>
       </main>
       <Pied />

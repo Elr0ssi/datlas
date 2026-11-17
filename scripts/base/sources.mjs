@@ -4,13 +4,13 @@
    Une partie de la base vit encore dans des fichiers TypeScript écrits à la
    main. Ce module les lit sans les modifier : il isole le littéral déclaré
    après `export const X =` et l'évalue tel quel. Les séparateurs de milliers
-   (1_000) et les clés non guillemetées sont du JavaScript valide — il n'y a
+   (1_000) et les clés non guillemetées sont du JavaScript valide, il n'y a
    donc rien à réécrire, et aucune valeur ne passe par une conversion.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 import fs from "node:fs";
 
-/** Le littéral qui suit `export const <nom>` — accolades et crochets appariés. */
+/** Le littéral qui suit `export const <nom>`, accolades et crochets appariés. */
 export function litteral(fichier, nom) {
   const src = fs.readFileSync(fichier, "utf8");
   const m = new RegExp(`(?:export )?const ${nom}\\b[^=]*=\\s*`).exec(src);

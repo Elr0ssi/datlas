@@ -748,7 +748,7 @@ export const MILITARY_ARTICLES: Article[] = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────
-  // 6. Armes nucléaires — les 9 puissances
+  // 6. Armes nucléaires, les 9 puissances
   // ─────────────────────────────────────────────────────────────────────────
   {
     slug: "nucleaire-puissances",

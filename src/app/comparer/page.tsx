@@ -4,7 +4,7 @@ import { BlocComparer } from "@/components/seo/BlocComparer";
 import SOCLE from "@/data/economy/genere/socle-economie.json";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   /comparer — LA PAGE DE COMPARAISON
+   /comparer, LA PAGE DE COMPARAISON
 
    Jusqu'à quatre pays, soixante-six ans de données : un face-à-face chiffré, une
    courbe commune, un profil. Tout se lit dans la base du site et se partage
@@ -14,7 +14,7 @@ import SOCLE from "@/data/economy/genere/socle-economie.json";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
 
 export const metadata: Metadata = {
-  title: { absolute: "Comparer des pays : PIB, population, dette, inflation | Visualize" },
+  title: { absolute: "Comparer des pays : PIB, population, dette, inflation | Datlas" },
   description:
     "Comparez jusqu'à quatre pays sur le PIB, la population, la dette, l'inflation ou le chômage, de 1960 à aujourd'hui : face-à-face, évolution et profil.",
   alternates: { canonical: "/comparer" },

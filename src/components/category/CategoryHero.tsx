@@ -19,11 +19,11 @@ const InteractiveGlobeIcons = dynamic(() => import("@/components/globe/Interacti
   loading: () => null,
 });
 
-/** Stable empty reference — keeps the globe from rebuilding its scene. */
+/** Stable empty reference, keeps the globe from rebuilding its scene. */
 const NO_GLOBE_MARKERS: never[] = [];
 
 interface CategoryHeroProps {
-  /** Theme slug — resolves its configuration from `src/data/categoryHeroes.ts`. */
+  /** Theme slug, resolves its configuration from `src/data/categoryHeroes.ts`. */
   themeId: string;
 }
 
@@ -33,7 +33,7 @@ interface CategoryHeroProps {
  *
  * Everything category-specific (colour, icons, figures, copy) lives in the
  * configuration, so a new section only needs a new entry there. On scroll the
- * whole scene clears out — globe sinking, flows dimming, panel leaving — and
+ * whole scene clears out, globe sinking, flows dimming, panel leaving, and
  * hands the viewport over to the interactive map that follows it in the page.
  */
 export function CategoryHero({ themeId }: CategoryHeroProps) {
@@ -45,8 +45,8 @@ export function CategoryHero({ themeId }: CategoryHeroProps) {
   const [globeActive, setGlobeActive] = useState(true);
 
   // Progress runs from the hero sitting on the fold to the hero having fully
-  // scrolled past it. The scene is a single viewport that leaves with the page —
-  // no sticky pin — so the map underneath rises into view from the first
+  // scrolled past it. The scene is a single viewport that leaves with the page,
+  // no sticky pin, so the map underneath rises into view from the first
   // scrolled pixel instead of waiting behind a padded track.
   const { scrollYProgress: p } = useScroll({
     target: trackRef,
@@ -54,7 +54,7 @@ export function CategoryHero({ themeId }: CategoryHeroProps) {
   });
 
   // Scene exit. Each layer dissolves over the stretch of scroll during which
-  // it is itself leaving the top of the viewport — never earlier — so the
+  // it is itself leaving the top of the viewport, never earlier, so the
   // scene is always complete above the map and no emptied band is left behind.
   // Opacity only, apart from the title, which is on its way out anyway.
   //
@@ -66,7 +66,7 @@ export function CategoryHero({ themeId }: CategoryHeroProps) {
   // The globe and its sheaf leave as one body: a single wrapper lifts them
   // faster than the page scrolls, so the scene rises out of the top rather
   // than being scrolled past. The strands stay locked to the sphere because
-  // they move with it — nothing is re-measured.
+  // they move with it, nothing is re-measured.
   const sceneY = useTransform(p, [0, 1], still(0, -260), { clamp: true });
   // At the same time the sheaf closes in around the globe, scaled about the
   // sphere's own centre, so the strands finish wrapped around it.
@@ -78,7 +78,7 @@ export function CategoryHero({ themeId }: CategoryHeroProps) {
   const globeOpacityMv = useTransform(p, [0.5, 0.92], fade, { clamp: true });
   const statsOpacityMv = useTransform(p, [0.5, 0.78], fade, { clamp: true });
 
-  // Opacity is mirrored through React state — see useMotionNumber.
+  // Opacity is mirrored through React state, see useMotionNumber.
   const titleOpacity = useMotionNumber(titleOpacityMv);
   const curvesOpacity = useMotionNumber(curvesOpacityMv);
   const globeOpacity = useMotionNumber(globeOpacityMv);
@@ -97,7 +97,7 @@ export function CategoryHero({ themeId }: CategoryHeroProps) {
   return (
     <div ref={trackRef} className="cat-hero-track">
       <div className="cat-hero-stage">
-        {/* Globe and sheaf ride together — one wrapper, one lift. */}
+        {/* Globe and sheaf ride together, one wrapper, one lift. */}
         <motion.div className="cat-hero-scene" style={{ y: sceneY }}>
           {/* Secondary strands, running higher and much fainter */}
           <motion.div
@@ -107,7 +107,7 @@ export function CategoryHero({ themeId }: CategoryHeroProps) {
             <DataFlowCurves accent={accent} layer="front" globeRef={globeRef} />
           </motion.div>
 
-          {/* Globe — oversized on purpose, its lower half runs past the fold */}
+          {/* Globe, oversized on purpose, its lower half runs past the fold */}
           <div ref={globeRef} className="cat-hero-globe-anchor" style={{ zIndex: 2 }}>
             <motion.div className="cat-hero-globe" style={{ opacity: globeOpacity }}>
               {/* Badges ride the flow strands above, not the sphere: with the

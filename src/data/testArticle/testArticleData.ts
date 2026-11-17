@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   TEST ARTICLE — « Les dépenses publiques françaises »
+   TEST ARTICLE, « Les dépenses publiques françaises »
 
    A format laboratory, not a published piece. Everything the reader sees on
    /test-article is written here so the layout can be judged on its structure
    rather than on its prose.
 
-   RULE OF THE FILE — no figure is invented. Two kinds of number appear:
+   RULE OF THE FILE, no figure is invented. Two kinds of number appear:
 
      · one the site already carries and sources (the French debt series lives
        in `@/data/economy/economy` and is drawn straight from it);
@@ -143,7 +143,7 @@ export const TEST_ARTICLE = {
   /* ── Décomposition par poste ──────────────────────────────────────────
      La charpente d'abord, le contenu ensuite. Chaque poste porte sa part, son
      montant et deux exemples concrets : ce que la ligne finance, et ce qu'elle
-     ne finance pas — la confusion la plus commune du débat. Les valeurs sont
+     ne finance pas, la confusion la plus commune du débat. Les valeurs sont
      des emplacements tant que la source primaire n'est pas branchée : la
      ventilation COFOG d'Eurostat et les comptes de l'INSEE la portent, et
      c'est de là qu'elles viendront. */

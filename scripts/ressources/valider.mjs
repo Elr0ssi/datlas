@@ -81,7 +81,7 @@ for (const f of fichiers) {
       ok(ecart === 0, `total monde (${ind}) = somme des pays et entités historiques, hors agrégat « ${agregats.map((a) => a.nom).join(", ")} »`);
     }
 
-    /* 5. Agrégat Chine : 156 + 158 reste proche de 159 (le reste : Hong Kong, Macao) — informatif. */
+    /* 5. Agrégat Chine : 156 + 158 reste proche de 159 (le reste : Hong Kong, Macao), informatif. */
     if (J.series["159"] && J.series["156"] && J.series["158"]) {
       let maxEcart = 0, ye = 0, paires = 0;
       for (let i = 0; i <= aMax - aMin; i++) {

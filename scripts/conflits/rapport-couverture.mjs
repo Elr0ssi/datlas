@@ -63,7 +63,7 @@ Généré par \`npm run conflits:couverture\` à partir de l'enrichissement du 3
 | Risque éditorial élevé (≤ 1 section sur 7 complète) | ${n((r) => r.risque === "élevé")} / 68 |
 
 Sections comptées : résumé, causes (toutes documentées), acteurs (tous avec un rôle), chronologie (≥ 5), chiffres (≥ 3), conséquences, cartographie (≥ 5 points).
-Sources génériques (tableau de bord) dans l'enrichissement : ${Object.values(enrichi.sources).filter((s) => s.generique).length} — à remplacer par des URL précises.
+Sources génériques (tableau de bord) dans l'enrichissement : ${Object.values(enrichi.sources).filter((s) => s.generique).length}, à remplacer par des URL précises.
 
 | Fiche | Nom | Résumé | Causes | Acteurs | Chrono | Chiffres | Points | Sources précises | Complètes | Statut | Risque |
 |---|---|---|---|---|---|---|---|---|---|---|---|

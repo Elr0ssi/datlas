@@ -22,7 +22,7 @@ const SUGGESTIONS: Suggestion[] = [
 ];
 
 const metadata: Metadata = {
-  title: { absolute: "Dette publique espagnole : montant, déficit et détenteurs | Visualize" },
+  title: { absolute: "Dette publique espagnole : montant, déficit et détenteurs | Datlas" },
   description: "Dette publique espagnole : montant et dette/PIB, déficit, État et communautés autonomes, intérêts, créanciers, BCE, refinancement du Tesoro et notations. Sources officielles.",
   keywords: ['dette Espagne', 'dette publique espagnole', 'dette PIB Espagne', 'dette communautés autonomes', 'Tesoro Público', 'notation Espagne', 'obligations espagnoles', 'recettes publiques Espagne', 'dépenses publiques Espagne', 'impôts Espagne montant par impôt', 'déficit public Espagne'],
   alternates: { canonical: URL },
@@ -32,7 +32,7 @@ const metadata: Metadata = {
     description: "Analyse sourcée de la dette de l'Espagne : Maastricht, déficit, créanciers, intérêts, notations et refinancement.",
     publishedTime: PUBLIE, modifiedTime: MODIFIE,
   },
-  twitter: { card: 'summary_large_image', title: 'Dette publique espagnole | Visualize', description: "Montant, dette/PIB, déficit, créanciers, intérêts et refinancement." },
+  twitter: { card: 'summary_large_image', title: 'Dette publique espagnole | Datlas', description: "Montant, dette/PIB, déficit, créanciers, intérêts et refinancement." },
 };
 
 const FIGURES: [string, string, string, string][] = [
@@ -66,8 +66,8 @@ function donneesStructurees(): object[] {
       headline: `Dette publique espagnole : ${fmt(DETTE.valeur, 3)} milliards d'euros à la fin du deuxième trimestre 2026`,
       description: metadata.description, inLanguage: 'fr-FR',
       datePublished: PUBLIE, dateModified: MODIFIE,
-      author: { '@type': 'Organization', name: 'Visualize' },
-      publisher: { '@type': 'Organization', name: 'Visualize', url: SITE_URL },
+      author: { '@type': 'Organization', name: 'Datlas' },
+      publisher: { '@type': 'Organization', name: 'Datlas', url: SITE_URL },
       mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE },
       about: { '@type': 'Thing', name: "Dette publique de l'Espagne" },
       citation: Object.entries(SOURCES).map(([nom, url]) => ({ '@type': 'CreativeWork', name: nom, url })),

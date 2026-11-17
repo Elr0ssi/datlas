@@ -120,7 +120,7 @@ export const CATEGORIES: Category[] = [
       { target: 3.2, decimals: 1, suffix: " Md m³", label: "Eau douce / hab. / an", delta: "Renouvelable" },
       { target: 34, decimals: 0, suffix: "%", label: "Terres agricoles", delta: "Du territoire mondial" },
     ],
-    // No resources dataset exists yet in the project — tooltip is honest about that.
+    // No resources dataset exists yet in the project, tooltip is honest about that.
     getCountryCallout: (name) => noData(name, "Réserves de pétrole", "BP"),
   },
   {
@@ -233,7 +233,7 @@ export function DataStoryScene() {
       ))}
 
       {/* The last category is one end of the locked pair with the articles
-          section below — see the run mounted in ArticlesShowcase. Its own
+          section below, see the run mounted in ArticlesShowcase. Its own
           anchor, with no height: a stop taller than the viewport is read by
           scrolling rather than jumped to, which is the opposite of the point
           here. */}
@@ -268,7 +268,7 @@ export function DataStoryScene() {
             padding: "clamp(20px, 4vh, 40px) clamp(20px, 4vw, 64px)",
           }}
         >
-          {/* Progress indicator — hidden on mobile via .p2-progress (no room beside the stacked layout) */}
+          {/* Progress indicator, hidden on mobile via .p2-progress (no room beside the stacked layout) */}
           <div
             className="p2-progress"
             style={{
@@ -311,7 +311,7 @@ export function DataStoryScene() {
           </div>
 
           <div className="p2-story-grid" style={{ display: "grid", gridTemplateColumns: "1.05fr 1fr", gap: "clamp(20px, 3vw, 44px)" }}>
-            {/* Map — the reveal wrapper is outside AnimatePresence so the
+            {/* Map, the reveal wrapper is outside AnimatePresence so the
                 per-category crossfade and the entrance never fight over the
                 same element. */}
             <div style={{ gridColumn: 1, gridRow: 1, display: "grid" }}>
@@ -346,7 +346,7 @@ export function DataStoryScene() {
             </AnimatePresence>
             </div>
 
-            {/* Editorial text — position:relative cell + absolute-filled motion.div so the
+            {/* Editorial text, position:relative cell + absolute-filled motion.div so the
                 exiting and entering text overlap instead of sitting side by side.
                 No explicit gridColumn here: it auto-places into column 2 on the desktop
                 2-column grid (since column 1 is taken by the map), and wraps into its own
@@ -415,7 +415,7 @@ export function DataStoryScene() {
             </div>
           </div>
 
-          {/* KPI row — re-keyed per category so counters restart on entry */}
+          {/* KPI row, re-keyed per category so counters restart on entry */}
           <div
             style={{
               marginTop: "clamp(18px, 3vh, 30px)",

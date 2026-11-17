@@ -83,7 +83,7 @@ export const ECONOMY_METRICS: EconomyMetric[] = [
 /* Les blocs ci-dessous sont ce qui reste de la saisie manuelle : dette,
    chômage, nombre d'entreprises et principales sociétés, sur sept années. Le
    PIB, le PIB par habitant, la balance extérieure et l'inflation qu'ils
-   portaient encore sont ignorés — la base les fournit, sur soixante-six
+   portaient encore sont ignorés, la base les fournit, sur soixante-six
    années. Ces blocs disparaîtront quand les CSV correspondants seront
    importés à leur tour. */
 const SAISIE_MANUELLE: EconomyYear[] = [
@@ -871,7 +871,7 @@ const SAISIE_MANUELLE: EconomyYear[] = [
   // ── 2025 ─────────────────────────────────────────────────────────────────────
   // IMF World Economic Outlook April 2025 projections + World Bank estimates.
   // GDP = nominal in billion USD. Unemployment = ILO methodology. Debt = % GDP.
-  // This is the "current year" block — enables the YTD prorata feature.
+  // This is the "current year" block, enables the YTD prorata feature.
   {
     year: 2025,
     label: "2025",
@@ -1009,7 +1009,7 @@ const SAISIE_MANUELLE: EconomyYear[] = [
 /* ══ Raccordement à la base ═════════════════════════════════════════════════
    ECONOMY_YEARS n'est plus une table écrite à la main : elle est construite
    ici, année par année, à partir du socle. Les quatre indicateurs que la base
-   couvre — PIB, PIB par habitant, balance extérieure, inflation — viennent
+   couvre, PIB, PIB par habitant, balance extérieure, inflation, viennent
    d'elle et de nulle part ailleurs, sur les soixante-six années publiées.
 
    Ce que cela règle : la frise proposait toutes les années mais ne disposait
@@ -1018,7 +1018,7 @@ const SAISIE_MANUELLE: EconomyYear[] = [
 
    Ce que cela laisse en suspens : la dette, le chômage et le nombre
    d'entreprises restent saisis à la main sur sept années. Sur les autres, ils
-   sont absents — et un pays sans valeur sort en gris plutôt que d'hériter du
+   sont absents, et un pays sans valeur sort en gris plutôt que d'hériter du
    chiffre d'une année voisine, qui ne serait pas le sien. */
 
 type SocleFiche = { iso3: string; iso2: string; series: (number | null)[][] };
@@ -1057,8 +1057,8 @@ for (const yr of SAISIE_MANUELLE) {
 }
 
 const NOTE_SOURCES =
-  "Sources : Banque mondiale (WDI) — PIB, PIB/hab., balance extérieure ; " +
-  "FMI (IFS) — inflation. Montants en milliards.";
+  "Sources : Banque mondiale (WDI), PIB, PIB/hab., balance extérieure ; " +
+  "FMI (IFS), inflation. Montants en milliards.";
 
 export const ECONOMY_YEARS: EconomyYear[] = SOCLE.annees.map((annee, rang) => {
   const countries: EconomyYear["countries"] = {};
@@ -1091,7 +1091,7 @@ export const ECONOMY_YEARS: EconomyYear[] = SOCLE.annees.map((annee, rang) => {
   }
 
   // 3. Les grandeurs dérivées, calculées seulement quand leurs deux termes
-  //    existent — un montant de dette sans ratio de dette n'existe pas.
+  //    existent, un montant de dette sans ratio de dette n'existe pas.
   for (const [nom, d] of Object.entries(countries)) {
     if (d.gdp !== undefined && d.debt_ratio !== undefined) {
       d.debt_amount = Math.round((d.gdp * d.debt_ratio) / 100);

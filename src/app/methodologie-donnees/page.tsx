@@ -6,7 +6,7 @@ import { PageConfiance } from "@/components/legal/PageConfiance";
 import { jsonLdString } from "@/lib/schema";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   /methodologie-donnees — COMMENT LA BASE EST FAITE
+   /methodologie-donnees, COMMENT LA BASE EST FAITE
 
    Distincte de la méthodologie éditoriale, qui décrit comment un article
    s'écrit. Celle-ci décrit la base : sa forme, ses règles, ses contrôles.
@@ -56,7 +56,7 @@ function lisLaBase(): Fiche[] {
 }
 
 export const metadata: Metadata = {
-  title: { absolute: "Méthodologie de la base de données | Visualize" },
+  title: { absolute: "Méthodologie de la base de données | Datlas" },
   description:
     "Comment la base est construite, contrôlée et publiée : structure, unités, périmètres, règle des données manquantes, contrôles automatiques et sources par indicateur.",
   keywords: [
@@ -209,11 +209,11 @@ export default function Page() {
                   </th>
                   <td>{f.unite}</td>
                   <td>
-                    {f.annees?.length ? `${Math.min(...f.annees)}–${Math.max(...f.annees)}` : "—"}
+                    {f.annees?.length ? `${Math.min(...f.annees)}–${Math.max(...f.annees)}` : "–"}
                   </td>
-                  <td>{f.paysCouverts ?? "—"}</td>
+                  <td>{f.paysCouverts ?? "–"}</td>
                   <td>{(f.sources ?? []).join(" · ")}</td>
-                  <td>{f.misAJour ?? "—"}</td>
+                  <td>{f.misAJour ?? "–"}</td>
                 </tr>
               ))}
             </tbody>

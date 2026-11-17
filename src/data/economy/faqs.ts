@@ -85,7 +85,7 @@ export const FAQS_ECONOMY: FAQItem[] = [
 // ── Données de référence, servies dans la FAQ ────────────────────────────────
 // Les tableaux de référence qui vivaient sous la carte ont été retirés de
 // l'écran : leur contenu est rendu ici, en texte, et repart donc dans le
-// balisage FAQPage (JSON-LD) de la page — un signal SEO plus fort qu'un
+// balisage FAQPage (JSON-LD) de la page, un signal SEO plus fort qu'un
 // tableau muet, et une lecture plus naturelle pour un visiteur.
 
 function fmt(n: number | undefined): string {

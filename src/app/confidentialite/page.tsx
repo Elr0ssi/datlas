@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { PageLegale } from "@/components/legal/PageLegale";
 
 export const metadata: Metadata = {
-  title: { absolute: "Politique de confidentialité (RGPD) | Visualize" },
+  title: { absolute: "Politique de confidentialité (RGPD) | Datlas" },
   description:
-    "Quelles données Visualize collecte, pourquoi, combien de temps, et comment exercer vos droits d'accès, de rectification et de suppression.",
+    "Quelles données Datlas collecte, pourquoi, combien de temps, et comment exercer vos droits d'accès, de rectification et de suppression.",
   alternates: { canonical: "/confidentialite" },
 };
 
@@ -21,15 +21,15 @@ export default function Page() {
         {
           titre: "Ce que nous collectons",
           paragraphes: [
-            "Si vous consultez Visualize sans compte, nous ne vous demandons rien : aucune donnée personnelle n'est collectée pour lire les pages, les cartes et les dossiers.",
+            "Si vous consultez Datlas sans compte, nous ne vous demandons rien : aucune donnée personnelle n'est collectée pour lire les pages, les cartes et les dossiers.",
             "Si vous créez un compte, nous enregistrons votre adresse e-mail et, selon le mode de connexion choisi, l'identifiant fourni par votre fournisseur (par exemple Google). Si vous publiez sur le forum, nous conservons vos messages et le nom sous lequel vous les signez.",
           ],
         },
         {
           titre: "Ce qui reste dans votre navigateur",
           paragraphes: [
-            "Vos préférences d'affichage — thème clair ou sombre, monnaie choisie — sont mémorisées dans le stockage local de votre navigateur. Elles ne quittent pas votre appareil et ne servent à aucun suivi.",
-            "Visualize n'utilise ni cookie publicitaire, ni outil de pistage, ni traceur tiers. Seul le cookie de session nécessaire à la connexion est déposé, et seulement si vous vous connectez.",
+            "Vos préférences d'affichage, thème clair ou sombre, monnaie choisie, sont mémorisées dans le stockage local de votre navigateur. Elles ne quittent pas votre appareil et ne servent à aucun suivi.",
+            "Datlas n'utilise ni cookie publicitaire, ni outil de pistage, ni traceur tiers. Seul le cookie de session nécessaire à la connexion est déposé, et seulement si vous vous connectez.",
           ],
         },
         {

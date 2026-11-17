@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: { absolute: titrePays(f) },
     description: descriptionPays(f),
     alternates: { canonical: `/pays/${f.slug}` },
-    openGraph: { type: "article", url, title: `${f.fr} en chiffres : population, PIB, dette`, description: descriptionPays(f), siteName: "Visualize", locale: "fr_FR" },
+    openGraph: { type: "article", url, title: `${f.fr} en chiffres : population, PIB, dette`, description: descriptionPays(f), siteName: "Datlas", locale: "fr_FR" },
     twitter: { card: "summary_large_image", title: `${f.fr} en chiffres`, description: descriptionPays(f) },
   };
 }
@@ -65,7 +65,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       name: titrePays(f),
       description: descriptionPays(f),
       inLanguage: "fr",
-      isPartOf: { "@type": "WebSite", name: "Visualize", url: SITE_URL },
+      isPartOf: { "@type": "WebSite", name: "Datlas", url: SITE_URL },
       about: { "@type": "Country", name: f.fr, ...(f.iso2 ? { identifier: f.iso2 } : {}) },
     },
     {
@@ -73,7 +73,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       name: `${f.fr} : indicateurs économiques et démographiques`,
       description: descriptionPays(f),
       url,
-      creator: { "@type": "Organization", name: "Visualize" },
+      creator: { "@type": "Organization", name: "Datlas" },
       license: "https://creativecommons.org/licenses/by/4.0/",
       isBasedOn: ["Banque mondiale, World Development Indicators", "Nations Unies, World Population Prospects 2024"],
       variableMeasured: cartes.map((c) => c.l.label),

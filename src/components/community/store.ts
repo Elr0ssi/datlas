@@ -12,7 +12,7 @@ import { clientNavigateur } from "@/lib/supabase/navigateur";
 
    Les droits ne sont pas vérifiés ici. Ils le sont dans la base, règle par
    règle : tout le monde lit, seul un compte écrit, et personne n'écrit au
-   nom d'un autre. Ce fichier peut donc rester naïf — ce qu'il demanderait
+   nom d'un autre. Ce fichier peut donc rester naïf, ce qu'il demanderait
    de trop serait refusé.
    ═══════════════════════════════════════════════════════════════════════════ */
 

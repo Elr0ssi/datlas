@@ -1,10 +1,10 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   LES FINANCES PUBLIQUES FRANÇAISES — LE SOCLE DE L'ARTICLE
+   LES FINANCES PUBLIQUES FRANÇAISES, LE SOCLE DE L'ARTICLE
 
    Une règle, et elle n'a pas d'exception : aucun chiffre n'entre ici sans son
    périmètre, sa base comptable, sa valorisation et sa période. C'est ce qui
    empêche la page de mettre côte à côte deux mesures qui ne parlent pas de la
-   même chose — 1 714 Md€ de dépenses publiques et 441,2 Md€ de dépenses du
+   même chose, 1 714 Md€ de dépenses publiques et 441,2 Md€ de dépenses du
    budget général de l'État sont tous deux exacts, et les additionner ou les
    comparer sans le dire serait une faute.
 
@@ -167,7 +167,7 @@ export const IMPOTS_FAMILLES: Poste[] = [
   },
 ];
 
-/* ═══ 3. Où va l'argent — trois lectures qui ne s'additionnent pas ══════ */
+/* ═══ 3. Où va l'argent, trois lectures qui ne s'additionnent pas ══════ */
 
 export const DEPENSES_NATURE: Poste[] = [
   {

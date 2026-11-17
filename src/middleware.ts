@@ -33,7 +33,7 @@ export async function middleware(request: NextRequest) {
   try {
     /* Un aléa réseau ou un cookie caduc ne doit pas faire tomber la page :
        au pire, elle se rend comme pour un visiteur non connecté. Avant ce
-       filet, une erreur ici faisait échouer toute la requête — un « se
+       filet, une erreur ici faisait échouer toute la requête, un « se
        connecter » qui n'affichait plus rien du tout. */
     await sb.auth.getUser();
   } catch {

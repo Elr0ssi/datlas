@@ -12,7 +12,7 @@ interface ScrollRevealProps {
 }
 
 /**
- * Reveals a section once when it enters the viewport — opacity plus a short
+ * Reveals a section once when it enters the viewport, opacity plus a short
  * rise, on a decelerating curve.
  *
  * The wrapper drops back to a plain `div` as soon as the reveal is done, so it

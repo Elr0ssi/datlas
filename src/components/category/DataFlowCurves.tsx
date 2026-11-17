@@ -16,7 +16,7 @@ export interface FlowIcon {
 }
 
 interface DataFlowCurvesProps {
-  /** Category colour — a few strands are tinted with it, the rest stay neutral. */
+  /** Category colour, a few strands are tinted with it, the rest stay neutral. */
   accent: string;
   /**
    * `back` is the main sheaf hugging the globe, `front` a few secondary
@@ -25,14 +25,14 @@ interface DataFlowCurvesProps {
   layer?: CurveLayer;
   /** Badges to pin onto the strands. Only the `back` layer carries them. */
   icons?: FlowIcon[];
-  /** The globe's square container — the strands are traced from its real rect. */
+  /** The globe's square container, the strands are traced from its real rect. */
   globeRef: RefObject<HTMLElement | null>;
 }
 
 interface Curve {
   /** Clearance above the globe's silhouette, in px. */
   margin: number;
-  /** Apex shift as a fraction of the radius — breaks the symmetry. */
+  /** Apex shift as a fraction of the radius, breaks the symmetry. */
   skew: number;
   /** Slight hollow over the middle of the dome, in px. */
   sag: number;
@@ -65,10 +65,10 @@ const TAIL_START = 0.78;
 // doucement avec la distance verticale, si bien que plusieurs brins répondent
 // ensemble, et le point suivi n'est pas le curseur mais une position lissée
 // image par image : la main peut sauter, le rideau ne saute pas.
-const NEAR_SIGMA = 78; // px — décroissance verticale, large et douce
-const HOVER_SPAN = 330; // px — demi-largeur de la portion éclaircie
+const NEAR_SIGMA = 78; // px, décroissance verticale, large et douce
+const HOVER_SPAN = 330; // px, demi-largeur de la portion éclaircie
 const HOVER_GAIN = 0.3; // alpha ajouté au centre de cette portion
-const HOVER_BEND = 1.2; // px — tout le déplacement du brin
+const HOVER_BEND = 1.2; // px, tout le déplacement du brin
 const POINTER_EASE = 0.14; // part du chemin parcouru par image vers le curseur
 const SAMPLES = 96;
 
@@ -206,7 +206,7 @@ export function DataFlowCurves({
         drop = rm * (1 - Math.sqrt(1 - k * k));
       } else {
         // Leaves on the circle's own tangent, then eases onto an asymptote a
-        // few dozen pixels lower — so the strand still reaches the edge of the
+        // few dozen pixels lower, so the strand still reaches the edge of the
         // screen instead of plunging behind the statistics panel.
         const dTail = rm * (1 - Math.sqrt(1 - TAIL_START * TAIL_START));
         const slope = TAIL_START / Math.sqrt(1 - TAIL_START * TAIL_START);
@@ -245,7 +245,7 @@ export function DataFlowCurves({
       targetY = ny;
     };
 
-    /** The strand leans a hair towards the cursor — 2px at most, nothing else. */
+    /** The strand leans a hair towards the cursor, 2px at most, nothing else. */
     const bend = (c: Curve, index: number, x: number, y: number): number => {
       const n = near[index];
       if (n < 0.02 || pointerX < -1000) return 0;
@@ -286,7 +286,7 @@ export function DataFlowCurves({
       return grad;
     };
 
-    /** Horizontal alpha ramp centred on `x` — used for the glow and the pulse. */
+    /** Horizontal alpha ramp centred on `x`, used for the glow and the pulse. */
     const bandGradient = (x: number, span: number, peak: number) => {
       const grad = ctx.createLinearGradient(x - span, 0, x + span, 0);
       grad.addColorStop(0, tint(0));

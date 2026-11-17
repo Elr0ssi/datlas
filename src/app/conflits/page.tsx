@@ -8,7 +8,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.co
 const chemin = "/conflits";
 
 export const metadata: Metadata = {
-  title: { absolute: "Conflits dans le monde : carte des conflits armés, violences et tensions | Visualize" },
+  title: { absolute: "Conflits dans le monde : carte des conflits armés, violences et tensions | Datlas" },
   description:
     "68 foyers de conflits armés, de violences armées et de tensions géopolitiques sur un globe interactif, par région et par catégorie. Fiches sourcées, inventaire du 31 octobre 2026.",
   keywords: ["conflits dans le monde", "carte des conflits", "guerres en cours", "conflits armés par pays", "tensions géopolitiques", "violences armées", "UCDP", "ACLED"],
@@ -31,7 +31,7 @@ export default function Page() {
     url: `${siteUrl}${chemin}`,
     inLanguage: "fr-FR",
     dateModified: inventaire.date_inventaire,
-    creator: { "@type": "Organization", name: "Visualize", url: siteUrl },
+    creator: { "@type": "Organization", name: "Datlas", url: siteUrl },
     isBasedOn: [
       { "@type": "Dataset", name: "UCDP", url: "https://ucdp.uu.se/downloads/" },
       { "@type": "Dataset", name: "ACLED", url: "https://acleddata.com/" },

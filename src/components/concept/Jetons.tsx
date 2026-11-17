@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 
    Les signes de l'économie, posés en tuiles au-dessus de l'horizon : les
    monnaies, les grands indices, les secteurs qui font le produit intérieur.
-   Tout est dessiné au trait ou écrit en toutes lettres — aucune image
+   Tout est dessiné au trait ou écrit en toutes lettres, aucune image
    rapportée, et aucune marque reproduite.
 
    Ce choix n'est pas seulement graphique. Un indice ou un secteur, c'est ce
@@ -114,7 +114,7 @@ const TUILES: Tuile[] = [
 
 /* Les mêmes positions, pour la démographie : la naissance, la mort,
    l'environnement et la diversité plutôt que les monnaies et les indices.
-   Aucun texte cette fois — un taux ou un effectif n'a pas de symbole court
+   Aucun texte cette fois, un taux ou un effectif n'a pas de symbole court
    comme « € » ou « CAC 40 », les tuiles restent donc toutes des dessins. */
 const TUILES_DEMOGRAPHIE: Tuile[] = [
   /* ── Le bord gauche ─────────────────────────────────────────────────── */
@@ -380,7 +380,7 @@ export function Dessin({ f }: { f: Forme }) {
    bords de l'ouverture plutôt que d'en sortir.
 
    La boucle ne tourne que tant que quelque chose bouge. Au repos elle
-   s'arrête, et la page ne paie rien — ce qui compte sur celle-ci, où le
+   s'arrête, et la page ne paie rien, ce qui compte sur celle-ci, où le
    globe prend déjà le processeur.
 
    Les positions de repos sont mesurées une fois, au montage et à chaque
@@ -484,7 +484,7 @@ function useLancer(champ: React.RefObject<HTMLDivElement | null>) {
       const i = tuiles.indexOf(t);
       if (i < 0) return;
       ev.preventDefault();
-      /* La capture peut être refusée — un pointeur déjà relâché, un événement
+      /* La capture peut être refusée, un pointeur déjà relâché, un événement
          qui ne vient pas d'un vrai périphérique. Ce n'est pas une raison de
          renoncer au glissement. */
       try {

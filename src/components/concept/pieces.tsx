@@ -156,7 +156,7 @@ export function Enseigne({ children, droite }: { children: React.ReactNode; droi
 }
 
 /** Le titre de section des pages de sujet (Économie, Démographie, Forum…) :
-    un grand titre blanc, et en dessous, en petit, ce qui le situe — une
+    un grand titre blanc, et en dessous, en petit, ce qui le situe, une
     période, une source. Les pages de sujet partagent toutes cette forme. */
 export function TitreSection({
   titre,
@@ -328,12 +328,8 @@ export function EnTete({ actif }: { actif?: string }) {
             }
           }}
         >
-          <span className="cg-logo-m" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </span>
-          <span className="cg-logo-t">Visualize</span>
+          <MarqueDatlas />
+          <span className="cg-logo-t">Datlas</span>
         </a>
 
         <div className="cg-pill-corps">
@@ -379,12 +375,8 @@ export function Pied() {
     <footer className="cg-pied">
       <div className="cg-wrap cg-pied-in">
         <a href="/" className="cg-pied-marque">
-          <span className="cg-logo-m" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </span>
-          Visualize
+          <MarqueDatlas />
+          Datlas
         </a>
         <nav className="cg-pied-nav" aria-label="Rubriques">
           <a href="/economie">Économie</a>
@@ -397,7 +389,7 @@ export function Pied() {
           <a href="/forum">Forum</a>
         </nav>
         <div className="cg-pied-bas">
-          <span>© Visualize</span>
+          <span>© Datlas</span>
           <nav aria-label="Informations">
             <a href="/a-propos">À propos</a>
             <a href="/methodologie-donnees">Méthode</a>
@@ -408,5 +400,28 @@ export function Pied() {
         </div>
       </div>
     </footer>
+  );
+}
+
+/** La marque de Datlas : un globe, son orbite et un point de donnée. La même que l'icône de l'onglet (src/app/icon.svg). */
+export function MarqueDatlas() {
+  return (
+    <span className="cg-logo-m" aria-hidden="true">
+      <svg viewBox="0 0 64 64" width="100%" height="100%">
+        <defs>
+          <clipPath id="cg-marque-s"><circle cx="30" cy="34" r="16" /></clipPath>
+        </defs>
+        <circle cx="30" cy="34" r="16" fill="#fff" fillOpacity=".14" />
+        <g clipPath="url(#cg-marque-s)" fill="none" stroke="#fff" strokeWidth="2.6" strokeOpacity=".75" className="cg-marque-g">
+          <ellipse cx="30" cy="34" rx="7" ry="16" />
+          <path d="M13 28.5h34M13 39.5h34" />
+        </g>
+        <circle cx="30" cy="34" r="16" fill="none" stroke="#fff" strokeWidth="3.4" />
+        <g className="cg-marque-o">
+          <path d="M8.5 44.5C3.6 36.4 21 21.5 41 15.6" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
+          <circle cx="47.5" cy="14.5" r="5.2" fill="#ff8fc7" stroke="#fff" strokeWidth="2.4" />
+        </g>
+      </svg>
+    </span>
   );
 }

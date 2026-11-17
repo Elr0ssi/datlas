@@ -412,7 +412,7 @@ export function Forum() {
           </h1>
           <p className="fo-chapo">
             Des fils ouverts sur des chiffres publiés. On discute, on conteste, on apporte une
-            source — et on peut aller vérifier sur la carte dans la seconde.
+            source, et on peut aller vérifier sur la carte dans la seconde.
           </p>
           <p className="fo-compte">
             {compte ? (

@@ -157,7 +157,7 @@ export function DossierDette({ d }: { d: Dossier }) {
               <tr><th scope="col">Pays</th><th scope="col">Dette / PIB 2024</th><th scope="col">Écart</th></tr>
             </thead>
             <tbody>
-              <tr className="dd-moi"><th scope="row">{d.flag} {d.fr}</th><td>{nf(d.p2024, 1)} %</td><td>—</td></tr>
+              <tr className="dd-moi"><th scope="row">{d.flag} {d.fr}</th><td>{nf(d.p2024, 1)} %</td><td>–</td></tr>
               {d.voisins.map((v) => (
                 <tr key={v.slug}>
                   <th scope="row"><Link href={adresseDette(v.slug)}>{v.flag} {v.fr}</Link></th>

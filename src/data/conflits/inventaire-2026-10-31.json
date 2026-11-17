@@ -1,5 +1,5 @@
 {
-  "titre": "Inventaire mondial des foyers de conflits et tensions — Vizualize",
+  "titre": "Inventaire mondial des foyers de conflits et tensions, Datlas",
   "date_inventaire": "2026-10-31",
   "origine": "Compilation éditoriale, non un classement officiel ni une base exhaustive",
   "avertissements": [
@@ -22,7 +22,7 @@
       "conflit_parent": "",
       "source": "CFR",
       "source_url": "https://www.cfr.org/global-conflict-tracker/conflict/conflict-ukraine",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -35,9 +35,9 @@
       "description": "Contentieux territoriaux et processus de normalisation après les guerres du Haut-Karabakh.",
       "acteurs": "Arménie; Azerbaïdjan",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -50,9 +50,9 @@
       "description": "Désaccords politiques et communautaires au nord du Kosovo; présence de la KFOR.",
       "acteurs": "Kosovo; Serbie; communautés locales",
       "conflit_parent": "",
-      "source": "ONU — UNMIK",
+      "source": "ONU, UNMIK",
       "source_url": "https://unmik.unmissions.org/en/news/at-the-un-security-council-srsg-peter-due-describes-tensions-and-calls-for-dialogue",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -65,9 +65,9 @@
       "description": "Conséquences persistantes du conflit de 2008 et lignes de séparation surveillées.",
       "acteurs": "Géorgie; Russie; autorités séparatistes",
       "conflit_parent": "",
-      "source": "Union européenne — EEAS",
+      "source": "Union européenne, EEAS",
       "source_url": "https://www.eeas.europa.eu/eeas/eus-mission-contributing-stability-georgia-2008_en",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -82,7 +82,7 @@
       "conflit_parent": "",
       "source": "CFR",
       "source_url": "https://www.cfr.org/global-conflict-tracker/conflict/confrontation-between-united-states-and-iran",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -97,7 +97,7 @@
       "conflit_parent": "",
       "source": "CFR",
       "source_url": "https://www.cfr.org/global-conflict-tracker/conflict/israeli-palestinian-conflict",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -110,9 +110,9 @@
       "description": "Attaques et opérations armées en Cisjordanie dans le conflit israélo-palestinien.",
       "acteurs": "Forces israéliennes; groupes armés palestiniens; acteurs civils",
       "conflit_parent": "Israël–Palestine : Gaza",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -125,9 +125,9 @@
       "description": "Confrontations militaires transfrontalières et sécurité du sud-Liban.",
       "acteurs": "Israël; Hezbollah; Liban",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -140,9 +140,9 @@
       "description": "Confrontations entre les houthis, forces gouvernementales et autres groupes armés.",
       "acteurs": "Houthis; gouvernement yéménite; autres factions",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -157,7 +157,7 @@
       "conflit_parent": "Yémen : guerre interne",
       "source": "US Maritime Administration",
       "source_url": "https://www.maritime.dot.gov/msci/2026-013-red-sea-bab-el-mandeb-strait-gulf-aden-arabian-sea-and-somali-basin-houthi-attacks",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -172,7 +172,7 @@
       "conflit_parent": "",
       "source": "EUAA",
       "source_url": "https://www.euaa.europa.eu/syria-security-situation/1-general-description-security-situation",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -187,7 +187,7 @@
       "conflit_parent": "Syrie : transition et groupes armés",
       "source": "EUAA",
       "source_url": "https://www.euaa.europa.eu/country-guidance-syria/security-situation-syria-recent-events",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -202,7 +202,7 @@
       "conflit_parent": "Syrie : transition et groupes armés",
       "source": "Security Council Report",
       "source_url": "https://www.securitycouncilreport.org/monthly-forecast/2026-10/syria-96.php",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -217,7 +217,7 @@
       "conflit_parent": "Syrie : transition et groupes armés",
       "source": "CFR",
       "source_url": "https://www.cfr.org/global-conflict-tracker/conflict/conflict-syria",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -230,9 +230,9 @@
       "description": "Cellules de l’État islamique, milices et instabilité politico-sécuritaire.",
       "acteurs": "Forces irakiennes; État islamique; milices",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -245,9 +245,9 @@
       "description": "Contentieux armé kurde et processus de désarmement; ne pas assimiler à une guerre générale contre les Kurdes.",
       "acteurs": "État turc; PKK; autres groupes armés",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -260,9 +260,9 @@
       "description": "Institutions concurrentes et affrontements épisodiques entre milices.",
       "acteurs": "Gouvernements et coalitions rivales; milices",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -277,7 +277,7 @@
       "conflit_parent": "",
       "source": "Reuters",
       "source_url": "https://www.reuters.com/world/russia-vetos-us-drafted-resolution-western-sahara-2026-10-30/",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -290,9 +290,9 @@
       "description": "Attaques de groupes armés baloutches et opérations de sécurité en Iran.",
       "acteurs": "Forces iraniennes; groupes baloutches",
       "conflit_parent": "",
-      "source": "ACLED — Pakistan et Baloutchistan",
+      "source": "ACLED, Pakistan et Baloutchistan",
       "source_url": "https://acleddata.com/country/pakistan",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -305,9 +305,9 @@
       "description": "Guerre entre les forces armées soudanaises et les Forces de soutien rapide.",
       "acteurs": "SAF; RSF; milices alliées",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -320,9 +320,9 @@
       "description": "Affrontements entre forces liées au pouvoir, à l’opposition et milices locales.",
       "acteurs": "Forces gouvernementales; SPLM/A-IO; milices",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -337,7 +337,7 @@
       "conflit_parent": "",
       "source": "CFR",
       "source_url": "https://www.cfr.org/global-conflict-tracker/conflict/conflict-ethiopia",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -352,7 +352,7 @@
       "conflit_parent": "",
       "source": "GOV.UK",
       "source_url": "https://www.gov.uk/government/publications/ethiopia-country-policy-and-information-notes/country-policy-and-information-note-sufficiency-of-protection-ethiopia-october-2026-accessible",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -367,7 +367,7 @@
       "conflit_parent": "",
       "source": "GOV.UK",
       "source_url": "https://www.gov.uk/government/publications/ethiopia-country-policy-and-information-notes/country-policy-and-information-note-sufficiency-of-protection-ethiopia-october-2026-accessible",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -382,7 +382,7 @@
       "conflit_parent": "",
       "source": "Reuters",
       "source_url": "https://www.reuters.com/world/africa/ethiopian-forces-regain-control-border-city-after-reported-eritrean-incursion-2026-10-10/",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -395,9 +395,9 @@
       "description": "Insurrection jihadiste et opérations des forces somaliennes et partenaires.",
       "acteurs": "Gouvernement somalien; Al-Shabaab; forces partenaires",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -410,9 +410,9 @@
       "description": "Présence et opérations contre des cellules de l’État islamique en Somalie.",
       "acteurs": "Forces du Puntland; État islamique en Somalie",
       "conflit_parent": "Somalie : insurrection Al-Shabaab",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -425,9 +425,9 @@
       "description": "Affrontements entre forces de RDC et M23/AFC et implication régionale contestée.",
       "acteurs": "FARDC; M23/AFC; Rwanda selon différents rapports",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -440,9 +440,9 @@
       "description": "Insurrection des ADF et violence contre les civils en RDC.",
       "acteurs": "ADF; FARDC; forces ougandaises",
       "conflit_parent": "RDC : conflit M23/AFC à l’Est",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -455,9 +455,9 @@
       "description": "Affrontements entre groupes armés locaux et violences contre des civils.",
       "acteurs": "CODECO; milices Zaire/CRP; FARDC",
       "conflit_parent": "RDC : conflit M23/AFC à l’Est",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -470,9 +470,9 @@
       "description": "Incidents armés entre forces gouvernementales et coalitions rebelles.",
       "acteurs": "Forces centrafricaines; groupes rebelles; partenaires",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -485,9 +485,9 @@
       "description": "Insurrections jihadistes et séparatistes contre les forces maliennes.",
       "acteurs": "Forces maliennes; JNIM; EIS; groupes azawadiens",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -500,9 +500,9 @@
       "description": "Violences des groupes jihadistes et opérations gouvernementales.",
       "acteurs": "Forces burkinabè; JNIM; État islamique au Sahel",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -515,9 +515,9 @@
       "description": "Attaques jihadistes dans les régions frontalières du Sahel et du bassin du lac Tchad.",
       "acteurs": "Forces nigériennes; JNIM; État islamique au Sahel; Boko Haram",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -530,9 +530,9 @@
       "description": "Insurrection jihadiste dans le nord-est du Nigeria et autour du lac Tchad.",
       "acteurs": "Forces nigérianes; Boko Haram; ISWAP",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -545,9 +545,9 @@
       "description": "Groupes armés criminels et jihadistes dans le nord-ouest du pays.",
       "acteurs": "Groupes armés; autorités nigérianes",
       "conflit_parent": "Nigeria : Boko Haram et ISWAP",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -560,9 +560,9 @@
       "description": "Conflits locaux et attaques de milices associés notamment à l’accès à la terre.",
       "acteurs": "Milices locales; communautés et forces de sécurité",
       "conflit_parent": "Nigeria : Boko Haram et ISWAP",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -575,9 +575,9 @@
       "description": "Séparatistes anglophones et forces camerounaises.",
       "acteurs": "Forces camerounaises; groupes séparatistes anglophones",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -592,7 +592,7 @@
       "conflit_parent": "Nigeria : Boko Haram et ISWAP",
       "source": "ACAPS",
       "source_url": "https://www.acaps.org/en/countries/cameroon",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -605,9 +605,9 @@
       "description": "Violences et attaques des groupes jihadistes dans le bassin du lac Tchad.",
       "acteurs": "Forces tchadiennes; Boko Haram; ISWAP",
       "conflit_parent": "Nigeria : Boko Haram et ISWAP",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -620,9 +620,9 @@
       "description": "Insurrection liée à l’État islamique et violences contre les civils.",
       "acteurs": "État islamique Mozambique; forces mozambicaines; partenaires",
       "conflit_parent": "",
-      "source": "ACLED — Mozambique Conflict Monitor",
+      "source": "ACLED, Mozambique Conflict Monitor",
       "source_url": "https://acleddata.com/monitor/mozambique-conflict-monitor",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -637,7 +637,7 @@
       "conflit_parent": "",
       "source": "OFPRA/CGRA",
       "source_url": "https://www.cgra.be/fr/infos-pays/rapport-coi-commun-cedoca-didr-situation-securitaire",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -652,7 +652,7 @@
       "conflit_parent": "",
       "source": "Africa Center / ACLED",
       "source_url": "https://africacenter.org/wp-content/uploads/2026/02/2026-01-CT-CWA-1-Nsaibia-EN.pdf",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -667,7 +667,7 @@
       "conflit_parent": "",
       "source": "CFR",
       "source_url": "https://www.cfr.org/global-conflict-tracker/conflict/rohingya-crisis-myanmar",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -682,7 +682,7 @@
       "conflit_parent": "Myanmar : guerre civile",
       "source": "ACAPS",
       "source_url": "https://www.acaps.org/en/countries/myanmar",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -697,7 +697,7 @@
       "conflit_parent": "",
       "source": "CFR",
       "source_url": "https://www.cfr.org/global-conflict-tracker/conflict/war-afghanistan",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -710,9 +710,9 @@
       "description": "Attaques et contre-opérations visant la branche locale de l’État islamique.",
       "acteurs": "Talibans; EI-K",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -727,7 +727,7 @@
       "conflit_parent": "",
       "source": "EUAA",
       "source_url": "https://www.euaa.europa.eu/country-guidance-pakistan/31-areas-control-and-influence",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -742,7 +742,7 @@
       "conflit_parent": "",
       "source": "ACLED",
       "source_url": "https://acleddata.com/expert-comment/why-violence-rising-balochistans-gwadar-district",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -755,9 +755,9 @@
       "description": "Contentieux territorial, incidents frontaliers et risque de reprise de combats.",
       "acteurs": "Inde; Pakistan; groupes armés au Cachemire",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -772,7 +772,7 @@
       "conflit_parent": "",
       "source": "Human Rights Watch",
       "source_url": "https://www.hrw.org/news/2026/09/03/india-renewed-ethnic-violence-in-manipur",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -787,7 +787,7 @@
       "conflit_parent": "",
       "source": "ACLED",
       "source_url": "https://acleddata.com/expert-comment/dozens-attacks-hit-thailands-deep-south-what-happens-peace-talks-now",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -802,7 +802,7 @@
       "conflit_parent": "",
       "source": "CSIS",
       "source_url": "https://www.csis.org/blogs/latest-southeast-asia/latest-southeast-asia-thailand-cambodia-disputes-ongoing-one-year-after",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -817,7 +817,7 @@
       "conflit_parent": "",
       "source": "ACLED",
       "source_url": "https://acleddata.com/update/asia-pacific-overview-june-2026",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -832,7 +832,7 @@
       "conflit_parent": "",
       "source": "Philippine News Agency (source officielle, revendications à recouper)",
       "source_url": "https://www.pna.gov.ph/article/ntf-elcac-calls-for-un-probe-on-insurgents-execution-of-98-civilians",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -847,7 +847,7 @@
       "conflit_parent": "",
       "source": "Philippine News Agency",
       "source_url": "https://www.pna.gov.ph/article/police-lgu-reconcile-warring-milf-groups-via-dialogue",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -862,7 +862,7 @@
       "conflit_parent": "",
       "source": "ACLED",
       "source_url": "https://acleddata.com/update/asia-pacific-overview-june-2026",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -877,7 +877,7 @@
       "conflit_parent": "",
       "source": "CFR",
       "source_url": "https://www.cfr.org/global-conflict-tracker/conflict/confrontation-over-taiwan",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -892,7 +892,7 @@
       "conflit_parent": "",
       "source": "Reuters",
       "source_url": "https://www.reuters.com/world/china/china-conducts-combat-readiness-patrols-around-disputed-shoal-south-china-sea-2026-10-30/",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -905,9 +905,9 @@
       "description": "Tensions militaires et nucléaires sur la péninsule coréenne.",
       "acteurs": "Corée du Nord; Corée du Sud; États-Unis",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -922,7 +922,7 @@
       "conflit_parent": "",
       "source": "CFR",
       "source_url": "https://www.cfr.org/global-conflict-tracker/conflict/instability-venezuela",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -937,7 +937,7 @@
       "conflit_parent": "",
       "source": "Gouvernement du Guyana (position d’une partie)",
       "source_url": "https://dpi.gov.gy/pres-ali-reaffirms-confidence-in-guyanas-icj-case/",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -950,9 +950,9 @@
       "description": "Violence armée de gangs et opérations des forces de sécurité.",
       "acteurs": "Police haïtienne; gangs armés; force internationale",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -965,9 +965,9 @@
       "description": "Confrontations et violences des cartels et des forces de sécurité.",
       "acteurs": "Cartels; forces de sécurité",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -982,7 +982,7 @@
       "conflit_parent": "",
       "source": "ACLED",
       "source_url": "https://acleddata.com/country/colombia",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -997,7 +997,7 @@
       "conflit_parent": "",
       "source": "Human Rights Watch",
       "source_url": "https://www.hrw.org/world-report/2026/country-chapters/ecuador",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -1010,9 +1010,9 @@
       "description": "Violences criminelles organisées et politiques de sécurité très différentes selon pays.",
       "acteurs": "Gangs; autorités publiques",
       "conflit_parent": "",
-      "source": "CFR — Global Conflict Tracker",
+      "source": "CFR, Global Conflict Tracker",
       "source_url": "https://www.cfr.org/global-conflict-tracker/dashboard",
-      "verification": "Fiche de suivi régional — activité et statut local à recouper",
+      "verification": "Fiche de suivi régional, activité et statut local à recouper",
       "date_inventaire": "2026-10-31"
     },
     {
@@ -1027,7 +1027,7 @@
       "conflit_parent": "",
       "source": "Jamestown Foundation",
       "source_url": "https://jamestown.org/shining-path-counter-terrorism-operations-revive-peruvian-election-year-security-discourses/",
-      "verification": "Source ciblée — statut opérationnel à réévaluer régulièrement",
+      "verification": "Source ciblée, statut opérationnel à réévaluer régulièrement",
       "date_inventaire": "2026-10-31"
     }
   ]

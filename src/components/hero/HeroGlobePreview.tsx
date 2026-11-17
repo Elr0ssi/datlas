@@ -107,7 +107,7 @@ export function HeroGlobePreview() {
           </p>
         </motion.div>
 
-        {/* Globe stage — outer div handles base centering, inner motion.div handles scroll-driven offset */}
+        {/* Globe stage, outer div handles base centering, inner motion.div handles scroll-driven offset */}
         <div
           style={{
             position: "absolute",
@@ -145,7 +145,7 @@ export function HeroGlobePreview() {
           </motion.div>
         </div>
 
-        {/* Stats panel — rises from below and covers the globe's lower half */}
+        {/* Stats panel, rises from below and covers the globe's lower half */}
         <motion.div
           style={{
             position: "absolute",

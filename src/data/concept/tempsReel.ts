@@ -12,7 +12,7 @@
    mise en page existe, et marquées comme telles à l'écran : sur un site de
    données, un compteur non sourcé se voit ou il nuit. Le jour où les formules
    arrivent, on remplace `parAn`, on nomme la source dans `note`, et on retire
-   le champ `exemple` — la ligne disparaît de l'affichage des exemples sans
+   le champ `exemple`, la ligne disparaît de l'affichage des exemples sans
    qu'aucun autre code ne bouge.
    ═══════════════════════════════════════════════════════════════════════════ */
 

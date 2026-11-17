@@ -20,7 +20,7 @@ const H = 1000;
 interface Strand {
   /** Vertical anchor, as a fraction of the section's height. */
   y: number;
-  /** Peak of the bend, in fractions of the height — signed. */
+  /** Peak of the bend, in fractions of the height, signed. */
   bend: number;
   /** How far the strand travels across the section as it scrolls past. */
   travel: number;
@@ -104,7 +104,7 @@ function pointAt(s: Strand, u: number): [number, number] {
 }
 
 interface SectionFlowCurvesProps {
-  /** The section the strands belong to — their drift is read from its scroll. */
+  /** The section the strands belong to, their drift is read from its scroll. */
   sectionRef: RefObject<HTMLElement | null>;
   /** Only used to keep the gradient ids unique between sections. */
   index: number;
@@ -112,7 +112,7 @@ interface SectionFlowCurvesProps {
 
 /**
  * Backdrop for a full-height section: a sheaf of long, unequal curves behind
- * the card. Purely decorative — it leaves the middle band clear and carries
+ * the card. Purely decorative, it leaves the middle band clear and carries
  * no content.
  *
  * Three things move it, and they add up rather than replace each other:

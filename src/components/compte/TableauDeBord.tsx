@@ -9,8 +9,8 @@ import { majWidgets, type Retour } from "@/app/compte/actions";
    LE TABLEAU DE BORD PERSONNEL
 
    Une sélection de compteurs, gardée d'une visite à l'autre. Les cadences
-   sont les mêmes que celles de la page d'accueil du concept — une seule
-   liste de vérité, voir src/data/concept/tempsReel.ts — et portent donc les
+   sont les mêmes que celles de la page d'accueil du concept, une seule
+   liste de vérité, voir src/data/concept/tempsReel.ts, et portent donc les
    mêmes réserves : le produit intérieur brut et la population viennent du
    socle, le reste est une cadence d'exemple en attente de source.
 

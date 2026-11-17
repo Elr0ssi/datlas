@@ -21,7 +21,7 @@ import { Odometre } from "./Roulement";
 
    Ce n'est pas un nouveau globe : c'est celui du site, avec une autre palette.
    Le dessin passe par une texture peinte une fois puis tournée par la carte
-   graphique, au lieu d'être retracé sommet par sommet à chaque image — c'est
+   graphique, au lieu d'être retracé sommet par sommet à chaque image, c'est
    de là que vient la différence de fluidité.
 
    Autour, le langage du prototype : la légende, la frise, la fiche pays.
@@ -38,7 +38,7 @@ export interface MetriqueEco {
 }
 
 /* Les familles du site, telles quelles. En haut, quatre têtes de famille ;
-   dans la fiche du pays, les membres de la famille en cours — et rien
+   dans la fiche du pays, les membres de la famille en cours, et rien
    d'autre. Tout étaler faisait dix boutons qui ne disaient plus de quoi on
    parlait. */
 export interface FamilleEco {
@@ -88,7 +88,7 @@ export const TOUTES = FAMILLES.flatMap((f) => f.membres);
 
    Un nombre qui monte n'est pas une bonne nouvelle par nature : un PIB qui
    croît et une dette qui croît ne se lisent pas de la même façon. La couleur
-   dit le sens, pas la direction — vert quand la variation va dans le sens
+   dit le sens, pas la direction, vert quand la variation va dans le sens
    favorable, rouge quand elle va contre. La dette, son ratio, l'inflation, le
    chômage et l'âge de la retraite sont donc à l'envers des autres.
 
@@ -156,7 +156,7 @@ interface Props {
    *
    * Ce n'est pas une mesure : c'est la dernière valeur annuelle publiée,
    * ramenée à la seconde et cumulée depuis le premier janvier. Le globe, lui,
-   * garde les teintes de l'année publiée — il n'existe pas de classement
+   * garde les teintes de l'année publiée, il n'existe pas de classement
    * mondial de l'année en cours.
    */
   compteur?: {

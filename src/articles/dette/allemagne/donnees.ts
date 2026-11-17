@@ -1,6 +1,6 @@
 import ratioAllemagne from "@/../data/economie/dette/dette-sur-pib/DEU.json";
 /**
- * Allemagne — dette publique : données officielles vérifiées le 16 octobre 2026.
+ * Allemagne, dette publique : données officielles vérifiées le 16 octobre 2026.
  * Unité des stocks/flux : MILLIARDS D'EUROS ; ratios en %.
  * Chaque mesure inclut période, périmètre, source et URL consultable.
  * N'inférer aucune ventilation du stock total à partir de variations annuelles.

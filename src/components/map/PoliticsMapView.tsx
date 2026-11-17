@@ -66,7 +66,7 @@ export function PoliticsMapView() {
           </div>
 
           <div className="flex items-center gap-2">
-            {/* Flat map or globe — same data, same click, two readings of it. */}
+            {/* Flat map or globe, same data, same click, two readings of it. */}
             <div
               className="flex items-center rounded-lg overflow-hidden"
               style={{ border: "1px solid var(--border)" }}
@@ -192,7 +192,7 @@ export function PoliticsMapView() {
         {/* Map + Side panel */}
         {/* A definite height, not just a floor. With only a minimum, selecting a
             country grew the side panel, which grew the row, which resized the
-            globe's canvas — read as the globe zooming on every click. The panel
+            globe's canvas, read as the globe zooming on every click. The panel
             scrolls inside instead. */}
         <div
           className={`flex flex-col lg:flex-row${isFullscreen ? " flex-1 overflow-hidden" : ""}`}

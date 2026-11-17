@@ -3,7 +3,7 @@
 import { BookOpen } from "lucide-react";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   MODE APPRENTISSAGE — la commande, pas une annonce
+   MODE APPRENTISSAGE, la commande, pas une annonce
 
    Elle occupait toute la largeur au-dessus de l'article, avec un cadre vert
    épais, une liste déroulante native et un drapeau collé à un code pays. Trois

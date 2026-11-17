@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ═══════════════════════════════════════════════════════════════════════════
-   CONTRÔLE — la base dit-elle la même chose partout ?
+   CONTRÔLE, la base dit-elle la même chose partout ?
 
    Le stock et les fichiers d'affichage sont deux écritures d'une même donnée.
    Ce script vérifie qu'elles n'ont pas divergé : même valeur, même couverture,

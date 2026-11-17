@@ -21,7 +21,7 @@ export interface SocleDemo {
   lignes: Record<number, Ligne[]>;
 }
 
-/* Les grandeurs comparables d'un pays à l'autre — le nombre de naissances
+/* Les grandeurs comparables d'un pays à l'autre, le nombre de naissances
    et de décès par seconde ne le sont pas, ce sont les compteurs en direct
    qui s'en servent, pas le classement. */
 const CHAMPS: [string, number][] = [
@@ -121,7 +121,7 @@ export function sourcesDemo(): LigneSourceDemo[] {
 
 /* Le site n'a pas de rubrique « Démographie » : les épidémies sont ce qui
    s'en approche le plus, population et mortalité au cœur de chaque texte.
-   On les affiche donc sous leur vraie rubrique, Épidémies — ce sont ces
+   On les affiche donc sous leur vraie rubrique, Épidémies, ce sont ces
    articles-là, pas des textes redécoupés pour l'occasion. */
 export function articlesDemo(n = 9): FicheArticle[] {
   return [...EPIDEMICS_ARTICLES]
@@ -143,8 +143,8 @@ export function articlesDemo(n = 9): FicheArticle[] {
 /* ═══════════════════════════════════════════════════════════════════════════
    LA FAQ DÉMOGRAPHIE
 
-   Une seule base derrière ces réponses — les Nations Unies, pas dix sources
-   à arbitrer comme sur la page Économie — mais la même honnêteté : ce qui
+   Une seule base derrière ces réponses, les Nations Unies, pas dix sources
+   à arbitrer comme sur la page Économie, mais la même honnêteté : ce qui
    est mesuré, ce qui est projeté, ce qui manque et reste absent plutôt que
    ramené à zéro.
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -154,27 +154,27 @@ export function faqDemo(): { question: string; answer: string }[] {
     {
       question: "Combien de personnes vivent sur Terre, et comment ce chiffre avance-t-il ?",
       answer:
-        "Le socle donne un total par pays et par année, publié par les Nations Unies. Pour l'année en cours, ce total n'est pas mesuré en direct : il part du dernier chiffre publié et avance au rythme des naissances et des décès de l'année, comptés depuis le 1er janvier. C'est une projection à débit constant, pas une mesure seconde par seconde — la page le dit à côté du compteur.",
+        "Le socle donne un total par pays et par année, publié par les Nations Unies. Pour l'année en cours, ce total n'est pas mesuré en direct : il part du dernier chiffre publié et avance au rythme des naissances et des décès de l'année, comptés depuis le 1er janvier. C'est une projection à débit constant, pas une mesure seconde par seconde, la page le dit à côté du compteur.",
     },
     {
       question: "Taux de natalité et nombre de naissances : pourquoi les deux ?",
       answer:
-        "Le taux, pour mille habitants, compare des pays de toute taille sur un pied d'égalité. L'effectif, le nombre brut de naissances, dit ce qui se produit réellement sur le terrain — un pays au taux modeste peut compter plus de naissances qu'un petit pays au taux élevé. Les deux sont sur le globe, dans la même famille d'indicateurs, pour ne pas avoir à choisir.",
+        "Le taux, pour mille habitants, compare des pays de toute taille sur un pied d'égalité. L'effectif, le nombre brut de naissances, dit ce qui se produit réellement sur le terrain, un pays au taux modeste peut compter plus de naissances qu'un petit pays au taux élevé. Les deux sont sur le globe, dans la même famille d'indicateurs, pour ne pas avoir à choisir.",
     },
     {
       question: "Pourquoi un bouton « pour 100 000 habitants » seulement sur la mortalité ?",
       answer:
-        "Un effectif brut de décès par cancer ou par accident de la route classe surtout les pays les plus peuplés en tête, quelle que soit leur situation réelle. Rapporté à 100 000 habitants, deux pays de taille très différente se comparent enfin sur la même échelle. Les causes détaillées — cancer, suicide, homicide, route, diabète, mortalité maternelle — ne remontent que depuis 1990 dans la base : les années antérieures restent grises sur cette famille, elles ne sont pas comptées pour zéro.",
+        "Un effectif brut de décès par cancer ou par accident de la route classe surtout les pays les plus peuplés en tête, quelle que soit leur situation réelle. Rapporté à 100 000 habitants, deux pays de taille très différente se comparent enfin sur la même échelle. Les causes détaillées, cancer, suicide, homicide, route, diabète, mortalité maternelle, ne remontent que depuis 1990 dans la base : les années antérieures restent grises sur cette famille, elles ne sont pas comptées pour zéro.",
     },
     {
       question: "Accroissement naturel et solde migratoire, quelle différence ?",
       answer:
-        "L'accroissement naturel est l'écart entre les naissances et les décès d'un pays : ce qu'il produit lui-même, sans personne qui entre ou qui sorte. Le solde migratoire compte les arrivées moins les départs. Une population peut croître alors que son accroissement naturel est négatif, portée par la migration — et inversement. Le globe les affiche comme deux indicateurs distincts, jamais fondus en un seul chiffre.",
+        "L'accroissement naturel est l'écart entre les naissances et les décès d'un pays : ce qu'il produit lui-même, sans personne qui entre ou qui sorte. Le solde migratoire compte les arrivées moins les départs. Une population peut croître alors que son accroissement naturel est négatif, portée par la migration, et inversement. Le globe les affiche comme deux indicateurs distincts, jamais fondus en un seul chiffre.",
     },
     {
       question: "D'où viennent ces chiffres, et que se passe-t-il quand l'un d'eux manque ?",
       answer:
-        "D'une seule base : les Nations Unies, World Population Prospects 2024. Une année qu'elle ne publie pas pour un pays reste absente — elle n'est ni devinée d'après ses voisines, ni ramenée à zéro. Le pays sort en gris sur le globe et porte la mention « n.d. » au classement : il n'est pas dernier, il n'est pas classé. Le détail par indicateur est donné au bas de cette page.",
+        "D'une seule base : les Nations Unies, World Population Prospects 2024. Une année qu'elle ne publie pas pour un pays reste absente, elle n'est ni devinée d'après ses voisines, ni ramenée à zéro. Le pays sort en gris sur le globe et porte la mention « n.d. » au classement : il n'est pas dernier, il n'est pas classé. Le détail par indicateur est donné au bas de cette page.",
     },
   ];
 }
@@ -182,7 +182,7 @@ export function faqDemo(): { question: string; answer: string }[] {
 /* ═══════════════════════════════════════════════════════════════════════════
    LES DÉBATS DE DÉMOGRAPHIE
 
-   Rédigés comme des arbitrages, pas des opinions attribuées à quelqu'un —
+   Rédigés comme des arbitrages, pas des opinions attribuées à quelqu'un,
    même principe que les débats d'économie. Sans article dédié à pointer, ils
    restent volontairement sans chiffre inventé : l'ancre dit une tendance
    documentée, jamais un total précis qu'on ne mesure pas ici.

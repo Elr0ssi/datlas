@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 /* Un libellé sur une ligne, coupé par des points de suspension quand la place manque ; au survol (ou au focus), une petite bulle donne
-   le nom complet — seulement quand il est réellement coupé. */
+   le nom complet, seulement quand il est réellement coupé. */
 export function LibelleTronque({ texte, className }: { texte: string; className?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const [coupe, setCoupe] = useState(false);

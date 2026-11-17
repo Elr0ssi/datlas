@@ -23,14 +23,14 @@ import "./v2eco.css";
 /* ═══════════════════════════════════════════════════════════════════════════
    LA PAGE DÉMOGRAPHIE DU PROTOTYPE
 
-   Même langage que la page Économie — même en-tête, même bandeau en direct,
-   même globe, même classement — mais une seule matière : le socle des
+   Même langage que la page Économie, même en-tête, même bandeau en direct,
+   même globe, même classement, mais une seule matière : le socle des
    Nations Unies (World Population Prospects 2024), 1960 à 2026. Il ne porte
    aucune saisie manuelle : une année qu'une source ne publie pas pour un
    pays reste absente, elle ne devient jamais zéro.
 
    Pas de monnaie ici : une population ne se convertit pas. Pas d'article
-   éditorial non plus — le sujet attend la répartition par âge et la base de
+   éditorial non plus, le sujet attend la répartition par âge et la base de
    mortalité annoncées pour la suite.
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -69,7 +69,7 @@ function val(v: number | null, unite: MetriqueDemo["unite"]): string {
 
    La population mondiale part de son dernier total publié et grandit au
    rythme des naissances et des décès de cette même année, comptés depuis le
-   1er janvier — la même règle que le produit intérieur brut sur la page
+   1er janvier, la même règle que le produit intérieur brut sur la page
    Économie : rien n'est mesuré à la seconde, une grandeur annuelle est
    étalée sur l'année en cours. ═══════════════════════════════════════════ */
 function TempsReelDemo({ compteur }: { compteur: CompteurDemoProps }) {
@@ -148,7 +148,7 @@ function TempsReelDemo({ compteur }: { compteur: CompteurDemoProps }) {
 
    Plus simple que celle d'Économie : pas de monnaie, donc pas de mise en
    garde sur un taux de change absent, et 2026 est une année publiée comme
-   les autres — pas un pas synthétique qui prolongerait la base. ═══════════ */
+   les autres, pas un pas synthétique qui prolongerait la base. ═══════════ */
 const FriseDemo = ({
   annees,
   valeur,
@@ -289,7 +289,7 @@ const FriseDemo = ({
           {/* Le dernier pas n'est pas une année publiée comme les autres :
               pour les effectifs annuels (naissances, décès, causes), c'est
               une valeur modélisée étalée depuis le premier janvier, comptée
-              en direct — pas une mesure. */}
+              en direct, pas une mesure. */}
           <button
             type="button"
             className={`cg-frise2-direct${vue === annees[annees.length - 1] ? " cg-frise2-direct-on" : ""}`}
@@ -329,7 +329,7 @@ const FriseDemo = ({
    LE CLASSEMENT
 
    Deux cents lignes, cinq colonnes : le cadre ne dessine que ce qui est à
-   l'écran, comme sur la page Économie — la même fenêtre glissante, adaptée
+   l'écran, comme sur la page Économie, la même fenêtre glissante, adaptée
    aux cinq indicateurs démographiques plutôt qu'aux dix économiques.
    ═══════════════════════════════════════════════════════════════════════════ */
 const MARGE = 8;
@@ -487,7 +487,7 @@ export function DemographiePage({
   }, []);
 
   /* La question des sources porte sa réponse dans un tableau plutôt que
-     d'ouvrir une seconde question qui dirait la même chose — même principe
+     d'ouvrir une seconde question qui dirait la même chose, même principe
      que sur la page Économie. */
   const questionsVues = useMemo(() => {
     const i = faq.findIndex((q) => /sources|manque/i.test(q.question));
@@ -572,7 +572,7 @@ export function DemographiePage({
   const colonnesActives = useMemo(() => familleDe(metrique).membres, [metrique]);
 
   /* Sur le dernier pas publié, tout effectif annuel (naissances, décès,
-     chaque cause) accepte un compteur en direct — jamais un taux ni la
+     chaque cause) accepte un compteur en direct, jamais un taux ni la
      population. Le globe le décide lui-même, tuile par tuile ; la page n'a
      qu'à dire si on est sur ce pas. */
   const derniereAnnee = socle.annees[socle.annees.length - 1];

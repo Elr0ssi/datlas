@@ -7,11 +7,11 @@ import { CalendarDays, Globe } from "lucide-react";
 interface EconomyYearTimelineProps {
   min: number;
   max: number;
-  /** Years the dataset actually covers — they carry the large marks. */
+  /** Years the dataset actually covers, they carry the large marks. */
   dataYears: number[];
   /** Year the reader has picked (any year in range). */
   value: number;
-  /** Year whose figures are on screen — the nearest covered year. */
+  /** Year whose figures are on screen, the nearest covered year. */
   dataYear: number;
   onChange: (year: number) => void;
   countryCount: number;
@@ -58,7 +58,7 @@ export function EconomyYearTimeline({
   const span = max - min;
 
   // Labels: the endpoints, the selection, every decade and every covered year
-  // — but never two close enough to collide. The spacing has to be measured,
+  // but never two close enough to collide. The spacing has to be measured,
   // not assumed: two years is comfortable on a desktop rail and overlapping
   // mush on a phone, where the same span is a fifth of the width.
   const MIN_LABEL_GAP = useMemo(() => {
@@ -83,7 +83,7 @@ export function EconomyYearTimeline({
     return new Set(kept);
   }, [min, max, value, MIN_LABEL_GAP]);
 
-  /** Decades and the endpoints — the ruler the eye counts along. */
+  /** Decades and the endpoints, the ruler the eye counts along. */
   const isDecade = useCallback(
     (y: number) => y % 10 === 0 || y === min || y === max,
     [min, max]
@@ -286,7 +286,7 @@ export function EconomyYearTimeline({
               );
             })}
 
-            {/* Selection ring — glides between marks */}
+            {/* Selection ring, glides between marks */}
             {!liveMode && (
               <motion.span
                 className="absolute rounded-full pointer-events-none"

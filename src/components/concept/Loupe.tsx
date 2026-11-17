@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 
    Une lumière douce qui suit le curseur, et un anneau plus net qui la suit
    avec un temps de retard. Rien d'autre : pas de flou d'arrière-plan sur un
-   objet qui bouge — un backdrop-filter en mouvement fait refaire au
+   objet qui bouge, un backdrop-filter en mouvement fait refaire au
    navigateur la composition de toute la zone à chaque image, et c'est
    précisément ce qui ferait ramer la page.
 

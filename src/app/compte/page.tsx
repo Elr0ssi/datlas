@@ -11,7 +11,7 @@ import { getArticleBySlug } from "@/data/articles";
 import "@/components/concept/concept.css";
 
 export const metadata: Metadata = {
-  title: "Mon espace · Visualize",
+  title: "Mon espace · Datlas",
   description: "Votre profil, vos messages.",
   alternates: { canonical: "/compte" },
   robots: { index: false, follow: false },

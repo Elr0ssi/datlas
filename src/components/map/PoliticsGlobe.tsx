@@ -10,7 +10,7 @@ import { getCountryFillColorPolitics } from "@/lib/politicsColors";
    A sphere seen from orbit, carrying the same reading as the flat map: one
    colour per political orientation, one country per click.
 
-   Three things decide whether it feels real rather than diagrammatic — the
+   Three things decide whether it feels real rather than diagrammatic, the
    shapes are drawn from the 50m Natural Earth outlines rather than the coarse
    110m ones, the sphere is lit rather than flat-shaded, and nothing about the
    frame is allowed to stutter. The last one is the hardest and most of the
@@ -24,10 +24,10 @@ const RADIUS = 1;
 /** Fill texture, matched to the imagery it carries. */
 const TEXTURE_W = 4096;
 const TEXTURE_H = 2048;
-/** NASA Blue Marble, cloud-free — public domain. The relief and the colour of
+/** NASA Blue Marble, cloud-free, public domain. The relief and the colour of
  *  the land come from the photograph, not from anything drawn here. */
 const EARTH_TEXTURE = "/geo/earth-blue-marble.jpg";
-/** Picking resolution — finer than a click can be. */
+/** Picking resolution, finer than a click can be. */
 const PICK_W = 2048;
 const PICK_H = 1024;
 
@@ -110,7 +110,7 @@ function buildBaseMap(
   return canvas;
 }
 
-/** One flat colour per country, never displayed — the click resolver. */
+/** One flat colour per country, never displayed, the click resolver. */
 function buildPickMap(geojson: GeoJSON.FeatureCollection): PickMap {
   const canvas = document.createElement("canvas");
   canvas.width = PICK_W;
@@ -316,7 +316,7 @@ export function PoliticsGlobe({
 
     const globe = new THREE.Group();
     // A slight tilt so the sphere reads as a globe, and an opening rotation
-    // that puts Europe and Africa in front — most of the documented countries
+    // that puts Europe and Africa in front, most of the documented countries
     // are on that face.
     globe.rotation.x = 0.26;
     globe.rotation.y = 1.4;
@@ -470,7 +470,7 @@ export function PoliticsGlobe({
       spin = 0;
       const name = hitTest(e.clientX, e.clientY);
       // Countries the selected year does not document stay inert, as they do
-      // on the flat map — the side panel would have nothing to show.
+      // on the flat map, the side panel would have nothing to show.
       if (name && documentedRef.current.has(name)) onClickRef.current(name);
     };
 

@@ -30,7 +30,7 @@ export function DataMapPanel({ accent, landFill, oceanFill, highlight, callout, 
 
   // One card, one layout. Hovering swaps its contents for the country under
   // the pointer; leaving the map restores the category's own highlight. Hover
-  // only — no click-to-pin, which used to leave a stale country on screen.
+  // only, no click-to-pin, which used to leave a stale country on screen.
   const shown: MapCallout = hovered ? getCountryCallout(hovered) : callout;
 
   return (
@@ -127,7 +127,7 @@ export function DataMapPanel({ accent, landFill, oceanFill, highlight, callout, 
         ))}
       </div>
 
-      {/* Readout card — the default highlight, replaced live by whatever
+      {/* Readout card, the default highlight, replaced live by whatever
           country is under the pointer. One panel, never two. */}
       <div
         style={{

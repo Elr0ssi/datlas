@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ═══════════════════════════════════════════════════════════════════════════
-   LE SOCLE DU SITE — une vue, pas une base
+   LE SOCLE DU SITE, une vue, pas une base
 
    Le navigateur n'ouvre pas deux cents fiches par année. Ce script fabrique,
    depuis /data, le seul fichier que la page économie importe : un tableau de
@@ -67,7 +67,7 @@ for (const m of METRIQUES) {
 }
 
 /* Tous les pays présents dans au moins un indicateur, dans l'ordre des ISO3
-   — le fichier doit être reproductible au bit près d'une exécution à l'autre. */
+, le fichier doit être reproductible au bit près d'une exécution à l'autre. */
 const tousPays = new Set();
 for (const m of METRIQUES) for (const k of lu[m.cle].keys()) tousPays.add(k);
 

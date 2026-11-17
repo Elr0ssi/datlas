@@ -7,7 +7,7 @@ import { ArrowLeft, ArrowRight, Clock, Zap, BarChart3, ShieldCheck } from "lucid
 import { getArticleBySlug } from "@/data/articles";
 import { useScrollTeleport } from "@/hooks/useScrollTeleport";
 
-// Real, already-published articles — no fabricated headlines.
+// Real, already-published articles, no fabricated headlines.
 const CAROUSEL_SLUGS = [
   "democratie-en-recul-2025",
   "pib-par-pays-2025-classement-complet",

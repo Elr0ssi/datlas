@@ -22,7 +22,7 @@ import {
 
    Sept vues sur les mêmes pays, disposées librement : on montre, on cache,
    on redimensionne, on réordonne par glisser-déposer. La disposition reste
-   dans le navigateur — au retour, le tableau de bord est comme on l'a laissé.
+   dans le navigateur, au retour, le tableau de bord est comme on l'a laissé.
 
    Un seul curseur d'année pilote toutes les vues à la fois.
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -202,8 +202,8 @@ export function ComparerDashboard({ catalogue, defaut }: { catalogue: Pays[]; de
   const legende = (id: WidgetId) => {
     if (id === "courbes") return `${CHAMP_META[champ].label}${base100 ? " · base 100" : ` · ${CHAMP_META[champ].court}`}`;
     if (id === "nuage") return `${CHAMP_META[champ].label} × ${CHAMP_META[champY].label}`;
-    if (id === "chiffres" || id === "tableau") return String(annee ?? "—");
-    return `${CHAMP_META[champ].label} · ${annee ?? "—"}`;
+    if (id === "chiffres" || id === "tableau") return String(annee ?? "–");
+    return `${CHAMP_META[champ].label} · ${annee ?? "–"}`;
   };
 
   return (
@@ -349,7 +349,7 @@ export function ComparerDashboard({ catalogue, defaut }: { catalogue: Pays[]; de
 
         {/* Le curseur d'année, commun à toutes les vues. */}
         <div className="db-annee">
-          <span className="db-annee-n">{annee ?? "—"}</span>
+          <span className="db-annee-n">{annee ?? "–"}</span>
           <input
             type="range"
             className="neo-scrub db-scrub"

@@ -21,7 +21,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const nom = france ? "FRANCE" : (d?.fr ?? "PAYS").toUpperCase();
   const montant = france ? `${nb(detteDerniere.valeur)} Md€` : d ? `${nb(d.d2024)} Md€` : "";
   const ratio = france ? ratioDernier.valeur : (d?.p2024 ?? 0);
-  const source = france ? "INSEE · 1er trimestre 2026" : "Base de dette Visualize · 2024";
+  const source = france ? "INSEE · 1er trimestre 2026" : "Base de dette Datlas · 2024";
   return new ImageResponse(
     (
       <div
@@ -50,7 +50,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-          <div style={{ display: "flex", fontSize: 30, letterSpacing: 4 }}>Visualize</div>
+          <div style={{ display: "flex", fontSize: 30, letterSpacing: 4 }}>Datlas</div>
           <div style={{ display: "flex", fontSize: 20, color: "#7d8894" }}>
             {source}
           </div>

@@ -11,7 +11,7 @@ import type { ThemeId } from "@/types";
    et de faux pseudonymes. Les messages d'ouverture sont signés par la
    rédaction parce qu'ils sont écrits par elle. Tout le reste vient des
    lecteurs, et tant qu'il n'y a pas de comptes, cela reste dans leur
-   navigateur — la page le dit.
+   navigateur, la page le dit.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 export interface Fil {
@@ -38,7 +38,7 @@ export const FILS: Fil[] = [
     titre: "La dette française à 113 % du PIB : on fait quoi, concrètement ?",
     corps: [
       "La France emprunte à un niveau que peu de pays de l'OCDE dépassent. Le chiffre circule partout, presque toujours sans son contrepoint : à qui doit-on, à quelle maturité, et à quel taux.",
-      "Réduire vite coûte de la croissance. Attendre coûte des intérêts. Entre les deux, il y a une série d'arbitrages concrets — fiscalité, dépense, calendrier — dont personne ne parle en même temps.",
+      "Réduire vite coûte de la croissance. Attendre coûte des intérêts. Entre les deux, il y a une série d'arbitrages concrets, fiscalité, dépense, calendrier, dont personne ne parle en même temps.",
       "Ouvert pour ça : on cherche les arguments qui tiennent avec les chiffres sous les yeux, pas les slogans.",
     ],
     ancre: { valeur: "113 %", libelle: "dette publique / PIB · France · 2025", source: "Banque mondiale (WDI)" },
@@ -118,7 +118,7 @@ export const FILS: Fil[] = [
     titre: "BRICS+ : bloc en formation ou coalition de circonstance ?",
     corps: [
       "L'élargissement a fait passer le groupe à près de la moitié de la population mondiale. Il n'a ni monnaie commune, ni doctrine commune, et deux de ses membres ont une frontière contestée.",
-      "Reste à savoir si ce qui les rassemble — contester l'ordre existant — suffit à construire quelque chose.",
+      "Reste à savoir si ce qui les rassemble, contester l'ordre existant, suffit à construire quelque chose.",
     ],
     ancre: { valeur: "≈ 45 %", libelle: "de la population mondiale", source: "Article · BRICS+ et multipolarité" },
     angles: [
@@ -136,7 +136,7 @@ export const FILS: Fil[] = [
     id: "presse",
     titre: "160 journalistes emprisonnés : quel levier fonctionne encore ?",
     corps: [
-      "Les condamnations diplomatiques n'ont pas fait baisser le nombre de détentions. Les leviers restants — sanctions ciblées, conditionnalité commerciale, protection des rédactions en exil — ont tous un coût politique.",
+      "Les condamnations diplomatiques n'ont pas fait baisser le nombre de détentions. Les leviers restants, sanctions ciblées, conditionnalité commerciale, protection des rédactions en exil, ont tous un coût politique.",
     ],
     ancre: { valeur: "160", libelle: "journalistes emprisonnés · 2025", source: "Article · Liberté de la presse 2025" },
     angles: [
@@ -154,7 +154,7 @@ export const FILS: Fil[] = [
     id: "chomage",
     titre: "Chômage : compétences qui manquent, ou commandes qui manquent ?",
     corps: [
-      "L'amplitude entre pays va de 3 à plus de 30 %. Le diagnostic qu'on retient commande directement la politique menée — et les deux camps citent les mêmes chiffres.",
+      "L'amplitude entre pays va de 3 à plus de 30 %. Le diagnostic qu'on retient commande directement la politique menée, et les deux camps citent les mêmes chiffres.",
     ],
     ancre: { valeur: "de 3 à 32 %", libelle: "amplitude du chômage entre pays", source: "Article · Chômage mondial" },
     angles: [

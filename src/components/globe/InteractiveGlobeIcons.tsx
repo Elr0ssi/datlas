@@ -19,14 +19,14 @@ export interface GlobeMarker {
   lat: number;
   lon: number;
   /* Un marqueur porte soit une icône (le badge rond par défaut), soit un
-     texte (un rectangle dépoli) — jamais les deux. `icon` reste obligatoire
+     texte (un rectangle dépoli), jamais les deux. `icon` reste obligatoire
      pour ne rien changer aux appels existants ; un marqueur textuel lui
      passe une icône neutre qui ne sert à rien puisqu'elle n'est pas
      dessinée. */
   icon: LucideIcon;
   /** Présent : le marqueur se dessine en rectangle dépoli, pas en rond. Le
-      contenu suit le globe exactement comme une icône — même projection,
-      même rotation — mais rien ne s'y clique. */
+      contenu suit le globe exactement comme une icône, même projection,
+      même rotation, mais rien ne s'y clique. */
   texte?: { chiffre: string; label: string };
 }
 
@@ -117,7 +117,7 @@ function isLand(lat: number, lon: number, mask: ImageData): boolean {
 export interface InteractiveGlobeIconsProps {
   /** Category icon badges anchored to real coordinates. */
   markers?: GlobeMarker[];
-  /** Category colour — drives land dots, coastlines, atmosphere and badges. */
+  /** Category colour, drives land dots, coastlines, atmosphere and badges. */
   accent?: string;
   /** Badge diameter (any CSS length). */
   markerSize?: string;
@@ -170,7 +170,7 @@ export default function InteractiveGlobeIcons({
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const accentColor = new THREE.Color(accent);
-    // Brighter, more saturated sibling of the accent — used for the rim light
+    // Brighter, more saturated sibling of the accent, used for the rim light
     // and the atmosphere halo.
     const glowColor = accentColor.clone();
     const hsl = { h: 0, s: 0, l: 0 };
@@ -315,7 +315,7 @@ export default function InteractiveGlobeIcons({
         }
         borderLines.geometry.setAttribute("position", new THREE.Float32BufferAttribute(verts, 3));
         // On a large globe a full-strength coastline turns the sphere into an
-        // outline map — let the dot matrix carry it instead.
+        // outline map, let the dot matrix carry it instead.
         bordersFadeTarget = 0.35 * Math.min(1, 640 / W);
 
         markersReady = true;
@@ -574,7 +574,7 @@ export default function InteractiveGlobeIcons({
               willChange: "transform, opacity",
             }}
           >
-            {/* Hover halo — opacity is driven per frame, which keeps the
+            {/* Hover halo, opacity is driven per frame, which keeps the
                 highlight on the compositor rather than triggering repaints. */}
             <span
               ref={(el) => {

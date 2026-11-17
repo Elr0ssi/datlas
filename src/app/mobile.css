@@ -148,8 +148,8 @@ img, video, svg, canvas { max-width: 100%; }
 }
 
 @media (max-width: 760px) {
-  /* « Pourquoi Visualize ? » : le schéma se lit de haut en bas — les sources,
-     le site au milieu, ce qu'il en sort — au lieu d'être écrasé sur la gauche. */
+  /* « Pourquoi Datlas ? » : le schéma se lit de haut en bas, les sources,
+     le site au milieu, ce qu'il en sort, au lieu d'être écrasé sur la gauche. */
   :root .ax .ax-flux { aspect-ratio: auto; display: grid; justify-items: stretch; gap: 0; margin-top: 24px; }
   :root .ax .ax-flux-svg { display: none; }
   :root .ax .ax-flux-g, :root .ax .ax-flux-v, :root .ax .ax-flux-s { position: static; width: 100%; translate: none; inset: auto; }

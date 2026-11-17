@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /* ═══════════════════════════════════════════════════════════════════════════
-   IMPORTER — un CSV entre, la base en ressort enrichie
+   IMPORTER, un CSV entre, la base en ressort enrichie
 
    Le même script sert pour tous les indicateurs. Ce qui change d'un fichier à
-   l'autre — le nom de l'indicateur, son unité — se passe en argument ; la
+   l'autre, le nom de l'indicateur, son unité, se passe en argument ; la
    structure du CSV, elle, est reconnue plutôt que supposée.
 
    USAGE
@@ -68,8 +68,8 @@ function lireCsv(texte) {
  * Où commence le tableau, et où sont les années.
  *
  * Les exports de la Banque mondiale posent quelques lignes de métadonnées
- * avant l'en-tête. Plutôt que de compter ces lignes — leur nombre change d'un
- * millésime à l'autre — on cherche la première ligne qui contient à la fois un
+ * avant l'en-tête. Plutôt que de compter ces lignes, leur nombre change d'un
+ * millésime à l'autre, on cherche la première ligne qui contient à la fois un
  * code pays et des années : c'est l'en-tête, par construction.
  */
 function reconnaitreFormat(lignes) {

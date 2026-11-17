@@ -244,7 +244,7 @@ export function FicheDetail({ c, parId, nomPays, dossier, evts, onEvt, onFiche, 
       )}
 
       <div className={`cf-inds cf-inds-${Math.max(1, ind.length)}`}>
-        {ind.length ? ind.map((i) => <Indicateur key={i.libelle} i={i} />) : <div className="cf-ind cf-ind-vide"><b>—</b><span className="cf-ind-l">Donnée indisponible</span><small>Aucun chiffre sourcé pour cette fiche.</small></div>}
+        {ind.length ? ind.map((i) => <Indicateur key={i.libelle} i={i} />) : <div className="cf-ind cf-ind-vide"><b>–</b><span className="cf-ind-l">Donnée indisponible</span><small>Aucun chiffre sourcé pour cette fiche.</small></div>}
       </div>
 
       <section className="cf-resume">

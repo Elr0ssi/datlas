@@ -27,7 +27,7 @@ export function faqRessource(J: JeuRessource, nomFr: string): { question: string
   if (total) {
     out.push({
       question: `Quelle est la production mondiale ${art}${nomFr.toLowerCase()} en ${an} ?`,
-      answer: `Environ ${court(total.valeur)} de tonnes, en additionnant ${total.entites} pays et entités publiés dans le fichier FAOSTAT. C’est un total recalculé par Visualize, pas un total officiel de la FAO : il ne contient que les pays présents dans l’export.`,
+      answer: `Environ ${court(total.valeur)} de tonnes, en additionnant ${total.entites} pays et entités publiés dans le fichier FAOSTAT. C’est un total recalculé par Datlas, pas un total officiel de la FAO : il ne contient que les pays présents dans l’export.`,
     });
   }
   const rend = classement(J, "rendement", an);
@@ -47,7 +47,7 @@ export function faqRessource(J: JeuRessource, nomFr: string): { question: string
   });
   out.push({
     question: `Pourquoi n’y a-t-il pas de données pour 2025 ou 2026 ?`,
-    answer: `Parce que le fichier importé s’arrête à ${an}, dernière année publiée par FAOSTAT pour ce produit. La date d’export du fichier n’est pas l’année des observations, et Visualize n’invente aucune valeur pour les années absentes.`,
+    answer: `Parce que le fichier importé s’arrête à ${an}, dernière année publiée par FAOSTAT pour ce produit. La date d’export du fichier n’est pas l’année des observations, et Datlas n’invente aucune valeur pour les années absentes.`,
   });
   const hist = J.zones.filter((z) => z.type === "historique");
   if (hist.length) {

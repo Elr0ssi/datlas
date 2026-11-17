@@ -374,7 +374,7 @@ export function KeyStatsSection() {
           </p>
         </div>
 
-        {/* Stats grid — 3 cols on desktop, 2 on tablet, 1 on mobile */}
+        {/* Stats grid, 3 cols on desktop, 2 on tablet, 1 on mobile */}
         <div
           style={{
             display: "grid",

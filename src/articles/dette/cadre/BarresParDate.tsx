@@ -10,7 +10,7 @@ export interface PointDate {
   etiquette: string;
   /** La valeur tracée, en % du PIB par défaut. */
   valeur: number;
-  /** Le montant de la dette à cette date, en milliards d'euros — facultatif, converti dans la monnaie du lecteur. */
+  /** Le montant de la dette à cette date, en milliards d'euros, facultatif, converti dans la monnaie du lecteur. */
   montantMd?: number | null;
   /** Un événement daté à rappeler (« crise financière »), facultatif. */
   repere?: string;
@@ -108,7 +108,7 @@ export function BarresParDate({
               <tr key={pt.cle}>
                 <th scope="row">{pt.etiquette}</th>
                 <td>{mode === "montant" ? montant(pt.valeur, 1) : `${nf(pt.valeur)} ${unite.startsWith("%") ? "%" : unite}`}</td>
-                <td>{mode === "montant" ? (pt.ratio != null ? `${nf(pt.ratio)} %` : "—") : pt.montantMd != null ? montant(pt.montantMd) : "—"}</td>
+                <td>{mode === "montant" ? (pt.ratio != null ? `${nf(pt.ratio)} %` : "–") : pt.montantMd != null ? montant(pt.montantMd) : "–"}</td>
               </tr>
             ))}
           </tbody>

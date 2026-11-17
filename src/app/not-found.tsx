@@ -4,7 +4,7 @@ import "@/components/concept/concept.css";
 import "@/components/legal/legal.css";
 
 export const metadata: Metadata = {
-  title: { absolute: "Page introuvable | Visualize" },
+  title: { absolute: "Page introuvable | Datlas" },
   robots: { index: false, follow: true },
 };
 

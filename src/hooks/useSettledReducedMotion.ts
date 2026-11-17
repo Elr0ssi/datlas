@@ -6,7 +6,7 @@ import { useReducedMotion } from "framer-motion";
 /**
  * `useReducedMotion` reads the media query on the very first client render but
  * resolves to `false` during SSR, so branching on it directly makes the server
- * markup and the first client render disagree — a hydration error on exactly
+ * markup and the first client render disagree, a hydration error on exactly
  * the machines that asked for less motion.
  *
  * This waits one commit: the server and the first client render both see

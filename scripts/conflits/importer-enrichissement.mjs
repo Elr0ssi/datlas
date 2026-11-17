@@ -2,7 +2,7 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    IMPORT DE L'ENRICHISSEMENT DES 68 FICHES → src/data/conflits/enrichi.json
 
-   Usage : npm run conflits:importer -- [data/sources/conflits/Vizualize_Conflits_Enrichis_2026-10-31.json]
+   Usage : npm run conflits:importer -- [data/sources/conflits/Datlas_Conflits_Enrichis_2026-10-31.json]
    - Idempotent : la même source donne exactement le même fichier (clés triées, aucune horloge dans la sortie).
    - Sans perte : les 68 identifiants VIZ-C-001…068 de l'inventaire sont obligatoires ; la source brute reste archivée (checksum dans
      le journal d'import). Réversible : supprimer enrichi.json rend le site à l'inventaire d'origine + dossiers locaux.
@@ -19,7 +19,7 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const RACINE = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
-const SOURCE = resolve(RACINE, process.argv.slice(2).find((a) => !a.startsWith("--")) ?? "data/sources/conflits/Vizualize_Conflits_Enrichis_2026-10-31.json");
+const SOURCE = resolve(RACINE, process.argv.slice(2).find((a) => !a.startsWith("--")) ?? "data/sources/conflits/Datlas_Conflits_Enrichis_2026-10-31.json");
 const SORTIE = resolve(RACINE, "src/data/conflits/enrichi.json");
 const NE = new Set(JSON.parse(readFileSync(resolve(RACINE, "public/geo/ne_50m_countries.simplified.geojson"), "utf8")).features.map((f) => f.properties.name));
 

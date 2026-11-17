@@ -11,7 +11,7 @@ import { CATEGORIES } from "./DataStoryScene";
  *
  * This is what sits inside the hero's pane while the pane grows: the section
  * that follows is already there, small, and it becomes readable as the pane
- * opens out — rather than the pane arriving empty and the content being faded
+ * opens out, rather than the pane arriving empty and the content being faded
  * in afterwards. It is built from the same `DataMapPanel` and `AnimatedKpi`
  * the story scene uses, so the frame the reader is looking at when the hero
  * hands over is the frame the scene takes up.

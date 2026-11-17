@@ -5,7 +5,7 @@
    /cache n'est pas une seconde base. C'est une vue, entièrement dérivée de
    /data, régénérable à tout moment, et qui ne se modifie jamais à la main.
    Elle existe pour une seule raison : le globe a besoin, pour une année
-   donnée, de tous les pays d'un coup — et non d'ouvrir deux cents fiches.
+   donnée, de tous les pays d'un coup, et non d'ouvrir deux cents fiches.
 
    Un fichier par indicateur et par année :
      /cache/globe/<indicateur>/<année>.json  →  { "FRA": valeur, "USA": … }

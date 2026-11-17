@@ -59,7 +59,7 @@ function enChiffre(k: FicheImportee["chiffres"][number]): ChiffreCle {
   const src = SOURCES[k.source_id];
   const periode = k.periode_debut && k.periode_fin ? `${jour(k.periode_debut)} → ${jour(k.periode_fin)}` : k.periode_fin ? `au ${jour(k.periode_fin)}` : "période non précisée";
   const jours = k.periode_debut && k.periode_fin ? (Date.parse(k.periode_fin) - Date.parse(k.periode_debut)) / 864e5 : null;
-  const valeur = k.valeur === null ? (k.min !== null && k.max !== null ? `${k.min.toLocaleString("fr-FR")}–${k.max.toLocaleString("fr-FR")}` : "—") : k.valeur.toLocaleString("fr-FR");
+  const valeur = k.valeur === null ? (k.min !== null && k.max !== null ? `${k.min.toLocaleString("fr-FR")}–${k.max.toLocaleString("fr-FR")}` : "–") : k.valeur.toLocaleString("fr-FR");
   return {
     valeur,
     libelle: t.libelle,

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { PageLegale } from "@/components/legal/PageLegale";
 
 export const metadata: Metadata = {
-  title: { absolute: "Conditions générales d'utilisation | Visualize" },
+  title: { absolute: "Conditions générales d'utilisation | Datlas" },
   description:
-    "Les règles d'utilisation de Visualize : accès au site, contenus, données et sources, forum, responsabilité.",
+    "Les règles d'utilisation de Datlas : accès au site, contenus, données et sources, forum, responsabilité.",
   alternates: { canonical: "/cgu" },
 };
 
@@ -17,7 +17,7 @@ export default function Page() {
         {
           titre: "Objet",
           paragraphes: [
-            "Visualize est un site d'information qui présente des données économiques et démographiques sous forme de cartes, de classements et de dossiers. Utiliser le site implique d'accepter les présentes conditions.",
+            "Datlas est un site d'information qui présente des données économiques et démographiques sous forme de cartes, de classements et de dossiers. Utiliser le site implique d'accepter les présentes conditions.",
           ],
         },
         {
@@ -35,7 +35,7 @@ export default function Page() {
         {
           titre: "Propriété intellectuelle",
           paragraphes: [
-            "La mise en forme, les textes et les visualisations de Visualize sont protégés. Vous pouvez citer un chiffre, un graphique ou un extrait en mentionnant Visualize et en renvoyant vers la page d'origine. Les données sources restent soumises aux licences de leurs producteurs.",
+            "La mise en forme, les textes et les visualisations de Datlas sont protégés. Vous pouvez citer un chiffre, un graphique ou un extrait en mentionnant Datlas et en renvoyant vers la page d'origine. Les données sources restent soumises aux licences de leurs producteurs.",
           ],
         },
         {
@@ -47,7 +47,7 @@ export default function Page() {
         {
           titre: "Responsabilité",
           paragraphes: [
-            "Nous faisons de notre mieux pour que les informations soient exactes et à jour, sans pouvoir garantir l'absence d'erreur. Visualize ne peut être tenu responsable d'une décision prise sur la seule base de son contenu, ni du contenu des sites vers lesquels il renvoie.",
+            "Nous faisons de notre mieux pour que les informations soient exactes et à jour, sans pouvoir garantir l'absence d'erreur. Datlas ne peut être tenu responsable d'une décision prise sur la seule base de son contenu, ni du contenu des sites vers lesquels il renvoie.",
           ],
         },
         {

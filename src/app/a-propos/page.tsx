@@ -5,7 +5,7 @@ import { jsonLdString } from "@/lib/schema";
 import { CONTACT, EQUIPE } from "@/data/equipe";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   /a-propos — QUI FAIT CE TRAVAIL
+   /a-propos, QUI FAIT CE TRAVAIL
 
    Sur des sujets d'argent public, les moteurs regardent qui parle autant que
    ce qui est dit. Cette page existe pour répondre : ce que le projet fait, ce
@@ -19,15 +19,15 @@ import { CONTACT, EQUIPE } from "@/data/equipe";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
 
 export const metadata: Metadata = {
-  title: { absolute: "À propos : qui nous sommes et comment nous travaillons | Visualize" },
+  title: { absolute: "À propos : qui nous sommes et comment nous travaillons | Datlas" },
   description:
-    "Visualize rend lisibles des données publiques : diversification des sources, recoupement systématique, traçabilité de chaque chiffre. Notre méthode, nos limites et comment nous corriger.",
+    "Datlas rend lisibles des données publiques : diversification des sources, recoupement systématique, traçabilité de chaque chiffre. Notre méthode, nos limites et comment nous corriger.",
   keywords: ["à propos", "qui sommes-nous", "équipe", "méthode éditoriale", "données publiques"],
   alternates: { canonical: "/a-propos" },
   openGraph: {
     type: "website",
     url: `${siteUrl}/a-propos`,
-    title: "À propos de Visualize",
+    title: "À propos de Datlas",
     description:
       "Rendre lisibles des données publiques : diversification des sources, recoupement, traçabilité.",
   },
@@ -41,14 +41,14 @@ export default function Page() {
   const organisation = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    name: "À propos de Visualize",
+    name: "À propos de Datlas",
     url: `${siteUrl}/a-propos`,
     mainEntity: {
     "@type": "Organization",
-    name: "Visualize",
+    name: "Datlas",
     url: siteUrl,
     description:
-      "Visualize rend lisibles des données publiques en diversifiant ses sources, en les recoupant et en rendant chaque chiffre traçable jusqu'à sa publication d'origine.",
+      "Datlas rend lisibles des données publiques en diversifiant ses sources, en les recoupant et en rendant chaque chiffre traçable jusqu'à sa publication d'origine.",
     ...(CONTACT ? { email: CONTACT } : {}),
     ...(EQUIPE.length
       ? {
@@ -85,7 +85,7 @@ export default function Page() {
 
         <h1 className="hub-h1">À propos</h1>
         <p className="hub-chapo">
-          Visualize rend lisibles des données publiques. Pas plus, et pas moins : nous ne
+          Datlas rend lisibles des données publiques. Pas plus, et pas moins : nous ne
           produisons aucune mesure, nous reprenons celles d’institutions qui les publient, et
           nous nous rendons responsables de la manière dont elles sont présentées.
         </p>
@@ -146,7 +146,7 @@ export default function Page() {
                     <b>{m.nom}</b>
                     <span>
                       {m.role}
-                      {m.parcours ? ` — ${m.parcours}` : ""}
+                      {m.parcours ? `, ${m.parcours}` : ""}
                     </span>
                     {m.lien && (
                       <a href={m.lien} rel="noopener noreferrer" target="_blank">

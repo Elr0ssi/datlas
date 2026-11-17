@@ -12,7 +12,7 @@ import { jsonLdString } from "@/lib/schema";
 import { allegerSocle } from "@/data/concept/socleLeger";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   /demographie — LA PAGE PRINCIPALE DU SUJET DÉMOGRAPHIQUE
+   /demographie, LA PAGE PRINCIPALE DU SUJET DÉMOGRAPHIQUE
 
    Même construction que /economie : le socle traverse en entier dans le
    HTML livré, les composants clients n'ajoutent que le mouvement. La base
@@ -25,7 +25,7 @@ const chemin = "/demographie";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Démographie mondiale : population, natalité et mortalité par pays | Visualize",
+    absolute: "Démographie mondiale : population, natalité et mortalité par pays | Datlas",
   },
   description:
     "219 pays et territoires, 1960-2026, population, natalité, mortalité et accroissement naturel comparés sur un globe interactif. Source : Nations Unies, World Population Prospects 2024.",
@@ -75,7 +75,7 @@ export default function Page() {
       "Accroissement naturel",
       "Solde migratoire net",
     ],
-    creator: { "@type": "Organization", name: "Visualize", url: siteUrl },
+    creator: { "@type": "Organization", name: "Datlas", url: siteUrl },
     isBasedOn: [
       {
         "@type": "Dataset",

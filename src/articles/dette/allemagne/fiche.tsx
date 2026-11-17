@@ -22,7 +22,7 @@ const SUGGESTIONS: Suggestion[] = [
 ];
 
 const metadata: Metadata = {
-  title: { absolute: "Dette publique allemande : montant, déficit et détenteurs | Visualize" },
+  title: { absolute: "Dette publique allemande : montant, déficit et détenteurs | Datlas" },
   description: "Dette publique allemande : montant et dette/PIB, déficit, Bund et Länder, intérêts, investisseurs, refinancement et frein à l'endettement. Sources officielles.",
   keywords: ['dette Allemagne', 'dette publique allemande', 'dette PIB Allemagne', 'Bund dette', 'Länder dette', 'frein à l’endettement', 'obligations allemandes', 'recettes publiques Allemagne', 'dépenses publiques Allemagne', 'impôts Allemagne montant par impôt', 'déficit public Allemagne'],
   alternates: { canonical: URL },
@@ -32,7 +32,7 @@ const metadata: Metadata = {
     description: "Analyse sourcée de la dette de l'Allemagne : Maastricht, déficit, détenteurs, intérêts et règle d'endettement.",
     publishedTime: PUBLIE, modifiedTime: MODIFIE,
   },
-  twitter: { card: 'summary_large_image', title: 'Dette publique allemande | Visualize', description: "Montant, dette/PIB, déficit, détenteurs, intérêts et fonds spéciaux." },
+  twitter: { card: 'summary_large_image', title: 'Dette publique allemande | Datlas', description: "Montant, dette/PIB, déficit, détenteurs, intérêts et fonds spéciaux." },
 };
 
 const FIGURES: [string, string, string, string][] = [
@@ -65,8 +65,8 @@ function donneesStructurees(): object[] {
       headline: `Dette publique allemande : ${fmt(DETTE.valeur, 3)} milliards d'euros au premier trimestre 2026`,
       description: metadata.description, inLanguage: 'fr-FR',
       datePublished: PUBLIE, dateModified: MODIFIE,
-      author: { '@type': 'Organization', name: 'Visualize' },
-      publisher: { '@type': 'Organization', name: 'Visualize', url: SITE_URL },
+      author: { '@type': 'Organization', name: 'Datlas' },
+      publisher: { '@type': 'Organization', name: 'Datlas', url: SITE_URL },
       mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE },
       about: { '@type': 'Thing', name: "Dette publique de l'Allemagne" },
       citation: Object.entries(SOURCES).map(([nom, url]) => ({ '@type': 'CreativeWork', name: nom, url })),

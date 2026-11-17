@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   PROTOTYPE — LE CONTENU DE LA PAGE CONCEPT
+   PROTOTYPE, LE CONTENU DE LA PAGE CONCEPT
 
    Route isolée : rien de ce fichier n'est lu ailleurs dans le site.
 
@@ -196,7 +196,7 @@ export const QUESTIONS = [
   },
   {
     q: "Pourquoi certaines années sont-elles absentes ?",
-    r: "Parce que la source ne les publie pas. Une année manquante reste manquante : elle n'est ni estimée, ni extrapolée, ni remplacée par un zéro — qui serait une valeur, donc une erreur.",
+    r: "Parce que la source ne les publie pas. Une année manquante reste manquante : elle n'est ni estimée, ni extrapolée, ni remplacée par un zéro, qui serait une valeur, donc une erreur.",
   },
   {
     q: "Pourquoi l'accès est-il gratuit ?",

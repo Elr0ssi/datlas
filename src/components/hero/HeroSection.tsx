@@ -87,7 +87,7 @@ export function HeroSection() {
     <div ref={wrapperRef} className="hero-section-wrapper">
       <div className="hero-sticky" style={{ background: "#fff" }}>
 
-        {/* Ambient glow — changes color per phase */}
+        {/* Ambient glow, changes color per phase */}
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
           {HERO_PHASES.map((ph, i) => (
             <div
@@ -103,7 +103,7 @@ export function HeroSection() {
           ))}
         </div>
 
-        {/* Globe — centered then translates left + scales */}
+        {/* Globe, centered then translates left + scales */}
         <div
           style={{
             position: "absolute",
@@ -128,7 +128,7 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        {/* INTRO layer — fades out as user scrolls */}
+        {/* INTRO layer, fades out as user scrolls */}
         <motion.div
           style={{
             position: "absolute",
@@ -210,7 +210,7 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        {/* SCROLLED layer — appears as user scrolls */}
+        {/* SCROLLED layer, appears as user scrolls */}
         <motion.div
           style={{
             position: "absolute",
@@ -334,7 +334,7 @@ export function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Progress dots — bottom-left */}
+        {/* Progress dots, bottom-left */}
         <div
           style={{
             position: "absolute",

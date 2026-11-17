@@ -12,7 +12,7 @@ export const inflationTexte = (v: number) =>
   v >= 1e9 ? `${nf(v / 1e9, 1)} milliards de %` : v >= 1e6 ? `${nf(v / 1e6, 1)} millions de %` : `${nf(v, 1)} %`;
 
 export function titreDossier(d: Dossier): string {
-  return `Dette publique ${deNom(d.fr)} : montant, % du PIB, évolution depuis 2000 | Visualize`;
+  return `Dette publique ${deNom(d.fr)} : montant, % du PIB, évolution depuis 2000 | Datlas`;
 }
 export function descriptionDossier(d: Dossier, f: Fmt): string {
   return `Dette publique ${deNom(d.fr)} : ${f.m(d.d2024, 2024)} en 2024, soit ${nf(d.p2024, 1)} % du PIB (${nf(d.p2000, 1)} % en 2000). Évolution depuis 2000, principaux créanciers, inflation et comparaison avec les autres pays.`;

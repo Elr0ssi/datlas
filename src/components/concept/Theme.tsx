@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
    bascule : les jetons de couleur changent, rien n'est redessiné.
 
    La racine plutôt que le conteneur, pour deux raisons. Le fond de la page
-   déborde du conteneur — rebond de défilement, bande sous le pied — et il
+   déborde du conteneur, rebond de défilement, bande sous le pied, et il
    faut pouvoir le peindre aussi. Et l'attribut peut alors être posé avant le
    premier rendu, par le petit script du gabarit : sans lui, une page ouverte
    en clair apparaîtrait noire le temps d'une image.
@@ -25,7 +25,7 @@ const CLE = "visualize-theme-v2";
 
 /* Les abonnés au thème.
 
-   Deux composants appelaient ce crochet — le bouton et le globe — et chacun
+   Deux composants appelaient ce crochet, le bouton et le globe, et chacun
    tenait son propre état. Le bouton changeait le sien, le globe ne
    l'apprenait jamais : il gardait sa palette de nuit sur une page devenue
    claire. Le thème est donc tenu une seule fois, ici, et tout le monde y est

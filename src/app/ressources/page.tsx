@@ -13,7 +13,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.co
 const chemin = "/ressources";
 
 export const metadata: Metadata = {
-  title: { absolute: "Ressources : production mondiale par pays, de 1961 à 2024 | Visualize" },
+  title: { absolute: "Ressources : production mondiale par pays, de 1961 à 2024 | Datlas" },
   description:
     "Où sont produites les ressources agricoles du monde ? Production, surface récoltée et rendement par pays sur un globe interactif, classements et courbes de 1961 à 2024. Données FAOSTAT.",
   keywords: ["production mondiale de blé", "FAOSTAT", "ressources agricoles", "production par pays", "rendement agricole", "surface récoltée"],
@@ -49,8 +49,8 @@ export default function Page() {
     description: "Séries annuelles 1961-2024 de production (t), de surface récoltée (ha) et de rendement (kg/ha) par pays, avec le statut de chaque valeur (officielle, estimée, imputée, externe, manquante).",
     url: `${siteUrl}${chemin}`,
     inLanguage: "fr-FR",
-    creator: { "@type": "Organization", name: "Visualize", url: siteUrl },
-    isBasedOn: { "@type": "Dataset", name: "FAOSTAT — Crops and livestock products (QCL)", url: "https://www.fao.org/faostat/en/#data/QCL" },
+    creator: { "@type": "Organization", name: "Datlas", url: siteUrl },
+    isBasedOn: { "@type": "Dataset", name: "FAOSTAT, Crops and livestock products (QCL)", url: "https://www.fao.org/faostat/en/#data/QCL" },
   };
   const fil = {
     "@context": "https://schema.org",

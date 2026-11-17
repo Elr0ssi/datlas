@@ -117,7 +117,7 @@ export function ThemeStorySections() {
     <section style={{ position: "relative" }}>
       {SECTIONS.map((s, i) => (
         // Each section reserves a full viewport of scroll distance so the sticky
-        // card below is fully opaque and covers the previous one edge-to-edge —
+        // card below is fully opaque and covers the previous one edge-to-edge,
         // only one section is ever visible at a time.
         <div
           key={s.id}

@@ -10,7 +10,7 @@ import { Odometre } from "./Roulement";
    Ils avancent en continu, mais ils ne mesurent rien en direct : ils étalent
    une grandeur annuelle du socle sur l'année en cours. Ce qui défile, c'est
    « au rythme de l'an dernier, voilà ce qui s'est produit depuis le 1er
-   janvier ». La section le dit — un compteur qui court sans le préciser
+   janvier ». La section le dit, un compteur qui court sans le préciser
    laisse croire à un flux temps réel qui n'existe pas.
 
    Une rangée, une colonne par compteur : cinq grandeurs empilées se lisaient

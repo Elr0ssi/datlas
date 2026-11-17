@@ -11,7 +11,7 @@ interface AnimatedKpiProps {
   duration?: number;
 }
 
-// Counts up from 0 to `target` once, on mount — pair with a per-category
+// Counts up from 0 to `target` once, on mount, pair with a per-category
 // React `key` upstream so it re-triggers exactly on category change, not on
 // every scroll tick.
 export function AnimatedKpi({ target, decimals = 0, prefix = "", suffix = "", duration = 900 }: AnimatedKpiProps) {

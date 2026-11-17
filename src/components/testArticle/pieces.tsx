@@ -7,11 +7,11 @@ import { ECONOMY_YEARS } from "@/data/economy/economy";
 import { TEST_ARTICLE, TO_FILL } from "@/data/testArticle/testArticleData";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   TEST ARTICLE — the pieces of the format under trial
+   TEST ARTICLE, the pieces of the format under trial
 
    Everything here is built for one purpose: to be judged as a layout. The
    copy lives in the data file, and any figure the repository cannot source is
-   drawn as a slot rather than filled — a reader should be able to see, at a
+   drawn as a slot rather than filled, a reader should be able to see, at a
    glance, which numbers are still owed.
    ═══════════════════════════════════════════════════════════════════════════ */
 

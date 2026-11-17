@@ -15,8 +15,8 @@ import "./v2eco.css";
 /* ═══════════════════════════════════════════════════════════════════════════
    LE FORUM DU PROTOTYPE
 
-   Même moteur que /community — les mêmes fils, les mêmes comptes, le même
-   vote, la même modération — seulement rhabillé dans la direction
+   Même moteur que /community, les mêmes fils, les mêmes comptes, le même
+   vote, la même modération, seulement rhabillé dans la direction
    artistique d'Économie et de Démographie : hero à tuiles, fiches sombres,
    enseignes. Rien n'est réécrit côté données ; seule la présentation
    change.
@@ -348,7 +348,7 @@ function Fil1Message({
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* Les thématiques du forum, dans l'ordre où elles apparaissent parmi les
-   fils — pas un thème choisi à la main, celui que chaque fil porte déjà. */
+   fils, pas un thème choisi à la main, celui que chaque fil porte déjà. */
 const THEMES_FORUM = Array.from(new Set(FILS.map((f) => f.themeLabel)));
 
 export function ForumPage() {
@@ -375,7 +375,7 @@ export function ForumPage() {
     glisse.current = false;
     /* Des écouteurs posés sur la fenêtre, pas une capture de pointeur sur
        le rang : la capture redirige jusqu'au clic lui-même vers le rang,
-       et les cartes à l'intérieur ne le reçoivent alors plus jamais — tout
+       et les cartes à l'intérieur ne le reçoivent alors plus jamais, tout
        le carrousel restait bloqué sur la première carte. Ici, le rang suit
        le geste sans jamais s'interposer entre le pointeur et son bouton. */
     const bouger = (ev: PointerEvent) => {
@@ -583,8 +583,8 @@ export function ForumPage() {
                       <em>{fil.ancre.source}</em>
                     </div>
 
-                    {/* La question, en un paragraphe : le reste — les autres
-                        angles, le détail — se dit dans les réponses, pas
+                    {/* La question, en un paragraphe : le reste, les autres
+                        angles, le détail, se dit dans les réponses, pas
                         dans l'ouverture. */}
                     <p className="cg-fo-para">{fil.corps[0]}</p>
 

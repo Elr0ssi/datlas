@@ -7,7 +7,7 @@ import { ANNEES, CHAMPS, serie, type Champ } from "@/data/neo/series";
  * Le tableau de bord croise plusieurs indicateurs à l'écran en même temps :
  * les renvoyer séparément le ferait attendre à chaque changement de widget.
  * Six pays × quatre séries × soixante-six ans, cela reste quelques milliers
- * de nombres — sans commune mesure avec les 283 Ko du socle, qui ne quitte
+ * de nombres, sans commune mesure avec les 283 Ko du socle, qui ne quitte
  * jamais le serveur.
  *
  * Les trous de la source restent des `null`.

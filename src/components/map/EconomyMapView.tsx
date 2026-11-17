@@ -64,7 +64,7 @@ function computeLiveYearData(baseYear: EconomyYear): EconomyYear {
   for (const [country, data] of Object.entries(baseYear.countries)) {
     liveCountries[country] = {
       ...data,
-      // GDP is a flow: prorate to days elapsed. Rates (debt/unemployment/companies) are stocks — unchanged.
+      // GDP is a flow: prorate to days elapsed. Rates (debt/unemployment/companies) are stocks, unchanged.
       // L'arrondi reste au million : la base couvre des pays dont le PIB
       // annuel tient sous le milliard, et les arrondir à l'entier les
       // effaçait de la carte.
@@ -125,7 +125,7 @@ export function EconomyMapView() {
     [economyYear, ytdMode, isCurrentYear, prevEconomyYear]
   );
 
-  // One gesture, one section — see the hook for what it deliberately leaves
+  // One gesture, one section, see the hook for what it deliberately leaves
   // alone. Suspended in fullscreen, where the page is not what is being read.
   useScrollTeleport({ selector: ".eco-snap-target", offset: 64, enabled: !isFullscreen });
 
@@ -160,7 +160,7 @@ export function EconomyMapView() {
   return (
     // Three full-bleed stops. Each section owns a viewport: its mint ground
     // runs edge to edge, it holds at least the full height under the navbar,
-    // and it is a scroll-snap target — so arriving at one means seeing only
+    // and it is a scroll-snap target, so arriving at one means seeing only
     // that one, never the tail of the block before it.
     <div className="eco-snap">
       {/* ── Carte interactive ── */}
@@ -211,7 +211,7 @@ export function EconomyMapView() {
           </div>
 
           <div className="flex items-center gap-2">
-            {/* Flat map or globe — same data, same colours, same click. */}
+            {/* Flat map or globe, same data, same colours, same click. */}
             <div
               className="flex items-center rounded-lg overflow-hidden"
               style={{ border: "1px solid var(--border)" }}
@@ -312,7 +312,7 @@ export function EconomyMapView() {
               : {
                   // A definite height, not a range. The card also carries a
                   // toolbar, the year rail and a source line, and the section
-                  // around it has its own padding — 330px in all, which is why
+                  // around it has its own padding, 330px in all, which is why
                   // an intrinsic height ran past the bottom of a 1440x800
                   // laptop. And with only a min and a max, selecting a country
                   // grew the side panel, which grew the row, which resized the

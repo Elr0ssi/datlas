@@ -8,7 +8,7 @@ import pibFra from "@/../data/economie/pib/pib-total/FRA.json";
 
    1. La base du dépôt, pour les séries qu'elle porte déjà : le ratio
       dette/PIB de la France et son PIB. Le texte les lit, il ne les recopie
-      pas — une mise à jour de la base met la page à jour.
+      pas, une mise à jour de la base met la page à jour.
 
    2. Des chiffres de conjoncture qui n'ont pas encore de série dans la base :
       la dette trimestrielle de Maastricht, la détention par les
@@ -162,7 +162,7 @@ export const ADMINISTRATIONS: { nom: string; court: string; texte: string }[] = 
 
 /* Une même période pour tout le monde : mêler le premier trimestre 2026
    français aux chiffres 2025 des autres pays donnerait une comparaison
-   fausse. Les agrégats — zone euro, Union européenne — ne sont pas des pays
+   fausse. Les agrégats, zone euro, Union européenne, ne sont pas des pays
    et n'ont pas leur place dans data/countries ; ils restent ici. */
 export const COMPARAISON: { nom: string; pct: number; france?: boolean; agregat?: boolean }[] = [
   { nom: "Grèce", pct: 146.1 },

@@ -23,7 +23,7 @@ const SUGGESTIONS: Suggestion[] = [
 ];
 
 const metadata: Metadata = {
-  title: { absolute: "Dette publique du Pays modèle : montant, évolution, qui la détient | Visualize" },
+  title: { absolute: "Dette publique du Pays modèle : montant, évolution, qui la détient | Datlas" },
   description: "La dette publique du Pays modèle : montant, poids dans le PIB, évolution depuis 2000 et répartition par émetteur.",
   alternates: { canonical: entreeModele.url },
   openGraph: {
@@ -48,8 +48,8 @@ export const articleModele: ArticleDette = {
       inLanguage: "fr-FR",
       datePublished: entreeModele.publie,
       dateModified: entreeModele.modifie,
-      author: { "@type": "Organization", name: "Visualize" },
-      publisher: { "@type": "Organization", name: "Visualize", url: SITE_URL },
+      author: { "@type": "Organization", name: "Datlas" },
+      publisher: { "@type": "Organization", name: "Datlas", url: SITE_URL },
       mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${entreeModele.url}` },
     },
     {

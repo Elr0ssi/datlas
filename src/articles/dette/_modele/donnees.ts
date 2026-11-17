@@ -6,7 +6,7 @@
 
    ⚠ Valeurs d'exemple (« Pays modèle »). Les remplacer par des chiffres vérifiés,
      avec leur source exacte. Ne jamais inventer un chiffre : si une donnée n'existe
-     pas pour ce pays, le chapitre correspondant disparaît — il n'est pas rempli.
+     pas pour ce pays, le chapitre correspondant disparaît, il n'est pas rempli.
 
    UNITÉS : les montants sont en MILLIARDS D'EUROS (milliards d'euros), les ratios en % du PIB.
    ═══════════════════════════════════════════════════════════════════════════ */

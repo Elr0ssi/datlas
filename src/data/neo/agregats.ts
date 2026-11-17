@@ -4,7 +4,7 @@ import { countryFr } from "@/data/countryNamesFr";
 /**
  * Les agrégats de la page d'accueil « neo ».
  *
- * Tout est dérivé du socle — aucune valeur n'est saisie ici. Le socle ne
+ * Tout est dérivé du socle, aucune valeur n'est saisie ici. Le socle ne
  * couvre pas tous les pays sur toutes les années : une somme mondiale sur
  * 1960 porte sur moins de pays qu'une somme sur 2020. On expose donc le
  * nombre de pays couverts avec chaque point, et les libellés disent

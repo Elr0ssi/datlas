@@ -11,7 +11,7 @@ import { PUBS } from "@/data/pubs";
  * creative lands.
  *
  * The rails leave the layout below the width at which they would start eating
- * into the content column — see `.eco-ad-rail`.
+ * into the content column, see `.eco-ad-rail`.
  */
 
 export function AdRail({ side, slot }: { side: "left" | "right"; slot?: 1 | 2 | 3 }) {
@@ -44,7 +44,7 @@ export function AdRail({ side, slot }: { side: "left" | "right"; slot?: 1 | 2 | 
       aria-label={`Emplacement publicitaire ${side === "left" ? "gauche" : "droit"}`}
     >
       <div className="eco-ad-slot">
-        {/* Visual half — abstract shapes rather than a photograph, so nothing
+        {/* Visual half, abstract shapes rather than a photograph, so nothing
             here can be mistaken for a real advertiser. */}
         <div
           style={{
@@ -101,7 +101,7 @@ export function AdRail({ side, slot }: { side: "left" | "right"; slot?: 1 | 2 | 
           </span>
         </div>
 
-        {/* Copy half — the shape of a creative, filled with placeholder rules
+        {/* Copy half, the shape of a creative, filled with placeholder rules
             rather than invented claims. */}
         <div
           style={{

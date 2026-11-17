@@ -4,7 +4,7 @@ import { SOURCES } from "./donnees";
 /* ═══════════════════════════════════════════════════════════════════════════
    ESPAGNE : CE QUI S'OUVRE SOUS CHAQUE LIGNE DES RECETTES, DES DÉPENSES ET DU DÉFICIT
 
-   Source : « Dossier de données — dette publique de l'Espagne » (16 octobre 2026).
+   Source : « Dossier de données, dette publique de l'Espagne » (16 octobre 2026).
    Montants en milliards d'euros. Recettes et dépenses : INE, SEC 2010, édition actualisée.
    Impôts : encaissements de l'Agencia Tributaria (AEAT), un autre périmètre que les impôts
    de la comptabilité nationale : le détail porte sur les encaissements, et l'écart est dans « Autres recettes ».

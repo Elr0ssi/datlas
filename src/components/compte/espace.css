@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   MON ESPACE — une bannière, des onglets, des cartes dans la manière du site
+   MON ESPACE, une bannière, des onglets, des cartes dans la manière du site
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .es { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; padding: 96px clamp(16px, 3vw, 36px) 60px; --es-vif: #7c4dff; }
@@ -100,7 +100,7 @@
 @media (prefers-reduced-motion: reduce) { .es-b-lueur, .es-sph i, .es-panneau { animation: none; } }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   LE TABLEAU DE WIDGETS — on les range comme on veut
+   LE TABLEAU DE WIDGETS, on les range comme on veut
    ═══════════════════════════════════════════════════════════════════════════ */
 .es-panneau > .es-wb { grid-column: 1 / -1; }
 .es-wb-grille { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
@@ -153,7 +153,7 @@
 @media (prefers-reduced-motion: reduce) { .es-w { transition: none; } }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   « PERSONNALISER » — on ne déplace rien tant qu'on n'a pas demandé à le faire
+   « PERSONNALISER », on ne déplace rien tant qu'on n'a pas demandé à le faire
    ═══════════════════════════════════════════════════════════════════════════ */
 .es-wb-barre { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
 .es-wb-t { margin: 0; font-size: clamp(20px, 2vw, 26px); font-weight: 800; letter-spacing: -0.04em; }

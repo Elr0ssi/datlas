@@ -1,9 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   RÉFÉRENTIEL DES PAYS — la table de jointure du projet
+   RÉFÉRENTIEL DES PAYS, la table de jointure du projet
 
    Une seule clé fait autorité : le code ISO 3166-1 alpha-3. Les noms, eux,
-   changent d'une source à l'autre — « Korea, Rep. » à la Banque mondiale,
-   « South Korea » chez Natural Earth, « Corée du Sud » à l'écran — et joindre
+   changent d'une source à l'autre, « Korea, Rep. » à la Banque mondiale,
+   « South Korea » chez Natural Earth, « Corée du Sud » à l'écran, et joindre
    deux jeux de données sur un nom, c'est perdre un pays au premier import qui
    l'écrit autrement. Le nom français ne sert qu'à l'affichage.
 

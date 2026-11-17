@@ -7,7 +7,7 @@ import "./seo.css";
 
 export const FAQ_COMPARER: QR[] = [
   {
-    q: "Comment comparer deux pays sur Visualize ?",
+    q: "Comment comparer deux pays sur Datlas ?",
     r: "Choisissez jusqu'à quatre pays, puis un indicateur : PIB, PIB par habitant, population, dette publique, inflation, chômage, natalité, mortalité… Les barres montrent l'année choisie, la courbe montre l'évolution depuis 1960, et un curseur permet de remonter le temps.",
   },
   {

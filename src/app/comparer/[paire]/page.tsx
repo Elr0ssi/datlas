@@ -12,7 +12,7 @@ import "@/components/concept/concept.css";
 import "@/components/seo/seo.css";
 
 /* Les comparaisons des pays les plus recherchés sont construites à la compilation ;
-   toute autre paire — Burkina Faso et Congo, France et Irlande — se construit à la première visite. */
+   toute autre paire, Burkina Faso et Congo, France et Irlande, se construit à la première visite. */
 export const revalidate = 2592000;
 export const dynamicParams = true;
 
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ paire: st
     title: { absolute: titreDuel(p.a, p.b) },
     description: descriptionDuel(p.a, p.b),
     alternates: { canonical: `/comparer/${p.canonique}` },
-    openGraph: { type: "article", url, title: `${p.a.fr} ou ${p.b.fr} : la comparaison`, description: descriptionDuel(p.a, p.b), siteName: "Visualize", locale: "fr_FR" },
+    openGraph: { type: "article", url, title: `${p.a.fr} ou ${p.b.fr} : la comparaison`, description: descriptionDuel(p.a, p.b), siteName: "Datlas", locale: "fr_FR" },
     twitter: { card: "summary_large_image", title: `${p.a.fr} ou ${p.b.fr}`, description: descriptionDuel(p.a, p.b) },
   };
 }
@@ -64,7 +64,7 @@ export default async function Page({ params }: { params: Promise<{ paire: string
       name: titreDuel(a, b),
       description: descriptionDuel(a, b),
       inLanguage: "fr",
-      isPartOf: { "@type": "WebSite", name: "Visualize", url: SITE_URL },
+      isPartOf: { "@type": "WebSite", name: "Datlas", url: SITE_URL },
       about: [
         { "@type": "Country", name: a.fr },
         { "@type": "Country", name: b.fr },
@@ -115,9 +115,9 @@ export default async function Page({ params }: { params: Promise<{ paire: string
                 return (
                   <tr key={l.id}>
                     <th scope="row">{l.label}</th>
-                    <td className={ga ? "sg-gagne" : undefined}>{va ? l.fmt(va.v) : "—"}{va?.annee ? <small>{va.annee}</small> : null}</td>
-                    <td className={gb ? "sg-gagne" : undefined}>{vb ? l.fmt(vb.v) : "—"}{vb?.annee ? <small>{vb.annee}</small> : null}</td>
-                    <td>{va && vb && va.v > 0 && vb.v > 0 ? `×${nf(Math.max(va.v, vb.v) / Math.min(va.v, vb.v), Math.max(va.v, vb.v) / Math.min(va.v, vb.v) >= 10 ? 0 : 1)}` : "—"}</td>
+                    <td className={ga ? "sg-gagne" : undefined}>{va ? l.fmt(va.v) : "–"}{va?.annee ? <small>{va.annee}</small> : null}</td>
+                    <td className={gb ? "sg-gagne" : undefined}>{vb ? l.fmt(vb.v) : "–"}{vb?.annee ? <small>{vb.annee}</small> : null}</td>
+                    <td>{va && vb && va.v > 0 && vb.v > 0 ? `×${nf(Math.max(va.v, vb.v) / Math.min(va.v, vb.v), Math.max(va.v, vb.v) / Math.min(va.v, vb.v) >= 10 ? 0 : 1)}` : "–"}</td>
                   </tr>
                 );
               })}

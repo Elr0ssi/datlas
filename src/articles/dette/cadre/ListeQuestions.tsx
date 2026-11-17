@@ -3,7 +3,7 @@
 import { ChevronDown } from "lucide-react";
 
 /** La FAQ : des questions qui se déplient. Les mêmes questions doivent figurer dans les données
- *  structurées (`jsonLd` de l'article, voir `registre.ts`) — le balisage ne doit promettre que ce que la page montre.
+ *  structurées (`jsonLd` de l'article, voir `registre.ts`), le balisage ne doit promettre que ce que la page montre.
  *
  *    <Chapitre id="questions" titre="Questions fréquentes sur la dette de l'Italie">
  *      <ListeQuestions questions={FAQ} />

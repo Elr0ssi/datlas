@@ -27,7 +27,7 @@ const RAPPORTS = resolve(RACINE, "src/data/ressources/rapports");
 const GEO = JSON.parse(readFileSync(resolve(RACINE, "src/data/ressources/geo-m49.json"), "utf8"));
 const NE = new Set(JSON.parse(readFileSync(resolve(RACINE, "public/geo/ne_50m_countries.simplified.geojson"), "utf8")).features.map((f) => f.properties.name));
 
-/** Codes d'éléments FAOSTAT connus → identifiant d'indicateur de Vizualize. Un code inconnu devient « el-<code> ». */
+/** Codes d'éléments FAOSTAT connus → identifiant d'indicateur de Datlas. Un code inconnu devient « el-<code> ». */
 const INDICATEURS = { 5510: "production", 5312: "surface", 5412: "rendement" };
 /** Les rendements que FAOSTAT publie sous d'autres codes (élevage : poids par animal, œufs par poule…). Un seul devient « rendement » par produit,
     dans cet ordre ; les autres restent des éléments à part (« el-<code> »), jamais perdus ni mélangés avec lui. */
@@ -181,7 +181,7 @@ function main() {
         schema: 1,
         ressource: { id, domaine: r0["Domain Code"], domaine_nom: r0["Domain"], code_item: r0["Item Code (CPC)"], nom_fao: r0["Item"] },
         source: {
-          nom: `FAOSTAT — ${r0["Domain"]} (${r0["Domain Code"]}), ${r0["Item"]}`,
+          nom: `FAOSTAT, ${r0["Domain"]} (${r0["Domain Code"]}), ${r0["Item"]}`,
           url: `https://www.fao.org/faostat/en/#data/${r0["Domain Code"]}`,
           metadonnees: `https://www.fao.org/faostat/en/#data/${r0["Domain Code"]}/metadata`,
           fichier: basename(f), sha256: sha, date_export: dateExport, importe_le: new Date().toISOString().slice(0, 10),

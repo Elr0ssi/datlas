@@ -1,4 +1,4 @@
-// Trade balance data — approximate 2024/2025, Mds USD
+// Trade balance data, approximate 2024/2025, Mds USD
 // Positive = surplus (exports > imports), Negative = deficit
 // Sources: WTO, IMF WEO, World Bank BOP
 

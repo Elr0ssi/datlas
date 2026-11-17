@@ -20,7 +20,7 @@ export function articlesConflits(): FicheArticle[] {
       titre: a.title,
       chapo: a.excerpt,
       rubrique: "Militaire",
-      duree: a.readingTime ? `${a.readingTime} min` : "—",
+      duree: a.readingTime ? `${a.readingTime} min` : "–",
       href: `/articles/${a.slug}`,
     }));
 }

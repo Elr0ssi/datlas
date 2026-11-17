@@ -6,7 +6,7 @@ import SOCLE from "./genere/socle-demographie.json";
  * Contrairement au socle économique, il ne porte aucune saisie manuelle : la
  * base des Nations Unies (World Population Prospects 2024) couvre déjà les
  * 219 pays et territoires du fond de carte, de 1960 à 2026. Une année qu'elle
- * ne publie pas pour un pays reste absente — elle ne devient jamais zéro.
+ * ne publie pas pour un pays reste absente, elle ne devient jamais zéro.
  */
 
 /** Les sept causes de décès que la base détaille, chacune en effectif
@@ -30,7 +30,7 @@ export interface CountryDemographyData {
   deaths_per_second?: number;
   /** Solde migratoire net annuel, en personnes. */
   net_migration?: number;
-  /** Naissances et décès de l'année, en effectif — pas un taux. */
+  /** Naissances et décès de l'année, en effectif, pas un taux. */
   births_annual?: number;
   deaths_annual?: number;
   /** Décès annuels par cause : 1990-2019 mesurés (IHME GBD 2019), 2020-2026
@@ -45,7 +45,7 @@ export interface CountryDemographyData {
   road_annual?: number;
 }
 
-/** Les grandeurs comparables d'un pays à l'autre — celles que le globe peut
+/** Les grandeurs comparables d'un pays à l'autre, celles que le globe peut
     colorer et que le classement peut trier. Les deux compteurs par seconde
     n'en font pas partie : ils n'ont de sens qu'agrégés sur le monde. */
 export type DemographyMetricId =

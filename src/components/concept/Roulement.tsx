@@ -7,7 +7,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
    Un compteur mécanique, pas une suite de nombres qui se remplacent. Chaque
    rouleau porte les dix chiffres et tourne sur lui-même ; sa position est un
-   réel, pas un entier — c'est ce qui fait que le mouvement est continu et
+   réel, pas un entier, c'est ce qui fait que le mouvement est continu et
    non saccadé. Les unités tournent sans arrêt, les dizaines dix fois moins
    vite, et ainsi de suite : c'est la mécanique d'un compteur, et elle dit la
    vitesse à laquelle la grandeur court.
@@ -133,13 +133,13 @@ export function Odometre({
   /* Le nombre de rouleaux ne suit pas la valeur image par image : il ne
      change que quand l'ordre de grandeur change, sinon la ligne sauterait en
      largeur à chaque tour d'unité. */
-  /* Monté ou pas encore. Le premier rendu — celui du serveur, et celui de
-     l'hydratation qui doit lui ressembler trait pour trait — ne lit jamais
+  /* Monté ou pas encore. Le premier rendu, celui du serveur, et celui de
+     l'hydratation qui doit lui ressembler trait pour trait, ne lit jamais
      l'heure. La page est pré-rendue au build : un compteur qui comptait ses
      chiffres à l'heure du build (98 millions de naissances, huit rouleaux)
      n'en comptait plus autant à l'heure de la visite (101 millions, neuf).
      React voyait deux pages différentes, jetait celle du serveur et
-     redessinait tout — thème compris, animations comprises. */
+     redessinait tout, thème compris, animations comprises. */
   const [hydrate, setHydrate] = useState(false);
   useEffect(() => setHydrate(true), []);
 
@@ -223,7 +223,7 @@ export function Odometre({
       if (!continu && u >= 1) ech = Math.round(ech);
 
       /* Le tour « dans le vide » : on part d'un décalage qui est un multiple
-         exact de dix — donc invisible à l'arrêt — et on le ramène à zéro.
+         exact de dix, donc invisible à l'arrêt, et on le ramène à zéro.
          Chaque rouleau fait ainsi ses tours puis se pose sur son chiffre. */
       let i = 0;
       for (const c of cases) {
@@ -237,7 +237,7 @@ export function Odometre({
         /* Seul le dernier rouleau affiché d'un compteur qui court tourne en
            continu. Partout ailleurs il reste posé, pile sur son chiffre : un
            rouleau qui court a longtemps gardé une fenêtre de retenue avant
-           chaque report, pour lisser le passage au chiffre suivant — un
+           chaque report, pour lisser le passage au chiffre suivant, un
            « 5 » qui penchait déjà vers le « 6 » avant d'y arriver. Vu de
            près, ça se lisait comme deux rouleaux qui bougent au lieu d'un
            seul : ce n'est jamais qu'un, le dernier, qui doit courir. Le

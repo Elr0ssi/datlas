@@ -47,7 +47,7 @@ const SUGGESTIONS: Suggestion[] = [
 
 const metadata: Metadata = {
   /* Titre en absolu : le gabarit du dépôt n'ajoute alors rien derrière. */
-  title: { absolute: "Dette publique française : montant, évolution, coût et détenteurs | Visualize" },
+  title: { absolute: "Dette publique française : montant, évolution, coût et détenteurs | Datlas" },
   description:
     "La dette publique française expliquée simplement : montant, évolution, dette/PIB, déficit, détenteurs, intérêts, remboursement et comparaison européenne.",
   keywords: [
@@ -120,8 +120,8 @@ function donneesStructurees(): object[] {
       inLanguage: "fr-FR",
       datePublished: PUBLIE,
       dateModified: MODIFIE,
-      author: { "@type": "Organization", name: "Visualize" },
-      publisher: { "@type": "Organization", name: "Visualize", url: SITE_URL },
+      author: { "@type": "Organization", name: "Datlas" },
+      publisher: { "@type": "Organization", name: "Datlas", url: SITE_URL },
       mainEntityOfPage: { "@type": "WebPage", "@id": page },
       about: { "@type": "Thing", name: "Dette publique de la France" },
       /* Les sources citées, pour que la provenance voyage avec la page. */

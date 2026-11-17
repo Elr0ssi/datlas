@@ -30,8 +30,8 @@ function nb(v: number, d = 0) {
 /* ═══════════════════════════════════════════════════════════════════════════
    LE GLOBE DÉMOGRAPHIE DU PROTOTYPE
 
-   Le pendant exact de GlobeEco.tsx — mêmes onglets de famille, même fiche
-   pays, même courbe d'évolution à deux repères — posé sur DemographyGlobe
+   Le pendant exact de GlobeEco.tsx, mêmes onglets de famille, même fiche
+   pays, même courbe d'évolution à deux repères, posé sur DemographyGlobe
    plutôt que sur EconomyGlobe, puisque les métriques et le format des pays
    diffèrent. Pas de globe canvas retracé sommet par sommet, pas de vitrine
    qui tourne toute seule sans qu'on puisse cliquer un pays : le même globe
@@ -89,7 +89,7 @@ export const FAMILLES: FamilleDemo[] = [
 
 export const TOUTES = FAMILLES.flatMap((f) => f.membres);
 
-/* Les grandeurs qui sont un effectif annuel — pas un taux — acceptent un
+/* Les grandeurs qui sont un effectif annuel, pas un taux, acceptent un
    compteur en direct sur le dernier pas : ce qu'annonce l'année en cours
    n'est pas mesuré à la seconde, c'est cette valeur annuelle étalée depuis
    le premier janvier. Exactement la règle du PIB sur la page Économie. */
@@ -145,7 +145,7 @@ interface Props {
   /**
    * Vrai quand l'année affichée est la dernière du socle : les effectifs
    * annuels (naissances, décès, chaque cause) y acceptent alors un compteur
-   * en direct, sur toutes leurs tuiles — pas seulement celle du moment —
+   * en direct, sur toutes leurs tuiles, pas seulement celle du moment,
    * plutôt qu'une mesure figée. Ce n'est jamais le cas pour un taux ou pour
    * la population, qui restent des valeurs posées.
    */
@@ -256,7 +256,7 @@ export function GlobeDemographie({
   const pointsEvo = useMemo(() => serie.map((p) => ({ annee: p.annee, valeur: p.v })), [serie]);
 
   /** Comme pieceDemo, mais ramenée pour 100 000 habitants quand ce repère
-      est actif — les taux (pour1000) n'ont pas ce repère, il ne vaut que
+      est actif, les taux (pour1000) n'ont pas ce repère, il ne vaut que
       pour les effectifs annuels de la famille Mortalité. */
   const piece = useCallback(
     (brut: number | null | undefined, unite: MetriqueDemo["unite"]) => {
@@ -269,7 +269,7 @@ export function GlobeDemographie({
   );
 
   /* Un effectif annuel, sur le dernier pas, tourne en direct depuis le
-     premier janvier — vedette et voisines pareillement, plutôt que la
+     premier janvier, vedette et voisines pareillement, plutôt que la
      seule tuile du moment. */
   const infosTuile = useCallback(
     (m: MetriqueDemo, brut: number | undefined) => {

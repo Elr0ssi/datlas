@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   COUNTRY NAMES — one French label per country, one place to find it
+   COUNTRY NAMES, one French label per country, one place to find it
 
    The datasets and the geographies are keyed on the Natural Earth English
    name. That key is the join between a figure and a shape, so it stays: this
@@ -7,7 +7,7 @@
 
    Everything the site shows a country name in goes through `countryFr`, so a
    country is written the same way on the map, on the globe, in the ranking and
-   in the side panel — and correcting a name is one line, once.
+   in the side panel, and correcting a name is one line, once.
 
    Keys cover both shipped geographies (110m and 50m) and the few spellings the
    economy dataset uses that Natural Earth does not.
@@ -257,7 +257,7 @@ export const COUNTRY_FR: Record<string, string> = {
  *
  * Falling back to the key rather than to an empty string is deliberate: a
  * country the table has not caught yet should still be named on screen, in
- * English, where it is visible and can be reported — not disappear.
+ * English, where it is visible and can be reported, not disappear.
  */
 export function countryFr(name: string | null | undefined): string {
   if (!name) return "";

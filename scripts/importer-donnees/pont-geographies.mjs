@@ -9,8 +9,8 @@
 
    D'où ce pont, écrit une fois, vérifié, et rangé dans un fichier qu'on peut
    relire : nom du fond de carte → ISO3. Tout le reste du projet joint ensuite
-   sur ISO3. Les entités sans code — Antarctique, Sahara occidental, Taïwan,
-   pour lesquelles la Banque mondiale ne publie pas — sont listées à part
+   sur ISO3. Les entités sans code, Antarctique, Sahara occidental, Taïwan,
+   pour lesquelles la Banque mondiale ne publie pas, sont listées à part
    plutôt que silencieusement perdues.
 
    USAGE  node scripts/importer-donnees/pont-geographies.mjs

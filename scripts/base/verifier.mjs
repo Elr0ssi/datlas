@@ -4,7 +4,7 @@
 
    Relit les sources d'origine, relit la base migrée, et compare valeur par
    valeur. Une valeur qui ne se retrouve pas à l'identique fait échouer le
-   contrôle — c'est le seul verdict qui compte.
+   contrôle, c'est le seul verdict qui compte.
 
    Le contrôle porte sur l'égalité stricte des nombres : pas de tolérance, pas
    d'arrondi. Migrer une base n'est pas la recalculer.
@@ -183,7 +183,7 @@ compare("populationData", "demographie/population/nombre-habitants", pop);
 
 /* ── Verdict ────────────────────────────────────────────────────────────── */
 
-console.log("Contrôle de la migration — égalité stricte, aucune tolérance\n");
+console.log("Contrôle de la migration, égalité stricte, aucune tolérance\n");
 let total = 0;
 let manque = 0;
 for (const b of bilan) {

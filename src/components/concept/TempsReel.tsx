@@ -12,12 +12,12 @@ import type { FichePays } from "@/data/concept/conceptGeo";
 
    Le bandeau défile : les compteurs passent, on n'en lit pas dix d'un coup.
    Chaque vignette porte son intitulé, son nombre, et le même montant écrit
-   en toutes lettres — « 8,5 milliards d'habitants » — pour qu'il se lise
+   en toutes lettres, « 8,5 milliards d'habitants », pour qu'il se lise
    d'un regard sans compter les chiffres.
 
    Aucun de ces compteurs ne mesure quoi que ce soit à la seconde : ils
    étalent une grandeur annuelle sur l'année en cours. Deux viennent du
-   socle — le produit intérieur brut, qui est un flux et se cumule depuis le
+   socle, le produit intérieur brut, qui est un flux et se cumule depuis le
    1er janvier, et la population, qui est un stock et part de la somme
    publiée. Les autres attendent leur source ; une pastille le dit.
 

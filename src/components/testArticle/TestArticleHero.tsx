@@ -5,7 +5,7 @@ import { TEST_ARTICLE } from "@/data/testArticle/testArticleData";
 import { useFranceSeries } from "./pieces";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   HERO — the image, the title, the rule, the section
+   HERO, the image, the title, the rule, the section
 
    The image is not a photograph. Nothing decorative is fetched for this page:
    the band across the top is the article's own subject, the French debt

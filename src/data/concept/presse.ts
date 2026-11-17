@@ -6,7 +6,7 @@
    l'adresse exacte de l'article.
 
    Tant qu'une entrée porte `exemple: true`, elle s'affiche comme un
-   emplacement à renseigner — jamais comme un vrai article. On n'invente ni
+   emplacement à renseigner, jamais comme un vrai article. On n'invente ni
    média, ni titre, ni adresse : une citation inventée serait une fausse
    source, et c'est exactement ce que ce bloc doit éviter. Dès qu'une entrée
    est renseignée et que `exemple` est retiré, elle devient un vrai lien

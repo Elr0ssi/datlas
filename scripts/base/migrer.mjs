@@ -123,7 +123,7 @@ for (const f of fs.readdirSync(`${RACINE}/data/countries`).sort()) {
 }
 
 /* ═══ 2. La saisie manuelle de economy.ts : dette/pib, chômage, entreprises
-        — et le PIB qu'elle porte aussi, gardé comme seconde source ═════ */
+, et le PIB qu'elle porte aussi, gardé comme seconde source ═════ */
 
 const SAISIE = litteral("src/data/economy/economy.ts", "SAISIE_MANUELLE");
 const SRC_SAISIE = "Saisie manuelle du site (Banque mondiale, FMI, OIT) · 7 dates repères";
@@ -135,7 +135,7 @@ for (const an of SAISIE) {
     ajoute("economie/emploi/taux-chomage", pose("economie/emploi/taux-chomage", c, an.year, d.unemployment, SRC_SAISIE));
     ajoute("economie/entreprises/nombre-entreprises", pose("economie/entreprises/nombre-entreprises", c, an.year, d.companies, SRC_SAISIE));
     /* Le PIB saisi à la main existe aussi, en milliards : la page ne s'en
-       sert pas — elle lit la base — mais on ne le perd pas pour autant. */
+       sert pas, elle lit la base, mais on ne le perd pas pour autant. */
     poseAutre("economie/pib/pib-total", c, an.year, d.gdp, SRC_SAISIE, "MD_USD");
   }
 }
@@ -215,7 +215,7 @@ for (const [nom, serie] of Object.entries(POP)) {
 /* ═══ 7. Écriture ═══════════════════════════════════════════════════════ */
 
 if (inconnus.size) {
-  console.error("\nPays sans code ISO3 — la migration s'arrête plutôt que de les perdre :");
+  console.error("\nPays sans code ISO3, la migration s'arrête plutôt que de les perdre :");
   for (const [nom, o] of inconnus) console.error(`  · ${nom}  (${[...o].join(", ")})`);
   console.error("\nComplétez la table d'alias dans scripts/base/sources.mjs.");
   process.exit(1);
@@ -291,7 +291,7 @@ if (!SIMULATION) {
   }
 }
 
-console.log(SIMULATION ? "SIMULATION — rien n'a été écrit\n" : "Base écrite\n");
+console.log(SIMULATION ? "SIMULATION, rien n'a été écrit\n" : "Base écrite\n");
 console.log(`  ${nPays} fiches pays lues dans data/countries`);
 for (const [chemin, n] of Object.entries(compte).sort()) {
   const p = base.get(chemin)?.size ?? 0;

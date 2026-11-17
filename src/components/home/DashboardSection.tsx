@@ -33,7 +33,7 @@ const METRICS = [
     href: "/map/military",
     cols: 1,
   },
-  // Row 2 — three span-1 cards fill the row perfectly
+  // Row 2, three span-1 cards fill the row perfectly
   {
     id: "democracy",
     title: "Population en démocratie",
@@ -76,7 +76,7 @@ const METRICS = [
     href: "/map/epidemics",
     cols: 1,
   },
-  // Row 3 — full-width banner
+  // Row 3, full-width banner
   {
     id: "decline",
     title: "Pays en recul démocratique",

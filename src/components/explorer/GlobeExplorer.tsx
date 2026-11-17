@@ -9,7 +9,7 @@ import { COUCHE, type Repere, type Riviere } from "@/data/explorer/couches";
 
    Une sphère claire en relief (la carte d'altitude du site sert à la fois de relief
    et d'ombrage), peinte pays par pays, sur laquelle on pose :
-     - des repères (points) — une seule géométrie, un seul appel de dessin ;
+     - des repères (points), une seule géométrie, un seul appel de dessin ;
      - des tracés (rivières) ;
      - des cartes blanches qui suivent les repères choisis.
 
@@ -937,7 +937,10 @@ export const GlobeExplorer = forwardRef<GlobeExplorerHandle, Props>(function Glo
       const maintenantPays = performance.now();
       if (surPointeur.dans && !tout.glisse) {
         const id = plusProche(surPointeur.x, surPointeur.y, 14);
-        renderer.domElement.style.cursor = id ? "pointer" : "grab";
+        /* La main « attraper » partout : le globe se fait tourner et ses pays se cliquent avec le même curseur, qui ne clignote plus
+           entre la main et le doigt. Seul un repère précis (un point) prend le doigt. */
+        const curseur = id ? "pointer" : "grab";
+        if (renderer.domElement.style.cursor !== curseur) renderer.domElement.style.cursor = curseur;
         if (id !== dernierSurvol) {
           dernierSurvol = id;
           e.props.onSurvol(id);
@@ -952,7 +955,6 @@ export const GlobeExplorer = forwardRef<GlobeExplorerHandle, Props>(function Glo
             majSurvolPays();
           }
           e.props.onPaysSurvol(nom ? { nom, x: surPointeur.x, y: surPointeur.y } : null);
-          if (!id) renderer.domElement.style.cursor = nom ? "pointer" : "grab";
         }
       } else if (survolPays) {
         survolPays = null;

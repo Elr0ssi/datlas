@@ -22,7 +22,7 @@ const WHEEL_THRESHOLD = 4;
  * Quiet time that has to pass before a new wheel gesture is recognised.
  *
  * A trackpad flick emits events for well over a second, so a cooldown alone
- * let one physical gesture spend itself on two sections — most visibly going
+ * let one physical gesture spend itself on two sections, most visibly going
  * up, where the momentum tail is longest. A gesture now has to end before the
  * next one counts. Measured as idle time after the last event by a timer the
  * wheel keeps restarting, so a busy main thread delays the end of a gesture
@@ -37,7 +37,7 @@ const EPSILON = 3;
 interface Options {
   /** Selector for the sections that act as stops. */
   selector: string;
-  /** Space kept above a stop — the fixed navbar. */
+  /** Space kept above a stop, the fixed navbar. */
   offset: number;
   enabled?: boolean;
   /**
@@ -83,7 +83,7 @@ export function useScrollTeleport({ selector, offset, enabled = true, startAt = 
      * A gesture ends on a timer restarted by every wheel event, rather than on
      * the gap between two of them. The difference matters on a busy main
      * thread: a delayed *event* looks like the start of a new gesture, while a
-     * delayed *timer* simply keeps the current one open — and a flick that
+     * delayed *timer* simply keeps the current one open, and a flick that
      * appears to end twice is exactly how one gesture spends itself on two
      * sections.
      */
@@ -97,7 +97,7 @@ export function useScrollTeleport({ selector, offset, enabled = true, startAt = 
     //
     // Smootherstep: its first and second derivatives are both zero at each
     // end, so there is no kick leaving a section and no thump arriving at the
-    // next — the page just starts moving, glides, and comes to rest. It reads
+    // next, the page just starts moving, glides, and comes to rest. It reads
     // as the page scrolling itself rather than as a cut with an ease painted
     // on it, and the curve keeps that true at any duration.
     const smootherstep = (t: number) => t * t * t * (t * (t * 6 - 15) + 10);
@@ -164,7 +164,7 @@ export function useScrollTeleport({ selector, offset, enabled = true, startAt = 
     /**
      * Content the reader is meant to scroll through, marked in the markup.
      * Inside one of these the wheel belongs to the content and to nothing
-     * else — not even at its end, or the page would jump out from under a
+     * else, not even at its end, or the page would jump out from under a
      * reader who simply reached the bottom of a table.
      */
     const insideScrollRegion = (target: EventTarget | null): boolean => {
@@ -194,7 +194,7 @@ export function useScrollTeleport({ selector, offset, enabled = true, startAt = 
     /**
      * Does this gesture belong to the run at all? Asked before the page has
      * moved a pixel, so a gesture the run is going to answer can be taken off
-     * the browser from its very first event — otherwise the head of a flick
+     * the browser from its very first event, otherwise the head of a flick
      * nudges the page a few pixels and its momentum tail carries it past the
      * stop, which is exactly what a reader sees as the page "jumping".
      */
@@ -205,7 +205,7 @@ export function useScrollTeleport({ selector, offset, enabled = true, startAt = 
       const y = window.scrollY;
       const viewport = window.innerHeight - gap();
 
-      // Outside the run of sections — hand the page back.
+      // Outside the run of sections, hand the page back.
       if (y < s.floor - EPSILON || y > s.end + EPSILON) return null;
 
       let i = 0;
@@ -221,7 +221,7 @@ export function useScrollTeleport({ selector, offset, enabled = true, startAt = 
       if (insideScrollRegion(target)) return null;
       if (innerCanScroll(target, dir)) return null;
 
-      // A section that does not fit is read by scrolling, not by jumping —
+      // A section that does not fit is read by scrolling, not by jumping,
       // until its far edge is on screen.
       const h = s.heights[i];
       if (h > viewport) {
@@ -244,7 +244,7 @@ export function useScrollTeleport({ selector, offset, enabled = true, startAt = 
       last = now;
 
       rollTo(s.tops[next]);
-      // Announce the move so the arriving section can answer it — see
+      // Announce the move so the arriving section can answer it, see
       // SectionFlowCurves, which throws its sheaf the other way.
       window.dispatchEvent(
         new CustomEvent<TeleportDetail>(TELEPORT_EVENT, {
@@ -256,7 +256,7 @@ export function useScrollTeleport({ selector, offset, enabled = true, startAt = 
 
     const onWheel = (e: WheelEvent) => {
       if (e.ctrlKey) return; // pinch zoom
-      // Something nearer the pointer already answered this wheel — the globe
+      // Something nearer the pointer already answered this wheel, the globe
       // zooming, say. Whoever consumed it owns it; the page stays put.
       if (e.defaultPrevented) return;
 

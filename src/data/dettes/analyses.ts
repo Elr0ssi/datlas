@@ -77,7 +77,7 @@ const rang = (n: number) => (n === 1 ? "premier" : `${n}e`);
 const PRUDENCE =
   "Le poids de la dette dans le PIB est un repère, pas un verdict. Il ne dit ni dans quelle monnaie la dette est libellée, ni qui la détient, ni à quel taux elle est renouvelée, ni à quelle vitesse l'économie croît : quatre éléments qui décident, bien plus que le chiffre seul, de la facilité à la porter.";
 const NOTE_BASE =
-  "Les chiffres viennent de la base de dette de Visualize (2000, 2014 et 2024, en milliards d'euros) ; ils sont arrondis et peuvent différer des publications nationales, qui n'utilisent pas toutes le même périmètre d'administrations publiques.";
+  "Les chiffres viennent de la base de dette de Datlas (2000, 2014 et 2024, en milliards d'euros) ; ils sont arrondis et peuvent différer des publications nationales, qui n'utilisent pas toutes le même périmètre d'administrations publiques.";
 
 /* ── Les classements ───────────────────────────────────────────────────── */
 
@@ -218,7 +218,7 @@ const parTete: Analyse = {
       ],
       lecture: [
         {
-          titre: "Ce que mesure — et ne mesure pas — la dette par habitant",
+          titre: "Ce que mesure, et ne mesure pas, la dette par habitant",
           texte: [
             "Diviser la dette par la population donne une image parlante, mais trompeuse : la dette n'est pas due par chaque habitant, elle est due par l'État, qui dispose de recettes. Un pays riche supporte une dette par tête bien plus élevée qu'un pays pauvre, simplement parce que ses habitants produisent davantage.",
             "Pour comparer la charge réelle, il faut la rapporter au revenu : c'est le rôle du ratio dette/PIB. La dette par habitant reste utile pour ordonner de grandeur et pour parler concrètement d'un montant autrement abstrait.",

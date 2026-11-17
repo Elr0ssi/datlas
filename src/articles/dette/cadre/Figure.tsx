@@ -5,7 +5,7 @@ import { ArrowUpRight, Link2 } from "lucide-react";
 import type { Source } from "./types";
 
 /** Une figure : le graphique, sa légende, sa source exacte, une adresse qu'on peut copier.
- *  C'est ce qui permet de retrouver — et de citer — un graphique précis depuis un moteur de recherche.
+ *  C'est ce qui permet de retrouver, et de citer, un graphique précis depuis un moteur de recherche.
  *
  *    <Figure
  *      id="dette-par-emetteur"                       // l'ancre de la figure : `#dette-par-emetteur`

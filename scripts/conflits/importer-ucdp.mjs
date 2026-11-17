@@ -10,7 +10,7 @@
    Pourquoi des fichiers locaux : l'API UCDP exige un jeton, et ce connecteur ne contourne aucune authentification. Les exports CSV
    officiels sont téléchargeables sur https://ucdp.uu.se/downloads/ (licence CC BY 4.0, attribution obligatoire : « Uppsala Conflict
    Data Program »). STATUT : écrit d'après le codebook, vérifié sur de petits fichiers de test (scripts/conflits/fixtures), PAS sur un export réel
-   — aucun jeu UCDP n'a pu être téléchargé dans l'environnement de développement (réseau restreint).
+, aucun jeu UCDP n'a pu être téléchargé dans l'environnement de développement (réseau restreint).
 
    Sorties (public/conflits/historique/) :
      - acd.json        : conflits annuels 1946–… (une ligne par conflit et par année), catégories UCDP conservées (type_of_conflict, intensity_level) ;
@@ -48,7 +48,7 @@ export function lireAcd(texte, version, meta) {
       intensite: num(r.intensity_level), type: num(r.type_of_conflict), intensite_cumulee: num(r.cumulative_intensity), region: r.region || null, debut: r.start_date || null,
     };
   });
-  return { jeu: "UCDP/PRIO Armed Conflict Dataset", version, licence: "CC BY 4.0 — Uppsala Conflict Data Program", statut: "definitif", ...meta, lignes: out.length, annees: [Math.min(...out.map((x) => x.annee)), Math.max(...out.map((x) => x.annee))], conflits_annuels: out };
+  return { jeu: "UCDP/PRIO Armed Conflict Dataset", version, licence: "CC BY 4.0, Uppsala Conflict Data Program", statut: "definitif", ...meta, lignes: out.length, annees: [Math.min(...out.map((x) => x.annee)), Math.max(...out.map((x) => x.annee))], conflits_annuels: out };
 }
 
 export function lireGed(texte, version, meta, preliminaire = false) {
@@ -68,7 +68,7 @@ export function lireGed(texte, version, meta, preliminaire = false) {
     agr.set(k, a);
   }
   const out = [...agr.values()].sort((x, y) => x.annee - y.annee || x.pays.localeCompare(y.pays) || x.type_violence - y.type_violence);
-  return { jeu: preliminaire ? "UCDP Candidate (préliminaire)" : "UCDP GED", version, licence: "CC BY 4.0 — Uppsala Conflict Data Program", statut: preliminaire ? "preliminaire" : "definitif", ...meta, evenements: ids.size, lignes: out.length, agregats: out,
+  return { jeu: preliminaire ? "UCDP Candidate (préliminaire)" : "UCDP GED", version, licence: "CC BY 4.0, Uppsala Conflict Data Program", statut: preliminaire ? "preliminaire" : "definitif", ...meta, evenements: ids.size, lignes: out.length, agregats: out,
     note: "Types de violence UCDP : 1 conflit étatique, 2 non étatique, 3 violence unilatérale. Décès best/low/high additionnés sur les événements d'un même pays et d'une même année : une agrégation recalculée, pas un total officiel." };
 }
 

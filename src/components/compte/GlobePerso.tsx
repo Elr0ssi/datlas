@@ -9,7 +9,7 @@ import { useSocleDemo, useSocleEco } from "./socles";
 import "@/components/concept/v2eco.css";
 
 /* Le globe de l'espace personnel : exactement celui des pages Économie et
-   Démographie — même rendu, même panneau, même clic sur un pays — avec une
+   Démographie, même rendu, même panneau, même clic sur un pays, avec une
    seule année (la dernière publiée) et les données de la base complète. */
 
 const CHAMPS_ECO: [EconomyMetricId, keyof CountryEconomyData][] = [

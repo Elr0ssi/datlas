@@ -138,7 +138,7 @@ function Comparateur({ edition, iso2 }: { edition: boolean; iso2: Record<string,
                   <div key={i} className="es-barre" style={{ "--c": i } as React.CSSProperties}>
                     <i style={{ width: v ? `${Math.max(4, (Math.abs(v) / max) * 100)}%` : "0%" }} />
                     <b>{fr(cfg.noms[i])}</b>
-                    <em>{v === null ? "—" : ind.f(v)}</em>
+                    <em>{v === null ? "–" : ind.f(v)}</em>
                     {i > 0 && v !== null && vals[0] !== null && multiplicateur(v, vals[0] as number) && (
                       <u>{multiplicateur(v, vals[0] as number)} que {fr(cfg.noms[0])}</u>
                     )}

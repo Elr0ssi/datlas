@@ -67,7 +67,7 @@ export const VUES: Record<string, { lat: number; lon: number }> = {
 
 /* ── Les articles ────────────────────────────────────────────────────────────
    On lit la base d'articles du site, pas une liste inventée pour la maquette.
-   Seuls les champs affichés partent au navigateur — le corps des articles
+   Seuls les champs affichés partent au navigateur, le corps des articles
    pèse plusieurs centaines de kilo-octets et n'a rien à faire ici. */
 
 export interface FicheArticle {
@@ -103,7 +103,7 @@ export function articlesEnUne(n = 4): FicheArticle[] {
       titre: a.title,
       chapo: a.excerpt,
       rubrique: RUBRIQUES[a.theme] ?? a.theme,
-      duree: a.readingTime ? `${a.readingTime} min` : "—",
+      duree: a.readingTime ? `${a.readingTime} min` : "–",
     }));
 }
 

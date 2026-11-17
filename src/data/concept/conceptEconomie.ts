@@ -10,7 +10,7 @@ import type { FicheArticle } from "./conceptGeo";
  *
  * Aucune donnée n'est réécrite ici : on lit la base du site, millésime par
  * millésime. Une année qu'une source ne publie pas pour un pays reste absente
- * — elle ne devient pas zéro, et le pays sort simplement du classement de
+ * elle ne devient pas zéro, et le pays sort simplement du classement de
  * cette année-là.
  *
  * Le format est volontairement compact. La page laisse changer d'année sans
@@ -63,11 +63,11 @@ const CHAMPS: [string, number][] = [
  *
  * Toutes les années, pas une sélection : la frise doit pouvoir s'arrêter sur
  * n'importe laquelle. Cela fait 546 Ko de texte, soit une centaine
- * compressée — le prix d'une image, pour une frise qui ne demande jamais le
+ * compressée, le prix d'une image, pour une frise qui ne demande jamais le
  * réseau.
  *
  * Aucune donnée n'est réécrite : on lit la base du site. Une année qu'une
- * source ne publie pas pour un pays reste absente — elle ne devient pas
+ * source ne publie pas pour un pays reste absente, elle ne devient pas
  * zéro, et le pays sort du classement de cette année-là.
  */
 const CREANCIER = new Map(DEBT_DATA.map((d) => [d.name, d.creditor]));
@@ -164,8 +164,8 @@ export function articlesEco(n = 9): FicheArticle[] {
    Mondiale, et calculée. Celle du site d'origine s'ouvrait sur « le PIB de
    la France en 2025 » : une question qu'un lecteur de São Paulo ou de
    Lagos ne se pose pas, sur une page qui parle de deux cents pays. Ici
-   chaque réponse est tirée du socle au moment du build — le PIB mondial,
-   les dix premières économies, la dette, le chômage, l'inflation — et se
+   chaque réponse est tirée du socle au moment du build, le PIB mondial,
+   les dix premières économies, la dette, le chômage, l'inflation, et se
    met donc à jour d'elle-même quand la base change. Deux questions de
    définition, intemporelles, ferment la liste.
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -273,12 +273,12 @@ export function faqEco(): { question: string; answer: string }[] {
     {
       question: "Quelle différence entre le PIB et le PIB par habitant ?",
       answer:
-        "Le PIB mesure tout ce qu'un pays produit en un an : il dit la taille d'une économie, donc sa puissance. Le PIB par habitant divise ce total par la population : il approche le niveau de vie moyen. Une grande économie peut avoir un niveau de vie modeste, et un petit pays un niveau de vie très élevé — c'est pourquoi le globe propose les deux.",
+        "Le PIB mesure tout ce qu'un pays produit en un an : il dit la taille d'une économie, donc sa puissance. Le PIB par habitant divise ce total par la population : il approche le niveau de vie moyen. Une grande économie peut avoir un niveau de vie modeste, et un petit pays un niveau de vie très élevé, c'est pourquoi le globe propose les deux.",
     },
     {
       question: "Comment comparer l'économie de deux pays ?",
       answer:
-        "Cliquez un pays sur le globe pour ouvrir sa fiche — PIB, PIB par habitant, balance commerciale, courbe depuis 1960 — puis un second. Le classement, plus bas, range tous les pays sur l'indicateur de votre choix, pour l'année de votre choix.",
+        "Cliquez un pays sur le globe pour ouvrir sa fiche, PIB, PIB par habitant, balance commerciale, courbe depuis 1960, puis un second. Le classement, plus bas, range tous les pays sur l'indicateur de votre choix, pour l'année de votre choix.",
     },
   );
 
@@ -288,7 +288,7 @@ export function faqEco(): { question: string; answer: string }[] {
 /* ── Les compteurs qui avancent ──────────────────────────────────────────────
    Un débit, pas une invention : on prend une grandeur annuelle du socle et on
    l'étale sur l'année. Le chiffre affiché est donc « ce qui s'est produit
-   depuis le 1er janvier, au rythme de l'an dernier » — et la page le dit,
+   depuis le 1er janvier, au rythme de l'an dernier », et la page le dit,
    parce que ce n'est pas une mesure en direct mais une projection à partir
    d'une mesure. */
 

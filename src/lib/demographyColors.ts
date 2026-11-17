@@ -8,14 +8,14 @@ import { interpolateGreen } from "./epidemicsColors";
    suivent une échelle logarithmique, comme le PIB : l'écart entre l'Inde et
    Nauru couvre huit ordres de grandeur, un pas linéaire écraserait tout sauf
    les deux ou trois plus grands pays. Les deux taux (natalité, mortalité)
-   restent linéaires — ils vivent tous dans la même fourchette, 0 à 50 pour
+   restent linéaires, ils vivent tous dans la même fourchette, 0 à 50 pour
    1000. L'accroissement naturel et le solde migratoire sont signés : un pays
    qui perd de la population n'est pas une donnée absente, c'est une valeur
    légitime de l'autre côté de zéro.
 
    Ramené pour 100 000 habitants, un effectif redevient un taux : il quitte
    l'échelle logarithmique pour la même échelle linéaire que la natalité et
-   la mortalité — comparer l'Inde et Nauru n'a alors plus rien d'écrasant.
+   la mortalité, comparer l'Inde et Nauru n'a alors plus rien d'écrasant.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 const SIGNES = new Set<DemographyMetricId>(["natural_change", "net_migration"]);
@@ -31,7 +31,7 @@ export function getMetricValueDemo(data: CountryDemographyData, metric: Demograp
 }
 
 /** La valeur ramenée pour 100 000 habitants, ou la valeur brute si le pays
-    n'a pas de population publiée pour l'année — jamais une division par
+    n'a pas de population publiée pour l'année, jamais une division par
     zéro déguisée en résultat. */
 function normalise(v: number, population: number | undefined, pour100k: boolean): number | null {
   if (!pour100k) return v;

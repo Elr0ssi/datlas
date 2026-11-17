@@ -48,7 +48,7 @@ const sup = (n: number | undefined) => (n ? nf(n) : "");
 
 export function titrePays(f: FichePays): string {
   const a = f.pib?.annee ?? f.population?.annee ?? 2025;
-  return `${f.fr} : population, PIB, dette, inflation (${a}) | Visualize`;
+  return `${f.fr} : population, PIB, dette, inflation (${a}) | Datlas`;
 }
 
 export function descriptionPays(f: FichePays): string {
@@ -109,7 +109,7 @@ export function faqPays(f: FichePays): QR[] {
     });
   q.push({
     q: `Comment comparer ${avec(f.fr)} avec un autre pays ?`,
-    r: `Visualize propose un comparateur gratuit : choisissez ${avec(f.fr)} et jusqu'à trois autres pays, puis comparez la population, le PIB, la dette, l'inflation ou le chômage, année par année depuis 1960.`,
+    r: `Datlas propose un comparateur gratuit : choisissez ${avec(f.fr)} et jusqu'à trois autres pays, puis comparez la population, le PIB, la dette, l'inflation ou le chômage, année par année depuis 1960.`,
   });
   return q;
 }
@@ -125,7 +125,7 @@ export const fois = (a: number, b: number) => {
 };
 
 export function titreDuel(a: FichePays, b: FichePays): string {
-  return `${a.fr} ou ${b.fr} : comparaison population, PIB, superficie | Visualize`;
+  return `${a.fr} ou ${b.fr} : comparaison population, PIB, superficie | Datlas`;
 }
 
 export function descriptionDuel(a: FichePays, b: FichePays): string {
@@ -134,7 +134,7 @@ export function descriptionDuel(a: FichePays, b: FichePays): string {
     const vb = x.get(b);
     return va && vb ? [`${x.label.toLowerCase()} : ${x.fmt(va.v)} contre ${x.fmt(vb.v)}`] : [];
   });
-  return `${a.fr} et ${b.fr} face à face${l.length ? ` — ${l.join(" ; ")}` : ""}. Superficie, dette, inflation, chômage et évolution depuis 1960. Données Banque mondiale, FMI, ONU.`;
+  return `${a.fr} et ${b.fr} face à face${l.length ? `, ${l.join(" ; ")}` : ""}. Superficie, dette, inflation, chômage et évolution depuis 1960. Données Banque mondiale, FMI, ONU.`;
 }
 
 export function introDuel(a: FichePays, b: FichePays): string {
@@ -187,7 +187,7 @@ export function faqDuel(a: FichePays, b: FichePays): QR[] {
     `${cap(avec(g.fr))} : ${nf(vg.v, 1)} % de la population active (${an(vg)}) contre ${nf(vp.v, 1)} % pour ${avec(pt.fr)} (${an(vp)}) (${l.source}).`);
   q.push({
     q: `Comment comparer ${A} et ${B} année par année ?`,
-    r: `Le comparateur de Visualize trace l'évolution de la population, du PIB, de la dette ou de l'inflation de ${A} et de ${B} depuis 1960, avec un curseur d'année et la possibilité d'ajouter jusqu'à deux autres pays.`,
+    r: `Le comparateur de Datlas trace l'évolution de la population, du PIB, de la dette ou de l'inflation de ${A} et de ${B} depuis 1960, avec un curseur d'année et la possibilité d'ajouter jusqu'à deux autres pays.`,
   });
   return q;
 }

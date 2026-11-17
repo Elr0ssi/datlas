@@ -15,7 +15,7 @@ const InteractiveGlobeIcons = dynamic(() => import("@/components/globe/Interacti
 //
 // The first half is the hero as it was: the globe grows out of the loading
 // state, slides right, the title arrives, and the composition holds. The
-// second half is the handover — a surface emerges under the globe and grows
+// second half is the handover, a surface emerges under the globe and grows
 // until it *is* the next section, rather than the next section arriving from
 // below. The two are one continuous scroll: there is no point at which the
 // hero ends and something else starts.
@@ -28,7 +28,7 @@ const T = {
   surfaceSeen: 0.56, // fully opaque, still a floating card
   surfaceMid: 0.74, // halfway through its expansion
   surfaceFull: 0.97, // as wide and tall as the viewport allows
-  surfaceClose: 1.0, // inset, corner and shadow gone — it is the ground now
+  surfaceClose: 1.0, // inset, corner and shadow gone, it is the ground now
 
   titleOut: 0.58, // the title only leaves once the surface is established
   titleGone: 0.72,
@@ -39,7 +39,7 @@ const T = {
   globeGone: 0.98,
 };
 
-/** Where the surface ends up — the ground the next section is built on. */
+/** Where the surface ends up, the ground the next section is built on. */
 const SURFACE = "#EEFBF4";
 
 export function IntroHeroGlobe() {
@@ -75,10 +75,10 @@ export function IntroHeroGlobe() {
   const titleY = useTransform(p, [0.15, 0.26], [24, 0], { clamp: true });
 
   // ── Surface ──────────────────────────────────────────────────────────────
-  // A real geometric expansion — width, height, corner radius and position all
+  // A real geometric expansion, width, height, corner radius and position all
   // interpolate, so it reads as a pane unfolding rather than a scaled sprite.
   // Single unit per property: mixing vw with calc() would break interpolation.
-  // The last stretch closes the inset entirely — edge to edge, no corner, no
+  // The last stretch closes the inset entirely, edge to edge, no corner, no
   // shadow. By the time the pane stops being an object it is indistinguishable
   // from the ground the next scene is built on, so the handover has no seam to
   // give it away.
@@ -140,7 +140,7 @@ export function IntroHeroGlobe() {
 
   // The whole stage goes out over the last breath of the runway. At that exact
   // frame the real scene is pinned behind it, showing the same panel in the
-  // same place — measured to within a few pixels — so the fade cannot be seen,
+  // same place, measured to within a few pixels, so the fade cannot be seen,
   // and the hero's slide out of the top happens transparent. Without it the
   // reader watches two copies of the section pass each other.
   const stageOpacityMv = useTransform(p, [0.965, 1], [1, 0], { clamp: true });
@@ -157,7 +157,7 @@ export function IntroHeroGlobe() {
 
   // Reduced motion: `.p2-hero-runway` collapses to a single viewport, so the
   // same scroll-linked transforms above resolve almost immediately instead of
-  // being disabled outright — content and final layout stay identical, and the
+  // being disabled outright, content and final layout stay identical, and the
   // preference never has to be asked during render.
   return (
     <div ref={wrapperRef} className="p2-hero-runway">
@@ -176,7 +176,7 @@ export function IntroHeroGlobe() {
           pointerEvents: stageOpacity < 0.05 ? "none" : "auto",
         }}
       >
-        {/* Halo — a breath of colour under the surface as it appears, gone by
+        {/* Halo, a breath of colour under the surface as it appears, gone by
             the time the surface is large enough to carry itself. */}
         <motion.div
           aria-hidden="true"
@@ -196,7 +196,7 @@ export function IntroHeroGlobe() {
         />
 
         {/* The surface. It emerges behind the globe's lower half as a floating
-            pane and grows until it is the whole viewport — the next section
+            pane and grows until it is the whole viewport, the next section
             arriving as an object of this one rather than as a new block. */}
         <motion.div
           aria-hidden="true"
@@ -240,7 +240,7 @@ export function IntroHeroGlobe() {
           </motion.div>
         </motion.div>
 
-        {/* Globe stage — outer motion.div owns the scroll-driven position plus a
+        {/* Globe stage, outer motion.div owns the scroll-driven position plus a
             constant centering transform; inner motion.div owns scale/opacity and
             the mask, so the two never clash. Above the surface: it is the last
             piece of the hero on screen, and it sinks into the pane. */}
@@ -270,7 +270,7 @@ export function IntroHeroGlobe() {
           </motion.div>
         </motion.div>
 
-        {/* Hero title — left side, fades in as the globe settles into place.
+        {/* Hero title, left side, fades in as the globe settles into place.
             Outer div owns static vertical centering; inner motion.div owns the
             scroll-driven slide/opacity so the two transforms never fight. */}
         <div
@@ -332,7 +332,7 @@ export function IntroHeroGlobe() {
           </div>
         </div>
 
-        {/* Intro loading indicator — fades out almost immediately on first scroll */}
+        {/* Intro loading indicator, fades out almost immediately on first scroll */}
         <motion.div
           style={{
             position: "absolute",

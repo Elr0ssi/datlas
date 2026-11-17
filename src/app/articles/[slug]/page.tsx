@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: article.excerpt,
     keywords: article.tags,
     openGraph: {
-      title: `${article.title} | Visualize`,
+      title: `${article.title} | Datlas`,
       description: article.excerpt,
       type: "article",
       publishedTime: article.publishedAt,
@@ -79,8 +79,8 @@ export default async function ArticlePage({ params }: PageProps) {
     datePublished: article.publishedAt,
     dateModified: article.publishedAt,
     image: article.heroImage,
-    author: { "@type": "Organization", name: "Visualize", url: siteUrl },
-    publisher: { "@type": "Organization", name: "Visualize", url: siteUrl },
+    author: { "@type": "Organization", name: "Datlas", url: siteUrl },
+    publisher: { "@type": "Organization", name: "Datlas", url: siteUrl },
     keywords: article.tags.join(", "),
     url: `${siteUrl}/articles/${slug}`,
   };
@@ -196,7 +196,7 @@ export default async function ArticlePage({ params }: PageProps) {
             </div>
             <div>
               <p className="text-xs font-semibold" style={{ color: "var(--ink)" }}>
-                Visualize
+                Datlas
               </p>
               <p className="text-xs" style={{ color: "var(--ink-4)" }}>
                 {formatDate(article.publishedAt, themeConfig.locale)}
@@ -226,7 +226,7 @@ export default async function ArticlePage({ params }: PageProps) {
           </p>
         )}
 
-        {/* Article body — rich content or excerpt fallback */}
+        {/* Article body, rich content or excerpt fallback */}
         {article.body ? (
           <ArticleBody sections={article.body} />
         ) : (
@@ -283,7 +283,7 @@ export default async function ArticlePage({ params }: PageProps) {
           ))}
         </div>
 
-        {/* AI Disclosure + Sources — EU AI Act compliance */}
+        {/* AI Disclosure + Sources, EU AI Act compliance */}
         <div
           className="mt-8 p-5 rounded-2xl"
           style={{ background: "var(--surface-2)", border: "1px solid var(--border)" }}

@@ -21,8 +21,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Visualize · L'économie et la démographie du monde, en données",
-    template: "%s | Visualize",
+    default: "Datlas · L'économie et la démographie du monde, en données",
+    template: "%s | Datlas",
   },
   description:
     "PIB, dette, chômage, population, natalité et mortalité de plus de 200 pays, de 1960 à aujourd'hui, sur un globe interactif. Comparez deux pays. Sources : Banque mondiale, FMI, Nations Unies.",
@@ -45,16 +45,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   openGraph: {
     type: "website",
-    siteName: "Visualize",
+    siteName: "Datlas",
     locale: "fr_FR",
     url: siteUrl,
-    title: "Visualize · L'économie et la démographie du monde, en données",
+    title: "Datlas · L'économie et la démographie du monde, en données",
     description:
       "Plus de 200 pays, de 1960 à aujourd'hui, sur un globe interactif. Sources : Banque mondiale, FMI, Nations Unies.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Visualize · L'économie et la démographie du monde, en données",
+    title: "Datlas · L'économie et la démographie du monde, en données",
     description: "Plus de 200 pays, de 1960 à aujourd'hui, sur un globe interactif.",
   },
   robots: {
@@ -76,14 +76,14 @@ export default function RootLayout({
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Visualize",
+    name: "Datlas",
     description:
       "L'économie et la démographie du monde en données : classements, cartes et dossiers sourcés.",
     url: siteUrl,
     inLanguage: "fr",
     publisher: {
       "@type": "Organization",
-      name: "Visualize",
+      name: "Datlas",
       url: siteUrl,
     },
   };
@@ -91,7 +91,7 @@ export default function RootLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Visualize",
+    name: "Datlas",
     url: siteUrl,
     description:
       "Média de données : économie et démographie du monde, classements, cartes interactives et dossiers sourcés.",
@@ -102,7 +102,7 @@ export default function RootLayout({
     <html lang="fr" suppressHydrationWarning className={inter.variable} data-concept="clair">
       <head>
         <meta name="theme-color" content="#fdfdfe" />
-        {/* Le thème des pages Visualize, posé avant le premier rendu. Le défaut
+        {/* Le thème des pages Datlas, posé avant le premier rendu. Le défaut
             est le clair ; seul un choix explicite de la nuit le remplace. Sans
             ce passage, une page choisie en nuit apparaîtrait claire le temps
             d'une image, puis basculerait. Il ne fait rien d'autre que relire

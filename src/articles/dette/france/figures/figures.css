@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   DETTE PUBLIQUE FRANÇAISE — LE MODE LECTURE
+   DETTE PUBLIQUE FRANÇAISE, LE MODE LECTURE
 
    La direction artistique du projet : une nuit bleue, du bleu électrique pour
    ce qui compte, du blanc pour le texte, et quelques accents tièdes. La
@@ -90,7 +90,7 @@ body:has(.dp) { background: var(--nuit); }
   /* `1fr` vaut `minmax(auto, 1fr)` : la piste grandit jusqu'au contenu, et un
      défilement horizontal placé dedans la faisait déborder de l'écran. En
      bornant le minimum à zéro, la piste reste dans la colonne et c'est le
-     conteneur qui défile — ce pour quoi il est fait. */
+     conteneur qui défile, ce pour quoi il est fait. */
 }
 
 /* ── Le graphique ──────────────────────────────────────────────────────── */
@@ -225,7 +225,7 @@ body:has(.dp) { background: var(--nuit); }
 }
 
 /* Le résumé réservé aux lecteurs d'écran et aux moteurs : présent dans le
-   document, hors de l'écran, jamais masqué par display:none — un contenu
+   document, hors de l'écran, jamais masqué par display:none, un contenu
    retiré du flux d'accessibilité ne serait plus lu par personne. */
 .sr-only {
   position: absolute;

@@ -25,7 +25,7 @@ type Eco = NonNullable<ReturnType<typeof useSocleEco>>;
 type Demo = ReturnType<typeof useSocleDemo>;
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   LA PAGE — un seul écran de travail
+   LA PAGE, un seul écran de travail
 
    Les pays en haut, un indicateur à la fois, puis la scène : les barres de
    l'année choisie et la courbe de toutes les années, reliées entre elles. En
@@ -276,7 +276,7 @@ export function ComparerPage({ iso2, apres }: { iso2: Record<string, string>; ap
                                 <span className="cmp-carte-b"><i /></span>
                                 <span className="cmp-carte-x">
                                   {v !== null && v === haut && pos.length > 1 && <Crown size={12} aria-hidden="true" />}
-                                  {v === null ? "—" : i.fmt(v)}
+                                  {v === null ? "–" : i.fmt(v)}
                                 </span>
                               </span>
                             ))}
@@ -315,7 +315,7 @@ export function ComparerPage({ iso2, apres }: { iso2: Record<string, string>; ap
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   LES BARRES — l'année choisie
+   LES BARRES, l'année choisie
    ═══════════════════════════════════════════════════════════════════════════ */
 
 function Barres({
@@ -400,7 +400,7 @@ function Barres({
                 {fr(n)}
                 {v !== null && v === haut && <Crown size={14} aria-label="Valeur la plus élevée" />}
               </span>
-              <span className="cmp-b2-val">{v === null ? "—" : indic.fmt(v)}</span>
+              <span className="cmp-b2-val">{v === null ? "–" : indic.fmt(v)}</span>
               {(
                 <span className={`cmp-b2-detail${epingle === j || actif === j ? "" : " cmp-b2-detail-cache"}`} aria-hidden={!(epingle === j || actif === j)}>
                   {r ? `${r.rang}${r.rang === 1 ? "er" : "ᵉ"} sur ${r.total} dans le monde` : "Rang indisponible"}
@@ -417,7 +417,7 @@ function Barres({
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   LA COURBE — toutes les années
+   LA COURBE, toutes les années
    ═══════════════════════════════════════════════════════════════════════════ */
 
 const W = 760;
@@ -564,7 +564,7 @@ function Courbe({
               <span key={k} style={{ "--c": COULEURS[k] } as React.CSSProperties}>
                 <i />
                 {fr(s.n)}
-                <em>{s.brut[vise] === null ? "—" : indic.fmt(s.brut[vise] as number)}</em>
+                <em>{s.brut[vise] === null ? "–" : indic.fmt(s.brut[vise] as number)}</em>
               </span>
             ))}
           </div>
@@ -576,7 +576,7 @@ function Courbe({
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   LE PROFIL — un radar des rangs, sur tous les indicateurs
+   LE PROFIL, un radar des rangs, sur tous les indicateurs
    ═══════════════════════════════════════════════════════════════════════════ */
 
 function Profil({ pays, annee, lit, eco, demo, fr }: { pays: string[]; annee: number; lit: Lit; eco: Eco; demo: Demo; fr: (n: string) => string }) {
@@ -620,7 +620,7 @@ function Profil({ pays, annee, lit, eco, demo, fr }: { pays: string[]; annee: nu
               <span>{a.label}</span>
               {pays.map((n, j) => {
                 const r = rang(a, n);
-                return <span key={j} style={{ "--c": COULEURS[j] } as React.CSSProperties}>{r === null ? "—" : `${Math.round(r * 100)}ᵉ centile`}</span>;
+                return <span key={j} style={{ "--c": COULEURS[j] } as React.CSSProperties}>{r === null ? "–" : `${Math.round(r * 100)}ᵉ centile`}</span>;
               })}
             </div>
           ))}

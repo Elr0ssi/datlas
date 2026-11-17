@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const a = getArticleBySlug(slug);
   if (!a) return { title: "Article introuvable" };
   return {
-    title: `${a.title} · Lecture | Visualize`,
+    title: `${a.title} · Lecture | Datlas`,
     description: a.excerpt,
     alternates: { canonical: `/lecture/${slug}` },
     /* Un format en essai ne doit pas concurrencer l'article publié dans
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
  *
  * Il rend les articles existants dans une composition plus tenue : barre de
  * progression, sommaire qui suit la lecture, encadré de méthode, sources.
- * Le format publié sur `/articles/[slug]` n'est pas touché — les deux
+ * Le format publié sur `/articles/[slug]` n'est pas touché, les deux
  * cohabitent, et on peut comparer côte à côte.
  */
 export default async function LecturePage({ params }: Props) {

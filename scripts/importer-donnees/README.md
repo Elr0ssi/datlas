@@ -69,14 +69,14 @@ npm run donnees:socle
 
 Il écrit `src/data/economy/genere/socle-economie.json` : les 66 années de la
 base (1960 → 2025), pour les 207 pays que le pont rattache à un nom de carte,
-dans les unités de l'écran — milliards pour le PIB et la balance, unité pour le
+dans les unités de l'écran, milliards pour le PIB et la balance, unité pour le
 PIB par habitant, pourcentage pour l'inflation. 283 Ko, 92 Ko une fois
 compressé, pour 40 926 valeurs.
 
 Chaque pays porte quatre séries alignées sur `annees`, dans l'ordre de
 `colonnes` : `series[0]` le PIB, `series[1]` le PIB par habitant, `series[2]` la
 balance, `series[3]` l'inflation. Une case vaut `null` quand la source ne
-publie rien — et `null` veut dire absent, jamais zéro.
+publie rien, et `null` veut dire absent, jamais zéro.
 
 **À relancer après chaque import**, sinon la page continue d'afficher l'état
 précédent de la base. La plage se change dans `PREMIERE_ANNEE` /

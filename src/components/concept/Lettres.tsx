@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 /* ═══════════════════════════════════════════════════════════════════════════
    LE MONTANT EN TOUTES LETTRES
 
-   Sous un compteur qui défile, une ligne qui dit la même valeur autrement —
+   Sous un compteur qui défile, une ligne qui dit la même valeur autrement,
    « 8,5 milliards d'habitants » plutôt que neuf chiffres à compter un par
    un. L'échelle se choisit seule, sur la valeur du moment : elle change avec
    le compteur, mais à son rythme à elle, une fois par seconde plutôt qu'à
