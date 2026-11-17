@@ -32,7 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/economie`, priority: 0.95, changeFrequency: "weekly" as const },
     { url: `${siteUrl}/demographie`, priority: 0.95, changeFrequency: "weekly" as const },
     { url: `${siteUrl}/conflits`, priority: 0.9, changeFrequency: "weekly" as const },
-    { url: `${siteUrl}/conflits/moyen-orient`, priority: 0.8, changeFrequency: "weekly" as const },
     { url: `${siteUrl}/ressources`, priority: 0.8, changeFrequency: "monthly" as const },
     { url: `${siteUrl}/forum`, priority: 0.7, changeFrequency: "daily" as const },
     { url: `${siteUrl}/methodologie-donnees`, priority: 0.6, changeFrequency: "monthly" as const },

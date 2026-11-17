@@ -384,12 +384,3 @@ h4.cf-fd-titre { font-size: 19px; }
 .cg-conflits .cf-lies button em { font-style: normal; font-size: 10.5px; color: var(--encre-3); }
 .cg-conflits .cf-srcs li > .cf-etat { align-self: flex-start; margin: 3px 0 0; }
 .cg-conflits .cf-acteurs .cf-etat { margin-left: 8px; }
-
-/* Le lien vers l'atlas du Moyen-Orient. */
-.cf-atlas { padding-top: clamp(20px, 4vh, 40px); padding-bottom: 0; }
-.cf-atlas-l { display: flex; flex-direction: column; gap: 8px; padding: clamp(22px, 3vw, 34px); border-radius: 30px; color: #fff; text-decoration: none; background: radial-gradient(70% 90% at 100% 0%, rgba(255, 255, 255, 0.22), transparent 60%), linear-gradient(150deg, #3a14b8, #7c4dff 70%, #ff6fa5); box-shadow: 0 26px 50px -30px rgba(124, 77, 255, 0.8); transition: translate 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
-.cf-atlas-l:hover { translate: 0 -4px; }
-.cf-atlas-k { font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255, 255, 255, 0.8); }
-.cf-atlas-l strong { font-size: clamp(26px, 3vw, 40px); font-weight: 800; letter-spacing: -0.045em; line-height: 1.05; }
-.cf-atlas-l > span:not(.cf-atlas-k) { max-width: 70ch; font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, 0.88); }
-.cf-atlas-l em { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font-style: normal; font-weight: 750; }
