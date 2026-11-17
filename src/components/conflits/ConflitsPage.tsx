@@ -469,6 +469,18 @@ export function ConflitsPage({ articles, debats }: { articles: FicheArticle[]; d
         </div>
       </section>
 
+      {/* ── L'atlas du Moyen-Orient : des dossiers détaillés, sur une carte à part ─── */}
+      <section className="cg-section cf-atlas">
+        <div className="cg-wrap">
+          <a className="cf-atlas-l" href="/conflits/moyen-orient">
+            <span className="cf-atlas-k">Nouveau · atlas régional</span>
+            <strong>Atlas du Moyen-Orient</strong>
+            <span>Gaza, Cisjordanie, Liban, Syrie, Yémen et mer Rouge, Iran, Irak : chronologies, acteurs et bilans datés et sourcés, sur une carte non tactique.</span>
+            <em>Ouvrir l’atlas <ArrowUpRight size={15} aria-hidden="true" /></em>
+          </a>
+        </div>
+      </section>
+
       {/* ── Les chiffres clés ───────────────────────────────────────────────── */}
       <section className="cg-section cg-tr cg-cles" id="chiffres-cles">
         <div className="cg-wrap">

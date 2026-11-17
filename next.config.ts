@@ -31,6 +31,8 @@ const nextConfig: NextConfig = {
          Redirection TEMPORAIRE, pour pouvoir rouvrir l'onglet sans traîner une redirection permanente dans les navigateurs. */
       { source: "/explorer", destination: "/", permanent: false },
       { source: "/analyses", destination: "/", permanent: true },
+      /* L'adresse du prototype livré (/map/conflicts) mène à l'atlas intégré. Temporaire, le temps de fixer l'adresse définitive. */
+      { source: "/map/conflicts", destination: "/conflits/moyen-orient", permanent: false },
       /* Les anciennes pages « France » et l'ancien article sur la dette : tout est sur la fiche du pays. */
       { source: "/france", destination: "/pays/france", permanent: true },
       { source: "/france/economie", destination: "/pays/france", permanent: true },
