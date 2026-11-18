@@ -652,7 +652,7 @@ function Ouverture({ reperes, donnees, annee, dette }: Props) {
             <Mots texte="Datlas" />
           </h1>
           <p className="ax-ouv-s ax-in" style={{ "--d": "500ms" } as React.CSSProperties}>
-            Chaque chiffre du monde, enfin lisible.
+            Maîtriser le monde, en jouant avec ses chiffres.
           </p>
           <div className="ax-ouv-c ax-in" style={{ "--d": "650ms" } as React.CSSProperties}>
             <a className="ax-bouton ax-bouton-vif" href="#presentation">

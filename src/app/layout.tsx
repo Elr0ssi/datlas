@@ -1,3 +1,4 @@
+import { SelectionApprentissage } from "@/components/apprentissage/SelectionApprentissage";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { jsonLdString } from "@/lib/schema";
@@ -21,11 +22,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Datlas · L'économie et la démographie du monde, en données",
+    default: "Datlas · Maîtriser le monde en données : apprendre en s'amusant",
     template: "%s | Datlas",
   },
   description:
-    "PIB, dette, chômage, population, natalité et mortalité de plus de 200 pays, de 1960 à aujourd'hui, sur un globe interactif. Comparez deux pays. Sources : Banque mondiale, FMI, Nations Unies.",
+    "Datlas vous fait maîtriser la géopolitique, l'économie, la démographie, les conflits et les ressources du monde : globes interactifs, classements, comparaisons et articles sourcés pour apprendre en jouant et retenir dans le temps, avec un carnet de révision et la traduction en anglais.",
   keywords: [
     "PIB par pays",
     "population par pays",
@@ -41,6 +42,11 @@ export const metadata: Metadata = {
     "évolution du PIB depuis 1960",
     "population mondiale en temps réel",
     "statistiques par pays",
+    "apprendre la géopolitique",
+    "comprendre l'économie mondiale",
+    "apprentissage ludique et interactif",
+    "réviser avec des cartes",
+    "apprendre l'anglais en lisant l'actualité",
   ],
   metadataBase: new URL(siteUrl),
   openGraph: {
@@ -48,14 +54,14 @@ export const metadata: Metadata = {
     siteName: "Datlas",
     locale: "fr_FR",
     url: siteUrl,
-    title: "Datlas · L'économie et la démographie du monde, en données",
+    title: "Datlas · Maîtriser le monde en données : apprendre en s'amusant",
     description:
-      "Plus de 200 pays, de 1960 à aujourd'hui, sur un globe interactif. Sources : Banque mondiale, FMI, Nations Unies.",
+      "Géopolitique, économie, démographie, conflits, ressources : apprendre de façon ludique et interactive, et retenir dans le temps.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Datlas · L'économie et la démographie du monde, en données",
-    description: "Plus de 200 pays, de 1960 à aujourd'hui, sur un globe interactif.",
+    title: "Datlas · Maîtriser le monde en données : apprendre en s'amusant",
+    description: "Géopolitique, économie, démographie : apprendre de façon ludique et interactive, et retenir dans le temps.",
   },
   robots: {
     index: true,
@@ -78,7 +84,7 @@ export default function RootLayout({
     "@type": "WebSite",
     name: "Datlas",
     description:
-      "L'économie et la démographie du monde en données : classements, cartes et dossiers sourcés.",
+      "Apprendre le monde de façon ludique et interactive : géopolitique, économie, démographie, conflits et ressources, sur des globes, des classements et des articles sourcés, avec révision espacée et traduction en anglais.",
     url: siteUrl,
     inLanguage: "fr",
     publisher: {
@@ -94,7 +100,7 @@ export default function RootLayout({
     name: "Datlas",
     url: siteUrl,
     description:
-      "Média de données : économie et démographie du monde, classements, cartes interactives et dossiers sourcés.",
+      "Plateforme d'apprentissage par les données : maîtriser la géopolitique, l'économie, la démographie, les conflits et les ressources du monde, de façon ludique et interactive, pour retenir dans le temps.",
     sameAs: [],
   };
 
@@ -124,6 +130,7 @@ export default function RootLayout({
       </head>
       <body style={{ fontFamily: "var(--font-inter), 'Inter', system-ui, sans-serif" }}>
         {children}
+        <SelectionApprentissage />
       </body>
     </html>
   );

@@ -8,6 +8,7 @@ import { clientServeur, lireCompte } from "@/lib/supabase/serveur";
 import { filParId } from "@/data/community/fils";
 import { donneesPays } from "@/data/concept/conceptGeo";
 import { getArticleBySlug } from "@/data/articles";
+import { lireCarnetCompte } from "./carnet-actions";
 import "@/components/concept/concept.css";
 
 export const metadata: Metadata = {
@@ -47,6 +48,8 @@ export default async function ComptePage() {
       Boolean(f.article),
     );
 
+  const carnet = await lireCarnetCompte();
+
   /* Les sommes du socle, pour les deux compteurs réels du tableau de bord.
      Même source que la page d'accueil du concept : le dernier millésime
      publié. */
@@ -78,6 +81,7 @@ export default async function ComptePage() {
           iso2={iso2}
           messages={messages.map((m) => ({ ...m, titre: filParId(m.cible_id)?.titre ?? m.cible_id }))}
           favoris={favoris.map((f) => ({ slug: f.slug, titre: f.article.title, extrait: f.article.excerpt, cree_le: f.cree_le }))}
+          carnet={carnet}
         />
       </main>
       <Pied />

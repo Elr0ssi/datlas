@@ -3,7 +3,11 @@ import type { QR } from "./textes";
 export const FAQ_ACCUEIL: QR[] = [
   {
     q: "Qu'est-ce que Datlas ?",
-    r: "Datlas est un site de données qui rend lisibles les chiffres du monde : économie et démographie de plus de 200 pays, sur des globes interactifs, des compteurs en temps réel, des classements, des comparaisons et des articles qui décortiquent un chiffre.",
+    r: "Datlas est une plateforme pour maîtriser les grands sujets du monde (géopolitique, économie, démographie, conflits, ressources) par les données : globes à manipuler, compteurs en temps réel, classements, comparaisons et articles sourcés. L'apprentissage est ludique et interactif, et pensé pour durer : ce que vous gardez revient en révision espacée.",
+  },
+  {
+    q: "Comment Datlas aide-t-il à retenir ?",
+    r: "Sélectionnez un mot, une phrase ou un passage n'importe où sur le site : traduisez-le en anglais et gardez la traduction, ou mémorisez le passage. Tout arrive dans votre carnet : les traductions en cartes (le français d'abord, l'anglais en basculant), qui reviennent de plus en plus espacées à mesure que vous les savez, et les passages à vous réciter.",
   },
   {
     q: "D'où viennent les données de Datlas ?",
@@ -27,6 +31,6 @@ export const FAQ_ACCUEIL: QR[] = [
   },
   {
     q: "Datlas est-il gratuit ?",
-    r: "La consultation des données, des globes et des comparaisons est libre et gratuite. Un compte n'est nécessaire que pour participer au forum.",
+    r: "La consultation des données, des globes et des comparaisons est libre et gratuite, comme le carnet de révision. Un compte sert à participer au forum et à retrouver son carnet et ses articles sur tous ses appareils.",
   },
 ];

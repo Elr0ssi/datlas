@@ -19,9 +19,9 @@ import { compteurDemo } from "@/data/concept/conceptDemographie";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
 
 export const metadata: Metadata = {
-  title: { absolute: "Datlas · L'économie et la démographie du monde, en données" },
+  title: { absolute: "Datlas · Maîtriser le monde en données : apprendre en s'amusant" },
   description:
-    "PIB, dette, chômage, population, natalité et mortalité de plus de 200 pays, de 1960 à aujourd'hui, sur un globe interactif et en temps réel. Sources : Banque mondiale, FMI, Nations Unies.",
+    "Maîtrisez la géopolitique, l'économie, la démographie, les conflits et les ressources de plus de 200 pays : globes interactifs, données en temps réel, comparaisons et articles sourcés, pour apprendre en jouant et retenir dans le temps. Traduisez et révisez en anglais.",
   keywords: [
     "données mondiales",
     "PIB par pays",
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: "Datlas · L'économie et la démographie du monde, en données",
-    description: "Plus de 200 pays, de 1960 à aujourd'hui, sur un globe interactif et en temps réel.",
+    title: "Datlas · Maîtriser le monde en données : apprendre en s'amusant",
+    description: "Géopolitique, économie, démographie, conflits, ressources : apprendre de façon ludique et interactive, et retenir dans le temps.",
   },
   robots: { index: true, follow: true },
 };

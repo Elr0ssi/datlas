@@ -485,19 +485,12 @@ function ListSection({
 
 // ── Main renderer ─────────────────────────────────────────────────────────────
 export function ArticleBody({ sections }: { sections: ArticleSection[] }) {
-  const [learningEnabled, setLearningEnabled] = useState(true);
-  const [targetLang, setTargetLang] = useState("en");
-  const { containerRef, selection, clear } = useSelectionTranslation(learningEnabled);
+  const { containerRef, selection } = useSelectionTranslation(false);
+  const targetLang = "en";
 
   return (
     <>
-      <ReadingLanguageBar
-        fromLang="fr"
-        toLang={targetLang}
-        onToLangChange={setTargetLang}
-        enabled={learningEnabled}
-        onToggle={() => { setLearningEnabled((e) => !e); clear(); }}
-      />
+      {/* La traduction et la mémorisation passent par la barre de sélection commune à tout le site (SelectionApprentissage). */}
       <div ref={containerRef} className="article-body">
       {sections.map((section, i) => {
         switch (section.type) {

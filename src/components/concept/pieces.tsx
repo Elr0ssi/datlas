@@ -387,6 +387,7 @@ export function Pied() {
           <a href="/articles">Articles</a>
           <a href="/pays">Pays</a>
           <a href="/forum">Forum</a>
+          <a href="/carnet">Mon carnet</a>
         </nav>
         <div className="cg-pied-bas">
           <span>© Datlas</span>

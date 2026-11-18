@@ -2,7 +2,9 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { BarChart3, BookMarked, MessageSquare, UserRound } from "lucide-react";
+import { BarChart3, BookMarked, Languages, MessageSquare, UserRound } from "lucide-react";
+import { Carnet } from "@/components/apprentissage/Carnet";
+import type { ElementCarnet } from "@/lib/carnet";
 import { deconnecter } from "@/app/compte/actions";
 import { Pastille } from "./Pastille";
 import { FormProfil } from "./FormProfil";
@@ -15,7 +17,8 @@ interface Favori { slug: string; titre: string; extrait: string; cree_le: string
 const ONGLETS = [
   { id: "dashboard", label: "Mon dashboard", icone: BarChart3 },
   { id: "discussions", label: "Mes discussions", icone: MessageSquare },
-  { id: "articles", label: "Mes articles", icone: BookMarked },
+  { id: "enregistrements", label: "Enregistrements", icone: BookMarked },
+  { id: "traductions", label: "Traductions", icone: Languages },
   { id: "profil", label: "Profil", icone: UserRound },
 ] as const;
 type Onglet = (typeof ONGLETS)[number]["id"];
@@ -34,6 +37,7 @@ export function EspaceCompte({
   sommePopulation,
   messages,
   favoris,
+  carnet = [],
   iso2 = {},
 }: {
   pseudo: string;
@@ -46,12 +50,14 @@ export function EspaceCompte({
   sommePopulation: number;
   messages: Message[];
   favoris: Favori[];
+  carnet?: ElementCarnet[];
   iso2?: Record<string, string>;
 }) {
   const [onglet, setOnglet] = useState<Onglet>("dashboard");
   useEffect(() => {
-    const h = window.location.hash.slice(1) as Onglet;
-    if (ONGLETS.some((o) => o.id === h)) setOnglet(h);
+    const h = window.location.hash.slice(1);
+    const cible = (h === "articles" ? "enregistrements" : h) as Onglet;
+    if (ONGLETS.some((o) => o.id === cible)) setOnglet(cible);
   }, []);
   const va = (id: Onglet) => {
     setOnglet(id);
@@ -117,22 +123,15 @@ export function EspaceCompte({
             </div>
           )}
 
-          {onglet === "articles" && (
+          {(onglet === "enregistrements" || onglet === "traductions") && (
             <div className="es-carte">
-              <h3 className="es-h3">Mes articles enregistrés</h3>
-              {favoris.length === 0 ? (
-                <p className="es-vide">Rien d’enregistré pour le moment. Les articles que vous gardez apparaîtront ici.</p>
-              ) : (
-                <ul className="es-liste">
-                  {favoris.map((f) => (
-                    <li key={f.slug}>
-                      <Link href={`/lecture/${f.slug}`} className="es-li-t">{f.titre}</Link>
-                      <p>{f.extrait}</p>
-                      <span>Enregistré le {date(f.cree_le, true)}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <Carnet
+                key={onglet}
+                compte={carnet}
+                connecte
+                ongletInitial={onglet}
+                articles={favoris.map((f) => ({ slug: f.slug, titre: f.titre, extrait: f.extrait, cree_le: f.cree_le }))}
+              />
             </div>
           )}
 
