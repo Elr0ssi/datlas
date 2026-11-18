@@ -6,7 +6,7 @@ import { lireCompte } from "@/lib/supabase/serveur";
 import "@/components/concept/concept.css";
 
 export const metadata: Metadata = {
-  title: "Mon carnet · Datlas",
+  title: "Mon carnet",
   description: "Vos traductions à réviser et vos passages mémorisés.",
   alternates: { canonical: "/carnet" },
   robots: { index: false, follow: false },

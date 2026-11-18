@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Datlas · Le monde en chiffres, sans le bruit";
+export const alt = "Datlas · Maîtriser le monde, en jouant avec ses chiffres";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -31,7 +31,7 @@ export default function OgImage() {
           <div style={{ fontSize: 56, fontWeight: 800, letterSpacing: -2 }}>Datlas</div>
         </div>
         <div style={{ marginTop: 48, fontSize: 84, fontWeight: 800, letterSpacing: -3, lineHeight: 1.02 }}>
-          Le monde en chiffres, sans le bruit.
+          Maîtriser le monde, en jouant avec ses chiffres.
         </div>
         <div style={{ marginTop: 28, fontSize: 32, color: "#bdb8da" }}>
           PIB, dette, chômage, population : plus de 200 pays, sourcés.
