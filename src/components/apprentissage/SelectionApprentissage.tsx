@@ -31,7 +31,7 @@ interface Choix {
   dessous: boolean;
 }
 
-function selectionValable(): Choix | null {
+function selectionValable(tactile = false): Choix | null {
   const s = window.getSelection();
   if (!s || s.isCollapsed || s.rangeCount === 0) return null;
   const texte = s.toString().replace(/\s+/g, " ").trim();
@@ -41,7 +41,8 @@ function selectionValable(): Choix | null {
   if (!n || n.closest("input, textarea, select, [contenteditable=''], [contenteditable='true'], .ap-barre, [data-sans-traduction]")) return null;
   const r = s.getRangeAt(0).getBoundingClientRect();
   if (!r.width && !r.height) return null;
-  const dessous = r.top < 150;
+  /* Au doigt, le menu du téléphone (copier, partager) se pose au-dessus de la sélection : la barre va dessous. */
+  const dessous = tactile || r.top < 150;
   return { texte, x: r.left + r.width / 2, y: dessous ? r.bottom + 10 : r.top - 10, dessous };
 }
 
@@ -53,6 +54,8 @@ export function SelectionApprentissage() {
   const [garde, setGarde] = useState<{ type: "traduction" | "passage"; compte: boolean } | null>(null);
   const barre = useRef<HTMLDivElement>(null);
   const dans = useRef(false);
+  const appui = useRef(false);
+  const tactile = useRef(false);
 
   const fermer = useCallback(() => {
     setChoix(null);
@@ -65,7 +68,7 @@ export function SelectionApprentissage() {
     const lire = () =>
       window.setTimeout(() => {
         if (dans.current) return;
-        const c = selectionValable();
+        const c = selectionValable(tactile.current || window.matchMedia("(pointer: coarse)").matches);
         if (!c) return;
         setChoix((p) => {
           if (p?.texte !== c.texte) {
@@ -76,7 +79,13 @@ export function SelectionApprentissage() {
           return c;
         });
       }, 10);
+    let attente = 0;
+    const pose = (e: PointerEvent) => {
+      appui.current = true;
+      tactile.current = e.pointerType !== "mouse";
+    };
     const relache = (e: PointerEvent) => {
+      appui.current = false;
       if (barre.current?.contains(e.target as Node)) return;
       lire();
     };
@@ -87,14 +96,28 @@ export function SelectionApprentissage() {
     const change = () => {
       if (dans.current) return;
       const s = window.getSelection();
-      if (!s || s.isCollapsed) fermer();
+      if (!s || s.isCollapsed) {
+        fermer();
+        return;
+      }
+      /* Au doigt, la sélection s'ajuste avec les poignées, sans relâcher de pointeur sur la page :
+         la barre suit la sélection une fois qu'elle ne bouge plus. */
+      if (!appui.current) {
+        window.clearTimeout(attente);
+        attente = window.setTimeout(lire, 350);
+      }
     };
+    document.addEventListener("pointerdown", pose);
     document.addEventListener("pointerup", relache);
+    document.addEventListener("pointercancel", relache);
     document.addEventListener("keyup", clavier);
     document.addEventListener("selectionchange", change);
     window.addEventListener("scroll", fermer, { passive: true });
     return () => {
+      window.clearTimeout(attente);
+      document.removeEventListener("pointerdown", pose);
       document.removeEventListener("pointerup", relache);
+      document.removeEventListener("pointercancel", relache);
       document.removeEventListener("keyup", clavier);
       document.removeEventListener("selectionchange", change);
       window.removeEventListener("scroll", fermer);
@@ -148,7 +171,9 @@ export function SelectionApprentissage() {
   };
 
   if (!choix) return null;
-  const x = Math.max(170, Math.min(window.innerWidth - 170, choix.x));
+  /* La barre reste entière à l'écran : sa moitié (au plus 180 px, la largeur de l'écran sur un téléphone) bornée aux bords. */
+  const demi = Math.min(180, (window.innerWidth - 24) / 2) + 12;
+  const x = Math.max(demi, Math.min(window.innerWidth - demi, choix.x));
   const trop = choix.texte.length > MAX_TRADUCTION;
 
   return (

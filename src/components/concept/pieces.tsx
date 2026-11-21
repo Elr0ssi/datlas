@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import { aReviser, lireLocal, surChangement } from "@/lib/carnet";
 import { motion, useInView } from "framer-motion";
 import { LienCompte } from "@/components/compte/LienCompte";
 import { BoutonTheme } from "./Theme";
@@ -355,6 +356,7 @@ export function EnTete({ actif }: { actif?: string }) {
           <span className="cg-sep" aria-hidden="true" />
 
           <div className="cg-bout">
+            <BoutonCarnet />
             <ChoixMonnaie />
             <BoutonTheme className="cg-jour" />
           </div>
@@ -404,25 +406,45 @@ export function Pied() {
   );
 }
 
-/** La marque de Datlas : un globe, son orbite et un point de donnée. La même que l'icône de l'onglet (src/app/icon.svg). */
+/** La marque de Datlas : un D dont la panse est un globe, et un point de donnée en orbite. La même que l'icône de l'onglet (src/app/icon.svg). */
 export function MarqueDatlas() {
+  const id = `cg-marque-${useId().replace(/:/g, "")}`;
   return (
     <span className="cg-logo-m" aria-hidden="true">
       <svg viewBox="0 0 64 64" width="100%" height="100%">
         <defs>
-          <clipPath id="cg-marque-s"><circle cx="30" cy="34" r="16" /></clipPath>
+          <mask id={id}>
+            <path d="M14 12h15a20 20 0 0 1 0 40H14z" fill="#fff" />
+            <g stroke="#000" strokeWidth="3" fill="none" strokeLinecap="round" className="cg-marque-g">
+              <path d="M22 25h30M22 39h30" />
+              <path d="M29 12.5a9 19.5 0 0 1 0 39" />
+            </g>
+          </mask>
         </defs>
-        <circle cx="30" cy="34" r="16" fill="#fff" fillOpacity=".14" />
-        <g clipPath="url(#cg-marque-s)" fill="none" stroke="#fff" strokeWidth="2.6" strokeOpacity=".75" className="cg-marque-g">
-          <ellipse cx="30" cy="34" rx="7" ry="16" />
-          <path d="M13 28.5h34M13 39.5h34" />
-        </g>
-        <circle cx="30" cy="34" r="16" fill="none" stroke="#fff" strokeWidth="3.4" />
-        <g className="cg-marque-o">
-          <path d="M8.5 44.5C3.6 36.4 21 21.5 41 15.6" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
-          <circle cx="47.5" cy="14.5" r="5.2" fill="#ff8fc7" stroke="#fff" strokeWidth="2.4" />
-        </g>
+        <rect width="64" height="64" fill="#fff" mask={`url(#${id})`} />
+        <circle cx="50" cy="14" r="5" fill="#ff8fc7" stroke="#fff" strokeWidth="2" className="cg-marque-o" />
       </svg>
     </span>
+  );
+}
+
+/** L'entrée du carnet, dans la barre : un marque-page, et le nombre de cartes à revoir aujourd'hui. */
+function BoutonCarnet() {
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    const lire = () => setN(lireLocal().filter((e) => e.type === "traduction" && aReviser(e)).length);
+    lire();
+    const fin = surChangement(lire);
+    const t = window.setInterval(lire, 60_000);
+    return () => { fin(); window.clearInterval(t); };
+  }, []);
+  const titre = n ? `Mon carnet : ${n} carte${n > 1 ? "s" : ""} à revoir` : "Mon carnet";
+  return (
+    <a href="/carnet" className="cg-jour cg-carnet" title={titre} aria-label={titre}>
+      <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round">
+        <path d="M6 3.5h12v17l-6-4-6 4z" />
+      </svg>
+      {n > 0 && <b className="cg-carnet-n">{n > 99 ? "99+" : n}</b>}
+    </a>
   );
 }
