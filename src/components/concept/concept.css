@@ -4591,3 +4591,91 @@ body:has(.cg) { background: #05080c; }
   line-height: 17px;
   text-align: center;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SUR TÉLÉPHONE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* La barre d'onglets du bas : les cinq rubriques à portée de pouce. */
+.cg-bas { display: none; }
+.cg-carnet-mob { display: none !important; }
+.cg-header { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+
+@media (max-width: 900px) {
+  .cg-bas {
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    z-index: 39;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.22fr) minmax(0, 0.92fr) minmax(0, 1.04fr) minmax(0, 0.92fr);
+    gap: 2px;
+    padding: 5px;
+    border: 1px solid var(--bord);
+    border-radius: 22px;
+    background: color-mix(in srgb, var(--fond) 93%, transparent);
+    backdrop-filter: blur(18px) saturate(1.4);
+    -webkit-backdrop-filter: blur(18px) saturate(1.4);
+    box-shadow: 0 16px 36px -16px rgba(20, 10, 60, 0.45);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s;
+  }
+  .cg-bas a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-height: 50px;
+    padding: 6px 2px 5px;
+    border-radius: 17px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--encre-2);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.25s, color 0.25s, transform 0.15s;
+  }
+  @media (max-width: 370px) { .cg-bas a { font-size: 9.5px; } }
+  .cg-bas a span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cg-bas a:active { transform: scale(0.94); }
+  .cg-bas a.on { color: #fff; background: linear-gradient(135deg, #5b2de0, #8a5cff); box-shadow: 0 8px 18px -10px rgba(91, 45, 224, 0.9); }
+  .cg-bas-cache { transform: translateY(calc(100% + 24px + env(safe-area-inset-bottom))); opacity: 0; }
+  /* La page finit au-dessus de la barre, jamais dessous. */
+  .cg:has(.cg-bas) { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
+
+  /* La barre du haut s'efface quand on descend, revient quand on remonte. */
+  .cg-header-cache { transform: translateY(calc(-100% - 24px)); }
+
+  /* Le carnet, posé dans la pilule à côté du compte. */
+  .cg-pill .cg-carnet-mob { display: inline-flex !important; width: 34px; height: 34px; margin-left: 4px; }
+  .cg-header-ouvert .cg-carnet-mob { display: none !important; }
+
+  /* Les ouvertures de rubrique : un titre, pas un écran entier vide. */
+  .cg-eco-haut { min-height: 68vh; min-height: 68svh; }
+
+  /* Les classements : le rang et le pays restent en place, les valeurs défilent à côté. */
+  .cg-tab { font-size: 12.5px; }
+  .cg-tab td { padding: 10px 10px; white-space: nowrap; font-size: 12.5px; }
+  .cg-tri { padding: 12px 10px; }
+  .cg-tab .cg-tab-r { position: sticky; left: 0; z-index: 1; width: 34px; min-width: 34px; max-width: 34px; padding-left: 10px !important; padding-right: 4px !important; background: var(--surface, var(--fond)); }
+  .cg-tab .cg-tab-p {
+    position: sticky;
+    left: 34px;
+    z-index: 1;
+    min-width: 118px;
+    max-width: 42vw;
+    white-space: normal !important;
+    line-height: 1.25;
+    background: var(--surface, var(--fond));
+    box-shadow: 8px 0 10px -8px rgba(12, 13, 15, 0.18);
+  }
+  .cg-tab thead th.cg-tab-r, .cg-tab thead th.cg-tab-p { z-index: 3; }
+  .cg-bande-bloc .cg-tab .cg-tab-r, .cg-bande-bloc .cg-tab .cg-tab-p { background: #fff; }
+  .cg-bande-bloc .cg-tab tbody tr:nth-child(2n) .cg-tab-r, .cg-bande-bloc .cg-tab tbody tr:nth-child(2n) .cg-tab-p { background: #fafafa; }
+  .cg-bande-bloc .cg-tab thead th.cg-tab-r, .cg-bande-bloc .cg-tab thead th.cg-tab-p { background: #f2f1ee; }
+  .cg-bande-bloc .cg-tab tr.cg-tab-on .cg-tab-r, .cg-bande-bloc .cg-tab tr.cg-tab-on .cg-tab-p { background: #e0e9f4; }
+  .cg-tab tr.cg-tab-trouve .cg-tab-r, .cg-tab tr.cg-tab-trouve .cg-tab-p { background: color-mix(in srgb, var(--froid) 20%, #fff); }
+}
+@media (prefers-reduced-motion: reduce) { .cg-header, .cg-bas { transition: none; } }

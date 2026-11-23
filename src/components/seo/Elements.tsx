@@ -19,6 +19,9 @@ export function Fil({ items }: { items: { label: string; href?: string }[] }) {
   );
 }
 
+/** Typographie française : la ponctuation haute ne part jamais seule à la ligne. */
+const insecable = (t: string) => t.replace(/ ([?!:;»])/g, "\u00a0$1").replace(/« /g, "«\u00a0");
+
 export function Faq({ titre = "Questions fréquentes", questions }: { titre?: string; questions: QR[] }) {
   if (questions.length === 0) return null;
   return (
@@ -27,8 +30,8 @@ export function Faq({ titre = "Questions fréquentes", questions }: { titre?: st
       <div className="sg-faq">
         {questions.map((x, i) => (
           <details key={i}>
-            <summary>{x.q}</summary>
-            <p>{x.r}</p>
+            <summary>{insecable(x.q)}</summary>
+            <p>{insecable(x.r)}</p>
           </details>
         ))}
       </div>

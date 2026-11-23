@@ -1392,14 +1392,15 @@ export function AnalysesPage(props: Props) {
         <Cartes />
         <Articles dette={props.dette} lus={props.articlesDette} />
         <Position />
-        <Rev className="ax-presse">
+        {/* La presse ne s'affiche que lorsqu'au moins un vrai article y est cité. */}
+        {PRESSE_MONDE.some((c) => !c.exemple) && <Rev className="ax-presse">
           <PresseCarousel
             id="presse"
             titre="Ils en parlent"
             intro="Les grands médias qui traitent de ces sujets : nos sources, et de quoi aller plus loin."
             citations={PRESSE_MONDE}
           />
-        </Rev>
+        </Rev>}
         <Fonctionnement />
 
         <div className="sg ax-faq">

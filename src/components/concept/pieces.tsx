@@ -2,7 +2,9 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { aReviser, lireLocal, surChangement } from "@/lib/carnet";
+import { Newspaper, Swords, TrendingUp, Users, Wheat } from "lucide-react";
 import { motion, useInView } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { LienCompte } from "@/components/compte/LienCompte";
 import { BoutonTheme } from "./Theme";
 import { ChoixMonnaie } from "./Monnaie";
@@ -260,6 +262,27 @@ export function EnTete({ actif }: { actif?: string }) {
   }, []);
   const deplie = ouvert || enHaut;
 
+  /* Sur téléphone, la barre s'efface quand on descend (l'écran entier pour lire) et revient dès qu'on remonte. */
+  const [cache, setCache] = useState(false);
+  useEffect(() => {
+    const etroit = window.matchMedia("(max-width: 900px)");
+    let avantY = window.scrollY;
+    let etat = false;
+    const lire = () => {
+      const y = window.scrollY;
+      const d = y - avantY;
+      if (Math.abs(d) < 8) return;
+      avantY = y;
+      const suite = etroit.matches && y > 140 && d > 0;
+      if (suite !== etat) {
+        etat = suite;
+        setCache(suite);
+      }
+    };
+    window.addEventListener("scroll", lire, { passive: true });
+    return () => window.removeEventListener("scroll", lire);
+  }, []);
+
   /* Le glisseur : une pastille qui suit l'onglet survolé en s'étirant d'un onglet à l'autre. */
   const nav = useRef<HTMLElement>(null);
   const [glisse, setGlisse] = useState<{ x: number; w: number; vu: boolean; anime: boolean }>({ x: 0, w: 0, vu: false, anime: false });
@@ -308,9 +331,10 @@ export function EnTete({ actif }: { actif?: string }) {
   }, [ouvert]);
 
   return (
+    <>
     <header
       ref={barre}
-      className={`cg-header${deplie ? " cg-header-ouvert" : ""}${fini ? " cg-header-fini" : ""}`}
+      className={`cg-header${deplie ? " cg-header-ouvert" : ""}${fini ? " cg-header-fini" : ""}${cache && !ouvert ? " cg-header-cache" : ""}`}
       onPointerEnter={(e) => e.pointerType === "mouse" && setOuvert(true)}
       onPointerLeave={(e) => e.pointerType === "mouse" && setOuvert(false)}
       onFocus={() => setOuvert(true)}
@@ -365,9 +389,37 @@ export function EnTete({ actif }: { actif?: string }) {
         {/* L'entrée de compte reste posée sur mobile : sans elle, « Se
             connecter » existerait dans la page sans que personne puisse le
             toucher. Sur grand écran, elle arrive avec le reste. */}
+        <BoutonCarnet mobile />
         <LienCompte className="cg-cnx" />
       </div>
     </header>
+    <BarreBas actif={actif} cache={cache && !ouvert} />
+    </>
+  );
+}
+
+/* Sur téléphone, les rubriques à portée de pouce, comme dans une application. */
+const BAS = [
+  { label: "Économie", href: "/economie", Icone: TrendingUp },
+  { label: "Démographie", href: "/demographie", Icone: Users },
+  { label: "Conflits", href: "/conflits", Icone: Swords },
+  { label: "Ressources", href: "/ressources", Icone: Wheat },
+  { label: "Articles", href: "/articles", Icone: Newspaper },
+];
+
+function BarreBas({ actif, cache }: { actif?: string; cache: boolean }) {
+  const chemin = usePathname() ?? "";
+  const estActif = (label: string, href: string) =>
+    actif === label || chemin === href || chemin.startsWith(`${href}/`) || (href === "/articles" && chemin.startsWith("/dette-publique"));
+  return (
+    <nav className={`cg-bas${cache ? " cg-bas-cache" : ""}`} aria-label="Rubriques principales">
+      {BAS.map(({ label, href, Icone }) => (
+        <a key={href} href={href} className={estActif(label, href) ? "on" : undefined} aria-current={estActif(label, href) ? "page" : undefined}>
+          <Icone size={19} strokeWidth={1.9} aria-hidden="true" />
+          <span>{label}</span>
+        </a>
+      ))}
+    </nav>
   );
 }
 
@@ -429,7 +481,7 @@ export function MarqueDatlas() {
 }
 
 /** L'entrée du carnet, dans la barre : un marque-page, et le nombre de cartes à revoir aujourd'hui. */
-function BoutonCarnet() {
+function BoutonCarnet({ mobile = false }: { mobile?: boolean }) {
   const [n, setN] = useState(0);
   useEffect(() => {
     const lire = () => setN(lireLocal().filter((e) => e.type === "traduction" && aReviser(e)).length);
@@ -440,7 +492,7 @@ function BoutonCarnet() {
   }, []);
   const titre = n ? `Mon carnet : ${n} carte${n > 1 ? "s" : ""} à revoir` : "Mon carnet";
   return (
-    <a href="/carnet" className="cg-jour cg-carnet" title={titre} aria-label={titre}>
+    <a href="/carnet" className={`cg-jour cg-carnet${mobile ? " cg-carnet-mob" : ""}`} title={titre} aria-label={titre}>
       <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round">
         <path d="M6 3.5h12v17l-6-4-6 4z" />
       </svg>
