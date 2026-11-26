@@ -50,3 +50,63 @@
 }
 .lg-papier article { max-width: 48rem; margin: 0 auto; }
 .lg-papier h1, .lg-papier h2, .lg-papier h3 { color: inherit; }
+
+/* ── Pages de référence (PageDoc) ─────────────────────────────────────────── */
+.lg-doc { max-width: 820px; }
+.lg-fil { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; font-size: 13px; color: var(--encre-3); }
+.lg-fil a { color: var(--encre-3); text-decoration: none; }
+.lg-fil a:hover { color: var(--encre); }
+.lg-doc .lg-h1 { margin: 0 0 14px; }
+.lg-chapo { margin: 0 0 12px; font-size: clamp(16px, 1.5vw, 18.5px); line-height: 1.6; color: var(--encre-2); }
+.lg-som { margin: 26px 0 10px; padding: 20px 24px; border-radius: 22px; border: 1px solid var(--bord-fin); background: color-mix(in srgb, #7c4dff 5%, var(--surface)); }
+.lg-som p { margin: 0 0 10px; font-size: 11.5px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--encre-3); }
+.lg-som ol { margin: 0; padding-left: 20px; columns: 2 260px; column-gap: 28px; }
+.lg-som li { margin: 0 0 6px; font-size: 14px; break-inside: avoid; }
+.lg-som a { color: var(--encre-2); text-decoration: none; }
+.lg-som a:hover { color: #7c4dff; text-decoration: underline; }
+.lg-sec { scroll-margin-top: 96px; }
+.lg-sec h2 a { color: inherit; text-decoration: none; }
+.lg-sec h2 a:hover { text-decoration: underline; text-decoration-color: #a583ff; }
+.lg-sec ul { margin: 12px 0 0; padding-left: 20px; }
+.lg-sec li { margin: 6px 0 0; font-size: 15px; line-height: 1.6; color: var(--encre-2); }
+.lg-sec p a, .lg-sec li a, .lg-tab a { color: #7c4dff; text-underline-offset: 3px; }
+.lg-tab { margin: 14px 0 0; overflow-x: auto; border: 1px solid var(--bord-fin); border-radius: 14px; }
+.lg-tab table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.lg-tab th { padding: 10px 12px; text-align: left; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--encre-3); background: color-mix(in srgb, var(--encre) 4%, transparent); }
+.lg-tab td { padding: 10px 12px; vertical-align: top; line-height: 1.5; color: var(--encre-2); border-top: 1px solid var(--bord-fin); }
+.lg-tab td:first-child { font-weight: 650; color: var(--encre); }
+@media (max-width: 700px) {
+  .lg-sec { padding: 20px 18px; border-radius: 20px; }
+  .lg-tab table { font-size: 12.5px; }
+  .lg-tab td, .lg-tab th { padding: 9px 10px; }
+}
+
+/* ── Formulaire de contact ────────────────────────────────────────────────── */
+.ct-form { display: grid; gap: 14px; margin-top: 30px; padding: 24px 26px; border-radius: 24px; background: var(--surface); border: 1px solid var(--bord-fin); }
+.ct-form label { display: grid; gap: 6px; font-size: 13px; font-weight: 700; color: var(--encre-2); }
+.ct-form input, .ct-form select, .ct-form textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--bord); border-radius: 14px; font: inherit; font-size: 15px; font-weight: 400; color: var(--encre); background: var(--fond); }
+.ct-form textarea { min-height: 170px; resize: vertical; line-height: 1.55; }
+.ct-form input:focus, .ct-form select:focus, .ct-form textarea:focus { outline: 2px solid #a583ff; outline-offset: 1px; }
+.ct-piege { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.ct-ligne { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 640px) { .ct-ligne { grid-template-columns: 1fr; } .ct-form { padding: 20px 18px; } }
+.ct-case { display: flex !important; grid-template-columns: none; align-items: flex-start; gap: 10px !important; font-weight: 500 !important; line-height: 1.5; }
+.ct-case input { width: 18px; height: 18px; margin-top: 2px; flex: none; }
+.ct-envoi { justify-self: start; padding: 13px 24px; border: 0; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 750; color: #fff; background: linear-gradient(135deg, #5b2de0, #8a5cff); cursor: pointer; }
+.ct-envoi:disabled { opacity: 0.6; cursor: default; }
+.ct-msg { margin: 0; padding: 12px 14px; border-radius: 14px; font-size: 14px; line-height: 1.5; }
+.ct-ok { color: #0d5c3a; background: #e3f6ec; }
+.ct-ko { color: #8a1c1c; background: #fdeaea; }
+.ct-aide { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--encre-3); }
+.lg-sec .ct-form { margin-top: 6px; padding: 0; border: 0; background: none; }
+/* Sur téléphone, chaque ligne de tableau devient une fiche : l'intitulé de colonne passe devant sa valeur. */
+@media (max-width: 640px) {
+  .lg-tab { border: 0; overflow: visible; }
+  .lg-tab table, .lg-tab tbody, .lg-tab tr, .lg-tab td { display: block; width: 100%; }
+  .lg-tab thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .lg-tab tr { margin: 0 0 10px; padding: 12px 14px; border: 1px solid var(--bord-fin); border-radius: 14px; }
+  .lg-tab td { padding: 3px 0; border: 0; }
+  .lg-tab td::before { content: attr(data-label); display: block; margin-bottom: 1px; font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--encre-3); }
+  .lg-tab td:first-child { font-size: 15px; }
+  .lg-tab td:first-child::before { display: none; }
+}

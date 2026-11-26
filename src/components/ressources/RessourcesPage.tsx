@@ -55,6 +55,7 @@ const pct = (x: number) => {
 const nbsp = (u: string) => ` ${u}`;
 
 interface Props {
+  avantPied?: React.ReactNode;
   articles: FicheArticle[];
   faq: { question: string; answer: string }[];
   debats: FicheDebat[];
@@ -62,7 +63,7 @@ interface Props {
 
 type Col = "production" | "surface" | "rendement" | "part";
 
-export function RessourcesPage({ articles, faq, debats }: Props) {
+export function RessourcesPage({ articles, faq, debats, avantPied }: Props) {
   const [theme] = useTheme();
   const ouverture = useProgression();
   const pret = usePret();
@@ -106,7 +107,10 @@ export function RessourcesPage({ articles, faq, debats }: Props) {
       .then((l) => {
         if (!vivant) return;
         setIndex(l);
-        setResId((c) => c ?? ressourcesActives(l)[0]?.id ?? null);
+        /* Une ressource peut être demandée par l'adresse (/ressources?produit=qcl-wheat), depuis sa page détaillée. */
+        const demande = new URLSearchParams(window.location.search).get("produit");
+        const actives = ressourcesActives(l);
+        setResId((c) => c ?? (demande && actives.some((r) => r.id === demande) ? demande : actives[0]?.id ?? null));
       })
       .catch(() => vivant && setErreur("Impossible de charger la liste des ressources."));
     fetch("/geo/ne_50m_countries.simplified.geojson").then((r) => r.json()).then((g) => vivant && setGeo(g)).catch(() => {});
@@ -596,6 +600,7 @@ export function RessourcesPage({ articles, faq, debats }: Props) {
         </section>
       )}
 
+      {avantPied}
       <Pied />
     </div>
   );

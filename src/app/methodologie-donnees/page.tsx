@@ -223,7 +223,7 @@ export default function Page() {
         <h2 className="hub-h2">Ce que cette page ne couvre pas</h2>
         <p className="hub-p">
           La manière dont un article est écrit, relu et corrigé relève de la{" "}
-          <Link href="/methodology">méthodologie éditoriale</Link>. La liste des sources par
+          <Link href="/methodologie">méthodologie éditoriale</Link>. La liste des sources par
           publication est tenue sur la page <Link href="/sources">sources</Link>. Qui fait ce
           travail est dit sur la page <Link href="/a-propos">à propos</Link>.
         </p>

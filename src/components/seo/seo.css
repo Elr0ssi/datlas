@@ -117,3 +117,22 @@
 .sg-hub-liste .sg-art-c { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .sg-hub-liste svg { position: absolute; right: 16px; top: 16px; color: var(--encre-3); }
 @media (max-width: 700px) { .sg-hub-barre select { flex: 1 1 100%; } .sg-hub-liste { grid-template-columns: 1fr; } }
+
+/* ── Classements ─────────────────────────────────────────────────────────── */
+.sg-tab-w { overflow-x: auto; border-radius: 22px; }
+.sg-tab th a { color: var(--encre); text-decoration: none; }
+.sg-tab th a:hover { color: #8b5cff; }
+.sg-carte-lien { display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: var(--encre); }
+.sg-carte-lien:hover { translate: 0 -3px; border-color: #8b5cff; }
+.sg-carte-t { margin: 0; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+.sg-carte-t small { font-size: 13px; font-weight: 600; color: var(--encre-3); }
+.sg-carte-d { margin: 0; font-size: 14px; line-height: 1.55; color: var(--encre-2); }
+.sg-podium { margin: 0; padding-left: 20px; display: grid; gap: 5px; font-size: 14px; color: var(--encre-2); }
+.sg-podium b { float: right; font-variant-numeric: tabular-nums; color: var(--encre); }
+.sg-carte-plus { margin-top: auto; font-size: 13px; font-weight: 750; color: #8b5cff; }
+@media (max-width: 640px) { .sg-tab th, .sg-tab td { padding: 10px 12px; font-size: 13.5px; } }
+
+/* ── Pour aller plus loin (rubriques) ───────────────────────────────────── */
+.pl-bloc { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: clamp(40px, 6vh, 70px) clamp(16px, 3vw, 32px) clamp(30px, 5vh, 60px); }
+.pl-groupe { margin-top: 18px; }
+.pl-t { margin: 0 0 10px; font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--encre-3); }

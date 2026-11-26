@@ -428,7 +428,7 @@ export function LectureArticle({
                 contraire, la parité de pouvoir d’achat donne d’autres classements.
               </li>
             </ul>
-            <Link href="/methodology" className="lx-methode-l">
+            <Link href="/methodologie" className="lx-methode-l">
               La méthodologie complète →
             </Link>
           </aside>

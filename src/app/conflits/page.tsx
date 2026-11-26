@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PlusLoin } from "@/components/seo/PlusLoin";
 import { ConflitsPage } from "@/components/conflits/ConflitsPage";
 import { conflitsDuFichier } from "@/data/conflits";
 import { articlesConflits, debatsConflits } from "@/data/conflits/lectures";
@@ -8,9 +9,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.co
 const chemin = "/conflits";
 
 export const metadata: Metadata = {
-  title: { absolute: "Conflits dans le monde : carte des conflits armés, violences et tensions | Datlas" },
+  title: { absolute: "Conflits dans le monde : la carte des conflits armés | Datlas" },
   description:
-    "68 foyers de conflits armés, de violences armées et de tensions géopolitiques sur un globe interactif, par région et par catégorie. Fiches sourcées, inventaire du 31 octobre 2026.",
+    "68 foyers de conflits armés, violences et tensions géopolitiques sur un globe interactif, par région. Fiches sourcées, inventaire du 31 octobre 2026.",
   keywords: ["conflits dans le monde", "carte des conflits", "guerres en cours", "conflits armés par pays", "tensions géopolitiques", "violences armées", "UCDP", "ACLED"],
   alternates: { canonical: chemin },
   openGraph: {
@@ -54,7 +55,18 @@ export default function Page() {
         d’après un inventaire éditorial du {inventaire.date_inventaire}. Ce n’est ni un décompte officiel de guerres ni un flux d’actualité : les fiches sont sourcées
         et à recouper avec UCDP et ACLED.
       </p>
-      <ConflitsPage articles={articlesConflits()} debats={debatsConflits(conflits)} />
+      <ConflitsPage
+        articles={articlesConflits()}
+        debats={debatsConflits(conflits)}
+        avantPied={
+          <PlusLoin
+            groupes={[
+              { titre: "Pour comprendre", liens: [["Dépenses militaires et économie", "/economie"], ["Pays les plus endettés", "/dette-publique/analyses/pays-les-plus-endettes"], ["Tous les pays", "/pays"]] },
+              { titre: "Datlas", liens: [["Méthodologie", "/methodologie"], ["Sources", "/sources"], ["Forum", "/forum"]] },
+            ]}
+          />
+        }
+      />
     </>
   );
 }

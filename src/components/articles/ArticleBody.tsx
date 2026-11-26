@@ -1,4 +1,5 @@
 "use client";
+import { drapeau } from "@/lib/drapeau";
 
 import { useState, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
@@ -427,7 +428,7 @@ function ComparisonTableSection({
               <tr key={row.label} style={{ borderTop: "1px solid var(--border)", background: i % 2 === 1 ? "var(--surface-2)" : "var(--surface)" }}>
                 <td className="px-4 py-2.5">
                   <div className="flex items-center gap-2">
-                    {row.flag && <img src={`https://flagcdn.com/20x15/${row.flag}.png`} alt="" width={16} height={12} style={{ borderRadius: "2px", objectFit: "cover" }} />}
+                    {row.flag && <span aria-hidden="true" style={{ fontSize: "14px", lineHeight: 1 }}>{drapeau(row.flag)}</span>}
                     <span className="text-xs font-medium" style={{ color: "var(--ink)" }}>{row.label}</span>
                   </div>
                 </td>

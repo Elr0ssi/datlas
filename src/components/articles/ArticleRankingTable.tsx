@@ -1,4 +1,5 @@
 "use client";
+import { drapeau } from "@/lib/drapeau";
 
 import { motion } from "framer-motion";
 
@@ -176,16 +177,7 @@ export function ArticleRankingTable({
                   {/* Flag + name */}
                   <td style={{ padding: "10px 12px", whiteSpace: "nowrap" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "7px" }}>
-                      {row.flag && (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={`https://flagcdn.com/20x15/${row.flag}.png`}
-                          alt=""
-                          width={20}
-                          height={15}
-                          style={{ borderRadius: "2px", objectFit: "cover", flexShrink: 0 }}
-                        />
-                      )}
+                      {row.flag && <span aria-hidden="true" style={{ fontSize: "15px", lineHeight: 1, flexShrink: 0 }}>{drapeau(row.flag)}</span>}
                       <span
                         style={{
                           fontSize: "0.78rem",

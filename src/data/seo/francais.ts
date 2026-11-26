@@ -39,6 +39,14 @@ export function deNom(nom: string): string {
   return MASC.has(nom) ? `du ${nom}` : `de la ${nom}`;
 }
 
+/** « à la France », « au Japon », « aux États-Unis », « à Cuba », « à l'Allemagne ». */
+export function aNom(nom: string): string {
+  if (SANS.has(nom)) return `à ${nom}`;
+  if (PLUR.has(nom)) return `aux ${nom}`;
+  if (VOYELLE.test(nom)) return `à l'${nom}`;
+  return MASC.has(nom) ? `au ${nom}` : `à la ${nom}`;
+}
+
 export function slugDe(texte: string): string {
   return texte
     .normalize("NFD")

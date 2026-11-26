@@ -5,6 +5,9 @@ import { ANALYSES } from "@/data/dettes/analyses";
 import { tousLesDossiers } from "@/data/dettes/dossiers";
 import { pairesVedettes, paysVedettes, slugPaire, tousLesPays } from "@/data/seo/pays";
 import { SITE_URL as siteUrl } from "@/lib/site";
+import { INDICATEURS } from "@/data/seo/classements";
+import { pagesRessources } from "@/data/seo/ressources";
+import { MAJ_LEGAL } from "@/data/legal";
 
 const LAST_MODIFIED_STATIC = new Date("2025-07-01");
 
@@ -34,9 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/conflits`, priority: 0.9, changeFrequency: "weekly" as const },
     { url: `${siteUrl}/ressources`, priority: 0.8, changeFrequency: "monthly" as const },
     { url: `${siteUrl}/forum`, priority: 0.7, changeFrequency: "daily" as const },
-    { url: `${siteUrl}/methodologie-donnees`, priority: 0.6, changeFrequency: "monthly" as const },
-    { url: `${siteUrl}/confidentialite`, priority: 0.3, changeFrequency: "yearly" as const },
-    { url: `${siteUrl}/cgu`, priority: 0.3, changeFrequency: "yearly" as const },
+    { url: `${siteUrl}/methodologie-donnees`, priority: 0.5, changeFrequency: "monthly" as const },
     { url: `${siteUrl}/a-propos`, priority: 0.6, changeFrequency: "monthly" as const },
   ].map((r) => ({ ...r, lastModified: new Date("2026-09-22") }));
 
@@ -77,7 +78,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/pays`, priority: 0.85, changeFrequency: "weekly" as const },
   ].map((r) => ({ ...r, lastModified: aujourdhui }));
 
+  /* Les pages de confiance et les pages légales, à la date de leur dernière révision. */
+  const confiance = [
+    ["/methodologie", 0.6], ["/sources", 0.6], ["/contact", 0.5], ["/plan-du-site", 0.4],
+    ["/mentions-legales", 0.3], ["/confidentialite", 0.3], ["/cookies", 0.3], ["/cgu", 0.3], ["/moderation", 0.3], ["/accessibilite", 0.3],
+  ].map(([c, p]) => ({ url: `${siteUrl}${c}`, priority: p as number, changeFrequency: "yearly" as const, lastModified: new Date(MAJ_LEGAL) }));
+
+  /* Une page par classement, une page par ressource : les réponses précises. */
+  const precises = [
+    { url: `${siteUrl}/classements`, priority: 0.85, changeFrequency: "monthly" as const, lastModified: aujourdhui },
+    ...INDICATEURS.map((i) => ({ url: `${siteUrl}/classements/${i.slug}`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: aujourdhui })),
+    ...pagesRessources().map((r) => ({ url: `${siteUrl}/ressources/${r.slug}`, priority: 0.7, changeFrequency: "yearly" as const, lastModified: aujourdhui })),
+  ];
+
   return [
+    ...precises,
+    ...confiance,
     ...outils,
     ...dettes,
     ...pays,
@@ -95,18 +111,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: LAST_MODIFIED_STATIC,
       changeFrequency: "weekly" as const,
       priority: 0.7,
-    },
-    {
-      url: `${siteUrl}/methodology`,
-      lastModified: LAST_MODIFIED_STATIC,
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-    {
-      url: `${siteUrl}/sources`,
-      lastModified: LAST_MODIFIED_STATIC,
-      changeFrequency: "yearly",
-      priority: 0.5,
     },
     ...articlePages,
   ];

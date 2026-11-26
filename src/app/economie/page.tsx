@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PlusLoin } from "@/components/seo/PlusLoin";
 import { EconomiePage } from "@/components/concept/EconomiePage";
 import { articlesDette } from "@/data/dettes/fiches";
 import {
@@ -30,10 +31,10 @@ const chemin = "/economie";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Économie mondiale : PIB, dette publique, chômage et inflation par pays | Datlas",
+      "Économie mondiale : PIB, dette et chômage par pays | Datlas",
   },
   description:
-    "207 pays, 66 années, dix indicateurs économiques comparés sur un globe interactif : PIB, PIB par habitant, balance commerciale, dette publique, inflation, chômage, population active, entreprises. Sources Banque mondiale et FMI.",
+    "PIB, PIB par habitant, dette, inflation et chômage de 207 pays depuis 1960, sur un globe interactif avec classements et compteurs. Banque mondiale, FMI.",
   keywords: [
     "économie mondiale",
     "PIB par pays",
@@ -133,6 +134,15 @@ export default function Page() {
         articles={[...articlesEco(9), ...articlesDette()]}
         faq={faq}
         variante="v2"
+        avantPied={
+          <PlusLoin
+            groupes={[
+              { titre: "Classements", liens: [["PIB par pays", "/classements/pib"], ["PIB par habitant", "/classements/pib-par-habitant"], ["Inflation", "/classements/inflation"], ["Chômage", "/classements/chomage"], ["Balance commerciale", "/classements/balance-commerciale"], ["Pays les plus endettés", "/dette-publique/analyses/pays-les-plus-endettes"]] },
+              { titre: "Pays et comparaisons", liens: [["France", "/pays/france"], ["États-Unis", "/pays/etats-unis"], ["Chine", "/pays/chine"], ["Allemagne", "/pays/allemagne"], ["Chine ou États-Unis", "/comparer/chine-vs-etats-unis"], ["Tous les pays", "/pays"]] },
+              { titre: "Dette publique", liens: [["La dette de la France", "/pays/france/dette-publique"], ["Dette publique par pays", "/dette-publique"], ["Dette par habitant", "/dette-publique/analyses/dette-par-habitant"]] },
+            ]}
+          />
+        }
       />
     </>
   );

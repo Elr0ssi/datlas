@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PlusLoin } from "@/components/seo/PlusLoin";
 import { DemographiePage } from "@/components/concept/DemographiePage";
 import {
   articlesDemo,
@@ -25,10 +26,10 @@ const chemin = "/demographie";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Démographie mondiale : population, natalité et mortalité par pays | Datlas",
+    absolute: "Démographie mondiale : population et natalité par pays | Datlas",
   },
   description:
-    "219 pays et territoires, 1960-2026, population, natalité, mortalité et accroissement naturel comparés sur un globe interactif. Source : Nations Unies, World Population Prospects 2024.",
+    "Population, natalité, mortalité et causes de décès de 219 pays, de 1960 à 2026, sur un globe interactif. Source : Nations Unies (WPP 2024).",
   keywords: [
     "démographie mondiale",
     "population par pays",
@@ -115,6 +116,15 @@ export default function Page() {
         debats={debatsDemo()}
         faq={faqDemo()}
         sources={sourcesDemo()}
+        avantPied={
+          <PlusLoin
+            groupes={[
+              { titre: "Classements", liens: [["Population par pays", "/classements/population"], ["Natalité", "/classements/natalite"], ["Mortalité", "/classements/mortalite"], ["Densité de population", "/classements/densite"]] },
+              { titre: "Pays", liens: [["France", "/pays/france"], ["Inde", "/pays/inde"], ["Chine", "/pays/chine"], ["Nigeria", "/pays/nigeria"], ["Tous les pays", "/pays"]] },
+              { titre: "Comparer", liens: [["Inde ou Chine", "/comparer/chine-vs-inde"], ["Comparer des pays", "/comparer"]] },
+            ]}
+          />
+        }
       />
     </>
   );

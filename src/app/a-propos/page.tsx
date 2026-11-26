@@ -21,7 +21,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.co
 export const metadata: Metadata = {
   title: { absolute: "À propos : qui nous sommes et comment nous travaillons | Datlas" },
   description:
-    "Datlas rend lisibles des données publiques : diversification des sources, recoupement systématique, traçabilité de chaque chiffre. Notre méthode, nos limites et comment nous corriger.",
+    "Datlas rend lisibles les données publiques du monde : sources diversifiées, chiffres recoupés et datés. Notre mission, notre méthode, nos limites.",
   keywords: ["à propos", "qui sommes-nous", "équipe", "méthode éditoriale", "données publiques"],
   alternates: { canonical: "/a-propos" },
   openGraph: {
@@ -50,6 +50,7 @@ export default function Page() {
     description:
       "Datlas rend lisibles des données publiques en diversifiant ses sources, en les recoupant et en rendant chaque chiffre traçable jusqu'à sa publication d'origine.",
     ...(CONTACT ? { email: CONTACT } : {}),
+    contactPoint: { "@type": "ContactPoint", contactType: "customer support", url: `${siteUrl}/contact` },
     ...(EQUIPE.length
       ? {
           member: EQUIPE.map((m) => ({
@@ -160,23 +161,31 @@ export default function Page() {
           </>
         )}
 
+        <h2 className="hub-h2">Notre mission</h2>
+        <p className="hub-p">
+          Faire maîtriser les grands sujets du monde, géopolitique, économie, démographie, conflits et ressources, de manière
+          ludique et interactive : explorer un globe, comparer deux pays, réviser ce que l&apos;on a appris dans son{" "}
+          <Link href="/carnet">carnet</Link>, et retenir dans le temps. Le site est gratuit, sans publicité, et le restera.
+        </p>
+
+        <h2 className="hub-h2">Qui édite Datlas</h2>
+        <p className="hub-p">
+          Datlas est édité par une personne morale indépendante, qui ne reçoit aucun financement d&apos;un acteur cité dans
+          ses pages. Les informations légales (éditeur, hébergeur) sont sur la page{" "}
+          <Link href="/mentions-legales">mentions légales</Link>.
+        </p>
+
         <h2 className="hub-h2">Nous corriger</h2>
         <p className="hub-p">
-          Une erreur de chiffre, de périmètre ou de source est une erreur que nous voulons
-          connaître. {CONTACT ? (
-            <>
-              Écrivez-nous à <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.
-            </>
-          ) : (
-            <>Le forum est ouvert pour cela, et un signalement y vaut correction.</>
-          )}{" "}
-          Les fils de discussion sont sur <Link href="/forum">le forum</Link>.
+          Une erreur de chiffre, de périmètre ou de source est une erreur que nous voulons connaître :{" "}
+          <Link href="/contact?objet=erreur">signalez-la par le formulaire de contact</Link>. Chaque signalement est vérifié sous
+          sept jours et, s&apos;il est fondé, la page est corrigée. On peut aussi en débattre sur <Link href="/forum">le forum</Link>.
         </p>
 
         <p className="hub-note">
           Comment la base est construite et contrôlée :{" "}
           <Link href="/methodologie-donnees">méthodologie de la base</Link>. Comment un article
-          s’écrit : <Link href="/methodology">méthodologie éditoriale</Link>.
+          s’écrit : <Link href="/methodologie">méthodologie éditoriale</Link>. Toutes nos sources : <Link href="/sources">sources</Link>.
         </p>
       </div>
     </PageConfiance>

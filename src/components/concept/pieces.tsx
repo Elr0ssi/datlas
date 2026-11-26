@@ -423,35 +423,39 @@ function BarreBas({ actif, cache }: { actif?: string; cache: boolean }) {
   );
 }
 
-/** Le pied de page : la marque, quatre entrées, trois mentions. Rien d'autre. */
+/* Le pied de page : la marque, puis quatre colonnes qui mènent à chaque page de fond du site, et toutes les pages
+   légales. C'est aussi le maillage que suivent les moteurs : aucune page importante n'est à plus d'un clic. */
+const PIED: { titre: string; liens: [string, string][] }[] = [
+  { titre: "Explorer", liens: [["Économie", "/economie"], ["Démographie", "/demographie"], ["Conflits", "/conflits"], ["Ressources", "/ressources"], ["Classements", "/classements"], ["Pays", "/pays"]] },
+  { titre: "Apprendre", liens: [["Articles", "/articles"], ["Dette publique", "/dette-publique"], ["Comparer des pays", "/comparer"], ["Forum", "/forum"], ["Mon carnet", "/carnet"]] },
+  { titre: "Datlas", liens: [["À propos", "/a-propos"], ["Méthodologie", "/methodologie"], ["Sources", "/sources"], ["Contact", "/contact"], ["Plan du site", "/plan-du-site"]] },
+  { titre: "Informations légales", liens: [["Mentions légales", "/mentions-legales"], ["Confidentialité", "/confidentialite"], ["Cookies", "/cookies"], ["CGU", "/cgu"], ["Modération", "/moderation"], ["Accessibilité", "/accessibilite"]] },
+];
+
 export function Pied() {
   return (
     <footer className="cg-pied">
-      <div className="cg-wrap cg-pied-in">
-        <a href="/" className="cg-pied-marque">
-          <MarqueDatlas />
-          Datlas
-        </a>
-        <nav className="cg-pied-nav" aria-label="Rubriques">
-          <a href="/economie">Économie</a>
-          <a href="/demographie">Démographie</a>
-          <a href="/conflits">Conflits</a>
-          <a href="/ressources">Ressources</a>
-          <a href="/comparer">Comparer</a>
-          <a href="/articles">Articles</a>
-          <a href="/pays">Pays</a>
-          <a href="/forum">Forum</a>
-          <a href="/carnet">Mon carnet</a>
-        </nav>
+      <div className="cg-wrap cg-pied-in cg-pied-grand">
+        <div className="cg-pied-tete">
+          <a href="/" className="cg-pied-marque">
+            <MarqueDatlas />
+            Datlas
+          </a>
+          <p className="cg-pied-devise">Maîtriser le monde, en jouant avec ses chiffres. Des données publiques, sourcées et datées, gratuites et sans publicité.</p>
+        </div>
+        <div className="cg-pied-cols">
+          {PIED.map((c) => (
+            <nav key={c.titre} className="cg-pied-col" aria-label={c.titre}>
+              <p>{c.titre}</p>
+              {c.liens.map(([l, h]) => (
+                <a key={h} href={h}>{l}</a>
+              ))}
+            </nav>
+          ))}
+        </div>
         <div className="cg-pied-bas">
-          <span>© Datlas</span>
-          <nav aria-label="Informations">
-            <a href="/a-propos">À propos</a>
-            <a href="/methodologie-donnees">Méthode</a>
-            <a href="/sources">Sources</a>
-            <a href="/confidentialite">Confidentialité</a>
-            <a href="/cgu">CGU</a>
-          </nav>
+          <span>© {new Date().getFullYear()} Datlas</span>
+          <span>Sources : Banque mondiale, FMI, Nations Unies, FAO, INSEE, Eurostat</span>
         </div>
       </div>
     </footer>

@@ -7,7 +7,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   Banknote,
-  BarChart3,
   BookOpen,
   Check,
   Globe,
@@ -16,7 +15,7 @@ import {
   Sparkles,
   Users,
 } from "lucide-react";
-import { EnTete, Pied } from "@/components/concept/pieces";
+import { MarqueDatlas, EnTete, Pied } from "@/components/concept/pieces";
 import { Odometre } from "@/components/concept/Roulement";
 import { Lettres } from "@/components/concept/Lettres";
 import { Faq } from "@/components/seo/Elements";
@@ -78,7 +77,9 @@ function useApparitions(racine: React.RefObject<HTMLElement | null>) {
       const h = window.innerHeight;
       restants = restants.filter((n) => {
         const b = n.getBoundingClientRect();
-        if (b.top < h - 60 && b.bottom > -40) {
+        /* Les blocs marqués `data-tot` partent avant d'entrer dans l'écran : ils sont déjà là quand on y arrive. */
+        const marge = n.hasAttribute("data-tot") ? 260 : -60;
+        if (b.top < h + marge && b.bottom > -40) {
           n.setAttribute("data-vu", "1");
           return false;
         }
@@ -494,16 +495,19 @@ function Rev({
   className = "",
   as: Tag = "div",
   href,
+  tot = false,
 }: {
   children: React.ReactNode;
   d?: number;
   className?: string;
   as?: "div" | "li" | "article" | "p" | "h2" | "a";
   href?: string;
+  /** Apparaît un peu avant d'entrer dans l'écran, et plus vite. */
+  tot?: boolean;
 }) {
   const T = Tag as React.ElementType;
   return (
-    <T data-rev="" href={href} className={className} style={{ "--d": `${d}ms` } as React.CSSProperties}>
+    <T data-rev="" data-tot={tot ? "" : undefined} href={href} className={className} style={{ "--d": `${d}ms` } as React.CSSProperties}>
       {children}
     </T>
   );
@@ -1185,13 +1189,13 @@ const SORTIES = ["Interprétation et décortication des chiffres", "Globes inter
 function Position() {
   return (
     <section className="ax-sec ax-sec-large" id="position" aria-labelledby="ax-po-t">
-      <Rev as="h2" className="ax-h2">
+      <Rev as="h2" className="ax-h2" tot>
         <span id="ax-po-t">Pourquoi Datlas ?</span>
       </Rev>
-      <Rev as="p" className="ax-sous ax-sous-ligne" d={80}>
+      <Rev as="p" className="ax-sous ax-sous-ligne" d={40} tot>
         Ce qui nous différencie : à la jonction des médias et des sites de données, tout arrive au même endroit, clair et condensé.
       </Rev>
-      <Rev className="ax-flux" d={120}>
+      <Rev className="ax-flux" d={60} tot>
         <svg className="ax-flux-svg" viewBox="0 0 1000 320" aria-hidden="true" preserveAspectRatio="none">
           <defs>
             <marker id="ax-fl" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
@@ -1218,7 +1222,7 @@ function Position() {
         <div className="ax-flux-v">
           <span className="ax-flux-halo" />
           <span className="ax-flux-logo">
-            <BarChart3 size={22} aria-hidden="true" />
+            <MarqueDatlas />
           </span>
           <strong>Datlas</strong>
         </div>

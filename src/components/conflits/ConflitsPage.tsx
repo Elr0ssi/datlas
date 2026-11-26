@@ -56,7 +56,7 @@ function vueDePoints(pts: { lat: number; lon: number }[]): VueGlobe | null {
   return { lon: (a + c) / 2, lat: (b + d) / 2, largeur: Math.max(9, (c - a) * 1.5), hauteur: Math.max(7, (d - b) * 1.7) };
 }
 
-export function ConflitsPage({ articles, debats }: { articles: FicheArticle[]; debats: FicheDebat[] }) {
+export function ConflitsPage({ articles, debats, avantPied }: { articles: FicheArticle[]; debats: FicheDebat[]; avantPied?: React.ReactNode }) {
   const [theme] = useTheme();
   const { inventaire, conflits } = useMemo(() => conflitsDuFichier(), []);
   const parId = useMemo(() => new Map(conflits.map((c) => [c.id, c])), [conflits]);
@@ -588,6 +588,7 @@ export function ConflitsPage({ articles, debats }: { articles: FicheArticle[]; d
         </div>
       </section>
 
+      {avantPied}
       <Pied />
     </div>
   );

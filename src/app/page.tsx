@@ -19,9 +19,9 @@ import { compteurDemo } from "@/data/concept/conceptDemographie";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
 
 export const metadata: Metadata = {
-  title: { absolute: "Datlas · Maîtriser le monde en données : apprendre en s'amusant" },
+  title: { absolute: "Datlas : maîtriser le monde en données, en s'amusant" },
   description:
-    "Maîtrisez la géopolitique, l'économie, la démographie, les conflits et les ressources de plus de 200 pays : globes interactifs, données en temps réel, comparaisons et articles sourcés, pour apprendre en jouant et retenir dans le temps. Traduisez et révisez en anglais.",
+    "Maîtrisez l'économie, la démographie, les conflits et les ressources de 200 pays : globes interactifs, classements et articles sourcés, pour apprendre en jouant.",
   keywords: [
     "données mondiales",
     "PIB par pays",

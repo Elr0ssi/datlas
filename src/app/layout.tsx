@@ -87,6 +87,7 @@ export default function RootLayout({
       "Apprendre le monde de façon ludique et interactive : géopolitique, économie, démographie, conflits et ressources, sur des globes, des classements et des articles sourcés, avec révision espacée et traduction en anglais.",
     url: siteUrl,
     inLanguage: "fr",
+    copyrightHolder: { "@type": "Organization", name: "Datlas" },
     publisher: {
       "@type": "Organization",
       name: "Datlas",
@@ -101,6 +102,14 @@ export default function RootLayout({
     url: siteUrl,
     description:
       "Plateforme d'apprentissage par les données : maîtriser la géopolitique, l'économie, la démographie, les conflits et les ressources du monde, de façon ludique et interactive, pour retenir dans le temps.",
+    logo: { "@type": "ImageObject", url: `${siteUrl}/icon-512.png`, width: 512, height: 512 },
+    contactPoint: { "@type": "ContactPoint", contactType: "customer support", url: `${siteUrl}/contact`, availableLanguage: ["French", "English"] },
+    publishingPrinciples: `${siteUrl}/methodologie`,
+    correctionsPolicy: `${siteUrl}/methodologie#corrections`,
+    ethicsPolicy: `${siteUrl}/methodologie#independance`,
+    ownershipFundingInfo: `${siteUrl}/mentions-legales`,
+    actionableFeedbackPolicy: `${siteUrl}/contact`,
+    knowsAbout: ["Économie mondiale", "Produit intérieur brut", "Dette publique", "Démographie", "Population mondiale", "Conflits armés", "Géopolitique", "Production agricole mondiale"],
     sameAs: [],
   };
 

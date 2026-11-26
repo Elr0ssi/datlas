@@ -43,6 +43,7 @@ export interface CompteurDemoProps {
 }
 
 export interface DemoProps {
+  avantPied?: React.ReactNode;
   /** Le socle allégé à la dernière année ; le reste arrive par socleUrl. */
   socle: SocleDemo;
   socleUrl: string;
@@ -450,6 +451,7 @@ export function DemographiePage({
   debats,
   faq,
   sources,
+  avantPied,
 }: DemoProps) {
   const socle = useSocleComplet(socleLeger, socleUrl);
   const [annee, setAnnee] = useState(socle.annees[socle.annees.length - 1]);
@@ -890,6 +892,7 @@ export function DemographiePage({
         </div>
       </section>
 
+      {avantPied}
       <Pied />
     </div>
   );

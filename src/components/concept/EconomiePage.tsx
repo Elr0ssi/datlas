@@ -40,6 +40,8 @@ export interface PibMonde {
 }
 
 export interface EcoProps {
+  /** Un bloc rendu juste avant le pied de page (liens vers les pages détaillées). */
+  avantPied?: React.ReactNode;
   /** Le socle, allégé à la dernière année publiée : la page s'affiche
       aussitôt, le reste des années arrive juste après (voir socleUrl). */
   socle: SocleEco;
@@ -672,7 +674,7 @@ const Tableau = memo(function Tableau({
   );
 });
 
-export function EconomiePage({ socle: socleLeger, socleUrl, pibMonde, sources, articles, debats, faq, variante }: EcoProps) {
+export function EconomiePage({ socle: socleLeger, socleUrl, pibMonde, sources, articles, debats, faq, variante, avantPied }: EcoProps) {
   const v2 = variante === "v2";
   const socle = useSocleComplet(socleLeger, socleUrl);
   /* La page ne connaît qu'une année : celle qu'elle affiche. L'année visée
@@ -1371,6 +1373,7 @@ export function EconomiePage({ socle: socleLeger, socleUrl, pibMonde, sources, a
         </div>
       </section>
 
+      {avantPied}
       <Pied />
     </div>
   );

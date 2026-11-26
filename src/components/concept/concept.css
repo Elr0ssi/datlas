@@ -4679,3 +4679,21 @@ body:has(.cg) { background: #05080c; }
   .cg-tab tr.cg-tab-trouve .cg-tab-r, .cg-tab tr.cg-tab-trouve .cg-tab-p { background: color-mix(in srgb, var(--froid) 20%, #fff); }
 }
 @media (prefers-reduced-motion: reduce) { .cg-header, .cg-bas { transition: none; } }
+
+/* ── Le pied de page en colonnes ─────────────────────────────────────────── */
+.cg-pied-grand { display: grid; gap: 34px; grid-template-columns: 1fr; }
+.cg-pied-tete { display: grid; gap: 12px; max-width: 340px; }
+.cg-pied-devise { margin: 0; font-size: 14px; line-height: 1.6; color: var(--encre-3); }
+.cg-pied-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.cg-pied-col { display: flex; flex-direction: column; gap: 9px; }
+.cg-pied-col p { margin: 0 0 4px; font-size: 11.5px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--encre-3); }
+.cg-pied-col a { font-size: 14.5px; font-weight: 600; color: var(--encre-2); text-decoration: none; transition: color 0.25s; }
+.cg-pied-col a:hover { color: var(--encre); }
+.cg-pied-grand .cg-pied-bas { grid-column: 1 / -1; }
+@media (min-width: 1000px) {
+  .cg-pied-grand { grid-template-columns: minmax(240px, 0.8fr) 2.2fr; column-gap: 64px; }
+}
+@media (max-width: 700px) {
+  .cg-pied-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 20px; }
+  .cg-pied-col a { padding: 3px 0; font-size: 15px; }
+}

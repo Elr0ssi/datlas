@@ -38,6 +38,11 @@ const nextConfig: NextConfig = {
       { source: "/france/economie/dette-publique-v2", destination: "/pays/france/dette-publique", permanent: true },
       { source: "/articles/dette-publique-france-2025-enjeux", destination: "/pays/france/dette-publique", permanent: true },
       { source: "/comparaison", destination: "/comparer", permanent: true },
+      /* L'ancienne méthodologie (anglaise, datée) est remplacée par /methodologie. */
+      { source: "/methodology", destination: "/methodologie", permanent: true },
+      { source: "/mentions", destination: "/mentions-legales", permanent: true },
+      { source: "/politique-de-confidentialite", destination: "/confidentialite", permanent: true },
+      { source: "/plan", destination: "/plan-du-site", permanent: true },
       { source: "/soutenance-:n", destination: "/", permanent: true },
       { source: "/presentation", destination: "/", permanent: true },
       { source: "/preview", destination: "/", permanent: true },

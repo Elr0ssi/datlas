@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { PlusLoin } from "@/components/seo/PlusLoin";
+import { pagesRessources } from "@/data/seo/ressources";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { RessourcesPage } from "@/components/ressources/RessourcesPage";
@@ -13,9 +15,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.co
 const chemin = "/ressources";
 
 export const metadata: Metadata = {
-  title: { absolute: "Ressources : production mondiale par pays, de 1961 à 2024 | Datlas" },
+  title: { absolute: "Ressources : la production agricole mondiale par pays | Datlas" },
   description:
-    "Où sont produites les ressources agricoles du monde ? Production, surface récoltée et rendement par pays sur un globe interactif, classements et courbes de 1961 à 2024. Données FAOSTAT.",
+    "Production, surface et rendement agricoles par pays de 1961 à 2024 sur un globe interactif : blé, riz, cacao, huile d'olive… Données FAOSTAT.",
   keywords: ["production mondiale de blé", "FAOSTAT", "ressources agricoles", "production par pays", "rendement agricole", "surface récoltée"],
   alternates: { canonical: chemin },
   openGraph: {
@@ -68,7 +70,12 @@ export default function Page() {
         Cette page présente la production, la surface récoltée et le rendement des ressources agricoles par pays, de 1961 à 2024, d’après FAOSTAT. Les totaux mondiaux
         sont recalculés à partir des entités du fichier, les entités historiques ne sont pas rattachées aux frontières actuelles, et les valeurs estimées ou manquantes sont signalées.
       </p>
-      <RessourcesPage articles={articlesDette(6)} faq={faq} debats={debats} />
+      <RessourcesPage
+        articles={articlesDette(6)}
+        faq={faq}
+        debats={debats}
+        avantPied={<PlusLoin groupes={[{ titre: "Production mondiale, ressource par ressource", liens: pagesRessources().map((r) => [r.nom, `/ressources/${r.slug}`] as [string, string]) }]} />}
+      />
     </>
   );
 }

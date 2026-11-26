@@ -68,8 +68,9 @@ export default async function ArticlePage({ params }: PageProps) {
 
   const themeConfig = THEME_MAP[article.theme] ?? { label: article.theme, backHref: "/", locale: "en-US" };
 
+  /* L'ancien article sur la dette française redirige vers l'article long : il ne figure plus parmi les lectures liées. */
   const related = getArticlesByTheme(article.theme)
-    .filter((a) => a.slug !== slug);
+    .filter((a) => a.slug !== slug && a.slug !== "dette-publique-france-2025-enjeux");
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -298,7 +299,7 @@ export default async function ArticlePage({ params }: PageProps) {
             </span>
             <p className="text-xs leading-relaxed" style={{ color: "var(--ink-3)" }}>
               Cet article est une <strong>synthèse éditoriale assistée par IA</strong>, construite à partir de sources médiatiques mondiales vérifiées. Son objectif est d'offrir une vision impartiale, multi-perspectives et actualisée. Les données chiffrées proviennent d'institutions internationales reconnues (FMI, OMS, Banque mondiale, etc.).{" "}
-              <Link href="/methodology" className="underline underline-offset-2" style={{ color: "var(--ink-2)" }}>
+              <Link href="/methodologie" className="underline underline-offset-2" style={{ color: "var(--ink-2)" }}>
                 Voir notre méthodologie →
               </Link>
             </p>

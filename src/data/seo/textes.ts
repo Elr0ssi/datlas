@@ -57,7 +57,7 @@ export function descriptionPays(f: FichePays): string {
   if (f.pib) b.push(`PIB de ${fmtMdCourt(f.pib.v)}`);
   if (f.pibHab) b.push(`${nf(f.pibHab.v)} $ par habitant`);
   if (f.dette) b.push(`dette de ${nf(f.dette.v, 1)} % du PIB`);
-  return `${f.fr} en chiffres : ${b.join(", ")}. Évolution depuis 1960, classements mondiaux et comparaisons avec d'autres pays. Sources : Banque mondiale, FMI, Nations Unies.`;
+  return `${f.fr} en chiffres : ${b.join(", ")}. Évolution depuis 1960 et rangs mondiaux.`;
 }
 
 export function introPays(f: FichePays): string {
@@ -125,7 +125,7 @@ export const fois = (a: number, b: number) => {
 };
 
 export function titreDuel(a: FichePays, b: FichePays): string {
-  return `${a.fr} ou ${b.fr} : comparaison population, PIB, superficie | Datlas`;
+  return `${a.fr} ou ${b.fr} : comparaison PIB et population | Datlas`;
 }
 
 export function descriptionDuel(a: FichePays, b: FichePays): string {
@@ -134,7 +134,7 @@ export function descriptionDuel(a: FichePays, b: FichePays): string {
     const vb = x.get(b);
     return va && vb ? [`${x.label.toLowerCase()} : ${x.fmt(va.v)} contre ${x.fmt(vb.v)}`] : [];
   });
-  return `${a.fr} et ${b.fr} face à face${l.length ? `, ${l.join(" ; ")}` : ""}. Superficie, dette, inflation, chômage et évolution depuis 1960. Données Banque mondiale, FMI, ONU.`;
+  return `${a.fr} et ${b.fr} face à face${l.length ? `, ${l.join(" ; ")}` : ""}. Dette, inflation, chômage depuis 1960.`;
 }
 
 export function introDuel(a: FichePays, b: FichePays): string {
