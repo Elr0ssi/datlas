@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { clientNavigateur } from "@/lib/supabase/navigateur";
 
 /* ═══════════════════════════════════════════════════════════════════════════
    L'ENTRÉE DU COMPTE
@@ -20,17 +19,27 @@ export function LienCompte({ className }: { className?: string }) {
   const [connecte, setConnecte] = useState(false);
 
   useEffect(() => {
-    const sb = clientNavigateur();
-    if (!sb) return;
-    /* La session est lue dans le cookie, sans aller au serveur. */
-    void sb.auth
-      .getSession()
-      .then((r: { data: { session: unknown } }) => setConnecte(Boolean(r.data.session)))
-      .catch(() => {});
-    const { data: ecoute } = sb.auth.onAuthStateChange((_e: string, session: unknown) =>
-      setConnecte(Boolean(session))
-    );
-    return () => ecoute.subscription.unsubscribe();
+    /* Sans cookie de session, personne n'est connecté : le client Supabase (plus de 200 Ko) n'est chargé que s'il y en a un. */
+    if (!/(?:^|;\s*)sb-[^=]*-auth-token/.test(document.cookie)) return;
+    let fin = () => {};
+    let annule = false;
+    void import("@/lib/supabase/navigateur").then(({ clientNavigateur }) => {
+      const sb = clientNavigateur();
+      if (!sb || annule) return;
+      /* La session est lue dans le cookie, sans aller au serveur. */
+      void sb.auth
+        .getSession()
+        .then((r: { data: { session: unknown } }) => setConnecte(Boolean(r.data.session)))
+        .catch(() => {});
+      const { data: ecoute } = sb.auth.onAuthStateChange((_e: string, session: unknown) =>
+        setConnecte(Boolean(session))
+      );
+      fin = () => ecoute.subscription.unsubscribe();
+    });
+    return () => {
+      annule = true;
+      fin();
+    };
   }, []);
 
   return (

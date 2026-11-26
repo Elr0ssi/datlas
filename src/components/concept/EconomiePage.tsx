@@ -4,7 +4,7 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Globe2, GraduationCap, HeartPulse, ShieldAlert } from "lucide-react";
 import type { FicheArticle } from "@/data/concept/conceptGeo";
-import { type FicheDebat, type LigneSource, type SocleEco } from "@/data/concept/conceptEconomie";
+import type { FicheDebat, LigneSource, SocleEco } from "@/data/concept/conceptEconomie";
 import type { CountryEconomyData, EconomyMetricId, EconomyYear } from "@/types";
 import { Dessin, Jetons } from "./Jetons";
 import { Selecteur } from "./Selecteur";

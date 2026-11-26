@@ -3,7 +3,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { aReviser, lireLocal, surChangement } from "@/lib/carnet";
 import { Newspaper, Swords, TrendingUp, Users, Wheat } from "lucide-react";
-import { motion, useInView } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { LienCompte } from "@/components/compte/LienCompte";
@@ -93,8 +92,7 @@ export function Compteur({
   decimales?: number;
   duree?: number;
 }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const vu = useInView(ref, { once: true, margin: "-90px" });
+  const [ref, vu] = useVuUneFois<HTMLSpanElement>("-90px");
   const [v, setV] = useState(0);
 
   useEffect(() => {
@@ -135,17 +133,47 @@ export function Monte({
   y?: number;
   className?: string;
 }) {
+  const [ref, vu] = useVuUneFois<HTMLDivElement>("-80px");
+  const courbe = `cubic-bezier(${LENT.join(",")})`;
   return (
-    <motion.div
+    <div
+      ref={ref}
       className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.95, delay, ease: LENT }}
+      style={{
+        opacity: vu ? 1 : 0,
+        transform: vu ? "none" : `translateY(${y}px)`,
+        transition: `opacity 0.95s ${courbe} ${delay}s, transform 0.95s ${courbe} ${delay}s`,
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   );
+}
+
+/** Vrai dès que l'élément entre dans l'écran (une seule fois) : un observateur natif, sans bibliothèque d'animation. */
+function useVuUneFois<T extends Element>(marge: string) {
+  const ref = useRef<T>(null);
+  const [vu, setVu] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setVu(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setVu(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: `${marge} 0px ${marge} 0px` },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [marge]);
+  return [ref, vu] as const;
 }
 
 /** Le titre de section : une ligne fine, un libellé, rien d'autre. */
@@ -464,23 +492,24 @@ export function Pied() {
   );
 }
 
-/** La marque de Datlas : un D dont la panse est un globe, et un point de donnée en orbite. La même que l'icône de l'onglet (src/app/icon.svg). */
+/** La marque de Datlas : un D dont la partie arrondie est un globe (un méridien, l'équateur), et un point de donnée en orbite.
+    Dessinée sur une grille de 32 avec des traits de 2 : nette jusqu'à 16 pixels. La même que l'icône de l'onglet (src/app/icon.svg). */
 export function MarqueDatlas() {
   const id = `cg-marque-${useId().replace(/:/g, "")}`;
   return (
     <span className="cg-logo-m" aria-hidden="true">
-      <svg viewBox="0 0 64 64" width="100%" height="100%">
+      <svg viewBox="0 0 32 32" width="100%" height="100%" shapeRendering="geometricPrecision">
         <defs>
           <mask id={id}>
-            <path d="M14 12h15a20 20 0 0 1 0 40H14z" fill="#fff" />
-            <g stroke="#000" strokeWidth="3" fill="none" strokeLinecap="round" className="cg-marque-g">
-              <path d="M22 25h30M22 39h30" />
-              <path d="M29 12.5a9 19.5 0 0 1 0 39" />
+            <path d="M7 6h9a10 10 0 0 1 0 20H7z" fill="#fff" />
+            <g className="cg-marque-g">
+              <rect x="12" y="15" width="16" height="2" fill="#000" />
+              <ellipse cx="17.5" cy="16" rx="4.5" ry="11" fill="none" stroke="#000" strokeWidth="2" />
             </g>
           </mask>
         </defs>
-        <rect width="64" height="64" fill="#fff" mask={`url(#${id})`} />
-        <circle cx="50" cy="14" r="5" fill="#ff8fc7" stroke="#fff" strokeWidth="2" className="cg-marque-o" />
+        <rect width="32" height="32" fill="#fff" mask={`url(#${id})`} />
+        <circle cx="25.5" cy="6.5" r="3.25" fill="#ff6fb5" stroke="#fff" strokeWidth="1.5" className="cg-marque-o" />
       </svg>
     </span>
   );

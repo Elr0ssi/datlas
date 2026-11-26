@@ -1,4 +1,5 @@
 "use client";
+import type * as GeoJSON from "geojson";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowUpRight, Crosshair, ExternalLink, MapPin, Search, Shield, Ship, Swords, X, type LucideIcon } from "lucide-react";

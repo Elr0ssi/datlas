@@ -8,7 +8,7 @@ export const contentType = "image/png";
 const MARQUE =
   "data:image/svg+xml;utf8," +
   encodeURIComponent(
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="f" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a1fd0"/><stop offset=".6" stop-color="#7c4dff"/><stop offset="1" stop-color="#b48cff"/></linearGradient><mask id="m"><path d="M14 12h15a20 20 0 0 1 0 40H14z" fill="#fff"/><g stroke="#000" stroke-width="3" fill="none" stroke-linecap="round"><path d="M22 25h30M22 39h30"/><path d="M29 12.5a9 19.5 0 0 1 0 39"/></g></mask></defs><rect width="64" height="64" rx="16" fill="url(#f)"/><rect width="64" height="64" fill="#fff" mask="url(#m)"/><circle cx="50" cy="14" r="5" fill="#ff8fc7" stroke="#fff" stroke-width="2"/></svg>',
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4318d1"/><stop offset=".55" stop-color="#6d3df5"/><stop offset="1" stop-color="#a77bff"/></linearGradient><mask id="m"><path d="M7 6h9a10 10 0 0 1 0 20H7z" fill="#fff"/><rect x="12" y="15" width="16" height="2" fill="#000"/><ellipse cx="17.5" cy="16" rx="4.5" ry="11" fill="none" stroke="#000" stroke-width="2"/></mask></defs><rect width="32" height="32" rx="8" fill="url(#g)"/><rect width="32" height="32" fill="#fff" mask="url(#m)"/><circle cx="25.5" cy="6.5" r="3.25" fill="#ff6fb5" stroke="#fff" stroke-width="1.5"/></svg>'
   );
 
 export default function OgImage() {

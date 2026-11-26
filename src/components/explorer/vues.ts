@@ -1,3 +1,4 @@
+import type * as GeoJSON from "geojson";
 import type { VueGlobe } from "./GlobeExplorer";
 
 /* Les cadrages du globe calculés à partir des géométries : partagés par les pages Conflits et Ressources. */

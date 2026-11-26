@@ -6,7 +6,7 @@ import { Baby, HeartPulse, Users } from "lucide-react";
 import type { SocleDemo } from "@/data/concept/conceptDemographie";
 import type { FicheArticle } from "@/data/concept/conceptGeo";
 import type { FicheDebat } from "@/data/concept/conceptEconomie";
-import type { DemographyMetricId, DemographyYear } from "@/data/demographie/demographie";
+import type { DemographyMetricId, DemographyYear } from "@/data/demographie/meta";
 import { Dessin, Jetons } from "./Jetons";
 import { EnTete, ImagePlaceholder, LENT, Pied, TitreSection } from "./pieces";
 import { Loupe } from "./Loupe";

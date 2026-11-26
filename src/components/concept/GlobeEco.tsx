@@ -1,4 +1,5 @@
 "use client";
+import type * as GeoJSON from "geojson";
 
 import { ArrowUpRight } from "lucide-react";
 import { slugDe } from "@/data/seo/francais";

@@ -1,4 +1,5 @@
 "use client";
+import type * as GeoJSON from "geojson";
 
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
@@ -188,9 +189,11 @@ export default function InteractiveGlobeIcons({
     // a dense matrix rather than a dusting.
     const dotScale = Math.max(0.72, 1 / Math.sqrt(sizeRatio));
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    /* Sur un écran dense, l'anticrénelage ne se voit pas et coûte cher ; sur un téléphone, 1,5 pixel par point suffit à la netteté. */
+    const dpr = window.devicePixelRatio || 1;
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: dpr < 1.5, powerPreference: "high-performance" });
     renderer.setSize(W, H);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(dpr, W < 640 ? 1.5 : 2));
     renderer.setClearColor(0x000000, 0);
     mount.appendChild(renderer.domElement);
 
@@ -215,7 +218,7 @@ export default function InteractiveGlobeIcons({
     }
 
     // --- Solid base sphere ---
-    const baseGeom = new THREE.SphereGeometry(GLOBE_RADIUS, 96, 96);
+    const baseGeom = new THREE.SphereGeometry(GLOBE_RADIUS, 64, 64);
     const baseMat = new THREE.MeshStandardMaterial({
       color: new THREE.Color(sphereColor).getHex(),
       roughness: 0.92,
@@ -254,14 +257,32 @@ export default function InteractiveGlobeIcons({
     const borderLines = new THREE.LineSegments(new THREE.BufferGeometry(), borderMat);
     globeGroup.add(borderLines);
 
+    /* La demi-largeur de chaque badge, mesurée une fois (et au redimensionnement) : la lire à chaque image forcerait une mise en page. */
+    let demiBadges: number[] = [];
+    const mesureBadges = () => {
+      demiBadges = markers.map((_, i) => (markerElsRef.current[i]?.offsetWidth ?? 0) / 2 || 24);
+    };
+    /* Hors de l'écran, le globe ne se dessine pas. */
+    let visible = true;
+    const io = new IntersectionObserver(([e]) => (visible = e.isIntersecting), { rootMargin: "80px" });
+    io.observe(mount);
+
     let dotsFadeTarget = 0;
     let bordersFadeTarget = 0;
     let markersReady = false;
     const markerBasePositions = markers.map((m) => latLonTo3D(m.lat, m.lon, GLOBE_RADIUS + 0.02));
 
+    /* Le fond de carte se calcule quand le fil principal est libre : la page répond d'abord, le globe se remplit ensuite. */
+    const auRepos = (f: () => void) => {
+      if ("requestIdleCallback" in window) window.requestIdleCallback(f, { timeout: 900 });
+      else setTimeout(f, 60);
+    };
+    let fini = false;
     fetch("/geo/ne_110m_admin_0_countries.geojson")
       .then((r) => r.json())
+      .then((geojson: GeoJSON.FeatureCollection) => new Promise<GeoJSON.FeatureCollection>((ok) => auRepos(() => ok(geojson))))
       .then((geojson: GeoJSON.FeatureCollection) => {
+        if (fini) return;
         const mask = buildLandMask(geojson);
 
         // Land-only dot cloud via deterministic golden-spiral sampling.
@@ -318,6 +339,7 @@ export default function InteractiveGlobeIcons({
         // outline map, let the dot matrix carry it instead.
         bordersFadeTarget = 0.35 * Math.min(1, 640 / W);
 
+        mesureBadges();
         markersReady = true;
       })
       .catch(() => {
@@ -408,7 +430,7 @@ export default function InteractiveGlobeIcons({
     const animate = () => {
       frameId = requestAnimationFrame(animate);
 
-      if (!activeRef.current) return;
+      if (!activeRef.current || !visible || document.hidden) return;
 
       const t = performance.now();
 
@@ -442,7 +464,7 @@ export default function InteractiveGlobeIcons({
           const floatX = prefersReduced ? 0 : Math.cos(t / 3400 + i * 2.3) * 1.6;
 
           // Hover: only badges facing the camera can be picked up.
-          const half = el.offsetWidth / 2 || 24;
+          const half = demiBadges[i] ?? 24;
           const near =
             opacity > 0.5 &&
             Math.abs(pointerX - x) < half + 4 &&
@@ -480,12 +502,15 @@ export default function InteractiveGlobeIcons({
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
       refreshRect();
+      mesureBadges();
     });
     ro.observe(mount);
 
     return () => {
+      fini = true;
       cancelAnimationFrame(frameId);
       ro.disconnect();
+      io.disconnect();
       mount.removeEventListener("mousedown", onMouseDown);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("mouseup", onMouseUp);

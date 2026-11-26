@@ -184,7 +184,8 @@ body:has(.cg) { background: #05080c; }
   box-shadow: 0 8px 18px -8px rgba(124, 77, 255, 0.9);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.cg-header-ouvert .cg-logo-m { transform: rotate(-6deg) scale(1.06); }
+/* Le logo ne pivote plus : une tuile inclinée est rééchantillonnée et perd sa netteté. Seul le point de donnée bouge. */
+.cg-header-ouvert .cg-logo-m { transform: none; }
 
 /* Le corps de la pilule : sa largeur passe de zéro à son contenu, d'un seul
    mouvement continu. Les éléments apparaissent à la suite, sans saut. */
@@ -4565,12 +4566,12 @@ body:has(.cg) { background: #05080c; }
 .ge-panneau { overflow-x: hidden; }
 
 /* La marque Datlas (globe, orbite, point de donnée) dans sa tuile. À l'ouverture du menu, l'orbite fait un petit tour. */
-.cg-logo-m { padding: 0; overflow: hidden; }
+.cg-logo-m { padding: 0; overflow: hidden; width: 32px; height: 32px; border-radius: 9px; }
 .cg-logo-m svg { display: block; }
-.cg-marque-o { transform-origin: 30px 32px; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-.cg-header-ouvert .cg-marque-o, .cg-logo:hover .cg-marque-o { transform: rotate(-38deg); }
-.cg-marque-g { transform-origin: 29px 32px; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-.cg-header-ouvert .cg-marque-g, .cg-logo:hover .cg-marque-g { transform: translateX(3px); }
+.cg-marque-o { transform-origin: 16px 16px; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.cg-logo:hover .cg-marque-o { transform: rotate(-24deg); }
+.cg-marque-g { transform-origin: 17px 16px; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.cg-logo:hover .cg-marque-g { transform: translateX(1px); }
 @media (prefers-reduced-motion: reduce) { .cg-marque-o, .cg-marque-g { transition: none; } }
 
 /* Le carnet dans la barre : un marque-page, et une pastille quand des cartes attendent. */

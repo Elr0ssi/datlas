@@ -117,6 +117,8 @@ interface GeoCourbe {
   sortie: [number, number];
   arrivee: [number, number];
   jalons: [number, number][];
+  /** Les sommets du tracé (espacés de quelques pixels), pour le parcourir sans interroger le moteur SVG. */
+  sommets: [number, number][];
 }
 
 const DEUX_PI = Math.PI * 2;
@@ -301,7 +303,7 @@ function construireCourbes(zone: HTMLElement): GeoCourbe[] | null {
       d += ` C ${(p1[0] + (p2[0] - p0[0]) / 6).toFixed(1)} ${(p1[1] + (p2[1] - p0[1]) / 6).toFixed(1)}, ${(p2[0] - (p3[0] - p1[0]) / 6).toFixed(1)} ${(p2[1] - (p3[1] - p1[1]) / 6).toFixed(1)}, ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`;
     }
     void H;
-    return { d, sortie: [sE.x, sE.y] as [number, number], arrivee: [aE.x, aE.y] as [number, number], jalons: jal };
+    return { d, sortie: [sE.x, sE.y] as [number, number], arrivee: [aE.x, aE.y] as [number, number], jalons: jal, sommets: pts };
   });
 }
 
@@ -347,14 +349,23 @@ function FondCourbes({ racine }: { racine: React.RefObject<HTMLElement | null> }
     const zone = racine.current;
     if (!zone || !geo) return;
     const SAMPLES = 900;
-    const tables = geo.map((g, c) => {
-      const p = chemins.current[c];
-      if (!p) return null;
-      const L = p.getTotalLength();
+    /* Les tables de points se calculent quand le navigateur souffle : jamais pendant l'arrivée sur la page. */
+    let tables: ({ L: number; pts: { x: number; y: number }[]; f1: number; f2: number } | null)[] | null = null;
+    const construire = () => (tables = geo.map((g) => {
+      /* Des points à intervalles réguliers le long du tracé, par abscisse curviligne sur ses sommets : un seul passage. */
+      const s = g.sommets;
+      if (s.length < 2) return null;
+      const cumul = [0];
+      for (let i = 1; i < s.length; i++) cumul.push(cumul[i - 1] + Math.hypot(s[i][0] - s[i - 1][0], s[i][1] - s[i - 1][1]));
+      const L = cumul[cumul.length - 1];
       const pts: { x: number; y: number }[] = [];
+      let j = 1;
       for (let i = 0; i <= SAMPLES; i++) {
-        const q = p.getPointAtLength((L * i) / SAMPLES);
-        pts.push({ x: q.x, y: q.y });
+        const cible = (L * i) / SAMPLES;
+        while (j < s.length - 1 && cumul[j] < cible) j++;
+        const seg = cumul[j] - cumul[j - 1] || 1;
+        const k = Math.min(1, Math.max(0, (cible - cumul[j - 1]) / seg));
+        pts.push({ x: s[j - 1][0] + (s[j][0] - s[j - 1][0]) * k, y: s[j - 1][1] + (s[j][1] - s[j - 1][1]) * k });
       }
       /* La fraction du tracé qui correspond à un point connu (le plus proche, parmi les échantillons du bon voisinage). */
       const frac = (cible: [number, number], depuis: number) => {
@@ -373,27 +384,48 @@ function FondCourbes({ racine }: { racine: React.RefObject<HTMLElement | null> }
       const f1 = frac(g.sortie, 0.05);
       const f2 = frac(g.arrivee, f1 + 0.02);
       return { L, pts, f1, f2 };
-    });
+    }));
+    /* Le point du tracé à une fraction donnée, lu dans la table plutôt que recalculé sur le chemin. */
+    const point = (pts: { x: number; y: number }[], u: number) => {
+      const x = Math.min(SAMPLES, Math.max(0, u * SAMPLES));
+      const i = Math.min(SAMPLES - 1, Math.floor(x));
+      const k = x - i;
+      return { x: pts[i].x + (pts[i + 1].x - pts[i].x) * k, y: pts[i].y + (pts[i + 1].y - pts[i].y) * k };
+    };
+    /* La position de la zone dans la page, relue au redimensionnement seulement : rien à mesurer à chaque image. */
+    let hautZone = zone.getBoundingClientRect().top + window.scrollY;
+    let H = zone.offsetHeight;
+    const remesure = () => {
+      hautZone = zone.getBoundingClientRect().top + window.scrollY;
+      H = zone.offsetHeight;
+    };
+    window.addEventListener("resize", remesure);
+    let annule = () => {};
+    if ("requestIdleCallback" in window) {
+      const n = window.requestIdleCallback(() => construire(), { timeout: ATTENTE_GLOBE });
+      annule = () => window.cancelIdleCallback(n);
+    } else {
+      const n = setTimeout(construire, 400);
+      annule = () => clearTimeout(n);
+    }
     const reduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const courant = geo.map(() => ({ f: 0, dot: 0 }));
     let id = 0;
     let avant = performance.now();
     const debut = avant;
-    let immobile = 0;
     const boucle = (maintenant: number) => {
       id = requestAnimationFrame(boucle);
-      if (document.hidden) {
+      if (document.hidden || !tables) {
         avant = maintenant;
         return;
       }
       const dt = Math.min(100, maintenant - avant);
       avant = maintenant;
-      const haut = zone.getBoundingClientRect();
-      const H = haut.height;
-      const regard = Math.min(H, Math.max(0, -haut.top + window.innerHeight * 0.68));
+      const regard = Math.min(H, Math.max(0, window.scrollY - hautZone + window.innerHeight * 0.68));
       const lisse = 1 - Math.exp(-dt / 170);
+      const tabs = tables;
       geo.forEach((g, c) => {
-        const tb = tables[c];
+        const tb = tabs[c];
         const p = chemins.current[c];
         if (!tb || !p) return;
         const ya = g.sortie[1];
@@ -438,7 +470,7 @@ function FondCourbes({ racine }: { racine: React.RefObject<HTMLElement | null> }
           else if (phase === "bas" && f >= 0.985) pos = tb.f2 + tour * (1 - tb.f2);
         }
         courant[c].dot = pos;
-        const q = p.getPointAtLength(tb.L * pos);
+        const q = point(tb.pts, pos);
         const tip = pointes.current[c];
         if (tip) {
           tip.style.transform = `translate(${q.x}px, ${q.y}px)`;
@@ -450,11 +482,13 @@ function FondCourbes({ racine }: { racine: React.RefObject<HTMLElement | null> }
         const on = Number(j.dataset.y) <= regard ? "1" : "0";
         if (j.dataset.on !== on) j.dataset.on = on;
       });
-      immobile = 0;
-      void immobile;
     };
     id = requestAnimationFrame(boucle);
-    return () => cancelAnimationFrame(id);
+    return () => {
+      cancelAnimationFrame(id);
+      window.removeEventListener("resize", remesure);
+      annule();
+    };
   }, [racine, geo]);
 
   if (!taille.w || !geo) return <div className="ax-courbes" aria-hidden="true" />;
@@ -655,10 +689,10 @@ function Ouverture({ reperes, donnees, annee, dette }: Props) {
           <h1 className="ax-h1">
             <Mots texte="Datlas" />
           </h1>
-          <p className="ax-ouv-s ax-in" style={{ "--d": "500ms" } as React.CSSProperties}>
+          <p className="ax-ouv-s ax-in" style={{ "--d": "150ms" } as React.CSSProperties}>
             Maîtriser le monde, en jouant avec ses chiffres.
           </p>
-          <div className="ax-ouv-c ax-in" style={{ "--d": "650ms" } as React.CSSProperties}>
+          <div className="ax-ouv-c ax-in" style={{ "--d": "250ms" } as React.CSSProperties}>
             <a className="ax-bouton ax-bouton-vif" href="#presentation">
               Explorer notre site <ArrowRight size={16} aria-hidden="true" />
             </a>
@@ -1269,8 +1303,19 @@ function Defile() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let id = 0;
     let pos = el.scrollLeft;
+    /* La largeur de la piste est relue quand elle change, pas à chaque image ; hors de l'écran, la piste ne bouge pas. */
+    let moitie = el.scrollWidth / 2;
+    let visible = false;
+    const ro = new ResizeObserver(() => (moitie = el.scrollWidth / 2));
+    ro.observe(el);
+    const io = new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      cancelAnimationFrame(id);
+      if (visible) id = requestAnimationFrame(pas);
+    });
+    io.observe(el);
     const pas = () => {
-      const moitie = el.scrollWidth / 2;
+      if (!visible) return;
       if (!arret.current && moitie > 0) {
         if (Math.abs(el.scrollLeft - pos) > 1.5) pos = el.scrollLeft;
         pos += 0.55;
@@ -1284,8 +1329,11 @@ function Defile() {
       else if (el.scrollLeft <= 0 && moitie > 0 && arret.current) el.scrollLeft += moitie;
       id = requestAnimationFrame(pas);
     };
-    id = requestAnimationFrame(pas);
-    return () => cancelAnimationFrame(id);
+    return () => {
+      cancelAnimationFrame(id);
+      ro.disconnect();
+      io.disconnect();
+    };
   }, [piste]);
   return (
     <div className="ax-defile" aria-label="Nos sources" {...glisse}>

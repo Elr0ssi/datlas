@@ -1,4 +1,4 @@
-import { CAUSES_MORTALITE, type CountryDemographyData, type DemographyMetricId } from "@/data/demographie/demographie";
+import { CAUSES_MORTALITE, type CountryDemographyData, type DemographyMetricId } from "@/data/demographie/meta";
 import { interpolateGreen } from "./epidemicsColors";
 
 /* ═══════════════════════════════════════════════════════════════════════════

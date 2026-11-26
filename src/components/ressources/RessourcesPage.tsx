@@ -1,4 +1,5 @@
 "use client";
+import type * as GeoJSON from "geojson";
 
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";

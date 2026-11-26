@@ -1,4 +1,5 @@
 "use client";
+import type * as GeoJSON from "geojson";
 
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import * as THREE from "three";

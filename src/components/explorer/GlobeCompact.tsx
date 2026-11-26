@@ -1,4 +1,5 @@
 "use client";
+import type * as GeoJSON from "geojson";
 
 import dynamic from "next/dynamic";
 import { forwardRef, useCallback, useState } from "react";

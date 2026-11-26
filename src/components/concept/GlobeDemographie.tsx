@@ -1,4 +1,5 @@
 "use client";
+import type * as GeoJSON from "geojson";
 
 import { ArrowUpRight } from "lucide-react";
 import { slugDe } from "@/data/seo/francais";
@@ -7,8 +8,8 @@ import { useTheme } from "./Theme";
 import { EvolutionCourbe } from "./EvolutionCourbe";
 import { LibelleTronque } from "./LibelleTronque";
 import { usePretGlobe } from "./ouverture";
-import type { CountryDemographyData, DemographyMetricId, DemographyYear } from "@/data/demographie/demographie";
-import { SOURCES_SOCLE_DEMO } from "@/data/demographie/demographie";
+import type { CountryDemographyData, DemographyMetricId, DemographyYear } from "@/data/demographie/meta";
+import { SOURCES_SOCLE_DEMO } from "@/data/demographie/meta";
 import { GlobeCompact, type InfoBulle } from "@/components/explorer/GlobeCompact";
 import type { Coloration, GlobeExplorerHandle } from "@/components/explorer/GlobeExplorer";
 import { vueDePays } from "@/components/explorer/vues";
