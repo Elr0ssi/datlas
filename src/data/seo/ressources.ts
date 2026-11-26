@@ -31,7 +31,7 @@ let cacheListe: PageRessource[] | null = null;
 export function pagesRessources(): PageRessource[] {
   if (cacheListe) return cacheListe;
   const index = lire<{ ressources: EntreeIndex[] }>("index.json").ressources;
-  cacheListe = ressourcesActives(index).map((r) => ({ slug: slugDe(r.nomFr), id: r.id, nom: r.nomFr, chemin: r.chemin }));
+  cacheListe = ressourcesActives(index).map((r) => ({ slug: slugDe(r.nomFr.replace(/œ/gi, "oe")), id: r.id, nom: r.nomFr, chemin: r.chemin }));
   return cacheListe;
 }
 export const ressourceParSlug = (slug: string) => pagesRessources().find((r) => r.slug === slug);
