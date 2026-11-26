@@ -11,7 +11,7 @@ import { debatsRessource } from "@/data/ressources/debats";
 import type { EntreeIndex, JeuRessource } from "@/data/ressources/types";
 import { jsonLdString } from "@/lib/schema";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
+import { SITE_URL as siteUrl } from "@/lib/site";
 const chemin = "/ressources";
 
 export const metadata: Metadata = {

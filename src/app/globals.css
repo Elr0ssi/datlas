@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
-@import 'leaflet/dist/leaflet.css';
 
 @tailwind base;
 @tailwind components;
@@ -772,10 +771,6 @@ body {
 /* A clicked country is an SVG path, and the browser rings a focused path with
    a rectangle, the box that appeared around a country the moment it was
    selected. The selection is already drawn in the path's own stroke. */
-.leaflet-container .leaflet-interactive:focus,
-.leaflet-container .leaflet-interactive:focus-visible {
-  outline: none;
-}
 
 /* ── Petits écrans : l'échelle de la page économie ────────────────────────
    La page est composée pour un grand écran. En dessous, ce n'est pas la

@@ -69,9 +69,9 @@ export const SOUS_TRAITANTS = [
 /** Ce que le site range dans le navigateur. Aucun de ces éléments ne sert à la publicité ni à la mesure d'audience. */
 export const STOCKAGE_NAVIGATEUR = [
   { nom: "sb-…-auth-token", type: "Cookie", finalite: "Garder la session ouverte quand vous êtes connecté.", duree: "Le temps de la session, renouvelé à chaque visite connectée ; supprimé à la déconnexion.", necessaire: "Oui, strictement nécessaire" },
-  { nom: "visualize-theme-v2", type: "Stockage local", finalite: "Retenir le thème clair ou sombre choisi.", duree: "Jusqu'à ce que vous l'effaciez", necessaire: "Préférence (fonctionnelle)" },
-  { nom: "visualize-monnaie", type: "Stockage local", finalite: "Retenir la monnaie d'affichage des montants.", duree: "Jusqu'à ce que vous l'effaciez", necessaire: "Préférence (fonctionnelle)" },
+  { nom: "datlas-theme", type: "Stockage local", finalite: "Retenir le thème clair ou sombre choisi.", duree: "Jusqu'à ce que vous l'effaciez", necessaire: "Préférence (fonctionnelle)" },
+  { nom: "datlas-monnaie", type: "Stockage local", finalite: "Retenir la monnaie d'affichage des montants.", duree: "Jusqu'à ce que vous l'effaciez", necessaire: "Préférence (fonctionnelle)" },
   { nom: "datlas-carnet-v1", type: "Stockage local", finalite: "Garder sur l'appareil les traductions et passages de votre carnet, y compris sans compte.", duree: "Jusqu'à ce que vous les supprimiez", necessaire: "Service demandé" },
-  { nom: "visualize-compare-v2, ted-dashboard-v1", type: "Stockage local", finalite: "Retenir les pays choisis dans le comparateur et la disposition de ses panneaux.", duree: "Jusqu'à ce que vous l'effaciez", necessaire: "Préférence (fonctionnelle)" },
-  { nom: "visualize-tableau-v4, visualize-globe-perso-v3", type: "Stockage local", finalite: "Retenir la disposition de votre espace personnel et de votre globe.", duree: "Jusqu'à ce que vous l'effaciez", necessaire: "Préférence (fonctionnelle)" },
+  { nom: "datlas-comparateur", type: "Stockage local", finalite: "Retenir les pays choisis dans le comparateur de votre espace personnel.", duree: "Jusqu'à ce que vous l'effaciez", necessaire: "Préférence (fonctionnelle)" },
+  { nom: "datlas-tableau, datlas-globe-perso", type: "Stockage local", finalite: "Retenir la disposition de votre espace personnel et de votre globe.", duree: "Jusqu'à ce que vous l'effaciez", necessaire: "Préférence (fonctionnelle)" },
 ];

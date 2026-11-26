@@ -16,7 +16,7 @@ import { CONTACT, EQUIPE } from "@/data/equipe";
    que le reste du projet refuse.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
+import { SITE_URL as siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "À propos : qui nous sommes et comment nous travaillons | Datlas" },

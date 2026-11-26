@@ -25,7 +25,7 @@ import { allegerSocle } from "@/data/concept/socleLeger";
    entier, et les composants clients n'ajoutent que du mouvement.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
+import { SITE_URL as siteUrl } from "@/lib/site";
 const chemin = "/economie";
 
 export const metadata: Metadata = {

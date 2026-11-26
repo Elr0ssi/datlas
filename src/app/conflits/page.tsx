@@ -5,7 +5,7 @@ import { conflitsDuFichier } from "@/data/conflits";
 import { articlesConflits, debatsConflits } from "@/data/conflits/lectures";
 import { jsonLdString } from "@/lib/schema";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
+import { SITE_URL as siteUrl } from "@/lib/site";
 const chemin = "/conflits";
 
 export const metadata: Metadata = {

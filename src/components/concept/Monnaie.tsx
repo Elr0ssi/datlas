@@ -16,7 +16,7 @@ import { MONNAIES, fiche, type Monnaie } from "@/data/finance/tauxChange";
    qui passe du noir au blanc, si.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-const CLE = "visualize-monnaie";
+const CLE = "datlas-monnaie";
 
 let COURANTE: Monnaie = "usd";
 const ABONNES = new Set<(m: Monnaie) => void>();

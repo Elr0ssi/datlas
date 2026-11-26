@@ -133,7 +133,7 @@ const CATALOGUE: Choix[] = [
   ...TOUTES_DEMO.map((m) => ({ cle: `demo:${m.id}`, src: "demo" as const, id: m.id as string, label: m.label })),
 ];
 const DEFAUT = ["eco:gdp", "eco:gdp_per_capita", "demo:population", "eco:inflation"];
-const CLE_LS = "visualize-globe-perso-v3";
+const CLE_LS = "datlas-globe-perso";
 
 /** Le globe personnel : le même rendu que les pages Économie et Démographie,
     mais c'est vous qui décidez des indicateurs qu'il peut montrer, tous

@@ -10,7 +10,7 @@ import { ForumPage } from "@/components/concept/ForumPage";
    renvoie désormais.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
+import { SITE_URL as siteUrl } from "@/lib/site";
 const chemin = "/forum";
 
 export const metadata: Metadata = {

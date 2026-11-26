@@ -11,7 +11,7 @@ import SOCLE from "@/data/economy/genere/socle-economie.json";
    par l'adresse.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
+import { SITE_URL as siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "Comparer des pays : PIB, population, dette, inflation | Datlas" },

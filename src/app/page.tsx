@@ -16,7 +16,7 @@ import { compteurDemo } from "@/data/concept/conceptDemographie";
    (voir next.config.ts), et la page est offerte aux moteurs.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
+import { SITE_URL as siteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: { absolute: "Datlas : maîtriser le monde en données, en s'amusant" },

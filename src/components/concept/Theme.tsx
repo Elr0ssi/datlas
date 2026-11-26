@@ -21,7 +21,7 @@ export type Theme = "nuit" | "clair";
 
 /* La clé a changé avec le thème par défaut (la nuit, puis le clair) : un choix mémorisé du temps où la nuit
    était le défaut ne doit pas rendre le site sombre à quelqu'un qui n'a jamais choisi la nuit. */
-const CLE = "visualize-theme-v2";
+const CLE = "datlas-theme";
 
 /* Les abonnés au thème.
 

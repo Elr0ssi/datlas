@@ -9,7 +9,7 @@ import { ArticleBody } from "@/components/articles/ArticleBody";
 import { ARTICLES, getArticleBySlug, getArticlesByTheme } from "@/data/articles";
 import { jsonLdString } from "@/lib/schema";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
+import { SITE_URL as siteUrl } from "@/lib/site";
 
 interface PageProps {
   params: Promise<{ slug: string }>;

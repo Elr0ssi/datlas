@@ -15,7 +15,7 @@ const GlobePerso = dynamic(() => import("./GlobePerso").then((m) => m.GlobePerso
 });
 
 const AN = 365.2425 * 24 * 3600;
-const CLE = "visualize-tableau-v4";
+const CLE = "datlas-tableau";
 
 export interface PaysCompare {
   nom: string;
@@ -67,14 +67,14 @@ function Comparateur({ edition, iso2 }: { edition: boolean; iso2: Record<string,
   const [cfg, setCfg] = useState<ConfigCompare>(CONFIG_DEFAUT);
   useEffect(() => {
     try {
-      const s = JSON.parse(localStorage.getItem("visualize-compare-v2") ?? "null") as ConfigCompare | null;
+      const s = JSON.parse(localStorage.getItem("datlas-comparateur") ?? "null") as ConfigCompare | null;
       if (s && Array.isArray(s.noms) && Array.isArray(s.indics)) setCfg(s);
     } catch {}
   }, []);
   const maj = (c: ConfigCompare) => {
     setCfg(c);
     try {
-      localStorage.setItem("visualize-compare-v2", JSON.stringify(c));
+      localStorage.setItem("datlas-comparateur", JSON.stringify(c));
     } catch {}
   };
 

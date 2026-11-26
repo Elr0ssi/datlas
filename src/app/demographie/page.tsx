@@ -21,7 +21,7 @@ import { allegerSocle } from "@/data/concept/socleLeger";
    saisie du prototype.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
+import { SITE_URL as siteUrl } from "@/lib/site";
 const chemin = "/demographie";
 
 export const metadata: Metadata = {

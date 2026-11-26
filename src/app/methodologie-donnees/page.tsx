@@ -16,7 +16,7 @@ import { jsonLdString } from "@/lib/schema";
    peut pas être la seule chose du projet à ne pas être vérifiable.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://theessentialdata.com";
+import { SITE_URL as siteUrl } from "@/lib/site";
 
 interface Fiche {
   libelle: string;

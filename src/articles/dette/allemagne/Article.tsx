@@ -110,7 +110,7 @@ export function ArticleAllemagne({ suggestions }: { suggestions: Suggestion[] })
             cle: String(p.annee), etiquette: String(p.annee), valeur: p.valeur, montantMd: p.md,
             repere: undefined,
           }))} unite="% du PIB" enteteValeur="Dette / PIB" />
-          <p className="dos-notule">Sources détaillées : <Source href="https://github.com/Elr0ssi/hub2gether-claude-Local/blob/claude/essential-data-presentation-fv21q3/data/economie/dette/dette-sur-pib/DEU.json">Base historique du site (2000–2015)</Source> · <Source href={SOURCES.BB}>Bundesbank, historique 2019–2025</Source> · <Source href={SOURCES.EUROSTAT}>Eurostat, premier trimestre 2026</Source>.</p>
+          <p className="dos-notule">Sources détaillées : <Source href="https://github.com/Elr0ssi/datlas/blob/claude/essential-data-presentation-fv21q3/data/economie/dette/dette-sur-pib/DEU.json">Base historique du site (2000–2015)</Source> · <Source href={SOURCES.BB}>Bundesbank, historique 2019–2025</Source> · <Source href={SOURCES.EUROSTAT}>Eurostat, premier trimestre 2026</Source>.</p>
         </Figure>
       </Chapitre>
 

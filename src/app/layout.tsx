@@ -126,7 +126,8 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html:
-              'try{if(localStorage.getItem("visualize-theme-v2")==="nuit")delete document.documentElement.dataset.concept}catch(e){}',
+              /* Les anciennes clés (du temps où le site s'appelait autrement) passent une fois sous leur nom Datlas, sans perdre les réglages. */
+              'try{var m={"visualize-theme-v2":"datlas-theme","visualize-monnaie":"datlas-monnaie","visualize-tableau-v4":"datlas-tableau","visualize-globe-perso-v3":"datlas-globe-perso","visualize-compare-v2":"datlas-comparateur"};for(var k in m){var v=localStorage.getItem(k);if(v!==null){if(localStorage.getItem(m[k])===null)localStorage.setItem(m[k],v);localStorage.removeItem(k)}}localStorage.removeItem("ted-dashboard-v1");if(localStorage.getItem("datlas-theme")==="nuit")delete document.documentElement.dataset.concept}catch(e){}',
           }}
         />
         <script
