@@ -7,6 +7,7 @@ import { pairesVedettes, paysVedettes, slugPaire, tousLesPays } from "@/data/seo
 import { SITE_URL as siteUrl } from "@/lib/site";
 import { INDICATEURS } from "@/data/seo/classements";
 import { pagesRessources } from "@/data/seo/ressources";
+import { paysAvecRessources } from "@/data/seo/ressourcesAnalyse";
 import { MAJ_LEGAL } from "@/data/legal";
 
 const LAST_MODIFIED_STATIC = new Date("2025-07-01");
@@ -88,7 +89,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const precises = [
     { url: `${siteUrl}/classements`, priority: 0.85, changeFrequency: "monthly" as const, lastModified: aujourdhui },
     ...INDICATEURS.map((i) => ({ url: `${siteUrl}/classements/${i.slug}`, priority: 0.8, changeFrequency: "monthly" as const, lastModified: aujourdhui })),
-    ...pagesRessources().map((r) => ({ url: `${siteUrl}/ressources/${r.slug}`, priority: 0.7, changeFrequency: "yearly" as const, lastModified: aujourdhui })),
+    ...pagesRessources().map((r) => ({ url: `${siteUrl}/ressources/${r.slug}`, priority: 0.8, changeFrequency: "yearly" as const, lastModified: aujourdhui })),
+    ...paysAvecRessources().map((s) => ({ url: `${siteUrl}/pays/${s}/ressources`, priority: 0.6, changeFrequency: "yearly" as const, lastModified: aujourdhui })),
   ];
 
   return [

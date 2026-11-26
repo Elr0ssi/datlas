@@ -8,7 +8,8 @@ import { ANALYSES } from "@/data/dettes/analyses";
 import { tousLesDossiers } from "@/data/dettes/dossiers";
 import { INDICATEURS } from "@/data/seo/classements";
 import { pagesRessources } from "@/data/seo/ressources";
-import { pairesVedettes, slugPaire, tousLesPays } from "@/data/seo/pays";
+import { pairesVedettes, paysParSlug, slugPaire, tousLesPays } from "@/data/seo/pays";
+import { paysAvecRessources } from "@/data/seo/ressourcesAnalyse";
 import { SITE_URL, urlAbs } from "@/lib/site";
 import "@/components/concept/concept.css";
 import "@/components/seo/seo.css";
@@ -54,6 +55,7 @@ export default function Page() {
         <Bloc id="pl-rub" titre="Les rubriques" liens={[["Accueil", "/"], ["Économie", "/economie"], ["Démographie", "/demographie"], ["Conflits", "/conflits"], ["Ressources", "/ressources"], ["Articles", "/articles"], ["Forum", "/forum"]]} />
         <Bloc id="pl-cl" titre="Les classements" liens={[["Tous les classements", "/classements"], ...INDICATEURS.map((i) => [i.titre, `/classements/${i.slug}`] as [string, string])]} />
         <Bloc id="pl-res" titre="La production mondiale, ressource par ressource" liens={pagesRessources().map((r) => [r.nom, `/ressources/${r.slug}`] as [string, string])} />
+        <Bloc id="pl-res-pays" titre="Les ressources de chaque pays" colonnes liens={paysAvecRessources().map((s) => [paysParSlug(s)?.fr ?? s, `/pays/${s}/ressources`] as [string, string]).sort((x, y) => x[0].localeCompare(y[0], "fr"))} />
         <Bloc
           id="pl-dette"
           titre="La dette publique"

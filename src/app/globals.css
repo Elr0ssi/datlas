@@ -2521,3 +2521,16 @@ body {
 .hub-tab tbody th span { display: block; margin-top: 3px; font-size: 11px; font-weight: 400; color: var(--ink-5); }
 .hub-tab td { color: var(--ink-3); }
 .hub-tab tbody tr:last-child th, .hub-tab tbody tr:last-child td { border-bottom: 0; }
+
+/* ── Navigation fluide ───────────────────────────────────────────────────── */
+/* Les pages chargées entièrement (liens ordinaires) s'enchaînent par un fondu, dans les navigateurs qui le permettent. */
+@view-transition { navigation: auto; }
+.nv-entree { animation: nv-entree 0.32s ease-out backwards; }
+@keyframes nv-entree { from { opacity: 0.35; } }
+.nv-barre { position: fixed; top: 0; left: 0; z-index: 2000; height: 3px; width: 100%; pointer-events: none; transform-origin: left; transform: scaleX(0); opacity: 0; background: linear-gradient(90deg, #5b2de0, #a583ff, #ff5fae); box-shadow: 0 0 10px rgba(124, 77, 255, 0.6); }
+.nv-charge { opacity: 1; transform: scaleX(0.82); transition: transform 2.4s cubic-bezier(0.08, 0.8, 0.2, 1), opacity 0.15s; }
+.nv-fin { opacity: 0; transform: scaleX(1); transition: transform 0.2s ease-out, opacity 0.3s ease 0.15s; }
+@media (prefers-reduced-motion: reduce) {
+  .nv-entree { animation: none; }
+  @view-transition { navigation: none; }
+}

@@ -28,7 +28,8 @@ export function llmsCourt(): string {
   for (const i of INDICATEURS) l.push(`- [${i.titre}](${u(`/classements/${i.slug}`)}): ${i.description}`);
   l.push(`- [Pays les plus endettés](${u("/dette-publique/analyses/pays-les-plus-endettes")}): dette publique en % du PIB.`, "");
   l.push("## Production mondiale par ressource");
-  for (const r of pagesRessources()) l.push(`- [Production mondiale : ${r.nom}](${u(`/ressources/${r.slug}`)}): premiers producteurs, part du total, rendements.`);
+  for (const r of pagesRessources()) l.push(`- [Production mondiale : ${r.nom}](${u(`/ressources/${r.slug}`)}): article complet : premiers producteurs, évolution depuis 1961, continents, rendements, usages, place de la France.`);
+  l.push(`- Les ressources de chaque pays : ${u("/pays/<pays>/ressources")} (rang mondial, part, évolution sur dix ans, rendement), par exemple ${u("/pays/france/ressources")}.`);
   l.push("");
   l.push("## Dette publique");
   l.push(`- [La dette publique par pays](${u("/dette-publique")}): montants, % du PIB et évolution depuis 2000.`);

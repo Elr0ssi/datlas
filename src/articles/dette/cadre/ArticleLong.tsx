@@ -48,6 +48,10 @@ interface Props {
   sujet?: Sujet;
   /** Le contenu du bloc « Sources » (colonne de droite) : une ligne de texte. */
   sources: string;
+  /** La rubrique allumée dans le menu (« Dette » par défaut, « Ressources » pour un article de ressource). */
+  actif?: string;
+  /** La page « méthode » du bloc Sources. */
+  methode?: string;
   children: React.ReactNode;
 }
 
@@ -130,12 +134,12 @@ function Rail({
 
 /* ── Le squelette ────────────────────────────────────────────────────────── */
 
-export function ArticleLong({ fil, surtitre, chiffre, chapo, chapitres, suggestions, sujet, sources, children }: Props) {
+export function ArticleLong({ fil, surtitre, chiffre, chapo, chapitres, suggestions, sujet, sources, actif = "Dette", methode = "/methodologie-donnees", children }: Props) {
   return (
     <ChapitresContext.Provider value={chapitres}>
       <div className="dos">
         <div className="cg dp-menu">
-          <EnTete actif="Dette" />
+          <EnTete actif={actif} />
         </div>
         <div className="dos-fond" aria-hidden="true" />
 
@@ -213,7 +217,7 @@ export function ArticleLong({ fil, surtitre, chiffre, chapo, chapitres, suggesti
 
             <Rail titre="Sources" ouvert={false} classe="dos-rail-src">
               <p>{sources}</p>
-              <a href="/methodologie-donnees">Notre méthode →</a>
+              <a href={methode}>Notre méthode →</a>
             </Rail>
           </aside>
         </div>

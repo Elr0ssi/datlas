@@ -1301,3 +1301,10 @@ body:has(.dos) { background: #0a0912; }
 .dos-eq-ad .dos-eq-total span, .dos-eq-ad .dos-eq-total b { font-weight: 800; color: var(--dos-encre); }
 .dos-eq-ad .dos-eq-total { padding-top: 10px; border-top: 1px solid var(--dos-ligne); }
 @media (max-width: 560px) { .dos-eq-ad .dos-eq-l { grid-template-columns: 1fr auto; } }
+
+/* Le conteneur du menu : il ne porte que les couleurs de l'en-tête (fixe). Sans cette règle, `.cg` réserve un écran
+   entier de hauteur avant l'article. Elle vaut pour tous les articles longs, pas seulement celui sur la France. */
+.dp-menu { position: relative; z-index: 46; min-height: 0 !important; height: 0; padding-bottom: 0 !important; }
+.dp-menu::before { display: none !important; }
+/* Sur téléphone, la fin de l'article reste au-dessus de la barre d'onglets. */
+@media (max-width: 900px) { .dos-pied { padding-bottom: calc(78px + env(safe-area-inset-bottom)); } }

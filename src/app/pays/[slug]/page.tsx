@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ressourcesDuPays } from "@/data/seo/ressourcesAnalyse";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { EnTete, Pied } from "@/components/concept/pieces";
@@ -82,6 +83,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     },
   ];
 
+  const ressources = ressourcesDuPays(f.slug);
   return (
     <div className="cg sg">
       <EnTete />
@@ -135,6 +137,26 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           </section>
         )}
 
+
+        {ressources.length > 0 && (
+          <section className="sg-sec" aria-labelledby="sg-res">
+            <h2 id="sg-res" className="sg-h2">Ses ressources</h2>
+            <div className="sg-grille">
+              {ressources.slice(0, 4).map((x) => (
+                <Link key={x.r.slug} href={`/ressources/${x.r.slug}`} className="sg-carte sg-carte-lien">
+                  <p className="sg-carte-t">{x.r.nom}</p>
+                  <p className="sg-carte-d">
+                    {x.p.rang === 1 ? "1er" : `${x.p.rang}e`} producteur mondial sur {x.n}
+                    {x.p.part !== null ? `, ${x.p.part.toLocaleString("fr-FR", { maximumFractionDigits: 1 })} % du monde` : ""}
+                  </p>
+                </Link>
+              ))}
+            </div>
+            <div className="sg-cta">
+              <Link href={`/pays/${f.slug}/ressources`} className="sg-bouton">Toutes les ressources {deNom(f.fr)}</Link>
+            </div>
+          </section>
+        )}
 
         <section className="sg-sec" aria-labelledby="sg-vs">
           <h2 id="sg-vs" className="sg-h2">Comparer {avec(f.fr)} avec…</h2>

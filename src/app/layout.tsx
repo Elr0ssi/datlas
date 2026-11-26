@@ -1,4 +1,5 @@
 import { SelectionApprentissage } from "@/components/apprentissage/SelectionApprentissage";
+import { Progression } from "@/components/navigation/Progression";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { jsonLdString } from "@/lib/schema";
@@ -138,6 +139,7 @@ export default function RootLayout({
         />
       </head>
       <body style={{ fontFamily: "var(--font-inter), 'Inter', system-ui, sans-serif" }}>
+        <Progression />
         {children}
         <SelectionApprentissage />
       </body>

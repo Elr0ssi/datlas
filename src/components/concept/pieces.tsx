@@ -5,6 +5,7 @@ import { aReviser, lireLocal, surChangement } from "@/lib/carnet";
 import { Newspaper, Swords, TrendingUp, Users, Wheat } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { LienCompte } from "@/components/compte/LienCompte";
 import { BoutonTheme } from "./Theme";
 import { ChoixMonnaie } from "./Monnaie";
@@ -214,15 +215,16 @@ function Lien({ n, actif, rang }: { n: Onglet; actif?: string; rang: number }) {
       </span>
     );
   }
+  /* Un lien Next : la page visée est préchargée, et la navigation se fait sans rechargement complet. */
   return (
-    <a
+    <Link
       href={n.href}
       className={actif === n.label ? "cg-nav-on" : undefined}
       aria-current={actif === n.label ? "page" : undefined}
       style={style}
     >
       {n.label}
-    </a>
+    </Link>
   );
 }
 
@@ -414,10 +416,10 @@ function BarreBas({ actif, cache }: { actif?: string; cache: boolean }) {
   return (
     <nav className={`cg-bas${cache ? " cg-bas-cache" : ""}`} aria-label="Rubriques principales">
       {BAS.map(({ label, href, Icone }) => (
-        <a key={href} href={href} className={estActif(label, href) ? "on" : undefined} aria-current={estActif(label, href) ? "page" : undefined}>
+        <Link key={href} href={href} className={estActif(label, href) ? "on" : undefined} aria-current={estActif(label, href) ? "page" : undefined}>
           <Icone size={19} strokeWidth={1.9} aria-hidden="true" />
           <span>{label}</span>
-        </a>
+        </Link>
       ))}
     </nav>
   );
@@ -448,7 +450,7 @@ export function Pied() {
             <nav key={c.titre} className="cg-pied-col" aria-label={c.titre}>
               <p>{c.titre}</p>
               {c.liens.map(([l, h]) => (
-                <a key={h} href={h}>{l}</a>
+                <Link key={h} href={h} prefetch={false}>{l}</Link>
               ))}
             </nav>
           ))}
@@ -496,11 +498,11 @@ function BoutonCarnet({ mobile = false }: { mobile?: boolean }) {
   }, []);
   const titre = n ? `Mon carnet : ${n} carte${n > 1 ? "s" : ""} à revoir` : "Mon carnet";
   return (
-    <a href="/carnet" className={`cg-jour cg-carnet${mobile ? " cg-carnet-mob" : ""}`} title={titre} aria-label={titre}>
+    <Link href="/carnet" className={`cg-jour cg-carnet${mobile ? " cg-carnet-mob" : ""}`} title={titre} aria-label={titre}>
       <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round">
         <path d="M6 3.5h12v17l-6-4-6 4z" />
       </svg>
       {n > 0 && <b className="cg-carnet-n">{n > 99 ? "99+" : n}</b>}
-    </a>
+    </Link>
   );
 }
