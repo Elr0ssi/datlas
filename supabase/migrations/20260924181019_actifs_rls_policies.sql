@@ -1,0 +1,11 @@
+-- Migration de l'application « actifs », qui partage ce projet Supabase avec Datlas.
+--
+-- Elle a cree un schema `actifs` (tables, regles d'acces, fonctions) et un declencheur
+-- `on_auth_user_created`. La migration 20260924213938_actifs_move_to_public_schema les supprime
+-- integralement (`drop trigger if exists on_auth_user_created` puis `drop schema actifs cascade`)
+-- avant de tout recreer dans le schema public : rejouee depuis zero, l'historique aboutit au meme
+-- etat sans elle. Le texte d'origine reste consultable dans supabase_migrations.schema_migrations.
+--
+-- Ce fichier garde la place de la version dans l'historique, pour que le depot et la base
+-- portent la meme liste de migrations.
+create schema if not exists actifs;

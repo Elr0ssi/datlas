@@ -8,6 +8,12 @@ Le schéma est appliqué sur le projet distant. Les fichiers de
 même ordre, pour qu'on puisse relire l'histoire du schéma sans ouvrir le
 tableau de bord, et le rejouer sur un autre projet si besoin.
 
+La liste des fichiers doit rester identique à l'historique de la base
+(`supabase_migrations.schema_migrations`) : la vérification « Supabase
+Preview » de GitHub échoue dès qu'une version de la base manque ici. Les
+migrations `actifs_*` appartiennent à une autre application qui partage ce
+projet ; elles figurent ici pour la même raison.
+
 ## Ce que contient la base
 
 | Table | Ce qu'elle porte |
