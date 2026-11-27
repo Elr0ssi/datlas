@@ -2525,6 +2525,54 @@ body {
 .nv-barre { position: fixed; top: 0; left: 0; z-index: 2000; height: 3px; width: 100%; pointer-events: none; transform-origin: left; transform: scaleX(0); opacity: 0; background: linear-gradient(90deg, #5b2de0, #a583ff, #ff5fae); box-shadow: 0 0 10px rgba(124, 77, 255, 0.6); }
 .nv-charge { opacity: 1; transform: scaleX(0.82); transition: transform 2.4s cubic-bezier(0.08, 0.8, 0.2, 1), opacity 0.15s; }
 .nv-fin { opacity: 0; transform: scaleX(1); transition: transform 0.2s ease-out, opacity 0.3s ease 0.15s; }
+
+/* Le globe d'attente : il ne se montre que si la page tarde. Il tourne (les méridiens se resserrent puis s'élargissent),
+   s'aplatit en carte (le disque devient un rectangle, les méridiens des colonnes), puis redevient globe. Rien que des
+   transformations et des opacités : le compositeur les anime sans toucher au fil principal, qui charge la page. */
+.nv-voile {
+  position: fixed; inset: 0; z-index: 1999; display: grid; place-items: center; pointer-events: none;
+  opacity: 0; visibility: hidden; transition: opacity 0.18s ease, visibility 0s linear 0.18s;
+  background: rgba(5, 8, 12, 0.94);
+}
+:root[data-concept="clair"] .nv-voile { background: rgba(253, 253, 254, 0.95); }
+.nv-voile-on { opacity: 1; visibility: visible; pointer-events: auto; transition: opacity 0.22s ease; }
+.nv-globe { width: 92px; height: 92px; overflow: visible; animation: nv-entre 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }
+@keyframes nv-entre { from { opacity: 0; transform: scale(0.7); } }
+.nv-globe * { transform-box: fill-box; transform-origin: center; }
+.nv-g-corps { animation: nv-aplat 2.6s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+.nv-g-disque { fill: url(#nv-g); animation: nv-disque 2.6s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+.nv-g-lignes { fill: none; stroke: rgba(255, 255, 255, 0.92); stroke-width: 2; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.nv-g-lignes * { vector-effect: non-scaling-stroke; }
+.nv-g-par { opacity: 0.55; }
+.nv-g-axe { opacity: 0; animation: nv-axe 2.6s ease infinite; }
+.nv-g-mer { animation: nv-tourne 1.3s linear infinite, nv-mer 2.6s ease infinite; }
+.nv-m2 { animation-delay: -0.65s, 0s; }
+.nv-g-point { fill: #ff6fb5; stroke: #fff; stroke-width: 2.4; animation: nv-point 2.6s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+/* La rotation : chaque méridien passe de l'ellipse pleine au trait, puis repart de l'autre côté. */
+@keyframes nv-tourne { 0% { transform: scaleX(1); } 50% { transform: scaleX(0.02); } 100% { transform: scaleX(-1); } }
+/* L'aplatissement : la sphère s'élargit et s'écrase en planisphère, puis se regonfle. */
+@keyframes nv-aplat {
+  0%, 30% { transform: none; }
+  48%, 72% { transform: scale(1.32, 0.7); }
+  90%, 100% { transform: none; }
+}
+@keyframes nv-disque {
+  0%, 30% { rx: 40px; }
+  48%, 72% { rx: 7px; }
+  90%, 100% { rx: 40px; }
+}
+@keyframes nv-axe { 0%, 36% { opacity: 0; } 50%, 70% { opacity: 0.7; } 84%, 100% { opacity: 0; } }
+/* En carte, les méridiens courbes s'effacent : ce sont les colonnes droites qui prennent le relais. */
+@keyframes nv-mer { 0%, 34% { opacity: 1; } 46%, 74% { opacity: 0; } 86%, 100% { opacity: 1; } }
+@keyframes nv-point {
+  0%, 30% { transform: none; }
+  48%, 72% { transform: translate(14px, 12px) scale(0.8); }
+  90%, 100% { transform: none; }
+}
+.nv-cache { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) {
+  .nv-g-corps, .nv-g-disque, .nv-g-mer, .nv-g-axe, .nv-g-point { animation: none; }
+}
 @media (prefers-reduced-motion: reduce) {
   .nv-entree { animation: none; }
   @view-transition { navigation: none; }
