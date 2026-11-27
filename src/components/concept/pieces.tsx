@@ -370,11 +370,13 @@ export function EnTete({ actif }: { actif?: string }) {
       onFocus={() => setOuvert(true)}
     >
       <div className="cg-pill">
-        <a
+        <Link
           href="/"
           className="cg-logo"
-          onPointerDownCapture={() => {
+          onPointerDownCapture={(e) => {
             avant.current = deplie;
+            /* Pilule fermée, le premier toucher ne fait que l'ouvrir : la barre de chargement n'a rien à attendre. */
+            e.currentTarget.toggleAttribute("data-sans-chargement", !deplie);
           }}
           onClick={(e) => {
             if (!avant.current) {
@@ -385,7 +387,7 @@ export function EnTete({ actif }: { actif?: string }) {
         >
           <MarqueDatlas />
           <span className="cg-logo-t">Datlas</span>
-        </a>
+        </Link>
 
         <div className="cg-pill-corps">
           <nav

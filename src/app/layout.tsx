@@ -115,7 +115,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="fr" suppressHydrationWarning className={inter.variable} data-concept="clair">
+    <html lang="fr" suppressHydrationWarning className={inter.variable} data-concept="clair" data-scroll-behavior="smooth">
       <head>
         <meta name="theme-color" content="#fdfdfe" />
         {/* Le thème des pages Datlas, posé avant le premier rendu. Le défaut

@@ -25,6 +25,8 @@ export function Progression() {
   const [etat, setEtat] = useState<"repos" | "charge" | "fin">("repos");
   const [globe, setGlobe] = useState(false);
   const avant = useRef(chemin);
+  /* Vrai entre le clic sur un lien et l'arrivée de la page : seules ces navigations remontent en haut (le bouton retour, lui, retrouve la position quittée). */
+  const parClic = useRef(false);
 
   useEffect(() => {
     const clic = (e: MouseEvent) => {
@@ -38,6 +40,7 @@ export function Progression() {
         return;
       }
       if (u.origin !== window.location.origin || u.pathname === window.location.pathname || a.closest("[data-sans-chargement]")) return;
+      parClic.current = !u.hash;
       setEtat("charge");
     };
     /* En capture : les liens de Next annulent le comportement par défaut du clic avant qu'il ne remonte au document. */
@@ -48,6 +51,9 @@ export function Progression() {
   useEffect(() => {
     if (chemin === avant.current) return;
     avant.current = chemin;
+    /* La nouvelle page s'ouvre en haut, d'un coup, sans défilement visible : le voile la couvre encore. */
+    if (parClic.current) window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    parClic.current = false;
     setEtat("fin");
     const t = window.setTimeout(() => setEtat("repos"), 380);
     return () => window.clearTimeout(t);
@@ -60,7 +66,7 @@ export function Progression() {
       return;
     }
     const g = window.setTimeout(() => setGlobe(true), DELAI_GLOBE);
-    const t = window.setTimeout(() => setEtat("repos"), 12000);
+    const t = window.setTimeout(() => setEtat("repos"), 8000);
     return () => {
       window.clearTimeout(g);
       window.clearTimeout(t);
