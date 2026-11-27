@@ -8,6 +8,7 @@ import { useTheme } from "./Theme";
 import { EvolutionCourbe } from "./EvolutionCourbe";
 import { LibelleTronque } from "./LibelleTronque";
 import { usePretGlobe } from "./ouverture";
+import { useEtroit } from "@/lib/useEtroit";
 import type { CountryDemographyData, DemographyMetricId, DemographyYear } from "@/data/demographie/meta";
 import { SOURCES_SOCLE_DEMO } from "@/data/demographie/meta";
 import { GlobeCompact, type InfoBulle } from "@/components/explorer/GlobeCompact";
@@ -205,6 +206,8 @@ export function GlobeDemographie({
   const globe = useRef<GlobeExplorerHandle>(null);
   const colonne = useRef<HTMLDivElement>(null);
   const pretGlobe = usePretGlobe(colonne);
+  /* Sur une seule colonne (téléphone, tablette), la frise et sa note passent sous la fiche pays : le globe et la fiche se suivent. */
+  const etroit = useEtroit(1080);
   const [geo, setGeo] = useState<GeoJSON.FeatureCollection | null>(null);
   useEffect(() => {
     if (!pretGlobe) return;
@@ -329,7 +332,7 @@ export function GlobeDemographie({
               <span className="gc-ech-nd"><i />Indisponible</span>
             </div>
           </GlobeCompact>
-          {sousLeGlobe && <div className="ge-sous">{sousLeGlobe}</div>}
+          {sousLeGlobe && !etroit && <div className="ge-sous">{sousLeGlobe}</div>}
         </div>
 
         <aside className="ge-panneau">
@@ -463,6 +466,7 @@ export function GlobeDemographie({
             )}
           </div>
         </aside>
+        {sousLeGlobe && etroit && <div className="ge-sous ge-sous-bas">{sousLeGlobe}</div>}
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import { useTheme } from "./Theme";
 import { EvolutionCourbe } from "./EvolutionCourbe";
 import { LibelleTronque } from "./LibelleTronque";
 import { usePretGlobe } from "./ouverture";
+import { useEtroit } from "@/lib/useEtroit";
 import { monnaieCourante } from "./Monnaie";
 import { fiche } from "@/data/finance/tauxChange";
 import type { CountryEconomyData, EconomyMetricId, EconomyYear } from "@/types";
@@ -217,6 +218,8 @@ export function GlobeEco({
   const globe = useRef<GlobeExplorerHandle>(null);
   const colonne = useRef<HTMLDivElement>(null);
   const pretGlobe = usePretGlobe(colonne);
+  /* Sur une seule colonne (téléphone, tablette), la frise et sa note passent sous la fiche pays : le globe et la fiche se suivent. */
+  const etroit = useEtroit(1080);
   const [geo, setGeo] = useState<GeoJSON.FeatureCollection | null>(null);
   useEffect(() => {
     if (!pretGlobe) return;
@@ -315,7 +318,7 @@ export function GlobeEco({
               <span className="gc-ech-nd"><i />Indisponible</span>
             </div>
           </GlobeCompact>
-          {sousLeGlobe && <div className="ge-sous">{sousLeGlobe}</div>}
+          {sousLeGlobe && !etroit && <div className="ge-sous">{sousLeGlobe}</div>}
         </div>
 
         {/* ── La fiche pays ──────────────────────────────────────────────── */}
@@ -435,6 +438,7 @@ export function GlobeEco({
             )}
           </div>
         </aside>
+        {sousLeGlobe && etroit && <div className="ge-sous ge-sous-bas">{sousLeGlobe}</div>}
       </div>
     </div>
   );

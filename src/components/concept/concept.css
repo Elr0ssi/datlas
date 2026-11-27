@@ -4698,3 +4698,6 @@ body:has(.cg) { background: #05080c; }
   .cg-pied-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 20px; }
   .cg-pied-col a { padding: 3px 0; font-size: 15px; }
 }
+
+/* Sur une colonne, la frise passe sous la fiche pays (voir GlobeEco / GlobeDemographie). */
+.ge-sous-bas { margin-top: 4px; }
